@@ -21,10 +21,8 @@ public class Groupings {
 
     public int groupingSyntax() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
-
         var numberGroups = Arrays.stream(numbers).boxed().collect(
                 Collectors.groupingBy(n -> n % 5));
-
         for (var g : numberGroups.entrySet()) {
             System.out.println("Numbers with a remainder of " + g.getKey() + " when divided by 5:");
             for (var n : g.getValue())
@@ -34,28 +32,21 @@ public class Groupings {
     }
 
     public int groupByProperty() {
-
         String[] words = {"blueberry", "chimpanzee", "abacus", "banana", "apple", "cheese"};
-
         var wordGroups = Arrays.stream(words).collect(
                 Collectors.groupingBy(n -> n.charAt(0)));
-
         for (var g : wordGroups.entrySet()) {
             System.out.println("Words that start with the letter '" + g.getKey() + "':");
             for (var w : g.getValue())
                 System.out.println(w);
         }
-
         return 0;
     }
 
     public int groupByCategory() {
-
         List<Product> products = getProductList();
-
         var orderGroups = products.stream().collect(
                 Collectors.groupingBy(p -> p.getCategory()));
-
         for (var orderGroup : orderGroups.entrySet()) {
             System.out.println("Products in " + orderGroup.getKey() + " category:");
             for (var product : orderGroup.getValue())
@@ -65,7 +56,6 @@ public class Groupings {
     }
 
     public int nestedGroupBy() {
-
         List<Customer> customers = getCustomerList();
         var customerOrderGroups = customers.stream().map(
                 c -> Pair.with(c.getCompanyName(),
@@ -77,7 +67,6 @@ public class Groupings {
                         ))
                 )
         ).collect(Collectors.toList());
-
         for (var ordersByCustomer : customerOrderGroups) {
             System.out.println("Customer Name: " + ordersByCustomer.getValue0());
             for (var ordersByYear : ordersByCustomer.getValue1().entrySet()) {
@@ -89,45 +78,31 @@ public class Groupings {
                 }
             }
         }
-
-
         return 0;
     }
 
     public int groupByCustomComparer() {
-
         String[] anagrams = {"from   ", " salt", " earn ", "  last   ", " near ", " form  "};
-
         var orderGroups = Arrays.stream(anagrams).collect(
                 Collectors.groupingBy(p -> new AnagramEqualityComparer().getCanonicalString(p.trim())));
-
-        for(var set : orderGroups.entrySet())
-        {
-            // The key would be the first item in the set
-            for(var word : set.getValue())
+        for (var set : orderGroups.entrySet()) {
+            for (var word : set.getValue())
                 System.out.println(word);
             System.out.println("...");
         }
-
         return 0;
     }
 
     public int nestedGroupByCustom() {
-
         String[] anagrams = {"from   ", " salt", " earn ", "  last   ", " near ", " form  "};
-
-
         var orderGroups = Arrays.stream(anagrams).collect(Collectors.groupingBy(
-                w->new AnagramEqualityComparer().getCanonicalString(w.trim()),
-                Collectors.mapping(w->w.toUpperCase(),Collectors.toList())));
-
-        for(var set : orderGroups.entrySet())
-        {
+                w -> new AnagramEqualityComparer().getCanonicalString(w.trim()),
+                Collectors.mapping(w -> w.toUpperCase(), Collectors.toList())));
+        for (var set : orderGroups.entrySet()) {
             System.out.println(set.getKey());
-            for(var word : set.getValue())
-                System.out.println("\t"+word);
+            for (var word : set.getValue())
+                System.out.println("\t" + word);
         }
-
         return 0;
     }
 

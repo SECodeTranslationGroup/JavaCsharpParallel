@@ -12,17 +12,12 @@ public class Quentifiers {
     public List<Product> getProductList() {
         return Data.getProductList();
     }
-
     public List<Customer> getCustomerList() {
         return Data.getCustomerList();
     }
-
-
     public int anyMatchingElements() {
         String[] words = {"believe", "relief", "receipt", "field"};
-
         boolean iAfterE = Arrays.stream(words).anyMatch(w -> w.contains("ei"));
-
         System.out.println("There is a word that contains in the list that contains 'ei': " + iAfterE);
         return 0;
     }
@@ -32,7 +27,6 @@ public class Quentifiers {
         var productGroups = products.stream().collect(Collectors.groupingBy(
                 p -> p.getCategory())).entrySet().stream().filter(e -> e.getValue().stream()
                 .anyMatch(p -> p.getUnitsInStock() == 0)).collect(Collectors.toMap(e->e.getKey(),e->e.getValue()));
-
         for (var group : productGroups.entrySet()) {
             System.out.println(group.getKey());
             for (var product : group.getValue())
@@ -43,9 +37,7 @@ public class Quentifiers {
 
     public int allMatchedElements() {
         int[] numbers = {1, 11, 3, 19, 41, 65, 19};
-
         boolean onlyOdd = Arrays.stream(numbers).allMatch(n -> n % 2 == 1);
-
         System.out.println("The list contains only odd numbers: " + onlyOdd);
         return 0;
     }
@@ -55,7 +47,6 @@ public class Quentifiers {
         var productGroups = products.stream().collect(Collectors.groupingBy(
                 p -> p.getCategory())).entrySet().stream().filter(e -> e.getValue().stream()
                 .allMatch(p -> p.getUnitsInStock() > 0)).collect(Collectors.toMap(e->e.getKey(),e->e.getValue()));
-
         for (var group : productGroups.entrySet()) {
             System.out.println(group.getKey());
             for (var product : group.getValue())

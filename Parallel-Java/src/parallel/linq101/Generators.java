@@ -11,8 +11,6 @@ public class Generators {
     public int rangeOfIntegers() {
         var numbers = IntStream.range(100, 100 + 50).boxed().
                 map(n -> Pair.with(n, n % 2 == 1 ? "odd" : "even")).collect(Collectors.toList());
-
-
         for (var n : numbers)
             System.out.println("The number " + n.getValue0() + " is " + n.getValue1() + ".");
         return 0;
@@ -20,7 +18,6 @@ public class Generators {
 
     public int repeatNumber() {
         var numbers = new ArrayList<>(Collections.nCopies(10, 7));
-
         for(var n : numbers)
             System.out.println(n);
         return 0;

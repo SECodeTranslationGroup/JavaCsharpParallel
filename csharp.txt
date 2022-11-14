@@ -1,0 +1,984 @@
+    public int CountSyntax() {
+        int[] factorsOf300 = { 2, 2, 3, 5, 5 };
+        int uniqueFactors = factorsOf300.Distinct().Count();
+        Console.WriteLine($"There are {uniqueFactors} unique factors of 300.");
+        return 0;
+    }
+
+    public int CountConditional() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int oddNumbers = numbers.Count(n => n % 2 == 1);
+        Console.WriteLine($"There are {oddNumbers} odd numbers in the list.");
+        return 0;
+    }
+
+    public int NestedCount() {
+        List<Customer> customers = GetCustomerList();
+        var orderCounts = customers
+            .Select(c => Tuple.Create(c.CustomerId, c.Orders.Length)).ToList();
+        foreach (var customer in orderCounts)
+            Console.WriteLine($"ID: {customer.Item1}, count: {customer.Item2}");
+        return 0;
+    }
+
+    public int GroupedCount() {
+        List<Product> products = GetProductList();
+        var categoryCounts = products.GroupBy(p => p.Category)
+            .Select(g => Tuple.Create(g.Key, g.Count())).ToList();
+        foreach (var c in categoryCounts)
+            Console.WriteLine($"Category: {c.Item1}: Product count: {c.Item2}");
+        return 0;
+    }
+
+    public int SumSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int numSum = numbers.Sum();
+        Console.WriteLine($"The sum of the numbers is {numSum}");
+        return 0;
+    }
+
+    public int SumProjection() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        int totalChars = words.Sum(w => w.Length);
+        Console.WriteLine($"There are a total of {totalChars} characters in these words.");
+        return 0;
+    }
+
+    public int SumGrouped() {
+        List<Product> products = GetProductList();
+        var categories = products.GroupBy(p => p.Category)
+            .Select(g => Tuple.Create(g.Key, g.Sum(p => p.UnitsInStock)))
+            .ToList();
+        foreach (var pair in categories)
+            Console.WriteLine($"Category: {pair.Item1}, Units in stock: {pair.Item2}");
+        return 0;
+    }
+
+    public int MinSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int minNum = numbers.Min();
+        Console.WriteLine($"The minimum number is {minNum}");
+        return 0;
+    }
+
+    public int MinProjection() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        int shortestWord = words.Min(w => w.Length);
+        Console.WriteLine($"The shortest word is {shortestWord} characters long.");
+        return 0;
+    }
+
+    public int MinGrouped() {
+        List<Product> products = GetProductList();
+        var categories = products.GroupBy(p => p.Category)
+            .Select(g => Tuple.Create(g.Key, g.Min(p => p.UnitPrice)))
+            .ToList();
+        foreach (var c in categories)
+            Console.WriteLine($"Category: {c.Item1}, Lowest price: {c.Item2}");
+        return 0;
+    }
+
+    public int MinEachGroup() {
+        List<Product> products = GetProductList();
+        var categories = products.GroupBy(p => p.Category)
+            .Select(g => Tuple.Create(g.Key,
+                g.Where(p => p.UnitPrice == g.Min(p => p.UnitPrice))
+                    .ToList())).ToList();
+        foreach (var c in categories) {
+            Console.WriteLine($"Category: {c.Item1}");
+            foreach (var p in c.Item2)
+                Console.WriteLine($"\tProduct: {p}");
+        }
+
+        return 0;
+    }
+
+    public int MaxSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int maxNum = numbers.Max();
+        Console.WriteLine($"The maximum number is {maxNum}");
+        return 0;
+    }
+
+    public int MaxProjection() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        int longestLength = words.Max(w => w.Length);
+        Console.WriteLine($"The longest word is {longestLength} characters long.");
+        return 0;
+    }
+
+    public int MaxGrouped() {
+        List<Product> products = GetProductList();
+        var categories = products.GroupBy(p => p.Category)
+            .Select(g => Tuple.Create(g.Key,
+                g.Max(p => p.UnitPrice))).ToList();
+        foreach (var c in categories)
+            Console.WriteLine($"Category: {c.Item1} Most expensive product: {c.Item2}");
+        return 0;
+    }
+
+    public int MaxEachGroup() {
+        List<Product> products = GetProductList();
+        var categories = products.GroupBy(p => p.Category)
+            .Select(g => Tuple.Create(g.Key,
+                g.Where(p => p.UnitPrice == g.Max(p => p.UnitPrice))
+                    .ToList())).ToList();
+        foreach (var c in categories) {
+            Console.WriteLine($"Category: {c.Item1}");
+            foreach (var p in c.Item2)
+                Console.WriteLine($"\t{p}");
+        }
+
+        return 0;
+    }
+
+    public int AverageSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        double averageNum = numbers.Average();
+        Console.WriteLine($"The average number is {averageNum}.");
+        return 0;
+    }
+
+    public int AverageProjection() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        double averageLength = words.Average(w => w.Length);
+        Console.WriteLine($"The average word length is {averageLength} characters.");
+        return 0;
+    }
+
+    public int AverageGrouped() {
+        List<Product> products = GetProductList();
+        var categories = products.GroupBy(p => p.Category)
+            .Select(g => Tuple.Create(g.Key,
+                g.Average(p => p.UnitPrice))).ToList();
+        foreach (var c in categories)
+            Console.WriteLine($"Category: {c.Item1}, Average price: {c.Item2}");
+        return 0;
+    }
+
+    public int AggregateSyntax() {
+        double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
+        double product = doubles.Aggregate((runningProduct, nextFactor)
+            => runningProduct * nextFactor);
+        Console.WriteLine($"Total product of all numbers: {product}");
+        return 0;
+    }
+
+    public int SeededAggregate() {
+        int startBalance = 100;
+        int[] attemptedWithdrawals = { 20, 10, 40, 50, 10, 70, 30 };
+        int endBalance = attemptedWithdrawals.Aggregate(startBalance, (balance, nextWithdrawal) =>
+            ((nextWithdrawal <= balance) ? (balance - nextWithdrawal) : balance));
+        Console.WriteLine($"Ending balance: {endBalance}");
+        return 0;
+    }
+
+    public int ConvertToArray() {
+        double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
+        var doublesArray = doubles.OrderByDescending(d => d).ToArray();
+        Console.WriteLine("Every other double from highest to lowest:");
+        for (int d = 0; d < doublesArray.Length; d += 2)
+            Console.WriteLine(doublesArray[d]);
+        return 0;
+    }
+
+    public int ConvertToList() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        var sortedWords = words.OrderBy(w => w).ToList();
+        Console.WriteLine("The sorted word list:");
+        foreach (var w in sortedWords)
+            Console.WriteLine(w);
+        return 0;
+    }
+
+    public int ConvertToDictionary() {
+        var scoreRecords = new[] { Tuple.Create("Alice", 50), Tuple.Create("Bob", 40), Tuple.Create("Cathy", 45) };
+        var scoreRecordsDict = scoreRecords.ToDictionary(sr => sr.Item1,
+            sr => sr.Item2);
+        Console.WriteLine("Bob's score: {0}", scoreRecordsDict["Bob"]);
+        return 0;
+    }
+
+    public int ConvertSelectedItems() {
+        object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
+        var doubles = numbers.OfType<double>();
+        Console.WriteLine("Numbers stored as doubles:");
+        foreach (var d in doubles)
+            Console.WriteLine(d);
+        return 0;
+    }
+
+    public int FirstElement() {
+        List<Product> products = GetProductList();
+        Product product12 = products.First(p => p.ProductId == 12);
+        Console.WriteLine(product12);
+        return 0;
+    }
+
+    public int FirstMatchingElement() {
+        string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        string startsWithO = strings.First(s => s[0] == 'o');
+        Console.WriteLine($"A string starting with 'o': {startsWithO}");
+        return 0;
+    }
+
+    public int MaybeFirstElement() {
+        int[] numbers = { };
+        int firstNumOrDefault = numbers.FirstOrDefault(0);
+        Console.WriteLine(firstNumOrDefault);
+        return 0;
+    }
+
+    public int MaybeFirstMatchingElement() {
+        List<Product> products = GetProductList();
+        Product product789 = products.FirstOrDefault(p => p.ProductId == 789, null);
+        Console.WriteLine($"Product 789 exists: {product789 != null}");
+        return 0;
+    }
+
+    public int ElementAtPosition() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int fourthLowNum = numbers.Where(n => n > 5)
+            .ElementAt(1); // second number is index 1 because sequences use 0-based indexing
+        Console.WriteLine($"Second number > 5: {fourthLowNum}");
+        return 0;
+    }
+
+    public int RangeOfIntegers() {
+        var numbers = Enumerable.Range(100, 50).Select(n => Tuple.Create(n, n % 2 == 1 ? "odd" : "even")).ToList();
+        foreach (var n in numbers)
+            Console.WriteLine($"The number {n.Item1} is {n.Item2}.");
+        return 0;
+    }
+
+    public int RepeatNumber() {
+        var numbers = Enumerable.Repeat(7, 10).ToList();
+        foreach (var n in numbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int GroupingSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var numberGroups = numbers.GroupBy(n => n % 5)
+            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        foreach (var g in numberGroups) {
+            Console.WriteLine($"Numbers with a remainder of {g.Key} when divided by 5:");
+            foreach (var n in g.Value)
+                Console.WriteLine(n);
+        }
+        return 0;
+    }
+
+    public int GroupByProperty() {
+        string[] words = { "blueberry", "chimpanzee", "abacus", "banana", "apple", "cheese" };
+        var wordGroups = words.GroupBy(w => w[0])
+            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        foreach (var g in wordGroups) {
+            Console.WriteLine($"Words that start with the letter {g.Key}:");
+            foreach (var w in g.Value)
+                Console.WriteLine(w);
+        }
+        return 0;
+    }
+
+    public int GroupByCategory() {
+        List<Product> products = GetProductList();
+        var orderGroups = products.GroupBy(p => p.Category)
+            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        foreach (var orderGroup in orderGroups) {
+            Console.WriteLine($"Products in {orderGroup.Key} category:");
+            foreach (var product in orderGroup.Value)
+                Console.WriteLine($"\t{product}");
+        }
+        return 0;
+    }
+
+    public int NestedGroupBy() {
+        List<Customer> customers = GetCustomerList();
+        var customerOrderGroups = customers.Select(
+            c => Tuple.Create(c.CompanyName,
+                c.Orders.GroupBy(o => o.OrderDate.Year).ToDictionary(
+                    yg => yg.Key,
+                    yg => yg.GroupBy(o => o.OrderDate.Month).ToDictionary(
+                        mg => mg.Key,
+                        mg => mg.AsEnumerable().ToList()
+                    )
+                )
+            )
+        ).ToList();
+        foreach (var ordersByCustomer in customerOrderGroups) {
+            Console.WriteLine($"Customer Name: {ordersByCustomer.Item1}");
+            foreach (var ordersByYear in ordersByCustomer.Item2) {
+                Console.WriteLine($"\tYear: {ordersByYear.Key}");
+                foreach (var ordersByMonth in ordersByYear.Value) {
+                    Console.WriteLine($"\t\tMonth: {ordersByMonth.Key}");
+                    foreach (var order in ordersByMonth.Value)
+                        Console.WriteLine($"\t\t\tOrder: {order}");
+                }
+            }
+        }
+        return 0;
+    }
+
+    public int GroupByCustomComparer() {
+        string[] anagrams = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
+        var orderGroups = anagrams.GroupBy(w => new AnagramEqualityComparer().getCanonicalString(w.Trim()))
+            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        foreach (var set in orderGroups) {
+            foreach (var word in set.Value)
+                Console.WriteLine(word);
+            Console.WriteLine("...");
+        }
+        return 0;
+    }
+
+    public int NestedGroupByCustom() {
+        string[] anagrams = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
+        var orderGroups = anagrams.GroupBy(
+            w => new AnagramEqualityComparer().getCanonicalString(w.Trim()),
+            w => w.ToUpper()
+        ).ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        foreach (var set in orderGroups) {
+            Console.WriteLine(set.Key);
+            foreach (var word in set.Value)
+                Console.WriteLine($"\t{word}");
+        }
+        return 0;
+    }
+
+    public int CrossJoinQuery() {
+        string[] categories = { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+        List<Product> products = GetProductList();
+        var q = categories.Join(products, c => c, p => p.Category,
+            (c, p) => Tuple.Create(c, p.ProductName)).ToList();
+        foreach (var v in q)
+            Console.WriteLine(v.Item1 + ": " + v.Item2);
+        return 0;
+    }
+
+    public int GroupJoinQuery() {
+        string[] categories = { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+        List<Product> products = GetProductList();
+        var q = categories.GroupJoin(products, c => c, p => p.Category,
+                (c, p) => Tuple.Create(c, p.ToList()))
+            .ToDictionary(t => t.Item1, t => t.Item2);
+        foreach (var v in q) {
+            Console.WriteLine(v.Key + ":");
+            foreach (var p in v.Value)
+                Console.WriteLine("   " + p.ProductName);
+        }
+        return 0;
+    }
+
+    public int CrossGroupJoin() {
+        string[] categories = { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+        List<Product> products = GetProductList();
+        var q = categories.GroupJoin(products, c => c, p => p.Category,
+            (c, p) => Tuple.Create(c, p)).SelectMany(t => t.Item2,
+            (t, p) => Tuple.Create(t.Item1, p.ProductName)).ToList();
+        foreach (var v in q)
+            Console.WriteLine(v.Item2 + ": " + v.Item1);
+        return 0;
+    }
+
+    public int LeftOuterJoin() {
+        string[] categories = { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+        List<Product> products = GetProductList();
+        var q = categories.GroupJoin(products, c => c, p => p.Category,
+            (c, p) => Tuple.Create(c, p)).SelectMany(t => t.Item2.DefaultIfEmpty(null),
+            (t, p) => Tuple.Create(t.Item1, p == null ? "(No products)" : p.ProductName)).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"{v.Item2}: {v.Item1}");
+        return 0;
+    }
+
+    public int OrderbySyntax() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        var sortedWords = words.OrderBy(w => w).ToArray();
+        Console.WriteLine("The sorted list of words:");
+        foreach (var w in sortedWords)
+            Console.WriteLine(w);
+        return 0;
+    }
+
+    public int OrderbyProperty() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        var sortedWords = words.OrderBy(w => w.Length).ToArray();
+        Console.WriteLine("The sorted list of words (by length):");
+        foreach (var w in sortedWords)
+            Console.WriteLine(w);
+        return 0;
+    }
+
+    public int OrderByProducts() {
+        List<Product> products = GetProductList();
+        var sortedProducts = products.OrderBy(p => p.ProductName).ToList();
+        foreach (var product in sortedProducts)
+            Console.WriteLine(product);
+        return 0;
+    }
+
+    public class CaseInsensitiveComparer : IComparer<string> {
+        public int Compare(string x, string y) =>
+            string.Compare(x, y, StringComparison.OrdinalIgnoreCase);
+    }
+
+    public int OrderByWithCustomComparer() {
+        string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+        var sortedWords = words.OrderBy(a => a, new CaseInsensitiveComparer()).ToArray();
+        foreach (var word in sortedWords)
+            Console.WriteLine(word);
+        return 0;
+    }
+
+    public int OrderByDescendingSyntax() {
+        double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
+        var sortedDoubles = doubles.OrderByDescending(d => d).ToArray();
+        Console.WriteLine("The doubles from highest to lowest:");
+        foreach (var d in sortedDoubles)
+            Console.WriteLine(d);
+        return 0;
+    }
+
+    public int OrderProductsDescending() {
+        List<Product> products = GetProductList();
+        var sortedProducts = products.OrderByDescending(p => p.UnitsInStock).ToArray();
+        foreach (var product in sortedProducts)
+            Console.WriteLine(product);
+        return 0;
+    }
+
+    public int DescendingCustomComparer() {
+        string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+        var sortedWords = words.OrderByDescending(a => a, new CaseInsensitiveComparer()).ToArray();
+        foreach (var word in sortedWords)
+            Console.WriteLine(word);
+        return 0;
+    }
+
+    public int ThenBySyntax() {
+        string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        var sortedDigits = digits.OrderBy(d => d.Length).ThenBy(d => d).ToArray();
+        Console.WriteLine("Sorted digits:");
+        foreach (var d in sortedDigits)
+            Console.WriteLine(d);
+        return 0;
+    }
+
+    public int ThenByCustom() {
+        string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+        var sortedWords = words
+            .OrderBy(a => a.Length).ThenBy(a => a, new CaseInsensitiveComparer()).ToArray();
+        foreach (var word in sortedWords)
+            Console.WriteLine(word);
+        return 0;
+    }
+
+    public int ThenByDifferentOrdering() {
+        List<Product> products = GetProductList();
+        var sortedProducts = products.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice).ToList();
+        foreach (var product in sortedProducts)
+            Console.WriteLine(product);
+        return 0;
+    }
+
+    public int CustomThenByDescending() {
+        string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+        var sortedWords = words.OrderBy(a => a.Length)
+            .ThenByDescending(a => a, new CaseInsensitiveComparer()).ToArray();
+        foreach (var word in sortedWords)
+            Console.WriteLine(word);
+        return 0;
+    }
+
+    public int OrderingReversal() {
+        string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        var reversedIDigits = digits.Where(d => d[1] == 'i').Reverse().ToArray();
+        Console.WriteLine("A backwards list of the digits with a second character of 'i':");
+        foreach (var d in reversedIDigits)
+            Console.WriteLine(d);
+        return 0;
+    }
+
+    public int TakeSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var first3Numbers = numbers.Take(3).ToArray();
+        Console.WriteLine("First 3 numbers:");
+        foreach (var n in first3Numbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int NestedTake() {
+        List<Customer> customers = GetCustomerList();
+        var first3WAOrders = customers.Where(c => c.Region == "WA").SelectMany(c => c.Orders, (c, o) =>
+            Tuple.Create(c.CustomerId, o.OrderId, o.OrderDate)).Take(3).ToList();
+        Console.WriteLine("First 3 orders in WA:");
+        foreach (var order in first3WAOrders)
+            Console.WriteLine(order);
+        return 0;
+    }
+
+    public int SkipSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var allButFirst4Numbers = numbers.Skip(4).ToArray();
+        Console.WriteLine("All but first 4 numbers:");
+        foreach (var n in allButFirst4Numbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int NestedSkip() {
+        List<Customer> customers = GetCustomerList();
+        var allButFirst2Orders = customers.Where(c => c.Region == "WA").SelectMany(c => c.Orders, (c, o) =>
+                Tuple.Create(c.CustomerId, o.OrderId, o.OrderDate))
+            .Skip(2).ToList();
+        Console.WriteLine("All but first 2 orders in WA:");
+        foreach (var order in allButFirst2Orders)
+            Console.WriteLine(order);
+        return 1;
+    }
+
+    public int TakeWhileSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var firstNumbersLessThan6 = numbers.TakeWhile(n => n < 6).ToArray();
+        Console.WriteLine("First numbers less than 6:");
+        foreach (var num in firstNumbersLessThan6)
+            Console.WriteLine(num);
+        return 0;
+    }
+
+    public int IndexedTakeWhile() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var firstSmallNumbers = numbers.TakeWhile((n, index) => n >= index).ToArray();
+        Console.WriteLine("First numbers not less than their position:");
+        foreach (var n in firstSmallNumbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int SkipWhileSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var allButFirst3Numbers = numbers.SkipWhile(n => n % 3 != 0).ToArray();
+        Console.WriteLine("All elements starting from first element divisible by 3:");
+        foreach (var n in allButFirst3Numbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int IndexedSkipWhile() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var laterNumbers = numbers.SkipWhile((n, index) => n >= index).ToArray();
+        Console.WriteLine("All elements starting from first element less than its position:");
+        foreach (var n in laterNumbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int SelectSyntax() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var numsPlusOne = numbers.Select(n => n + 1).ToArray();
+        Console.WriteLine("Numbers + 1:");
+        foreach (var i in numsPlusOne)
+            Console.WriteLine(i);
+        return 0;
+    }
+
+    public int SelectProperty() {
+        List<Product> products = GetProductList();
+        var productNames = products.Select(p => p.ProductName).ToList();
+        Console.WriteLine("Product Names:");
+        foreach (var productName in productNames)
+            Console.WriteLine(productName);
+        return 0;
+    }
+
+    public int TransformWithSelect() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        var textNums = numbers.Select(n => strings[n]).ToArray();
+        Console.WriteLine("Number strings:");
+        foreach (var s in textNums)
+            Console.WriteLine(s);
+        return 0;
+    }
+
+    public int SelectByCaseAnonymous() {
+        string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+        var upperLowerWords = words.Select(w =>
+            new { Upper = w.ToUpper(), Lower = w.ToLower() }).ToArray();
+        foreach (var ul in upperLowerWords)
+            Console.WriteLine($"Uppercase: {ul.Upper}, Lowercase: {ul.Lower}");
+        return 0;
+    }
+
+    public int SelectByCaseTuple() {
+        string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+        var upperLowerWords = words.Select(w =>
+            Tuple.Create(w.ToUpper(), w.ToLower())).ToArray();
+        foreach (var ul in upperLowerWords)
+            Console.WriteLine($"Uppercase: {ul.Item1}, Lowercase: {ul.Item2}");
+        return 0;
+    }
+
+    public int SelectAnonymousConstructions() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        var digitOddEvens = numbers.Select(n =>
+            new { Digit = strings[n], Even = (n % 2 == 0) }).ToArray();
+        foreach (var d in digitOddEvens)
+            Console.WriteLine($"The digit {d.Digit} is {(d.Even ? "even" : "odd")}.");
+        return 0;
+    }
+
+    public int SelectTupleConstructions() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        var digitOddEvens = numbers.Select(n =>
+            Tuple.Create(strings[n], n % 2 == 0)).ToArray();
+        foreach (var d in digitOddEvens)
+            Console.WriteLine($"The digit {d.Item1} is {(d.Item2 ? "even" : "odd")}.");
+        return 0;
+    }
+
+    public int SelectPropertySubset() {
+        List<Product> products = GetProductList();
+        var productInfos = products.Select(p =>
+            Tuple.Create(p.ProductName, p.Category, p.UnitPrice)).ToList();
+        Console.WriteLine("Product Info:");
+        foreach (var productInfo in productInfos)
+            Console.WriteLine(
+                $"{productInfo.Item1} is in the category {productInfo.Item2} and costs {productInfo.Item3} per unit.");
+        return 0;
+    }
+
+    public int SelectWithIndex() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var numsInPlace = numbers.Select((num, index) =>
+            Tuple.Create(num, num == index)).ToArray();
+        Console.WriteLine("Number: In-place?");
+        foreach (var n in numsInPlace)
+            Console.WriteLine($"{n.Item1}: {n.Item2}");
+        return 0;
+    }
+
+    public int SelectWithWhere() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        var lowNums = numbers.Where(n => n < 5).Select(n => digits[n]).ToArray();
+        Console.WriteLine("Numbers < 5:");
+        foreach (var num in lowNums)
+            Console.WriteLine(num);
+        return 0;
+    }
+
+    public int SelectFromMultipleSequences() {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+        var pairs = numbersA.SelectMany(a => numbersB.Where(b => a < b),
+                (a, b) => Tuple.Create(a, b))
+            .ToArray();
+        Console.WriteLine("Pairs where a < b:");
+        foreach (var pair in pairs)
+            Console.WriteLine($"{pair.Item1} is less than {pair.Item2}");
+        return 0;
+    }
+
+    public int SelectFromChildSequence() {
+        List<Customer> customers = GetCustomerList();
+        var orders = customers.SelectMany(c => c.Orders.Where(o => o.Total < 500.00),
+            (c, o) => Tuple.Create(c.CustomerId, o.OrderId, o.Total)).ToList();
+        foreach (var order in orders)
+            Console.WriteLine($"Customer: {order.Item1}, Order: {order.Item2}, Total value: {order.Item3}");
+        return 0;
+    }
+
+    public int SelectManyWithWhere() {
+        List<Customer> customers = GetCustomerList();
+        var orders = customers.SelectMany(c => c.Orders.Where(o => o.OrderDate > new DateTime(1998, 1, 1)),
+            (c, o) => Tuple.Create(c.CustomerId, o.OrderDate, o.OrderDate)).ToList();
+        foreach (var order in orders)
+            Console.WriteLine(
+                $"Customer: {order.Item1}, Order: {order.Item2}, Total date: {order.Item3.ToShortDateString()}");
+        return 0;
+    }
+
+    public int SelectManyWhereAssignment() {
+        List<Customer> customers = GetCustomerList();
+        var orders = customers.SelectMany(c => c.Orders.Where(o => o.Total >= 2000.0),
+            (c, o) => Tuple.Create(c.CustomerId, o.OrderDate, o.Total)).ToList();
+        foreach (var order in orders)
+            Console.WriteLine($"Customer: {order.Item1}, Order: {order.Item2}, Total value: {order.Item3}");
+        return 0;
+    }
+
+    public int SelectMultipleWhereClauses() {
+        List<Customer> customers = GetCustomerList();
+        DateTime cutoffDate = new DateTime(1997, 1, 1);
+        var orders = customers.Where(c => c.Region == "WA").SelectMany(
+            c => c.Orders.Where(o => o.OrderDate > cutoffDate),
+            (c, o) => Tuple.Create(c.CustomerId, o.OrderId)).ToList();
+        foreach (var order in orders)
+            Console.WriteLine($"Customer: {order.Item1}, Order: {order.Item2}");
+        return 0;
+    }
+
+    public int IndexedSelectMany() {
+        List<Customer> customers = GetCustomerList();
+        var customerOrders = customers.SelectMany((c, index) => c.Orders.Select(o => 
+                        "Customer #" + (index + 1) + " has an order with OrderID " + o.OrderId)).ToList();
+        foreach (var order in customerOrders)
+            Console.WriteLine(order);
+        return 0;
+    }
+
+    public int AnyMatchingElements() {
+        string[] words = { "believe", "relief", "receipt", "field" };
+        bool iAfterE = words.Any(w => w.Contains("ei"));
+        Console.WriteLine($"There is a word that contains in the list that contains 'ei': {iAfterE}");
+        return 0;
+    }
+
+    public int GroupedAnyMatchedElements() {
+        List<Product> products = GetProductList();
+        var productGroups = products.GroupBy(p => p.Category).Where(g => g.Any(p => p.UnitsInStock == 0))
+            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        foreach (var group in productGroups) {
+            Console.WriteLine(group.Key);
+            foreach (var product in group.Value)
+                Console.WriteLine($"\t{product}");
+        }
+        return 0;
+    }
+
+    public int AllMatchedElements() {
+        int[] numbers = { 1, 11, 3, 19, 41, 65, 19 };
+        bool onlyOdd = numbers.All(n => n % 2 == 1);
+        Console.WriteLine($"The list contains only odd numbers: {onlyOdd}");
+        return 0;
+    }
+
+    public int GroupedAllMatchedElements() {
+        List<Product> products = GetProductList();
+        var productGroups = products.GroupBy(p => p.Category).Where(g => g.All(p => p.UnitsInStock > 0))
+            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        foreach (var group in productGroups) {
+            Console.WriteLine(group.Key);
+            foreach (var product in group.Value)
+                Console.WriteLine($"\t{product}");
+        }
+        return 0;
+    }
+
+    public int DeferredExecution() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int i = 0;
+        var q = numbers.Select(n => ++i);
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
+        return 0;
+    }
+
+    public int EagerExecution() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int i = 0;
+        var q = numbers.Select(n => ++i).ToArray();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
+        return 0;
+    }
+
+    public int ReuseQueryDefinition() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var lowNumbers = numbers.Where(n => n <= 3);
+        var lowNumbers2 = numbers.Where(n => n <= 3);
+        Console.WriteLine("First run numbers <= 3:");
+        foreach (int n in lowNumbers)
+            Console.WriteLine(n);
+        for (int i = 0; i < 10; i++)
+            numbers[i] = -numbers[i];
+        Console.WriteLine("Second run numbers <= 3:");
+        foreach (int n in lowNumbers2)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int LowNumbers() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        var lowNums = numbers.Where(n => n < 5).ToArray();
+        Console.WriteLine("Numbers < 5:");
+        foreach (var x in lowNums)
+            Console.WriteLine(x);
+        return 0;
+    }
+
+    public int ProductsOutOfStock() {
+        List<Product> products = GetProductList();
+        var soldOutProducts = products.Where(p => p.UnitsInStock == 0).ToList();
+        Console.WriteLine("Sold out products:");
+        foreach (var product in soldOutProducts)
+            Console.WriteLine($"{product.ProductName} is sold out!");
+        return 0;
+    }
+
+    public int ExpensiveProductsInStock() {
+        List<Product> products = GetProductList();
+        var expensiveInStockProducts = products.Where(p => p.UnitsInStock > 0
+                                                           && p.UnitPrice > 3.00).ToList();
+        Console.WriteLine("In-stock products that cost more than 3.00:");
+        foreach (var product in expensiveInStockProducts)
+            Console.WriteLine($"{product.ProductName} is in stock and costs more than 3.00.");
+        return 0;
+    }
+
+    public int DisplayCustomerOrders() {
+        List<Customer> customers = GetCustomerList();
+        var waCustomers = customers.Where(c => c.Region == "WA").ToList();
+        Console.WriteLine("Customers from Washington and their orders:");
+        foreach (var customer in waCustomers) {
+            Console.WriteLine($"Customer {customer.CustomerId}: {customer.CompanyName}");
+            foreach (var order in customer.Orders)
+                Console.WriteLine($"  Order {order.OrderId}: {order.OrderDate}");
+        }
+        return 0;
+    }
+
+    public int IndexedWhere() {
+        string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        var shortDigits = digits.Where((digit, index) => digit.Length < index);
+        Console.WriteLine("Short digits:");
+        foreach (var d in shortDigits)
+            Console.WriteLine($"The word {d} is shorter than its value.");
+        return 0;
+    }
+
+    public int EqualSequence() {
+        var wordsA = new string[] { "cherry", "apple", "blueberry" };
+        var wordsB = new string[] { "cherry", "apple", "blueberry" };
+        bool match = wordsA.SequenceEqual(wordsB);
+        Console.WriteLine($"The sequences match: {match}");
+        return 0;
+    }
+
+    public int UnequalSequence() {
+        var wordsA = new string[] { "cherry", "apple", "blueberry" };
+        var wordsB = new string[] { "apple", "blueberry", "cherry" };
+        bool match = wordsA.SequenceEqual(wordsB);
+        Console.WriteLine($"The sequences match: {match}");
+        return 0;
+    }
+
+    public int ConcatSeries() {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+        var allNumbers = numbersA.Concat(numbersB).ToArray();
+        Console.WriteLine("All numbers from both arrays:");
+        foreach (var n in allNumbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int ConcatProjection() {
+        List<Customer> customers = GetCustomerList();
+        List<Product> products = GetProductList();
+        var allNames = customers.Select(c => c.CompanyName).
+            Concat(products.Select(p => p.ProductName)).ToList();
+        Console.WriteLine("Customer and product names:");
+        foreach (var n in allNames)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int DotProduct() {
+        int[] vectorA = { 0, 2, 4, 5, 6 };
+        int[] vectorB = { 1, 3, 5, 7, 8 };
+        int dotProduct = vectorA.Zip(vectorB, (a, b) => a * b).Sum();
+        Console.WriteLine($"Dot product: {dotProduct}");
+        return 0;
+    }
+
+    public int DistinctSyntax() {
+        int[] factorsOf300 = { 2, 2, 3, 5, 5 };
+        var uniqueFactors = factorsOf300.Distinct().ToArray();
+        Console.WriteLine("Prime factors of 300:");
+        foreach (var f in uniqueFactors)
+            Console.WriteLine(f);
+        return 0;
+    }
+
+    public int DistinctPropertyValues() {
+        List<Product> products = GetProductList();
+        var categoryNames = products.Select(p => p.Category)
+            .Distinct().ToList();
+        Console.WriteLine("Category names:");
+        foreach (var n in categoryNames)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int UnionSyntax() {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+        var uniqueNumbers = numbersA.Union(numbersB).ToArray();
+        Console.WriteLine("Unique numbers from both arrays:");
+        foreach (var n in uniqueNumbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int UnionOfQueryResults() {
+        List<Product> products = GetProductList();
+        List<Customer> customers = GetCustomerList();
+        var productFirstChars = products.Select(p => p.ProductName[0]);
+        var customerFirstChars = customers.Select(c => c.CompanyName[0]);
+        var uniqueFirstChars = productFirstChars.Union(customerFirstChars).ToList();
+        Console.WriteLine("Unique first letters from Product names and Customer names:");
+        foreach (var ch in uniqueFirstChars)
+            Console.WriteLine(ch);
+        return 0;
+    }
+
+    public int IntersectSynxtax() {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+        var commonNumbers = numbersA.Intersect(numbersB).ToArray();
+        Console.WriteLine("Common numbers shared by both arrays:");
+        foreach (var n in commonNumbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int IntersectQueryResults() {
+        List<Product> products = GetProductList();
+        List<Customer> customers = GetCustomerList();
+        var productFirstChars = products.Select(p => p.ProductName[0]);
+        var customerFirstChars = customers.Select(c => c.CompanyName[0]);
+        var commonFirstChars = productFirstChars.Intersect(customerFirstChars).ToList();
+        Console.WriteLine("Common first letters from Product names and Customer names:");
+        foreach (var ch in commonFirstChars)
+            Console.WriteLine(ch);
+        return 0;
+    }
+
+    public int DifferenceOfSets() {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+        var aOnlyNumbers = numbersA.Except(numbersB).ToArray();
+        Console.WriteLine("Numbers in first array but not second array:");
+        foreach (var n in aOnlyNumbers)
+            Console.WriteLine(n);
+        return 0;
+    }
+
+    public int DifferenceOfQueries() {
+        List<Product> products = GetProductList();
+        List<Customer> customers = GetCustomerList();
+        var productFirstChars = products.Select(p => p.ProductName[0]);
+        var customerFirstChars = customers.Select(c => c.CompanyName[0]);
+        var productOnlyFirstChars = productFirstChars.Except(customerFirstChars).ToList();
+        Console.WriteLine("First letters from Product names, but not from Customer names:");
+        foreach (var ch in productOnlyFirstChars)
+            Console.WriteLine(ch);
+        return 0;
+    }
