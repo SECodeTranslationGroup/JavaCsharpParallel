@@ -13,15 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\My\\Repositories\\JavaCsharpParallel\\Parallel-Csharp\\Parallel-Csharp.csproj",
-      "projectName": "Parallel-Csharp",
-      "projectPath": "C:\\My\\Repositories\\JavaCsharpParallel\\Parallel-Csharp\\Parallel-Csharp.csproj",
-      "packagesPath": "C:\\Users\\25083\\.nuget\\packages\\",
-      "outputPath": "C:\\My\\Repositories\\JavaCsharpParallel\\Parallel-Csharp\\obj\\",
+      "projectUniqueName": "..\\CodeCSharp.csproj",
+      "projectName": "CodeCSharp",
+      "projectPath": "..\\CodeCSharp.csproj",
+      "outputPath": "..\\",
       "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\25083\\AppData\\Roaming\\NuGet\\NuGet.Config"
-      ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
