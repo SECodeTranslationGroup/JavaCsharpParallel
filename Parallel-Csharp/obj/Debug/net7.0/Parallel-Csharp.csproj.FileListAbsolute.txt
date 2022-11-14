@@ -1,0 +1,15 @@
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.csproj.AssemblyReference.cache
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.AssemblyInfoInputs.cache
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.AssemblyInfo.cs
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.csproj.CoreCompileInputs.cache
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\bin\Debug\net7.0\Parallel-Csharp.exe
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\bin\Debug\net7.0\Parallel-Csharp.deps.json
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\bin\Debug\net7.0\Parallel-Csharp.runtimeconfig.json
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\bin\Debug\net7.0\Parallel-Csharp.dll
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\bin\Debug\net7.0\Parallel-Csharp.pdb
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.dll
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\refint\Parallel-Csharp.dll
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.pdb
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\Parallel-Csharp.genruntimeconfig.cache
+C:\My\Repositories\JavaCsharpParallel\Parallel-Csharp\obj\Debug\net7.0\ref\Parallel-Csharp.dll
