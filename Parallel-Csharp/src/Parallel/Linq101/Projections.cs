@@ -132,7 +132,7 @@ public class Projections
     public int SelectManyWithWhere() {
         List<Customer> customers = GetCustomerList();
         var orders = customers.SelectMany(c => c.Orders.Where(o => o.OrderDate > new DateTime(1998, 1, 1)),
-            (c, o) => Tuple.Create(c.CustomerId, o.OrderDate, o.OrderDate)).ToList();
+            (c, o) => Tuple.Create(c.CustomerId, o.OrderId, o.OrderDate)).ToList();
         foreach (var order in orders)
             Console.WriteLine(
                 $"Customer: {order.Item1}, Order: {order.Item2}, Total date: {order.Item3.ToShortDateString()}");
@@ -142,7 +142,7 @@ public class Projections
     public int SelectManyWhereAssignment() {
         List<Customer> customers = GetCustomerList();
         var orders = customers.SelectMany(c => c.Orders.Where(o => o.Total >= 2000.0),
-            (c, o) => Tuple.Create(c.CustomerId, o.OrderDate, o.Total)).ToList();
+            (c, o) => Tuple.Create(c.CustomerId, o.OrderId, o.Total)).ToList();
         foreach (var order in orders)
             Console.WriteLine($"Customer: {order.Item1}, Order: {order.Item2}, Total value: {order.Item3}");
         return 0;

@@ -42,7 +42,7 @@ public class Orderings
 
     public int OrderByWithCustomComparer() {
         string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-        var sortedWords = words.OrderBy(a => a, new CaseInsensitiveComparer()).ToArray();
+        var sortedWords = words.OrderBy(w => w, new CaseInsensitiveComparer()).ToArray();
         foreach (var word in sortedWords)
             Console.WriteLine(word);
         return 0;
@@ -67,7 +67,7 @@ public class Orderings
 
     public int DescendingCustomComparer() {
         string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-        var sortedWords = words.OrderByDescending(a => a, new CaseInsensitiveComparer()).ToArray();
+        var sortedWords = words.OrderByDescending(w => w, new CaseInsensitiveComparer()).ToArray();
         foreach (var word in sortedWords)
             Console.WriteLine(word);
         return 0;
@@ -85,7 +85,7 @@ public class Orderings
     public int ThenByCustom() {
         string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
         var sortedWords = words
-            .OrderBy(a => a.Length).ThenBy(a => a, new CaseInsensitiveComparer()).ToArray();
+            .OrderBy(w => w.Length).ThenBy(w => w, new CaseInsensitiveComparer()).ToArray();
         foreach (var word in sortedWords)
             Console.WriteLine(word);
         return 0;
@@ -101,8 +101,8 @@ public class Orderings
 
     public int CustomThenByDescending() {
         string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-        var sortedWords = words.OrderBy(a => a.Length)
-            .ThenByDescending(a => a, new CaseInsensitiveComparer()).ToArray();
+        var sortedWords = words.OrderBy(w => w.Length)
+            .ThenByDescending(w => w, new CaseInsensitiveComparer()).ToArray();
         foreach (var word in sortedWords)
             Console.WriteLine(word);
         return 0;

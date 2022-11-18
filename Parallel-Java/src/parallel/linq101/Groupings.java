@@ -36,7 +36,7 @@ public class Groupings {
         var wordGroups = Arrays.stream(words).collect(
                 Collectors.groupingBy(n -> n.charAt(0)));
         for (var g : wordGroups.entrySet()) {
-            System.out.println("Words that start with the letter '" + g.getKey() + "':");
+            System.out.println("Words that start with the letter " + g.getKey() + ":");
             for (var w : g.getValue())
                 System.out.println(w);
         }

@@ -166,7 +166,7 @@ public class Projections {
     public int selectFromChildSequence() {
         List<Customer> customers = getCustomerList();
         var orders = customers.stream().flatMap(c -> c.getOrders().stream().filter(o -> o.getTotal() < 500.00).
-                map(o -> Triplet.with(c.getCustomerId(), o.getOrderDate(), o.getTotal()))).collect(Collectors.toList());
+                map(o -> Triplet.with(c.getCustomerId(), o.getOrderId(), o.getTotal()))).collect(Collectors.toList());
         for (var order : orders)
             System.out.println("Customer: " + order.getValue0() + ", Order: " + order.getValue1() + ", Total value: " + order.getValue2());
         return 0;
@@ -176,7 +176,7 @@ public class Projections {
         List<Customer> customers = getCustomerList();
         var orders = customers.stream().flatMap(c -> c.getOrders().stream().filter(o -> o.getOrderDate().isAfter(
                         LocalDate.of(1998, 1, 1))).
-                map(o -> Triplet.with(c.getCustomerId(), o.getOrderDate(), o.getTotal()))).collect(Collectors.toList());
+                map(o -> Triplet.with(c.getCustomerId(), o.getOrderId(), o.getTotal()))).collect(Collectors.toList());
         for (var order : orders)
             System.out.println("Customer: " + order.getValue0() + ", Order: " + order.getValue1() + ", Total value: " + order.getValue2());
         return 0;
@@ -185,7 +185,7 @@ public class Projections {
     public int selectManyWhereAssignment() {
         List<Customer> customers = getCustomerList();
         var orders = customers.stream().flatMap(c -> c.getOrders().stream().filter(o -> o.getTotal() > 2000.00).
-                map(o -> Triplet.with(c.getCustomerId(), o.getOrderDate(), o.getTotal()))).collect(Collectors.toList());
+                map(o -> Triplet.with(c.getCustomerId(), o.getOrderId(), o.getTotal()))).collect(Collectors.toList());
         for (var order : orders)
             System.out.println("Customer: " + order.getValue0() + ", Order: " + order.getValue1() + ", Total value: " + order.getValue2());
         return 0;
@@ -196,7 +196,7 @@ public class Projections {
         LocalDate cutoffDate = LocalDate.of(1997, 1, 1);
         var orders = customers.stream().filter(c -> c.getRegion() == "WA").
                 flatMap(c -> c.getOrders().stream().filter(o -> o.getOrderDate().isAfter(cutoffDate)).
-                        map(o -> Pair.with(c.getCustomerId(), o.getOrderDate()))).collect(Collectors.toList());
+                        map(o -> Pair.with(c.getCustomerId(), o.getOrderId()))).collect(Collectors.toList());
         for (var order : orders)
             System.out.println("Customer: " + order.getValue0() + ", Order: " + order.getValue1());
         return 0;

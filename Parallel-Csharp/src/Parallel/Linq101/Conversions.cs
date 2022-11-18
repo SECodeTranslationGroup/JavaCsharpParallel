@@ -23,7 +23,7 @@ public class Conversions {
     }
 
     public int ConvertToDictionary() {
-        var scoreRecords = new[] { Tuple.Create("Alice", 50), Tuple.Create("Bob", 40), Tuple.Create("Cathy", 45) };
+        Tuple<string,int>[] scoreRecords = { Tuple.Create("Alice", 50), Tuple.Create("Bob", 40), Tuple.Create("Cathy", 45) };
         var scoreRecordsDict = scoreRecords.ToDictionary(sr => sr.Item1,
             sr => sr.Item2);
         Console.WriteLine("Bob's score: {0}", scoreRecordsDict["Bob"]);

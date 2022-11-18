@@ -21,7 +21,7 @@ public class Orderings {
 
     public int orderbySyntax() {
         String[] words = {"cherry", "apple", "blueberry"};
-        var sortedWords = Arrays.stream(words).sorted(Comparator.comparing(w -> w)).toArray();
+        var sortedWords = Arrays.stream(words).sorted().toArray();
         System.out.println("The sorted list of words:");
         for (var w : sortedWords)
             System.out.println(w);
@@ -89,7 +89,7 @@ public class Orderings {
 
     public int thenBySyntax() {
         String[] digits = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-        var sortedDigits = Arrays.stream(digits).sorted(Comparator.comparing((String d) -> d.length())
+        var sortedDigits = Arrays.stream(digits).sorted(Comparator.comparing((String w) -> w.length())
                 .thenComparing(d -> d)).toArray();
         System.out.println("Sorted digits:");
         for (var d : sortedDigits)
@@ -99,7 +99,7 @@ public class Orderings {
 
     public int thenByCustom() {
         String[] words = {"aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry"};
-        var sortedWords = Arrays.stream(words).sorted(Comparator.comparing((String d) -> d.length())
+        var sortedWords = Arrays.stream(words).sorted(Comparator.comparing((String w) -> w.length())
                 .thenComparing(new CaseInsensitiveComparer())).toArray();
         for (var word : sortedWords)
             System.out.println(word);
@@ -117,7 +117,7 @@ public class Orderings {
 
     public int customThenByDescending() {
         String[] words = {"aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry"};
-        var sortedWords = Arrays.stream(words).sorted(Comparator.comparing((String a) -> a.length()).
+        var sortedWords = Arrays.stream(words).sorted(Comparator.comparing((String w) -> w.length()).
                 thenComparing(new CaseInsensitiveComparer().reversed())).toArray();
         for (var word : sortedWords)
             System.out.println(word);

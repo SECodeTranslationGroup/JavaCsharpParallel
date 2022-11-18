@@ -8,22 +8,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80eba9b3-80c1-4bdb-9451-7a6baf7a8eab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/AggregateMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/AverageMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/ConvertMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/CountMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/FirstMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MaxMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MinMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SumMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/AggregateMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/AverageMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/CountMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/MaxMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/MinMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/SumMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/AggregateOperators.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/AggregateOperators.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Base/Global.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Entity/Entity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Entity/EntityCollection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Entity/EntityFaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Entity/EntityType.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Conversions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Conversions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/ElementOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/ElementOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Generators.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Generators.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Groupings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Groupings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/JoinOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/JoinOperations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Orderings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Orderings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Partitions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Partitions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Projections.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Projections.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Quantifiers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Quantifiers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/QueryExecution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/QueryExecution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Restrictions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Restrictions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/SequenceOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/SequenceOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/SetOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/SetOperations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Vector/Vector3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/base/Global.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/entity/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/entity/EntityCollection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/entity/EntityFaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/entity/EntityType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/Groupings.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/Groupings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/Orderings.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/Orderings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/Projections.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/Projections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/vector/Vector2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/vector/Vector3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csharp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +71,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
   }
@@ -89,7 +110,13 @@
       <workItem from="1668342560288" duration="22865000" />
       <workItem from="1668390844124" duration="9004000" />
       <workItem from="1668412497708" duration="2455000" />
-      <workItem from="1668423131829" duration="5909000" />
+      <workItem from="1668423131829" duration="6625000" />
+      <workItem from="1668491523485" duration="15689000" />
+      <workItem from="1668529429107" duration="4822000" />
+      <workItem from="1668556163592" duration="3933000" />
+      <workItem from="1668578032852" duration="3048000" />
+      <workItem from="1668586562322" duration="856000" />
+      <workItem from="1668767844561" duration="6356000" />
     </task>
     <servers />
   </component>
