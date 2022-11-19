@@ -68,32 +68,99 @@ public class QueryExecutionMethods {
             Console.WriteLine($"v = {v}, i = {i}");
     }
 
-    public void StringAverageLength() {
+    public void StringLengthDeferred() {
         string[] words = { "cherry", "apple", "blueberry" };
-        double averageLength = words.Average(w => w.Length);
+        int i = 0;
+        var q = words.Select(w=>w.Length).Select(n => i+=n);
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
     }
 
-    public void ShortStringAverageLength() {
+    public void ShortStringLengthDeferred() {
         string[] words = { "cherry", "apple", "blueberry" };
-        double averageLength = words.Where(w => w.Length < 7).Average(w => w.Length);
+        int i = 0;
+        var q = words.Where(w => w.Length < 7).Select(w=>w.Length).Select(n => i+=n);
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
     }
-
     
-    public int DeferredExecution() {
+    public void NumbersEager() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
         int i = 0;
-        var q = numbers.Select(n => ++i);
+        var q = numbers.Select(n => i+=n).ToList();
         foreach (var v in q)
             Console.WriteLine($"v = {v}, i = {i}");
-        return 0;
+    }
+    
+    public void BigNumbersEager() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int i = 0;
+        var q = numbers.Where(n => n > 5).Select(n => i+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
+    }
+    
+    public void OddNumbersEager() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int i = 0;
+        var q = numbers.Where(n => n % 2 == 1).Select(n => i+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
     }
 
-    public int EagerExecution() {
+    public void DoubleEager() {
+        double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
+        double d = 0;
+        var q = numbers.Select(n => d+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, d = {d}");
+    }
+
+    public void BigDoubleNumbersEager() {
+        double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
+        double d = 0;
+        var q = numbers.Where(d=>d>5).Select(n => d+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, d = {d}");
+    }
+
+    public void NumbersTwiceEager() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
         int i = 0;
-        var q = numbers.Select(n => ++i).ToArray();
+        var q = numbers.Select(n=>n*2).Select(n => i+=n).ToList();
         foreach (var v in q)
             Console.WriteLine($"v = {v}, i = {i}");
-        return 0;
+    }
+
+    public void BigNumbersTwiceEager() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int i = 0;
+        var q = numbers.Where(n => n > 5).Select(n=>n*2).Select(n => i+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
+    }
+
+    public void OddNumbersTwiceEager() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        int i = 0;
+        var q = numbers.Where(n => n % 2==1).Select(n=>n*2).Select(n => i+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
+    }
+
+    public void StringLengthEager() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        int i = 0;
+        var q = words.Select(w=>w.Length).Select(n => i+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
+    }
+
+    public void ShortStringLengthEager() {
+        string[] words = { "cherry", "apple", "blueberry" };
+        int i = 0;
+        var q = words.Where(w => w.Length < 7).Select(w=>w.Length).Select(n => i+=n).ToList();
+        foreach (var v in q)
+            Console.WriteLine($"v = {v}, i = {i}");
     }
 }

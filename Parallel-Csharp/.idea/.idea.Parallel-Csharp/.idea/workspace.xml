@@ -8,33 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80eba9b3-80c1-4bdb-9451-7a6baf7a8eab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/ConcatMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/GeneratorMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/GroupMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/JoinMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MatchMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/OrderbyDesendingMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/OrderbyMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/QueryExecutionMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectManyMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SetMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SkipMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/TakeMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/ThenbyMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/WhereMethods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/DataSources/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/DataSources/Customer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/DataSources/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/DataSources/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/Groupings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/Groupings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/AverageMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/AverageMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/FirstMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/FirstMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MaxMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MaxMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MinMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MinMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SumMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SumMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/datasource/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/datasource/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/datasource/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/datasource/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/datasource/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/datasource/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/QueryExecutionMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/QueryExecutionMethods.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +83,7 @@
       <workItem from="1668578032852" duration="3048000" />
       <workItem from="1668586562322" duration="856000" />
       <workItem from="1668767844561" duration="19905000" />
-      <workItem from="1668834254053" duration="15909000" />
+      <workItem from="1668834254053" duration="17271000" />
     </task>
     <servers />
   </component>
