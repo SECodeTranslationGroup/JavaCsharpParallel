@@ -8,11 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80eba9b3-80c1-4bdb-9451-7a6baf7a8eab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/ConcatMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/ConcatMethods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectManyMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectManyMethods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SetMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SetMethods.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,7 @@
       <workItem from="1668578032852" duration="3048000" />
       <workItem from="1668586562322" duration="856000" />
       <workItem from="1668767844561" duration="19905000" />
-      <workItem from="1668834254053" duration="18882000" />
+      <workItem from="1668834254053" duration="20297000" />
     </task>
     <servers />
   </component>
