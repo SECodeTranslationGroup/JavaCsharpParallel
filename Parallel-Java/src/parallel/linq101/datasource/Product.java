@@ -7,6 +7,8 @@ public class Product {
     public Double unitPrice;
     public Integer unitsInStock;
 
+    public static Product DEFAULT = null;
+
     public Integer getProductId() {
         return productId;
     }

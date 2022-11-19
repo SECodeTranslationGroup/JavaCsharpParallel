@@ -17,6 +17,7 @@ public class Customer
     private string? _phone;
     private Order[]? _orders;
 
+    public static Customer Default = null;
     public string? CustomerId
     {
         get => _customerId;
@@ -80,7 +81,8 @@ public class Order
     private int _orderId;
     private DateTime _orderDate;
     private double _total;
-
+    
+    public static Order Default = null;
     public int OrderId
     {
         get => _orderId;

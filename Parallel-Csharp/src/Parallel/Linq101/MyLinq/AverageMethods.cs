@@ -23,7 +23,7 @@ public class AverageMethod {
 
     public double OddNumbersAverage() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        double averageNum = numbers.Where(n => n % 2 == 0).Average();
+        double averageNum = numbers.Where(n => n % 2 == 1).Average();
         return averageNum;
     }
 
@@ -56,7 +56,7 @@ public class AverageMethod {
 
     public double OddNumbersAverageTwice() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        double averageNum = numbers.Where(n => n % 2 == 0).Average(n => n * 2);
+        double averageNum = numbers.Where(n => n % 2 == 1).Average(n => n * 2);
         return averageNum;
     }
 

@@ -23,7 +23,7 @@ public class MinMethod {
 
     public int OddNumbersMin() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int minNum = numbers.Where(n => n % 2 == 0).Min();
+        int minNum = numbers.Where(n => n % 2 == 1).Min();
         return minNum;
     }
 
@@ -56,7 +56,7 @@ public class MinMethod {
 
     public int OddNumbersMinTwice() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int minNum = numbers.Where(n => n % 2 == 0).Min(n => n * 2);
+        int minNum = numbers.Where(n => n % 2 == 1).Min(n => n * 2);
         return minNum;
     }
 

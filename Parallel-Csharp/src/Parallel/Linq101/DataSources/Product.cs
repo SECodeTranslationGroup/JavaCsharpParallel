@@ -9,7 +9,8 @@ public class Product
     private string? _category;
     private double _unitPrice;
     private int _unitsInStock;
-
+    
+    public static Product Default = null;
     public int ProductId
     {
         get => _productId;

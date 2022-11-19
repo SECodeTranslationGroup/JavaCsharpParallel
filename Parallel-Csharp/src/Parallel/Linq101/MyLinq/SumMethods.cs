@@ -23,7 +23,7 @@ public class SumMethod {
 
     public int OddNumbersSum() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int numbersSum = numbers.Where(n => n % 2 == 0).Sum();
+        int numbersSum = numbers.Where(n => n % 2 == 1).Sum();
         return numbersSum;
     }
 
@@ -56,7 +56,7 @@ public class SumMethod {
 
     public int OddNumbersSumTwice() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int numbersSum = numbers.Where(n => n % 2 == 0).Sum(n => n * 2);
+        int numbersSum = numbers.Where(n => n % 2 == 1).Sum(n => n * 2);
         return numbersSum;
     }
 

@@ -14,6 +14,8 @@ public class Customer {
     private String phone;
     private List<Order> orders;
 
+    public static Customer DEFAULT = null;
+
     public Customer(String customerId, String companyName, String address, String city, String region, String postalCode, String country, String phone, List<Order> orders) {
         this.customerId = customerId;
         this.companyName = companyName;

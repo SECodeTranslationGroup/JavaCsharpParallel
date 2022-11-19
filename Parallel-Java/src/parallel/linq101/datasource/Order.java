@@ -9,6 +9,7 @@ public class Order {
     private LocalDate orderDate;
     private Double total;
 
+    public static Order DEFAULT = null;
     public Integer getOrderId() {
         return orderId;
     }

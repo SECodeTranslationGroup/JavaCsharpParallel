@@ -13,7 +13,7 @@ public class Groupings {
     public int GroupingSyntax() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
         var numberGroups = numbers.GroupBy(n => n % 5)
-            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+            .ToDictionary(g => g.Key, g => g.ToList());
         foreach (var g in numberGroups) {
             Console.WriteLine($"Numbers with a remainder of {g.Key} when divided by 5:");
             foreach (var n in g.Value)
@@ -25,7 +25,7 @@ public class Groupings {
     public int GroupByProperty() {
         string[] words = { "blueberry", "chimpanzee", "abacus", "banana", "apple", "cheese" };
         var wordGroups = words.GroupBy(w => w[0])
-            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+            .ToDictionary(g => g.Key, g => g.ToList());
         foreach (var g in wordGroups) {
             Console.WriteLine($"Words that start with the letter {g.Key}:");
             foreach (var w in g.Value)
@@ -37,7 +37,7 @@ public class Groupings {
     public int GroupByCategory() {
         List<Product> products = GetProductList();
         var orderGroups = products.GroupBy(p => p.Category)
-            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+            .ToDictionary(g => g.Key, g => g.ToList());
         foreach (var orderGroup in orderGroups) {
             Console.WriteLine($"Products in {orderGroup.Key} category:");
             foreach (var product in orderGroup.Value)
@@ -54,7 +54,7 @@ public class Groupings {
                     yg => yg.Key,
                     yg => yg.GroupBy(o => o.OrderDate.Month).ToDictionary(
                         mg => mg.Key,
-                        mg => mg.AsEnumerable().ToList()
+                        mg => mg.ToList()
                     )
                 )
             )
@@ -76,7 +76,7 @@ public class Groupings {
     public int GroupByCustomComparer() {
         string[] anagrams = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
         var orderGroups = anagrams.GroupBy(w => new AnagramEqualityComparer().getCanonicalString(w.Trim()))
-            .ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+            .ToDictionary(g => g.Key, g => g.ToList());
         foreach (var set in orderGroups) {
             foreach (var word in set.Value)
                 Console.WriteLine(word);
@@ -90,7 +90,7 @@ public class Groupings {
         var orderGroups = anagrams.GroupBy(
             w => new AnagramEqualityComparer().getCanonicalString(w.Trim()),
             w => w.ToUpper()
-        ).ToDictionary(g => g.Key, g => g.AsEnumerable().ToList());
+        ).ToDictionary(g => g.Key, g => g.ToList());
         foreach (var set in orderGroups) {
             Console.WriteLine(set.Key);
             foreach (var word in set.Value)

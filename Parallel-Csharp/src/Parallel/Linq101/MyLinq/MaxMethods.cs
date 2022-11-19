@@ -23,7 +23,7 @@ public class MaxMethod {
 
     public int OddNumbersMax() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int maxNum = numbers.Where(n => n % 2 == 0).Max();
+        int maxNum = numbers.Where(n => n % 2 == 1).Max();
         return maxNum;
     }
 
@@ -56,7 +56,7 @@ public class MaxMethod {
 
     public int OddNumbersMaxTwice() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int maxNum = numbers.Where(n => n % 2 == 0).Max(n => n * 2);
+        int maxNum = numbers.Where(n => n % 2 == 1).Max(n => n * 2);
         return maxNum;
     }
 
