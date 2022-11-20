@@ -186,14 +186,14 @@ public class OrderbyDescendingMethods {
     public List<Tuple<string,List<Product>>> ProductGroupByCategoryOrderbyDescendingId() {
         List<Product> products = GetProductList();
         List<Tuple<string,List<Product>>> productsGroups = products.GroupBy(p=>p.Category)
-            .Select(g => Tuple.Create(g.Key,g.OrderByDescending(p=>p).ToList())).ToList();
+            .Select(g => Tuple.Create(g.Key,g.OrderByDescending(p=>p.ProductId).ToList())).ToList();
         return productsGroups;
     }
     
     public Dictionary<string,List<Product>> ProductGroupByCategoryDictOrderbyDescendingId() {
         List<Product> products = GetProductList();
         Dictionary<string,List<Product>>  productsGroups = products.GroupBy(p=>p.Category)
-            .ToDictionary(g => g.Key,g=>g.OrderByDescending(p=>p).ToList());
+            .ToDictionary(g => g.Key,g=>g.OrderByDescending(p=>p.ProductId).ToList());
         return productsGroups;
     }
     public List<Tuple<string,List<Product>>> ProductGroupByCategoryOrderbyDescendingName() {
@@ -327,13 +327,7 @@ public class OrderbyDescendingMethods {
         List<string> sortedWords = words.Where(w => w.Length < 6).Reverse().ToList();
         return sortedWords;
     }
-
-    public List<string> ShortStringOrderbyReverse() {
-        string[] words = { "cherry", "apple", "blueberry", "pear", "peach", "melon" };
-        List<string> sortedWords = words.Where(w => w.Length < 6).OrderBy(w => w).Reverse().ToList();
-        return sortedWords;
-    }
-
+    
     public List<string> ShortStringOrderbyLengthReverse() {
         string[] words = { "cherry", "apple", "blueberry", "pear", "peach", "melon" };
         List<string> sortedWords = words.Where(w => w.Length < 6).OrderBy(w => w.Length).Reverse().ToList();

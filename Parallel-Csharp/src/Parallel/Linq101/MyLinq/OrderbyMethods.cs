@@ -184,14 +184,14 @@ public class OrderbyMethods {
     public List<Tuple<string,List<Product>>> ProductGroupByCategoryOrderbyId() {
         List<Product> products = GetProductList();
         List<Tuple<string,List<Product>>> productsGroups = products.GroupBy(p=>p.Category)
-            .Select(g => Tuple.Create(g.Key,g.OrderBy(p=>p).ToList())).ToList();
+            .Select(g => Tuple.Create(g.Key,g.OrderBy(p=>p.ProductId).ToList())).ToList();
         return productsGroups;
     }
     
     public Dictionary<string,List<Product>> ProductGroupByCategoryDictOrderbyId() {
         List<Product> products = GetProductList();
         Dictionary<string,List<Product>>  productsGroups = products.GroupBy(p=>p.Category)
-            .ToDictionary(g => g.Key,g=>g.OrderBy(p=>p).ToList());
+            .ToDictionary(g => g.Key,g=>g.OrderBy(p=>p.ProductId).ToList());
         return productsGroups;
     }
     public List<Tuple<string,List<Product>>> ProductGroupByCategoryOrderbyName() {
