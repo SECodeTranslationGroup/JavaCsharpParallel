@@ -71,9 +71,6 @@ public class GroupMethods {
         double[] numbers = { 5.8, 4.3, 1.5, 3.7, 9.3 };
         Dictionary<bool, List<double>> numberGroups = numbers.GroupBy(n => n > 3)
             .ToDictionary(g => g.Key, g => g.ToList());
-        numberGroups[true].ForEach(n => Console.Write(n));
-        Console.WriteLine();
-        numberGroups[false].ForEach(n => Console.Write(n));
         return numberGroups;
     }
 
@@ -231,14 +228,14 @@ public class GroupMethods {
 
     public List<Tuple<string, List<Customer>>> CustomerGroupByRegion() {
         List<Customer> customers = GetCustomerList();
-        List<Tuple<string, List<Customer>>> catagory = customers.GroupBy(p => p.Region)
+        List<Tuple<string, List<Customer>>> catagory = customers.GroupBy(c => c.Region)
             .Select(g => Tuple.Create(g.Key, g.ToList())).ToList();
         return catagory;
     }
 
     public Dictionary<string, List<Customer>> CustomerGroupByRegionDict() {
         List<Customer> customers = GetCustomerList();
-        Dictionary<string, List<Customer>> catagory = customers.GroupBy(p => p.Region)
+        Dictionary<string, List<Customer>> catagory = customers.GroupBy(c => c.Region)
             .ToDictionary(g => g.Key, g => g.ToList());
         return catagory;
     }
@@ -252,7 +249,7 @@ public class GroupMethods {
                 c => c));
         return customerGroups;
     }
-    
+
     public Dictionary<string, Dictionary<string, List<Customer>>> CustomerNestedGroupByRegionAndCountry() {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, Dictionary<string, List<Customer>>> customerGroups = customers.GroupBy(
@@ -262,34 +259,36 @@ public class GroupMethods {
                 g => g.ToList()));
         return customerGroups;
     }
-    
-    public Dictionary<string, Dictionary<string, Dictionary<string,Customer>>> CustomerNestedGroupByRegionAndCountryAndName() {
+
+    public Dictionary<string, Dictionary<string, Dictionary<string, Customer>>>
+        CustomerNestedGroupByRegionAndCountryAndName() {
         List<Customer> customers = GetCustomerList();
-        Dictionary<string, Dictionary<string, Dictionary<string,Customer>>>  customerGroups = customers.GroupBy(
+        Dictionary<string, Dictionary<string, Dictionary<string, Customer>>> customerGroups = customers.GroupBy(
             c => c.Region).ToDictionary(g => g.Key,
-            g => g.GroupBy(c=>c.Country).ToDictionary(
-                g=>g.Key,
-                g=>g.ToDictionary(
-                c => c.CompanyName,
-                c => c)));
+            g => g.GroupBy(c => c.Country).ToDictionary(
+                g => g.Key,
+                g => g.ToDictionary(
+                    c => c.CompanyName,
+                    c => c)));
         return customerGroups;
     }
-    
-    public Dictionary<string, Dictionary<string, Dictionary<string,Customer>>> CustomerNestedGroupByRegionAndCountryAndNamePrint() {
+
+    public Dictionary<string, Dictionary<string, Dictionary<string, Customer>>>
+        CustomerNestedGroupByRegionAndCountryAndNamePrint() {
         List<Customer> customers = GetCustomerList();
-        Dictionary<string, Dictionary<string, Dictionary<string,Customer>>>  customerGroups = customers.GroupBy(
+        Dictionary<string, Dictionary<string, Dictionary<string, Customer>>> customerGroups = customers.GroupBy(
             c => c.Region).ToDictionary(g => g.Key,
-            g => g.GroupBy(c=>c.Country).ToDictionary(
-                g=>g.Key,
-                g=>g.ToDictionary(
+            g => g.GroupBy(c => c.Country).ToDictionary(
+                g => g.Key,
+                g => g.ToDictionary(
                     c => c.CompanyName,
                     c => c)));
         foreach (var e1 in customerGroups) {
-            Console.WriteLine(e1.Key+":");
+            Console.WriteLine(e1.Key + ":");
             foreach (var e2 in e1.Value) {
-                Console.WriteLine("\t"+e2.Key+":");
-                foreach (var e3 in e2.Value) 
-                    Console.WriteLine("\t\t"+e3.Key+":"+e3.Value);
+                Console.WriteLine("\t" + e2.Key + ":");
+                foreach (var e3 in e2.Value)
+                    Console.WriteLine("\t\t" + e3.Key + ":" + e3.Value);
             }
         }
         return customerGroups;
@@ -306,11 +305,11 @@ public class GroupMethods {
         );
         return customerOrderGroups;
     }
-    
+
     public Dictionary<int, Dictionary<int, List<Order>>> CustomerNestedGroupByOrderYearAndMonth() {
         List<Customer> customers = GetCustomerList();
-        Dictionary<int, Dictionary<int, List<Order>>> customerOrderGroups = customers.
-            SelectMany(c=>c.Orders).GroupBy(o => o.OrderDate.Year).ToDictionary(
+        Dictionary<int, Dictionary<int, List<Order>>> customerOrderGroups = customers.SelectMany(c => c.Orders)
+            .GroupBy(o => o.OrderDate.Year).ToDictionary(
                 yg => yg.Key,
                 yg => yg.GroupBy(o => o.OrderDate.Month).ToDictionary(
                     mg => mg.Key,
@@ -318,27 +317,28 @@ public class GroupMethods {
             );
         return customerOrderGroups;
     }
-    
+
     public Dictionary<int, Dictionary<int, List<Order>>> CustomerNestedGroupByOrderYearAndMonthPrint() {
         List<Customer> customers = GetCustomerList();
-        Dictionary<int, Dictionary<int, List<Order>>> customerOrderGroups = customers.
-            SelectMany(c=>c.Orders).GroupBy(o => o.OrderDate.Year).ToDictionary(
+        Dictionary<int, Dictionary<int, List<Order>>> customerOrderGroups = customers.SelectMany(c => c.Orders)
+            .GroupBy(o => o.OrderDate.Year).ToDictionary(
                 yg => yg.Key,
                 yg => yg.GroupBy(o => o.OrderDate.Month).ToDictionary(
                     mg => mg.Key,
                     mg => mg.ToList())
             );
         foreach (var e1 in customerOrderGroups) {
-            Console.WriteLine(e1.Key+":");
+            Console.WriteLine(e1.Key + ":");
             foreach (var e2 in e1.Value) {
-                Console.WriteLine("\t"+e2.Key+":");
-                e2.Value.ForEach(o=>Console.WriteLine("\t\t"+o));
+                Console.WriteLine("\t" + e2.Key + ":");
+                e2.Value.ForEach(o => Console.WriteLine("\t\t" + o));
             }
         }
         return customerOrderGroups;
     }
-    
-    public Dictionary<string, Dictionary<int, Dictionary<int, List<Order>>>> CustomerNestedGroupByNameAndOrderYearAndMonth() {
+
+    public Dictionary<string, Dictionary<int, Dictionary<int, List<Order>>>>
+        CustomerNestedGroupByNameAndOrderYearAndMonth() {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, Dictionary<int, Dictionary<int, List<Order>>>> customerOrderGroups = customers.ToDictionary(
             c => c.CompanyName,

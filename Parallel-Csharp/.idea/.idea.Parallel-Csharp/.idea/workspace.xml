@@ -9,8 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="80eba9b3-80c1-4bdb-9451-7a6baf7a8eab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/GeneratorMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/GeneratorMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/FirstMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/FirstMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/GroupMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/GroupMethods.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +84,8 @@
       <workItem from="1668586562322" duration="856000" />
       <workItem from="1668767844561" duration="19905000" />
       <workItem from="1668834254053" duration="27784000" />
-      <workItem from="1668932337204" duration="11831000" />
+      <workItem from="1668932337204" duration="12449000" />
+      <workItem from="1668949751582" duration="2691000" />
     </task>
     <servers />
   </component>
