@@ -94,13 +94,13 @@ public class GeneratorMethods {
     }
     
     public List<Customer> RepeatedCustomers() {
-        List<Customer> products = Enumerable.Repeat(Customer.Default, 5).ToList();
-        return products;
+        List<Customer> customers = Enumerable.Repeat(Customer.Default, 5).ToList();
+        return customers;
     }
     
     public List<Order> RepeatedOrders() {
-        List<Order> products = Enumerable.Repeat(Order.Default, 10).ToList();
-        return products;
+        List<Order> orders = Enumerable.Repeat(Order.Default, 10).ToList();
+        return orders;
     }
     
 }

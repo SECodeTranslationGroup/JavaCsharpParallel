@@ -292,57 +292,57 @@ public class FirstMethods {
         return customerOrdersFirstOrDefault;
     }
 
-    public int NumbersElementAt() {
+    public int numbersElementAt() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
         int numAt = Arrays.stream(numbers).skip(1).findFirst().getAsInt();
         return numAt;
     }
 
-    public int OddNumbersElementAt() {
+    public int oddNumbersElementAt() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
         int numAt = Arrays.stream(numbers).filter(n -> n % 2 == 1).skip(3).findFirst().getAsInt();
         return numAt;
     }
 
-    public double BigDoubleNumbersElementAt() {
+    public double bigDoubleNumbersElementAt() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         double numAt = Arrays.stream(numbers).filter(d -> d>5).skip(1).findFirst().getAsDouble();
         return numAt;
     }
 
-    public String StringElementAtStartWithO() {
+    public String stringElementAtStartWithO() {
         String[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
         String startWithO = Arrays.stream(strings).filter(s ->s.charAt(0)=='o').skip(0).findFirst().get();
         return startWithO;
     }
 
-    public String StringElementAtStartWith(char c) {
+    public String stringElementAtStartWith(char c) {
         String[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
         String startWithO = Arrays.stream(strings).filter(s ->s.charAt(0)==c).skip(2).findFirst().get();
         return startWithO;
     }
 
-    public double ProjectedDoubleElementAt() {
+    public double projectedDoubleElementAt() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         double numAt = Arrays.stream(numbers).map(i -> Math.log(i)).filter(n -> n > 3).skip(2).findFirst().getAsDouble();
         return numAt;
     }
 
-    public int ProjectedStringElementAt() {
+    public int projectedStringElementAt() {
         String[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
         int firstStringLength = Arrays.stream(strings).mapToInt(s -> s.length())
             .filter(i -> i % 2 == 0).skip(2).findFirst().getAsInt();
         return firstStringLength;
     }
 
-    public Product ExpensiveProductElementAt() {
+    public Product expensiveProductElementAt() {
         List<Product> products = getProductList();
         Product expensiveProduct = products.stream().filter(p->p.getUnitPrice()>100)
                 .skip(2).findFirst().get();
         return expensiveProduct;
     }
 
-    public List<Pair<String, Product>> ProductEachCategoryElementAt() {
+    public List<Pair<String, Product>> productEachCategoryElementAt() {
         List<Product> products = getProductList();
         List<Pair<String, Product>> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
             .entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -350,7 +350,7 @@ public class FirstMethods {
         return categories;
     }
 
-    public Map<String, Product> ProductEachCategoryElementAtDict() {
+    public Map<String, Product> productEachCategoryElementAtDict() {
         List<Product> products = getProductList();
         Map<String, Product> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(),
