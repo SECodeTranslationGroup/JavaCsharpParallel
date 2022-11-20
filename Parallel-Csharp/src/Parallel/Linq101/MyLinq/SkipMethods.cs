@@ -275,18 +275,18 @@ public class SkipMethods {
         List<int> afterNumbers = numbers.SkipWhile((n, index) => n > index).ToList();
         return afterNumbers;
     }
-
-    public List<int> OddIntSkipWhileIndexed() {
-        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        List<int> afterNumbers = numbers.Where(i => i % 2 == 1).SkipWhile((n, index) => n > index).ToList();
-        return afterNumbers;
-    }
-
     public List<int> IntSquareSkipWhileIndexed() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
         List<int> afterNumbers = numbers.Select(i => i * i).SkipWhile((n, index) => n > index).ToList();
         return afterNumbers;
     }
+    
+    public List<double> IntSqrtSkipWhileIndexed() {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+        List<double> afterNumbers = numbers.Select(i => Math.Sqrt(i)).SkipWhile((n, index) => n > index).ToList();
+        return afterNumbers;
+    }
+
 
     public List<int> IntSkipWhileIndexedCount(int n) {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
