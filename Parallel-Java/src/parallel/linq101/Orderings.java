@@ -73,7 +73,7 @@ public class Orderings {
     public int orderProductsDescending() {
         List<Product> products = getProductList();
         var sortedProducts = products.stream().sorted(
-                Comparator.comparing((Product p) -> p.getUnitsInStock(), Comparator.reverseOrder())).toList();
+                Comparator.comparing( p-> p.getUnitsInStock(), Comparator.reverseOrder())).toList();
         for (var product : sortedProducts)
             System.out.println(product);
         return 0;

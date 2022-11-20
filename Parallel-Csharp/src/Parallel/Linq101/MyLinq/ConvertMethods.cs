@@ -73,7 +73,7 @@ public class ConvertMethods {
         return productsArray;
     }
 
-    public double[] ProductsConvertToDescendingUnitPriceArray() {
+    public double[] ProductsConvertToUnitPriceArray() {
         List<Product> products = GetProductList();
         double[] pricesArray = products.Select(p => p.UnitPrice).OrderBy(d => d).ToArray();
         return pricesArray;
@@ -96,7 +96,8 @@ public class ConvertMethods {
     public List<int> IntsConvertToListAndPrintForeach() {
         int[] ints = { 2, 3, 1, 5, 4 };
         List<int> intsList = ints.OrderBy(d => d).ToList();
-        intsList.ForEach(i => Console.WriteLine(i));
+        foreach (int i in intsList)
+            Console.WriteLine(i);
         return intsList;
     }
 
@@ -117,7 +118,8 @@ public class ConvertMethods {
     public List<double> DoublesConvertToDescendingListAndPrintForeach() {
         double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
         List<double> doublesList = doubles.OrderByDescending(d => d).ToList();
-        doublesList.ForEach(d => Console.WriteLine(d));
+        foreach (double d in doublesList)
+            Console.WriteLine(d);
         return doublesList;
     }
 
@@ -138,7 +140,8 @@ public class ConvertMethods {
     public List<Product> ProductsConvertToDescendingListAndPrintForeach() {
         List<Product> products = GetProductList();
         List<Product> productsList = products.OrderByDescending(p => p.UnitPrice).ToList();
-        productsList.ForEach(p => Console.WriteLine(p));
+        foreach (Product p in productsList)
+            Console.WriteLine(p);
         return productsList;
     }
 
@@ -149,7 +152,7 @@ public class ConvertMethods {
     }
 
     public Dictionary<string, int> ConvertTuplesToDictionary() {
-        Tuple<string, int>[] scoreRecords =
+        List<Tuple<string, int>> scoreRecords =new List<Tuple<string, int>>
             { Tuple.Create("Alice", 50), Tuple.Create("Bob", 40), Tuple.Create("Cathy", 45) };
         Dictionary<string, int> scoreRecordsDict = scoreRecords.ToDictionary(sr => sr.Item1,
             sr => sr.Item2);
@@ -157,7 +160,7 @@ public class ConvertMethods {
     }
 
     public Dictionary<string, int> ConvertTuplesToDictionaryAndPrint() {
-        Tuple<string, int>[] scoreRecords =
+        List<Tuple<string, int>> scoreRecords =new List<Tuple<string, int>>
             { Tuple.Create("Alice", 50), Tuple.Create("Bob", 40), Tuple.Create("Cathy", 45) };
         Dictionary<string, int> scoreRecordsDict = scoreRecords.ToDictionary(sr => sr.Item1,
             sr => sr.Item2);
@@ -166,14 +169,14 @@ public class ConvertMethods {
         return scoreRecordsDict;
     }
 
-    public Dictionary<double, double> ConvertListToDictionary() {
+    public Dictionary<double, double> ConvertArrayToDictionary() {
         double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
         Dictionary<double, double> doublesDict = doubles.ToDictionary(sr => sr,
             sr => sr * 2);
         return doublesDict;
     }
 
-    public Dictionary<double, double> ConvertListToDictionaryAndPrint() {
+    public Dictionary<double, double> ConvertArrayToDictionaryAndPrint() {
         double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
         Dictionary<double, double> doublesDict = doubles.ToDictionary(sr => sr,
             sr => sr * 2);
@@ -182,14 +185,14 @@ public class ConvertMethods {
         return doublesDict;
     }
 
-    public Dictionary<double, double> ConvertListToDictionaryWithDistinct() {
+    public Dictionary<double, double> ConvertArrayToDictionaryWithDistinct() {
         double[] doubles = { 1.7, 2.3, 1.9, 4.1, 1.7, 2.9 };
         Dictionary<double, double> doublesDict = doubles.Distinct().ToDictionary(sr => sr,
             sr => sr * 2);
         return doublesDict;
     }
 
-    public Dictionary<double, double> ConvertListToDictionaryWithDistinctAndPrint() {
+    public Dictionary<double, double> ConvertArrayToDictionaryWithDistinctAndPrint() {
         double[] doubles = { 1.7, 2.3, 1.9, 4.1, 1.7, 2.9 };
         Dictionary<double, double> doublesDict = doubles.Distinct().ToDictionary(sr => sr,
             sr => sr * 2);
@@ -272,7 +275,8 @@ public class ConvertMethods {
     public List<string> ConvertSelectedStringItemToListAndPrintForeach() {
         object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
         List<string> strings = numbers.OfType<string>().ToList();
-        strings.ForEach(s=>Console.WriteLine(s));
+        foreach (string s in strings)
+            Console.WriteLine(s);
         return strings;
     }
     
@@ -301,9 +305,8 @@ public class ConvertMethods {
         object[] numbers = { Tuple.Create("Alice", "50"), Tuple.Create("Bob", 40), Tuple.Create("Cathy", 45) };
         Dictionary<string,int> strings = numbers.OfType<Tuple<string,int>>().ToDictionary(
             t=>t.Item1,t=>t.Item2);
-        foreach (var pair in strings) {
+        foreach (var pair in strings) 
             Console.WriteLine(pair.Key+":"+pair.Value);
-        }
         return strings;
     }
 }
