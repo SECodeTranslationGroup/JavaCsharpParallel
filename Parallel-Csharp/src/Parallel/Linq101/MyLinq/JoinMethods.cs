@@ -58,7 +58,7 @@ public class JoinMethods {
     }
 
     public List<Tuple<int, Customer>> CustomerCrossJoinRegionsWithCode() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -69,7 +69,7 @@ public class JoinMethods {
     }
 
     public List<Tuple<int, string>> CustomerCrossJoinRegionsWithCodeName() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -80,7 +80,7 @@ public class JoinMethods {
     }
 
     public List<Tuple<string, int, Customer>> CustomerCrossJoinRegionsWithCodeRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -91,7 +91,7 @@ public class JoinMethods {
     }
 
     public List<Tuple<string, int, string>> CustomerCrossJoinRegionsWithCodeNameRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -157,7 +157,7 @@ public class JoinMethods {
     }
     
     public Dictionary<int, List<Customer>>  CustomerGroupJoinRegionsWithCode() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -169,7 +169,7 @@ public class JoinMethods {
     }
 
     public  Dictionary<int, List<string>> CustomerGroupJoinRegionsWithCodeName() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -181,7 +181,7 @@ public class JoinMethods {
     }
     
     public Dictionary<Tuple<string,int>, List<Customer>> CustomerGroupJoinRegionsWithCodeRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -193,7 +193,7 @@ public class JoinMethods {
     }
     
     public Dictionary<Tuple<string,int>, List<string>> CustomerGroupJoinRegionsWithCodeNameRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -264,7 +264,7 @@ public class JoinMethods {
     }
     
     public List<Tuple<int, Customer>> CustomerCrossGroupJoinRegionsWithCode() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -276,7 +276,7 @@ public class JoinMethods {
     }
 
     public List<Tuple<int, string>> CustomerCrossGroupJoinRegionsWithCodeName() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -288,7 +288,7 @@ public class JoinMethods {
     }
     
     public List<Tuple<Tuple<string, int>, Customer>>  CustomerCrossGroupJoinRegionsWithCodeRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -300,7 +300,7 @@ public class JoinMethods {
     }
     
     public List<Tuple<Tuple<string, int>, string>> CustomerCrossGroupJoinRegionsWithCodeNameRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -371,7 +371,7 @@ public class JoinMethods {
     }
     
     public List<Tuple<int, Customer>> CustomerLeftOuterJoinRegionsWithCode() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -383,7 +383,7 @@ public class JoinMethods {
     }
 
     public List<Tuple<int, string>> CustomerLeftOuterJoinRegionsWithCodeName() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -395,7 +395,7 @@ public class JoinMethods {
     }
     
     public List<Tuple<Tuple<string, int>, Customer>>  CustomerLeftOuterJoinRegionsWithCodeRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
@@ -407,7 +407,7 @@ public class JoinMethods {
     }
     
     public List<Tuple<Tuple<string, int>, string>> CustomerLeftOuterJoinRegionsWithCodeNameRegion() {
-        Tuple<string, int>[] regions = {
+        List<Tuple<string, int>> regions = new List<Tuple<string, int>>{
             Tuple.Create("BC", 101), Tuple.Create("BC", 105),
             Tuple.Create("OR", 121), Tuple.Create("LA", 143)
         };
