@@ -63,7 +63,7 @@ public class FirstMethods {
 
     public double ProjectedDoubleFirst() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
-        double firstNum = numbers.Select(i => (int)Math.Log2(i)).First(n => n > 3);
+        double firstNum = numbers.Select(i => Math.Log(i)).First(n => n > 3);
         return firstNum;
     }
 
@@ -82,15 +82,14 @@ public class FirstMethods {
     public List<Tuple<string, Product>> ProductEachCategoryFirst() {
         List<Product> products = GetProductList();
         List<Tuple<string, Product>> categories = products.GroupBy(p => p.Category)
-            .Select(g => Tuple.Create(g.Key, g.First(p => p.Category.Equals(g.Key)))).ToList();
+            .Select(g => Tuple.Create(g.Key, g.First())).ToList();
         return categories;
     }
 
     public Dictionary<string, Product> ProductEachCategoryFirstDict() {
         List<Product> products = GetProductList();
         Dictionary<string, Product> categories = products.GroupBy(p => p.Category)
-            .ToDictionary(g => g.Key, g =>
-                g.First(p => p.Category.Equals(g.Key)));
+            .ToDictionary(g => g.Key, g => g.First());
         return categories;
     }
 
@@ -98,7 +97,7 @@ public class FirstMethods {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, Order>> ordersMax = customers.GroupBy(c => c.Region)
             .Select(g => Tuple.Create(g.Key,
-                g.SelectMany(p => p.Orders).First())).ToList();
+                g.SelectMany(c => c.Orders).First())).ToList();
         return ordersMax;
     }
 
@@ -106,7 +105,7 @@ public class FirstMethods {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, Order> ordersMax = customers.GroupBy(c => c.Region)
             .ToDictionary(g => g.Key,
-                g => g.SelectMany(p => p.Orders).First());
+                g => g.SelectMany(c => c.Orders).First());
         return ordersMax;
     }
     
@@ -130,18 +129,18 @@ public class FirstMethods {
     
     public List<Tuple<string, List<Customer>>> CustomerEachCountryOrdersFirstCustomer() {
         List<Customer> customers = GetCustomerList();
-        List<Tuple<string, List<Customer>>> customerOrdersMax = customers.GroupBy(c => c.Country)
+        List<Tuple<string, List<Customer>>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
                 g.Where(c => c.Orders.Length ==g.First().Orders.Length).ToList())).ToList();
-        return customerOrdersMax;
+        return customerOrdersFirst;
     }
 
     public Dictionary<string, List<Customer>> CustomerEachCountryOrdersFirstCustomerDict() {
         List<Customer> customers = GetCustomerList();
-        Dictionary<string, List<Customer>> customerOrdersMax = customers.GroupBy(c => c.Country)
+        Dictionary<string, List<Customer>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
                 g => g.Where(c => c.Orders.Length ==g.First().Orders.Length).ToList());
-        return customerOrdersMax;
+        return customerOrdersFirst;
     }
     
     public int NumbersFirstOrDefault() {
@@ -223,7 +222,7 @@ public class FirstMethods {
         List<Product> products = GetProductList();
         List<Tuple<string, Product>> categories = products.GroupBy(p => p.Category)
             .Select(g => Tuple.Create(g.Key, 
-                g.FirstOrDefault(p => p.Category.Equals(g.Key),Product.Default))).ToList();
+                g.FirstOrDefault(Product.Default))).ToList();
         return categories;
     }
 
@@ -231,7 +230,7 @@ public class FirstMethods {
         List<Product> products = GetProductList();
         Dictionary<string, Product> categories = products.GroupBy(p => p.Category)
             .ToDictionary(g => g.Key, g =>
-                g.FirstOrDefault(p => p.Category.Equals(g.Key),Product.Default));
+                g.FirstOrDefault(Product.Default));
         return categories;
     }
 
@@ -271,18 +270,18 @@ public class FirstMethods {
     
     public List<Tuple<string, List<Customer>>> CustomerEachCountryOrdersFirstOrDefaultCustomer() {
         List<Customer> customers = GetCustomerList();
-        List<Tuple<string, List<Customer>>> customerOrdersMax = customers.GroupBy(c => c.Country)
+        List<Tuple<string, List<Customer>>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
                 g.Where(c => c.Orders.Length ==g.FirstOrDefault(Customer.Default).Orders.Length).ToList())).ToList();
-        return customerOrdersMax;
+        return customerOrdersFirst;
     }
 
     public Dictionary<string, List<Customer>> CustomerEachCountryOrdersFirstOrDefaultCustomerDict() {
         List<Customer> customers = GetCustomerList();
-        Dictionary<string, List<Customer>> customerOrdersMax = customers.GroupBy(c => c.Country)
+        Dictionary<string, List<Customer>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
                 g => g.Where(c => c.Orders.Length ==g.FirstOrDefault(Customer.Default).Orders.Length).ToList());
-        return customerOrdersMax;
+        return customerOrdersFirst;
     }
     
     public int NumbersElementAt() {
@@ -317,7 +316,7 @@ public class FirstMethods {
 
     public double ProjectedDoubleElementAt() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
-        double numAt = numbers.Select(i => (int)Math.Log2(i)).Where(n => n > 3).ElementAt(2);
+        double numAt = numbers.Select(i => Math.Log(i)).Where(n => n > 3).ElementAt(2);
         return numAt;
     }
     
@@ -338,7 +337,7 @@ public class FirstMethods {
         List<Product> products = GetProductList();
         List<Tuple<string, Product>> categories = products.GroupBy(p => p.Category)
             .Select(g => Tuple.Create(g.Key, 
-                g.Where(p => p.Category.Equals(g.Key)).ElementAt(1))).ToList();
+                g.ElementAt(1))).ToList();
         return categories;
     }
 
@@ -346,7 +345,7 @@ public class FirstMethods {
         List<Product> products = GetProductList();
         Dictionary<string, Product> categories = products.GroupBy(p => p.Category)
             .ToDictionary(g => g.Key, g =>
-                g.Where(p => p.Category.Equals(g.Key)).ElementAt(1));
+                g.ElementAt(1));
         return categories;
     }
 }
