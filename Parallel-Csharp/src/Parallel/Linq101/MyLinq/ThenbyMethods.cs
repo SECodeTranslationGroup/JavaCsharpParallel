@@ -17,97 +17,97 @@ public class ThenbyMethods {
             Math.Abs(x - 5) - Math.Abs(y - 5);
     }
     
-    public List<double> DoubleOrderbyFranctionThenby() {
+    public List<double> DoubleOrderbyFractionThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderBy(n => n-(int)n).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> DoubleOrderbyModFractionThenby() {
+    public List<double> DoubleOrderbyModThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderBy(n => n % 1.5).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
     
-    public List<double> DoubleOrderbyFranctionDescendingThenby() {
+    public List<double> DoubleOrderbyFractionDescendingThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderByDescending(n => n-(int)n).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> DoubleOrderbyModFractionDescendingThenby() {
+    public List<double> DoubleOrderbyModDescendingThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderByDescending(n => n % 1.5).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
     
-    public List<double> DoubleOrderbyFranctionThenbyDescending() {
+    public List<double> DoubleOrderbyFractionThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderBy(n => n-(int)n).ThenByDescending(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> DoubleOrderbyModFractionThenbyDescending() {
+    public List<double> DoubleOrderbyModThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderBy(n => n % 1.5).ThenByDescending(n => n).ToList();
         return sortedNumbers;
     }
     
-    public List<double> DoubleOrderbyFranctionDescendingThenbyDescending() {
+    public List<double> DoubleOrderbyFractionDescendingThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderByDescending(n => n-(int)n).ThenByDescending(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> DoubleOrderbyModFractionDescendingThenbyDescending() {
+    public List<double> DoubleOrderbyModDescendingThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.OrderByDescending(n => n % 1.5).ThenByDescending(n => n).ToList();
         return sortedNumbers;
     }
     
-    public List<double> BigDoubleOrderbyFranctionThenby() {
+    public List<double> BigDoubleOrderbyFractionThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderBy(n => n-(int)n).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> BigDoubleOrderbyModFractionThenby() {
+    public List<double> BigDoubleOrderbyModThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderBy(n => n % 1.5).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
     
-    public List<double> BigDoubleOrderbyFranctionDescendingThenby() {
+    public List<double> BigDoubleOrderbyFractionDescendingThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderByDescending(n => n-(int)n).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> BigDoubleOrderbyModFractionDescendingThenby() {
+    public List<double> BigDoubleOrderbyModDescendingThenby() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderByDescending(n => n % 1.5).ThenBy(n => n).ToList();
         return sortedNumbers;
     }
     
-    public List<double> BigDoubleOrderbyFranctionThenbyDescending() {
+    public List<double> BigDoubleOrderbyFractionThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderBy(n => n-(int)n).ThenByDescending(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> BigDoubleOrderbyModFractionThenbyDescending() {
+    public List<double> BigDoubleOrderbyModThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderBy(n => n % 1.5).ThenByDescending(n => n).ToList();
         return sortedNumbers;
     }
     
-    public List<double> BigDoubleOrderbyFranctionDescendingThenbyDescending() {
+    public List<double> BigDoubleOrderbyFractionDescendingThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderByDescending(n => n-(int)n).ThenByDescending(n => n).ToList();
         return sortedNumbers;
     }
 
-    public List<double> BigDoubleOrderbyModFractionDescendingThenbyDescending() {
+    public List<double> BigDoubleOrderbyModDescendingThenbyDescending() {
         double[] numbers = { 3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0 };
         List<double> sortedNumbers = numbers.Where(n=>n>3).OrderByDescending(n => n % 1.5).ThenByDescending(n => n).ToList();
         return sortedNumbers;
