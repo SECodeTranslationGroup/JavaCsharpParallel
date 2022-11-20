@@ -8,9 +8,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80eba9b3-80c1-4bdb-9451-7a6baf7a8eab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/ConcatMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/ConvertMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/FirstMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/GeneratorMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/GroupMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/JoinMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/MatchMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/OrderbyDescendingMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/OrderbyMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/QueryExecutionMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/SelectManyMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/SelectMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/SetMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/SkipMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/TakeMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/ThenbyMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parallel-Java/src/parallel/linq101/mylinq/WhereMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/ConcatMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/ConcatMethods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectManyMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectManyMethods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SetMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SetMethods.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +103,8 @@
       <workItem from="1668578032852" duration="3048000" />
       <workItem from="1668586562322" duration="856000" />
       <workItem from="1668767844561" duration="19905000" />
-      <workItem from="1668834254053" duration="20297000" />
+      <workItem from="1668834254053" duration="27784000" />
+      <workItem from="1668932337204" duration="3810000" />
     </task>
     <servers />
   </component>

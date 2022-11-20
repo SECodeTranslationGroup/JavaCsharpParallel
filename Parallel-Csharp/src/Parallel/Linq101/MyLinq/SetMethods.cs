@@ -64,16 +64,16 @@ public class SetMethods {
         string[] regions = {"WA", "AF","RO"};
         List<Customer> customers = GetCustomerList();
         var customerRegions = customers.Select(c => c.Region);
-        List<string> uniqueCategories = customerRegions.Union(regions).ToList();
-        return uniqueCategories;
+        List<string> uniqueRegions = customerRegions.Union(regions).ToList();
+        return uniqueRegions;
     }
     public List<string> UnionOfName() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
-        var productFirstChars = products.Select(p => p.ProductName);
-        var customerFirstChars = customers.Select(c => c.CompanyName);
-        List<string> uniqueFirstChars = productFirstChars.Union(customerFirstChars).ToList();
-        return uniqueFirstChars;
+        var productNames = products.Select(p => p.ProductName);
+        var customerNames = customers.Select(c => c.CompanyName);
+        List<string> uniqueNames = productNames.Union(customerNames).ToList();
+        return uniqueNames;
     }
     public List<char> UnionOfNameFirstChar() {
         List<Product> products = GetProductList();
@@ -142,16 +142,16 @@ public class SetMethods {
         string[] regions = {"WA", "AF","RO"};
         List<Customer> customers = GetCustomerList();
         var customerRegions = customers.Select(c => c.Region);
-        List<string> sharedCategories = customerRegions.Intersect(regions).ToList();
-        return sharedCategories;
+        List<string> sharedRegions = customerRegions.Intersect(regions).ToList();
+        return sharedRegions;
     }
     public List<string> IntersectOfName() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
-        var productFirstChars = products.Select(p => p.ProductName);
-        var customerFirstChars = customers.Select(c => c.CompanyName);
-        List<string> sharedFirstChars = productFirstChars.Intersect(customerFirstChars).ToList();
-        return sharedFirstChars;
+        var productNames = products.Select(p => p.ProductName);
+        var customerNames = customers.Select(c => c.CompanyName);
+        List<string> sharedNames = productNames.Intersect(customerNames).ToList();
+        return sharedNames;
     }
 
     public List<char> IntersectOfNameFirstChar() {
@@ -166,22 +166,22 @@ public class SetMethods {
     public int[] IntExcept() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8 };
-        int[] uniqueNumbers = numbersA.Except(numbersB).ToArray();
-        return uniqueNumbers;
+        int[] differentNumbers = numbersA.Except(numbersB).ToArray();
+        return differentNumbers;
     }
     
     public double[] DoubleExcept() {
         double[] numbersA = { 0.1, 2.2, 4.3, 5.4, 6.5, 8.6, 9.7 };
         double[] numbersB = { 0.1, 3.3, 5.4, 7.7, 8.6 };
-        double[] uniqueNumbers = numbersA.Except(numbersB).ToArray();
-        return uniqueNumbers;
+        double[] differentNumbers = numbersA.Except(numbersB).ToArray();
+        return differentNumbers;
     }
     
     public string[] StringExcept() {
         string[] wordsA = {"Alice", "Bob", "Foo", "Bar"};
         string[] wordsB = {"Cafe", "Bar","Restaurant" };
-        string[] uniqueWords = wordsA.Except(wordsB).ToArray();
-        return uniqueWords;
+        string[] differentWords = wordsA.Except(wordsB).ToArray();
+        return differentWords;
     }
     
     public int[] ProjectionIntExcept() {
@@ -214,30 +214,30 @@ public class SetMethods {
         string[] categories = {"Furnitures", "Seagoods"};
         List<Product> products = GetProductList();
         var productCategories = products.Select(p => p.Category);
-        List<string> uniqueCategories = productCategories.Except(categories).ToList();
-        return uniqueCategories;
+        List<string> differentCategories = productCategories.Except(categories).ToList();
+        return differentCategories;
     }
     public List<string> ExceptOfRegion() {
         string[] regions = {"WA", "AF","RO"};
         List<Customer> customers = GetCustomerList();
         var customerRegions = customers.Select(c => c.Region);
-        List<string> uniqueCategories = customerRegions.Except(regions).ToList();
-        return uniqueCategories;
+        List<string> differentRegions = customerRegions.Except(regions).ToList();
+        return differentRegions;
     }
     public List<string> ExceptOfName() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
-        var productFirstChars = products.Select(p => p.ProductName);
-        var customerFirstChars = customers.Select(c => c.CompanyName);
-        List<string> uniqueFirstChars = productFirstChars.Except(customerFirstChars).ToList();
-        return uniqueFirstChars;
+        var productNames = products.Select(p => p.ProductName);
+        var customerNames = customers.Select(c => c.CompanyName);
+        List<string> differentNames = productNames.Except(customerNames).ToList();
+        return differentNames;
     }
     public List<char> ExceptOfNameFirstChar() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
         var productFirstChars = products.Select(p => p.ProductName[0]);
         var customerFirstChars = customers.Select(c => c.CompanyName[0]);
-        List<char> uniqueFirstChars = productFirstChars.Except(customerFirstChars).ToList();
-        return uniqueFirstChars;
+        List<char> differentFirstChars = productFirstChars.Except(customerFirstChars).ToList();
+        return differentFirstChars;
     }
 }

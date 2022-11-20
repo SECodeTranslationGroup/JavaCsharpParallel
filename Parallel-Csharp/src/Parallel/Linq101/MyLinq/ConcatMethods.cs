@@ -21,7 +21,7 @@ public class ConcatMethods {
         return equal;
     }
 
-    public bool ProjectedEqualInts() {
+    public bool ProjectionEqualInts() {
         int[] numbersA = { 0, 2, 4, 5, 9 };
         int[] numbersB = { 1, 3, 5, 6, 10 };
         bool equal = numbersA.Select(n => n + 1).SequenceEqual(numbersB);
@@ -42,7 +42,7 @@ public class ConcatMethods {
         return equal;
     }
 
-    public bool ProjectedEqualDoubles() {
+    public bool ProjectionEqualDoubles() {
         double[] numbersA = { 0.5, 2.3, 4.7, 5.4, 9.8 };
         double[] numbersB = { 6.5, 1.3, 8.7, 2.4, 4.8 };
         bool equal = numbersA.Select(n => n - (int)n).SequenceEqual(numbersB.Select(n => n - (int)n));
@@ -50,29 +50,29 @@ public class ConcatMethods {
     }
 
     public bool EqualStrings() {
-        string[] wordsA = { "Alpha", "Beta", "Gamma" };
-        string[] wordsB = { "Alpha", "Beta", "Gamma" };
+        List<string> wordsA = new List<string> { "Alpha", "Beta", "Gamma" };
+        List<string> wordsB = new List<string> { "Alpha", "Beta", "Gamma" };
         bool equal = wordsA.SequenceEqual(wordsB);
         return equal;
     }
 
     public bool EqualStringLengths() {
-        string[] wordsA = { "Alpha", "Beta", "Gamma" };
-        string[] wordsB = { "Gamma", "Beta", "Alpha" };
+        List<string> wordsA = new List<string> { "Alpha", "Beta", "Gamma" };
+        List<string> wordsB = new List<string> { "Gamma", "Beta", "Alpha" };
         bool equal = wordsA.Select(w => w.Length).SequenceEqual(wordsB.Select(w => w.Length));
         return equal;
     }
 
     public bool UnequalStrings() {
-        string[] wordsA = { "Alpha", "Beta", "Gamma" };
-        string[] wordsB = { "aLPhA", "bETa", "gAaMa" };
+        List<string> wordsA = new List<string> { "Alpha", "Beta", "Gamma" };
+        List<string> wordsB = new List<string> { "aLPhA", "bETa", "gAaMa" };
         bool equal = wordsA.SequenceEqual(wordsB);
         return equal;
     }
 
-    public bool ProjectedEqualStrings() {
-        string[] wordsA = { "Alpha", "Beta", "Gamma" };
-        string[] wordsB = { "aLPhA", "bETa", "gAaMa" };
+    public bool ProjectionEqualStrings() {
+        List<string> wordsA = new List<string> { "Alpha", "Beta", "Gamma" };
+        List<string> wordsB = new List<string> { "aLPhA", "bETa", "gAaMa" };
         bool equal = wordsA.Select(w => w.ToLower()).SequenceEqual(wordsB.Select(w => w.ToLower()));
         return equal;
     }
@@ -137,17 +137,17 @@ public class ConcatMethods {
         string[] regions = { "WA", "AF", "RO" };
         List<Customer> customers = GetCustomerList();
         var customerRegions = customers.Select(c => c.Region);
-        List<string> allCategories = customerRegions.Concat(regions).ToList();
-        return allCategories;
+        List<string> allRegions = customerRegions.Concat(regions).ToList();
+        return allRegions;
     }
 
     public List<string> ConcatOfName() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
-        var productFirstChars = products.Select(p => p.ProductName);
-        var customerFirstChars = customers.Select(c => c.CompanyName);
-        List<string> allFirstChars = productFirstChars.Concat(customerFirstChars).ToList();
-        return allFirstChars;
+        var productNames = products.Select(p => p.ProductName);
+        var customerNames = customers.Select(c => c.CompanyName);
+        List<string> allNames = productNames.Concat(customerNames).ToList();
+        return allNames;
     }
 
     public List<char> ConcatOfNameFirstChar() {
@@ -158,69 +158,76 @@ public class ConcatMethods {
         List<char> allFirstChars = productFirstChars.Concat(customerFirstChars).ToList();
         return allFirstChars;
     }
+
     public int[] IntZipAdd() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8, 10, 11 };
-        int[] addNumbers = numbersA.Zip(numbersB,(a,b)=>a+b).ToArray();
+        int[] addNumbers = numbersA.Zip(numbersB, (a, b) => a + b).ToArray();
         return addNumbers;
     }
+
     public int[] IntZipAddReverse() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8, 10, 11 };
-        int[] addNumbers = numbersA.Zip(numbersB.Reverse(),(a,b)=>a+b).ToArray();
+        int[] addNumbers = numbersA.Zip(numbersB.Reverse(), (a, b) => a + b).ToArray();
         return addNumbers;
     }
+
     public int[] IntZipSub() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8, 10, 11 };
-        int[] subNumbers = numbersA.Zip(numbersB,(a,b)=>a-b).ToArray();
+        int[] subNumbers = numbersA.Zip(numbersB, (a, b) => a - b).ToArray();
         return subNumbers;
     }
+
     public int[] IntZipMultiply() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8, 10, 11 };
-        int[] multiplyNumbers = numbersA.Zip(numbersB,(a,b)=>a*b).ToArray();
+        int[] multiplyNumbers = numbersA.Zip(numbersB, (a, b) => a * b).ToArray();
         return multiplyNumbers;
     }
+
     public int IntDotProduct() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8, 10, 11 };
-        int dotProduct = numbersA.Zip(numbersB,(a,b)=>a*b).Sum();
+        int dotProduct = numbersA.Zip(numbersB, (a, b) => a * b).Sum();
         return dotProduct;
     }
+
     public int IntAddMultiply() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8, 10, 11 };
-        int product = numbersA.Zip(numbersB,(a,b)=>a+b).Aggregate((a,b)=>a*b);
+        int product = numbersA.Zip(numbersB, (a, b) => a + b).Aggregate((a, b) => a * b);
         return product;
     }
-    
+
     public string[] StringZipAdd() {
         string[] wordsA = { "Alpha", "Beta", "Gamma" };
         string[] wordsB = { "red", "green", "blue" };
-        string[] addNumbers = wordsA.Zip(wordsB,(a,b)=>a+b).ToArray();
-        return addNumbers;
+        string[] results = wordsA.Zip(wordsB, (a, b) => a + b).ToArray();
+        return results;
     }
-    
+
     public string[] StringZipAddInt() {
         string[] words = { "Alpha", "Beta", "Gamma" };
-        int[] numbers = { 1,2,3 };
-        string[] addNumbers = words.Zip(numbers,(a,b)=>a+b).ToArray();
-        return addNumbers;
+        int[] numbers = { 1, 2, 3 };
+        string[] results = words.Zip(numbers, (a, b) => a + b).ToArray();
+        return results;
     }
-    
+
     public string[] StringProjectionZipAdd() {
         string[] wordsA = { "Alpha", "Beta", "Gamma" };
         string[] wordsB = { "red", "green", "blue" };
-        string[] addNumbers = wordsA.Select(w=>w[0].ToString())
-            .Zip(wordsB.Select(w=>w[0]),(a,b)=>a+b).ToArray();
-        return addNumbers;
+        string[] results = wordsA.Select(w => w[0].ToString())
+            .Zip(wordsB.Select(w => w[0]), (a, b) => a + b).ToArray();
+        return results;
     }
+
     public int[] StringProjectionZipAddInt() {
         string[] wordsA = { "Alpha", "Beta", "Gamma" };
         string[] wordsB = { "red", "green", "blue" };
-        int[] addNumbers = wordsA.Select(w=>w.Length)
-            .Zip(wordsB.Select(w=>w.Length),(a,b)=>a+b).ToArray();
-        return addNumbers;
+        int[] results = wordsA.Select(w => w.Length)
+            .Zip(wordsB.Select(w => w.Length), (a, b) => a + b).ToArray();
+        return results;
     }
 }
