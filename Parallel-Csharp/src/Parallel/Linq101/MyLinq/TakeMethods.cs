@@ -272,29 +272,29 @@ public class TakeMethods {
 
     public List<int> IntTakeWhileIndexed() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        List<int> firstNumbers = numbers.TakeWhile((n, index) => n > index).ToList();
+        List<int> firstNumbers = numbers.TakeWhile((n, i) => n > i).ToList();
         return firstNumbers;
     }
     public List<int> IntSquareTakeWhileIndexed() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        List<int> firstNumbers = numbers.Select(i => i * i).TakeWhile((n, index) => n > index).ToList();
+        List<int> firstNumbers = numbers.Select(i => i * i).TakeWhile((n, i) => n > i).ToList();
         return firstNumbers;
     }
     
     public List<double> IntSqrtSkipWhileIndexed() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        List<double> afterNumbers = numbers.Select(i => Math.Sqrt(i)).TakeWhile((n, index) => n > index).ToList();
+        List<double> afterNumbers = numbers.Select(i => Math.Sqrt(i)).TakeWhile((n, i) => n > i).ToList();
         return afterNumbers;
     }
 
     public List<int> IntTakeWhileIndexedCount(int n) {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        List<int> firstNumbers = numbers.TakeWhile((n, index) => n > index).ToList();
+        List<int> firstNumbers = numbers.TakeWhile((n, i) => n > i).ToList();
         return firstNumbers;
     }
 
     public List<int> IntTakeWhileIndexedCount(int[] numbers, int n) {
-        List<int> firstNumbers = numbers.TakeWhile((n, index) => n > index).ToList();
+        List<int> firstNumbers = numbers.TakeWhile((n, i) => n > i).ToList();
         return firstNumbers;
     }
 }

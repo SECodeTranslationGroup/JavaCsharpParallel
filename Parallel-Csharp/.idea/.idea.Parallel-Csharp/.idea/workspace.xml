@@ -8,9 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80eba9b3-80c1-4bdb-9451-7a6baf7a8eab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SkipMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SkipMethods.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/TakeMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/TakeMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/WhereMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/WhereMethods.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +86,7 @@
       <workItem from="1668767844561" duration="19905000" />
       <workItem from="1668834254053" duration="27784000" />
       <workItem from="1668932337204" duration="12449000" />
-      <workItem from="1668949751582" duration="16053000" />
+      <workItem from="1668949751582" duration="16669000" />
     </task>
     <servers />
   </component>
