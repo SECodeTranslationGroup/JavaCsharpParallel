@@ -319,7 +319,7 @@ public class GroupMethods {
                 .collect(groupingBy(o -> o.getOrderDate().getYear())).entrySet().stream().collect(toMap(
                         g -> g.getKey(),
                         g -> g.getValue().stream().collect(groupingBy(
-                                o -> o.getOrderDate().getMonth().getValue()
+                                o -> o.getOrderDate().getMonthValue()
                         ))));
         return customerOrderGroups;
     }
@@ -330,7 +330,7 @@ public class GroupMethods {
                 .collect(groupingBy(o -> o.getOrderDate().getYear())).entrySet().stream().collect(toMap(
                         g -> g.getKey(),
                         g -> g.getValue().stream().collect(groupingBy(
-                                o -> o.getOrderDate().getMonth().getValue()
+                                o -> o.getOrderDate().getMonthValue()
                         ))));
         for (var e1 : customerOrderGroups.entrySet()) {
             System.out.println(e1.getKey() + ":");
@@ -349,7 +349,7 @@ public class GroupMethods {
                 c -> c.getOrders().stream().collect(groupingBy(o -> o.getOrderDate().getYear())).entrySet().stream().collect(toMap(
                         g -> g.getKey(),
                         g -> g.getValue().stream().collect(groupingBy(
-                                o -> o.getOrderDate().getMonth().getValue()
+                                o -> o.getOrderDate().getMonthValue()
                         ))))));
         return customerOrderGroups;
     }
@@ -362,7 +362,7 @@ public class GroupMethods {
                 c -> c.getOrders().stream().collect(groupingBy(o -> o.getOrderDate().getYear())).entrySet().stream().collect(toMap(
                         g -> g.getKey(),
                         g -> g.getValue().stream().collect(groupingBy(
-                                o -> o.getOrderDate().getMonth().getValue()
+                                o -> o.getOrderDate().getMonthValue()
                         ))))));
         for (var e1 : customerOrderGroups.entrySet()) {
             System.out.println(e1.getKey() + ":");

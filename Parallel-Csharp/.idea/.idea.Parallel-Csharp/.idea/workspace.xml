@@ -8,9 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80eba9b3-80c1-4bdb-9451-7a6baf7a8eab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SkipMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SkipMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/TakeMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/TakeMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/WhereMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/WhereMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Parallel-Csharp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/AggregateOperators.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/AggregateOperators.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/DataSources/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/DataSources/Customer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/AverageMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/AverageMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/CountMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/CountMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/FirstMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/FirstMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MaxMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MaxMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MinMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/MinMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectManyMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectManyMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SelectMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SumMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parallel/Linq101/MyLinq/SumMethods.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +94,11 @@
       <workItem from="1668767844561" duration="19905000" />
       <workItem from="1668834254053" duration="27784000" />
       <workItem from="1668932337204" duration="12449000" />
-      <workItem from="1668949751582" duration="16669000" />
+      <workItem from="1668949751582" duration="17018000" />
+      <workItem from="1668995687834" duration="360000" />
+      <workItem from="1668997796285" duration="1570000" />
+      <workItem from="1669003872996" duration="924000" />
+      <workItem from="1669004892857" duration="1537000" />
     </task>
     <servers />
   </component>

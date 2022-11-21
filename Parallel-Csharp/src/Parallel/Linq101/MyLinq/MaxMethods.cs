@@ -177,7 +177,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, int>> ordersMax = customers.GroupBy(c => c.Region)
             .Select(g => Tuple.Create(g.Key,
-                g.Max(c => c.Orders.Length))).ToList();
+                g.Max(c => c.Orders.Count))).ToList();
         return ordersMax;
     }
 
@@ -185,7 +185,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, int> ordersMax = customers.GroupBy(c => c.Region)
             .ToDictionary(g => g.Key,
-                g => g.Max(c => c.Orders.Length));
+                g => g.Max(c => c.Orders.Count));
         return ordersMax;
     }
 
@@ -193,7 +193,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, int>> ordersMax = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
-                g.Max(c => c.Orders.Length))).ToList();
+                g.Max(c => c.Orders.Count))).ToList();
         return ordersMax;
     }
 
@@ -201,7 +201,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, int> ordersMax = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
-                g => g.Max(c => c.Orders.Length));
+                g => g.Max(c => c.Orders.Count));
         return ordersMax;
     }
 
@@ -262,7 +262,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, List<Customer>>> customerOrdersMax = customers.GroupBy(c => c.Region)
             .Select(g => Tuple.Create(g.Key,
-                g.Where(c => c.Orders.Length ==g.Max(c => c.Orders.Length)).ToList())).ToList();
+                g.Where(c => c.Orders.Count ==g.Max(c => c.Orders.Count)).ToList())).ToList();
         return customerOrdersMax;
     }
 
@@ -270,7 +270,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, List<Customer>> customerOrdersMax = customers.GroupBy(c => c.Region)
             .ToDictionary(g => g.Key,
-                g => g.Where(c => c.Orders.Length ==g.Max(c => c.Orders.Length)).ToList());
+                g => g.Where(c => c.Orders.Count ==g.Max(c => c.Orders.Count)).ToList());
         return customerOrdersMax;
     }
 
@@ -278,7 +278,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, List<Customer>>> customerOrdersMax = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
-                g.Where(c => c.Orders.Length ==g.Max(c => c.Orders.Length)).ToList())).ToList();
+                g.Where(c => c.Orders.Count ==g.Max(c => c.Orders.Count)).ToList())).ToList();
         return customerOrdersMax;
     }
 
@@ -286,7 +286,7 @@ public class MaxMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, List<Customer>> customerOrdersMax = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
-                g => g.Where(c => c.Orders.Length ==g.Max(c => c.Orders.Length)).ToList());
+                g => g.Where(c => c.Orders.Count ==g.Max(c => c.Orders.Count)).ToList());
         return customerOrdersMax;
     }
 

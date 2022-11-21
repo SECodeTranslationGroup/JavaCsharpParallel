@@ -177,7 +177,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, int>> ordersMin = customers.GroupBy(c => c.Region)
             .Select(g => Tuple.Create(g.Key,
-                g.Min(c => c.Orders.Length))).ToList();
+                g.Min(c => c.Orders.Count))).ToList();
         return ordersMin;
     }
 
@@ -185,7 +185,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, int> ordersMin = customers.GroupBy(c => c.Region)
             .ToDictionary(g => g.Key,
-                g => g.Min(c => c.Orders.Length));
+                g => g.Min(c => c.Orders.Count));
         return ordersMin;
     }
 
@@ -193,7 +193,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, int>> ordersMin = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
-                g.Min(c => c.Orders.Length))).ToList();
+                g.Min(c => c.Orders.Count))).ToList();
         return ordersMin;
     }
 
@@ -201,7 +201,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, int> ordersMin = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
-                g => g.Min(c => c.Orders.Length));
+                g => g.Min(c => c.Orders.Count));
         return ordersMin;
     }
 
@@ -262,7 +262,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, List<Customer>>> customerOrdersMin = customers.GroupBy(c => c.Region)
             .Select(g => Tuple.Create(g.Key,
-                g.Where(c => c.Orders.Length ==g.Min(c => c.Orders.Length)).ToList())).ToList();
+                g.Where(c => c.Orders.Count ==g.Min(c => c.Orders.Count)).ToList())).ToList();
         return customerOrdersMin;
     }
 
@@ -270,7 +270,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, List<Customer>> customerOrdersMin = customers.GroupBy(c => c.Region)
             .ToDictionary(g => g.Key,
-                g => g.Where(c => c.Orders.Length ==g.Min(c => c.Orders.Length)).ToList());
+                g => g.Where(c => c.Orders.Count ==g.Min(c => c.Orders.Count)).ToList());
         return customerOrdersMin;
     }
 
@@ -278,7 +278,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, List<Customer>>> customerOrdersMin = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
-                g.Where(c => c.Orders.Length ==g.Min(c => c.Orders.Length)).ToList())).ToList();
+                g.Where(c => c.Orders.Count ==g.Min(c => c.Orders.Count)).ToList())).ToList();
         return customerOrdersMin;
     }
 
@@ -286,7 +286,7 @@ public class MinMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, List<Customer>> customerOrdersMin = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
-                g => g.Where(c => c.Orders.Length ==g.Min(c => c.Orders.Length)).ToList());
+                g => g.Where(c => c.Orders.Count ==g.Min(c => c.Orders.Count)).ToList());
         return customerOrdersMin;
     }
 

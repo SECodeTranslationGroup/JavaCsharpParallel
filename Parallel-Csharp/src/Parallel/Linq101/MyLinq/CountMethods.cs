@@ -98,7 +98,7 @@ public class CountMethod {
 
     public int CustomerWithManyOrdersCount() {
         List<Customer> customers = GetCustomerList();
-        int count = customers.Count(c => c.Orders.Length > 5);
+        int count = customers.Count(c => c.Orders.Count > 5);
         return count;
     }
 

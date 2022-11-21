@@ -15,7 +15,7 @@ public class Customer
     private string? _postalCode;
     private string? _country;
     private string? _phone;
-    private Order[]? _orders;
+    private List<Order>? _orders;
 
     public static Customer Default = null;
     public string? CustomerId
@@ -66,7 +66,7 @@ public class Customer
         set => _phone = value;
     }
 
-    public Order[]? Orders
+    public List<Order>? Orders
     {
         get => _orders;
         set => _orders = value;
@@ -125,6 +125,6 @@ public static class Customers
                         OrderId = (int)o.Element("id"),
                         OrderDate = (DateTime)o.Element("orderdate"),
                         Total = (double)o.Element("total")
-                    }).ToArray()
+                    }).ToList()
             }).ToList();
 }

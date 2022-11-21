@@ -177,7 +177,7 @@ public class AverageMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, double>> ordersAverage = customers.GroupBy(c => c.Region)
             .Select(g => Tuple.Create(g.Key,
-                g.Average(c => c.Orders.Length))).ToList();
+                g.Average(c => c.Orders.Count))).ToList();
         return ordersAverage;
     }
 
@@ -185,7 +185,7 @@ public class AverageMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, double> ordersAverage = customers.GroupBy(c => c.Region)
             .ToDictionary(g => g.Key,
-                g => g.Average(c => c.Orders.Length));
+                g => g.Average(c => c.Orders.Count));
         return ordersAverage;
     }
 
@@ -193,7 +193,7 @@ public class AverageMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, double>> ordersAverage = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
-                g.Average(c => c.Orders.Length))).ToList();
+                g.Average(c => c.Orders.Count))).ToList();
         return ordersAverage;
     }
 
@@ -201,7 +201,7 @@ public class AverageMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, double> ordersAverage = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
-                g => g.Average(c => c.Orders.Length));
+                g => g.Average(c => c.Orders.Count));
         return ordersAverage;
     }
 

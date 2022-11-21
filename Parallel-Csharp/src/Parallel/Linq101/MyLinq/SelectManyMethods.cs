@@ -67,7 +67,7 @@ public class SelectManyMethods {
         return customerProperties;
     }
     
-    public List<Tuple<string,int,double>> CustomerSelectManyCustomerOrderIdAndDates() {
+    public List<Tuple<string,int,double>> CustomerSelectManyCustomerOrderIdAndTotals() {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string,int,double>> customerProperties = customers.SelectMany(c=>c.Orders,
             (c,o)=>Tuple.Create(c.CustomerId, o.OrderId, o.Total)).ToList();
@@ -101,7 +101,7 @@ public class SelectManyMethods {
         return customerProperties;
     }
     
-    public List<Tuple<string,int,double>> CustomerSelectManyCustomerBigOrderIdAndDates() {
+    public List<Tuple<string,int,double>> CustomerSelectManyCustomerBigOrderIdAndTotals() {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string,int,double>> customerProperties = customers.SelectMany(c=>c.Orders.Where(o=>o.Total>100),
             (c,o)=>Tuple.Create(c.CustomerId, o.OrderId, o.Total)).ToList();
@@ -137,7 +137,7 @@ public class SelectManyMethods {
         return customerProperties;
     }
     
-    public List<Tuple<string,int,double>> CustomerSelectManyCustomerNewOrderIdAndDates() {
+    public List<Tuple<string,int,double>> CustomerSelectManyCustomerNewOrderIdAndTotals() {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string,int,double>> customerProperties = customers.SelectMany(
             c=>c.Orders.Where(o=>o.OrderDate>new DateTime(1998, 1, 1)),
@@ -190,38 +190,38 @@ public class SelectManyMethods {
         return customerProperties;
     }
     
-    public int[] IndexedSelectManyJoin() {
+    public int[] IndexedSelectMany() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8 };
-        int[] pairs = numbersA.SelectMany((a,index) => numbersB.Select(
-                b=>index%2==0?a:b)).ToArray();
+        int[] pairs = numbersA.SelectMany((a,i) => numbersB.Select(
+                b=>i%2==0?a:b)).ToArray();
         return pairs;
     }
     
-    public int[] IndexedSelectManyJoinBig() {
+    public int[] IndexedSelectManyBig() {
         int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
         int[] numbersB = { 1, 3, 5, 7, 8 };
-        int[] pairs = numbersA.SelectMany((a,index) => numbersB.Where(b=>b<a+index)).ToArray();
+        int[] pairs = numbersA.SelectMany((a,i) => numbersB.Where(b=>b<a+i)).ToArray();
         return pairs;
     }
     public List<Order> CustomerIndexedSelectManyOrdersTake() {
         List<Customer> customers = GetCustomerList();
-        List<Order> customerProperties = customers.SelectMany((c,index)=>
-            c.Orders.Take(index<10?5:1).ToList()).ToList();
+        List<Order> customerProperties = customers.SelectMany((c,i)=>
+            c.Orders.Take(i<10?5:1).ToList()).ToList();
         return customerProperties;
     }
     
     public List<Order> WaCustomerIndexedSelectManyOrdersTake() {
         List<Customer> customers = GetCustomerList();
-        List<Order> customerProperties = customers.Where(c=>c.Region=="WA").SelectMany((c,index)=>
-            c.Orders.Take(index<10?5:1).ToList()).ToList();
+        List<Order> customerProperties = customers.Where(c=>c.Region=="WA").SelectMany((c,i)=>
+            c.Orders.Take(i<10?5:1).ToList()).ToList();
         return customerProperties;
     }
     
-    public List<string> IndexedSelectMany() {
+    public List<string> IndexedSelectManyString() {
         List<Customer> customers = GetCustomerList();
-        List<string> customerOrders = customers.SelectMany((c, index) => c.Orders.Select(o => 
-            "Customer #" + (index + 1) + " has an order with OrderID " + o.OrderId)).ToList();
+        List<string> customerOrders = customers.SelectMany((c, i) => c.Orders.Select(o => 
+            "Customer #" + (i + 1) + " has an order with OrderID " + o.OrderId)).ToList();
         return customerOrders;
     }
 }

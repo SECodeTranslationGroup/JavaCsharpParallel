@@ -240,9 +240,9 @@ public class SelectMethods {
         return customerProperties;
     }
     
-    public List<Tuple<string,Order[]>> CustomerIdAndOrders() {
+    public List<Tuple<string,List<Order>>> CustomerIdAndOrders() {
         List<Customer> customers = GetCustomerList();
-        List<Tuple<string,Order[]>> customerProperties = customers.Select(c=>
+        List<Tuple<string,List<Order>>> customerProperties = customers.Select(c=>
             Tuple.Create(c.CustomerId, c.Orders)).ToList();
         return customerProperties;
     }
@@ -250,7 +250,7 @@ public class SelectMethods {
     public List<Tuple<string,int>> CustomerIdAndOrdersCount() {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string,int>> customerProperties = customers.Select(c=>
-            Tuple.Create(c.CustomerId, c.Orders.Length)).ToList();
+            Tuple.Create(c.CustomerId, c.Orders.Count)).ToList();
         return customerProperties;
     }
     
@@ -277,64 +277,64 @@ public class SelectMethods {
 
     public bool[] IntWithIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        bool[] numSelected = numbers.Select((n, index) => n == index).ToArray();
+        bool[] numSelected = numbers.Select((n, i) => n == i).ToArray();
         return numSelected;
     }
     
     public int[] IntAddIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int[] numSelected = numbers.Select((n, index) => n + index).ToArray();
+        int[] numSelected = numbers.Select((n, i) => n + i).ToArray();
         return numSelected;
     }
     
     public bool[] OddIntWithIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        bool[] numSelected = numbers.Where(n => n % 2 == 1).Select((n, index) => n == index).ToArray();
+        bool[] numSelected = numbers.Where(n => n % 2 == 1).Select((n, i) => n == i).ToArray();
         return numSelected;
     }
     
     public int[] OddIntAddIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int[] numSelected = numbers.Where(n => n % 2 == 1).Select((n, index) => n + index).ToArray();
+        int[] numSelected = numbers.Where(n => n % 2 == 1).Select((n, i) => n + i).ToArray();
         return numSelected;
     }
 
     public bool[] OddIntWithOriginalIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        bool[] numSelected = numbers.Select((n, index) => Tuple.Create(n % 2 == 1,n == index))
+        bool[] numSelected = numbers.Select((n, i) => Tuple.Create(n % 2 == 1,n == i))
             .Where(t=>t.Item1).Select(t=>t.Item2).ToArray();
         return numSelected;
     }
     
     public int[] OddIntAddOriginalIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int[] numSelected = numbers.Select((n, index) => n % 2 == 1 ? n + index : -1)
+        int[] numSelected = numbers.Select((n, i) => n % 2 == 1 ? n + i : -1)
             .Where(n=>n!=-1).ToArray();
         return numSelected;
     }
 
     public bool[] BigIntWithIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        bool[] numSelected = numbers.Where(n => n > 5).Select((n, index) => n == index).ToArray();
+        bool[] numSelected = numbers.Where(n => n > 5).Select((n, i) => n == i).ToArray();
         return numSelected;
     }
     
     public int[] BigIntAddIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int[] numSelected = numbers.Where(n => n > 5).Select((n, index) => n + index).ToArray();
+        int[] numSelected = numbers.Where(n => n > 5).Select((n, i) => n + i).ToArray();
         return numSelected;
     }
     
     public bool[] BigIntWithOriginalIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        bool[] numSelected = numbers.Select((n, index) => Tuple.Create(n > 5,n == index))
+        bool[] numSelected = numbers.Select((n, i) => Tuple.Create(n > 5,n == i))
             .Where(t=>t.Item1).Select(t=>t.Item2).ToArray();
         return numSelected;
     }
     
     public int[] BigIntAddOriginalIndex() {
         int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-        int[] numSelected = numbers.Select((n, index) => n > 5 ? n + index : -1)
+        int[] numSelected = numbers.Select((n, i) => n > 5 ? n + i : -1)
             .Where(n=>n!=-1).ToArray();
         return numSelected;
     }

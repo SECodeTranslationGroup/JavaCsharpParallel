@@ -27,7 +27,7 @@ public class AggregateOperators {
     public int NestedCount() {
         List<Customer> customers = GetCustomerList();
         var orderCounts = customers
-            .Select(c => Tuple.Create(c.CustomerId, c.Orders.Length)).ToList();
+            .Select(c => Tuple.Create(c.CustomerId, c.Orders.Count)).ToList();
         foreach (var customer in orderCounts)
             Console.WriteLine($"ID: {customer.Item1}, count: {customer.Item2}");
         return 0;

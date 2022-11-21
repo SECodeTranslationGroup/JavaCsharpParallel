@@ -131,7 +131,7 @@ public class FirstMethods {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, List<Customer>>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
-                g.Where(c => c.Orders.Length ==g.First().Orders.Length).ToList())).ToList();
+                g.Where(c => c.Orders.Count ==g.First().Orders.Count).ToList())).ToList();
         return customerOrdersFirst;
     }
 
@@ -139,7 +139,7 @@ public class FirstMethods {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, List<Customer>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
-                g => g.Where(c => c.Orders.Length ==g.First().Orders.Length).ToList());
+                g => g.Where(c => c.Orders.Count ==g.First().Orders.Count).ToList());
         return customerOrdersFirst;
     }
     
@@ -272,7 +272,7 @@ public class FirstMethods {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, List<Customer>>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .Select(g => Tuple.Create(g.Key,
-                g.Where(c => c.Orders.Length ==g.FirstOrDefault(Customer.Default).Orders.Length).ToList())).ToList();
+                g.Where(c => c.Orders.Count ==g.FirstOrDefault(Customer.Default).Orders.Count).ToList())).ToList();
         return customerOrdersFirst;
     }
 
@@ -280,7 +280,7 @@ public class FirstMethods {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, List<Customer>> customerOrdersFirst = customers.GroupBy(c => c.Country)
             .ToDictionary(g => g.Key,
-                g => g.Where(c => c.Orders.Length ==g.FirstOrDefault(Customer.Default).Orders.Length).ToList());
+                g => g.Where(c => c.Orders.Count ==g.FirstOrDefault(Customer.Default).Orders.Count).ToList());
         return customerOrdersFirst;
     }
     

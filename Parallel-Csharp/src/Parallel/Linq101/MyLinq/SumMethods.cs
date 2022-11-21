@@ -177,7 +177,7 @@ public class SumMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, int>> ordersTotalSum = customers.GroupBy(c => c.Region)
             .Select(g=>Tuple.Create(g.Key,
-                g.Sum(c=>c.Orders.Length))).ToList();
+                g.Sum(c=>c.Orders.Count))).ToList();
         return ordersTotalSum;
     }
     
@@ -185,7 +185,7 @@ public class SumMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, int> ordersTotalSum = customers.GroupBy(c => c.Region)
             .ToDictionary(g=>g.Key,
-                g=>g.Sum(c=>c.Orders.Length));
+                g=>g.Sum(c=>c.Orders.Count));
         return ordersTotalSum;
     }
     
@@ -193,7 +193,7 @@ public class SumMethod {
         List<Customer> customers = GetCustomerList();
         List<Tuple<string, int>> ordersTotalSum = customers.GroupBy(c => c.Country)
             .Select(g=>Tuple.Create(g.Key,
-                g.Sum(c=>c.Orders.Length))).ToList();
+                g.Sum(c=>c.Orders.Count))).ToList();
         return ordersTotalSum;
     }
     
@@ -201,7 +201,7 @@ public class SumMethod {
         List<Customer> customers = GetCustomerList();
         Dictionary<string, int> ordersTotalSum = customers.GroupBy(c => c.Country)
             .ToDictionary(g=>g.Key,
-                g=>g.Sum(c=>c.Orders.Length));
+                g=>g.Sum(c=>c.Orders.Count));
         return ordersTotalSum;
     }
     
