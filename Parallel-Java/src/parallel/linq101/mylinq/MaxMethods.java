@@ -26,31 +26,31 @@ public class MaxMethods {
     }
     //max syntax : 5
 
-    public int NumbersMax() {
+    public int numbersMax() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         int maxNum = Arrays.stream(numbers).max().getAsInt();
         return maxNum;
     }
 
-    public int BigNumbersMax() {
+    public int bigNumbersMax() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         int maxNum = Arrays.stream(numbers).filter(n -> n >= 5).max().getAsInt();
         return maxNum;
     }
 
-    public int OddNumbersMax() {
+    public int oddNumbersMax() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         int maxNum = Arrays.stream(numbers).filter(n -> n % 2 == 0).max().getAsInt();
         return maxNum;
     }
 
-    public double DoubleMax() {
+    public double doubleMax() {
         double[] numbers = {3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0};
         double maxNum = Arrays.stream(numbers).max().getAsDouble();
         return maxNum;
     }
 
-    public double BigDoubleNumbersMax() {
+    public double bigDoubleNumbersMax() {
         double[] numbers = {3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0};
         double maxNum = Arrays.stream(numbers).filter(n -> n >= 5).max().getAsDouble();
         return maxNum;
@@ -59,78 +59,78 @@ public class MaxMethods {
 
     //max projection: 15
 
-    public int NumbersMaxTwice() {
+    public int numbersMaxTwice() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         int maxNum = Arrays.stream(numbers).map(n -> n * 2).max().getAsInt();
         return maxNum;
     }
 
-    public int BigNumbersMaxTwice() {
+    public int bigNumbersMaxTwice() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         int maxNum = Arrays.stream(numbers).filter(n -> n >= 5).map(n -> n * 2).max().getAsInt();
         return maxNum;
     }
 
-    public int OddNumbersMaxTwice() {
+    public int oddNumbersMaxTwice() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         int maxNum = Arrays.stream(numbers).filter(n -> n % 2 == 0).map(n -> n * 2).max().getAsInt();
         return maxNum;
     }
 
-    public int StringMaxLength() {
+    public int stringMaxLength() {
         String[] words = {"cherry", "apple", "blueberry"};
         int maxLength = Arrays.stream(words).mapToInt(w -> w.length()).max().getAsInt();
         return maxLength;
     }
 
-    public int ShortStringMaxLength() {
+    public int shortStringMaxLength() {
         String[] words = {"cherry", "apple", "blueberry"};
         int maxLength = Arrays.stream(words).filter(w -> w.length() < 7).mapToInt(w -> w.length()).max().getAsInt();
         return maxLength;
     }
 
-    public double ProductUnitPriceMax() {
+    public double productUnitPriceMax() {
         List<Product> products = getProductList();
         double maxUnitPrice = products.stream().mapToDouble(p -> p.getUnitPrice()).max().getAsDouble();
         return maxUnitPrice;
     }
 
-    public double ExpensiveProductUnitPriceMax() {
+    public double expensiveProductUnitPriceMax() {
         List<Product> products = getProductList();
         double maxUnitPrice = products.stream().filter(p -> p.getUnitPrice() > 100)
                 .mapToDouble(p -> p.getUnitPrice()).max().getAsDouble();
         return maxUnitPrice;
     }
 
-    public int ExpensiveProductStockMax() {
+    public int expensiveProductStockMax() {
         List<Product> products = getProductList();
         int maxUnitPrice = products.stream().filter(p -> p.getUnitPrice() > 100)
                 .mapToInt(p -> p.getUnitsInStock()).max().getAsInt();
         return maxUnitPrice;
     }
 
-    public int ProductLongNameLengthMax() {
+    public int productLongNameLengthMax() {
         List<Product> products = getProductList();
         int maxUnitPrice = products.stream().map(p -> p.getProductName())
                 .filter(name -> name.length() > 7).mapToInt(name -> name.length()).max().getAsInt();
         return maxUnitPrice;
     }
 
-    public List<Pair<String, Double>> CustomerOrdersTotalMax() {
+    public List<Pair<String, Double>> customerOrdersTotalMax() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalMax = customers.stream().map(c -> Pair.with(c.getCustomerId(),
                 c.getOrders().stream().mapToDouble(o -> o.getTotal()).max().getAsDouble())).toList();
         return ordersTotalMax;
     }
 
-    public Map<String, Double> CustomerOrdersTotalMaxDict() {
+    public Map<String, Double> customerOrdersTotalMaxDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalMax = customers.stream().collect(toMap(c -> c.getCustomerId(),
                 c -> c.getOrders().stream().mapToDouble(o -> o.getTotal()).max().getAsDouble()));
         return ordersTotalMax;
     }
 
-    public List<Pair<String, Double>> CustomerInRegionOrdersTotalMax(String region) {
+    public List<Pair<String, Double>> customerInRegionOrdersTotalMax(String region) {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalMax = customers.stream().filter(c -> c.getRegion().equals(region))
                 .map(c -> Pair.with(c.getCustomerId(),
@@ -138,7 +138,7 @@ public class MaxMethods {
         return ordersTotalMax;
     }
 
-    public Map<String, Double> CustomerInRegionOrdersTotalMaxDict(String region) {
+    public Map<String, Double> customerInRegionOrdersTotalMaxDict(String region) {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalMax = customers.stream().filter(c -> c.getRegion().equals(region))
                 .collect(toMap(c -> c.getCustomerId(),
@@ -146,7 +146,7 @@ public class MaxMethods {
         return ordersTotalMax;
     }
 
-    public List<Pair<String, Double>> CustomerExpensiveOrdersTotalMax() {
+    public List<Pair<String, Double>> customerExpensiveOrdersTotalMax() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalMax = customers.stream().map(c -> Pair.with(c.getCustomerId(),
                 c.getOrders().stream().filter(o -> o.getTotal() > 100)
@@ -154,7 +154,7 @@ public class MaxMethods {
         return ordersTotalMax;
     }
 
-    public Map<String, Double> CustomerExpensiveOrdersTotalMaxDict() {
+    public Map<String, Double> customerExpensiveOrdersTotalMaxDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalMax = customers.stream().collect(toMap(c -> c.getCustomerId(),
                 c -> c.getOrders().stream().filter(o -> o.getTotal() > 100)
@@ -164,7 +164,7 @@ public class MaxMethods {
 
     //max grouped: 10
 
-    public List<Pair<String, Integer>> ProductEachCategoryStock() {
+    public List<Pair<String, Integer>> productEachCategoryStock() {
         List<Product> products = getProductList();
         List<Pair<String, Integer>> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -172,7 +172,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public Map<String, Integer> ProductEachCategoryStockDict() {
+    public Map<String, Integer> productEachCategoryStockDict() {
         List<Product> products = getProductList();
         Map<String, Integer> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(),
@@ -180,7 +180,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public List<Pair<String, Integer>> ExpensiveProductEachCategoryStock() {
+    public List<Pair<String, Integer>> expensiveProductEachCategoryStock() {
         List<Product> products = getProductList();
         List<Pair<String, Integer>> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream().filter(
@@ -188,7 +188,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public Map<String, Integer> ExpensiveProductEachCategoryStockDict() {
+    public Map<String, Integer> expensiveProductEachCategoryStockDict() {
         List<Product> products = getProductList();
         Map<String, Integer> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream().filter(
@@ -196,7 +196,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public List<Pair<String, Integer>> CustomerEachRegionOrdersMax() {
+    public List<Pair<String, Integer>> customerEachRegionOrdersMax() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Integer>> ordersMax = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -204,7 +204,7 @@ public class MaxMethods {
         return ordersMax;
     }
 
-    public Map<String, Integer> CustomerEachRegionOrdersMaxDict() {
+    public Map<String, Integer> customerEachRegionOrdersMaxDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Integer> ordersMax = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(),
@@ -212,7 +212,7 @@ public class MaxMethods {
         return ordersMax;
     }
 
-    public List<Pair<String, Integer>> CustomerEachCountryOrdersMax() {
+    public List<Pair<String, Integer>> customerEachCountryOrdersMax() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Integer>> ordersMax = customers.stream().collect(groupingBy(c -> c.getCountry()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -220,7 +220,7 @@ public class MaxMethods {
         return ordersMax;
     }
 
-    public Map<String, Integer> CustomerEachCountryOrdersMaxDict() {
+    public Map<String, Integer> customerEachCountryOrdersMaxDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Integer> ordersMax = customers.stream().collect(groupingBy(c -> c.getCountry()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(),
@@ -228,7 +228,7 @@ public class MaxMethods {
         return ordersMax;
     }
 
-    public List<Pair<String, Double>> CustomerEachRegionOrdersTotalMax() {
+    public List<Pair<String, Double>> customerEachRegionOrdersTotalMax() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalMax = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream().flatMap(c ->
@@ -236,7 +236,7 @@ public class MaxMethods {
         return ordersTotalMax;
     }
 
-    public Map<String, Double> CustomerEachRegionOrdersTotalMaxDict() {
+    public Map<String, Double> customerEachRegionOrdersTotalMaxDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalMax = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream().flatMap(c ->
@@ -245,7 +245,7 @@ public class MaxMethods {
     }
 
     //max each group: 10
-    public List<Pair<String, List<Product>>> ProductEachCategoryMaxUnitPriceProducts() {
+    public List<Pair<String, List<Product>>> productEachCategoryMaxUnitPriceProducts() {
         List<Product> products = getProductList();
         List<Pair<String, List<Product>>> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream().collect(groupingBy(p -> p.getUnitPrice()))
@@ -253,7 +253,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public Map<String, List<Product>> ProductEachCategoryMaxUnitPriceProductsDict() {
+    public Map<String, List<Product>> productEachCategoryMaxUnitPriceProductsDict() {
         List<Product> products = getProductList();
         Map<String, List<Product>> categories = products.stream().collect(groupingBy(p -> p.getCategory())).entrySet()
                 .stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream().collect(groupingBy(
@@ -261,7 +261,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public List<Pair<String, List<Product>>> ExpensiveProductEachCategoryMaxUnitPriceProducts() {
+    public List<Pair<String, List<Product>>> expensiveProductEachCategoryMaxUnitPriceProducts() {
         List<Product> products = getProductList();
         List<Pair<String, List<Product>>> categories = products.stream().filter(p -> p.getUnitPrice() > 100).
                 collect(groupingBy(p -> p.getCategory())).entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -270,7 +270,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public Map<String, List<Product>> ExpensiveProductEachCategoryMaxUnitPriceProductsDict() {
+    public Map<String, List<Product>> expensiveProductEachCategoryMaxUnitPriceProductsDict() {
         List<Product> products = getProductList();
         Map<String, List<Product>> categories = products.stream().filter(p -> p.getUnitPrice() > 100).collect(
                 groupingBy(p -> p.getCategory())).entrySet().stream().collect(toMap(g -> g.getKey(),
@@ -279,7 +279,7 @@ public class MaxMethods {
         return categories;
     }
 
-    public List<Pair<String, List<Customer>>> CustomerEachRegionOrdersMaxCustomer() {
+    public List<Pair<String, List<Customer>>> customerEachRegionOrdersMaxCustomer() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, List<Customer>>> customerOrdersMax = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream().
@@ -288,7 +288,7 @@ public class MaxMethods {
         return customerOrdersMax;
     }
 
-    public Map<String, List<Customer>> CustomerEachRegionOrdersMaxCustomerDict() {
+    public Map<String, List<Customer>> customerEachRegionOrdersMaxCustomerDict() {
         List<Customer> customers = getCustomerList();
         Map<String, List<Customer>> customerOrdersMax = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream().
@@ -297,7 +297,7 @@ public class MaxMethods {
         return customerOrdersMax;
     }
 
-    public List<Pair<String, List<Customer>>> CustomerEachCountryOrdersMaxCustomer() {
+    public List<Pair<String, List<Customer>>> customerEachCountryOrdersMaxCustomer() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, List<Customer>>> customerOrdersMax = customers.stream().collect(groupingBy(c -> c.getCountry()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream().
@@ -306,7 +306,7 @@ public class MaxMethods {
         return customerOrdersMax;
     }
 
-    public Map<String, List<Customer>> CustomerEachCountryOrdersMaxCustomerDict() {
+    public Map<String, List<Customer>> customerEachCountryOrdersMaxCustomerDict() {
         List<Customer> customers = getCustomerList();
         Map<String, List<Customer>> customerOrdersMax = customers.stream().collect(groupingBy(c -> c.getCountry()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream().
@@ -315,7 +315,7 @@ public class MaxMethods {
         return customerOrdersMax;
     }
 
-    public List<Pair<String, List<Order>>> CustomerEachRegionOrdersTotalMaxCustomer() {
+    public List<Pair<String, List<Order>>> customerEachRegionOrdersTotalMaxCustomer() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, List<Order>>> customerOrdersTotalMax = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream()
@@ -324,7 +324,7 @@ public class MaxMethods {
         return customerOrdersTotalMax;
     }
 
-    public Map<String, List<Order>> CustomerEachRegionOrdersTotalMaxCustomerDict() {
+    public Map<String, List<Order>> customerEachRegionOrdersTotalMaxCustomerDict() {
         List<Customer> customers = getCustomerList();
         Map<String, List<Order>> customerOrdersTotalMax = customers.stream().collect(groupingBy(c -> c.getCountry()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream()

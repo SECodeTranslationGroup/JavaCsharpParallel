@@ -265,7 +265,7 @@ public class ConvertMethods {
         return doubles;
     }
 
-    public double[] ConvertSelectedDoubleItemToArrayAndPrint() {
+    public double[] convertSelectedDoubleItemToArrayAndPrint() {
         Object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
         double[] doubles = Arrays.stream(numbers).filter(o->o instanceof Double).mapToDouble(d-> (double) d).toArray();
         for (int i = 0; i < doubles.length; i++)
@@ -273,7 +273,7 @@ public class ConvertMethods {
         return doubles;
     }
 
-    public double[] ConvertSelectedDoubleItemToArrayAndPrintForeach() {
+    public double[] convertSelectedDoubleItemToArrayAndPrintForeach() {
         Object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
         double[] doubles = Arrays.stream(numbers).filter(o->o instanceof Double).mapToDouble(d-> (double) d).toArray();
         for (double d : doubles)
@@ -281,13 +281,13 @@ public class ConvertMethods {
         return doubles;
     }
 
-    public List<String> ConvertSelectedStringItemToList() {
+    public List<String> convertSelectedStringItemToList() {
         Object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
         List<String> strings =  Arrays.stream(numbers).filter(o->o instanceof String).map(s->(String)s).toList();
         return strings;
     }
 
-    public List<String> ConvertSelectedStringItemToListAndPrint() {
+    public List<String> convertSelectedStringItemToListAndPrint() {
         Object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
         List<String> strings =  Arrays.stream(numbers).filter(o->o instanceof String).map(s->(String)s).toList();
         for (int i = 0; i < strings.size(); i++)
@@ -295,7 +295,7 @@ public class ConvertMethods {
         return strings;
     }
 
-    public List<String> ConvertSelectedStringItemToListAndPrintForeach() {
+    public List<String> convertSelectedStringItemToListAndPrintForeach() {
         Object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
         List<String> strings = Arrays.stream(numbers).filter(o->o instanceof String).map(s->(String)s).toList();
         for (String s : strings)
@@ -303,7 +303,7 @@ public class ConvertMethods {
         return strings;
     }
 
-    public List<Pair<String,Integer>> ConvertSelectedTupleToList() {
+    public List<Pair<String,Integer>> convertSelectedTupleToList() {
         Object[] numbers = { Pair.with("Alice", "50"), Pair.with("Bob", 40), Pair.with("Cathy", 45) };
         List<Pair<String,Integer>> strings = Arrays.stream(numbers).filter(o->o instanceof Pair &&
                 ((Pair)o).getValue0() instanceof String &&((Pair)o).getValue1() instanceof Integer)
@@ -311,7 +311,7 @@ public class ConvertMethods {
         return strings;
     }
 
-    public List<Pair<String,Integer>> ConvertSelectedTupleToListAndPrint() {
+    public List<Pair<String,Integer>> convertSelectedTupleToListAndPrint() {
         Object[] numbers = { Pair.with("Alice", "50"), Pair.with("Bob", 40), Pair.with("Cathy", 45) };
         List<Pair<String,Integer>> strings = Arrays.stream(numbers).filter(o->o instanceof Pair &&
                         ((Pair)o).getValue0() instanceof String &&((Pair)o).getValue1() instanceof Integer)
@@ -321,7 +321,7 @@ public class ConvertMethods {
         return strings;
     }
 
-    public Map<String,Integer> ConvertSelectedTupleToDictionary() {
+    public Map<String,Integer> convertSelectedTupleToDictionary() {
         Object[] numbers = { Pair.with("Alice", "50"), Pair.with("Bob", 40), Pair.with("Cathy", 45) };
         Map<String,Integer> strings = Arrays.stream(numbers).filter(o->o instanceof Pair &&
                         ((Pair)o).getValue0() instanceof String &&((Pair)o).getValue1() instanceof Integer)
@@ -329,7 +329,7 @@ public class ConvertMethods {
         return strings;
     }
 
-    public Map<String,Integer> ConvertSelectedTupleToDictionaryAndPrint() {
+    public Map<String,Integer> convertSelectedTupleToDictionaryAndPrint() {
         Object[] numbers = { Pair.with("Alice", "50"), Pair.with("Bob", 40), Pair.with("Cathy", 45) };
         Map<String,Integer> strings = Arrays.stream(numbers).filter(o->o instanceof Pair &&
                         ((Pair)o).getValue0() instanceof String &&((Pair)o).getValue1() instanceof Integer)
