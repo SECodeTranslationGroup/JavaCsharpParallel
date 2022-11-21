@@ -24,31 +24,31 @@ public class AverageMethods {
     }
     //average syntax : 5
 
-    public double NumbersAverage() {
+    public double numbersAverage() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         double averageNum = Arrays.stream(numbers).average().getAsDouble();
         return averageNum;
     }
 
-    public double BigNumbersAverage() {
+    public double bigNumbersAverage() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         double averageNum = Arrays.stream(numbers).filter(n -> n >= 5).average().getAsDouble();
         return averageNum;
     }
 
-    public double OddNumbersAverage() {
+    public double oddNumbersAverage() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         double averageNum = Arrays.stream(numbers).filter(n -> n % 2 == 0).average().getAsDouble();
         return averageNum;
     }
 
-    public double DoubleAverage() {
+    public double doubleAverage() {
         double[] numbers = {3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0};
         double averageNum = Arrays.stream(numbers).average().getAsDouble();
         return averageNum;
     }
 
-    public double BigDoubleNumbersAverage() {
+    public double bigDoubleNumbersAverage() {
         double[] numbers = {3.1, 4.2, 1.6, 0.7, 8.7, 6.9, 7.4, 2.5, 5.7, 0};
         double averageNum = Arrays.stream(numbers).filter(n -> n >= 5).average().getAsDouble();
         return averageNum;
@@ -57,78 +57,78 @@ public class AverageMethods {
 
     //average projection: 15
 
-    public double NumbersAverageTwice() {
+    public double numbersAverageTwice() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         double averageNum = Arrays.stream(numbers).map(n -> n * 2).average().getAsDouble();
         return averageNum;
     }
 
-    public double BigNumbersAverageTwice() {
+    public double bigNumbersAverageTwice() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         double averageNum = Arrays.stream(numbers).filter(n -> n >= 5).map(n -> n * 2).average().getAsDouble();
         return averageNum;
     }
 
-    public double OddNumbersAverageTwice() {
+    public double oddNumbersAverageTwice() {
         int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
         double averageNum = Arrays.stream(numbers).filter(n -> n % 2 == 0).map(n -> n * 2).average().getAsDouble();
         return averageNum;
     }
 
-    public double StringAverageLength() {
+    public double stringAverageLength() {
         String[] words = {"cherry", "apple", "blueberry"};
         double averageLength = Arrays.stream(words).mapToInt(w -> w.length()).average().getAsDouble();
         return averageLength;
     }
 
-    public double ShortStringAverageLength() {
+    public double shortStringAverageLength() {
         String[] words = {"cherry", "apple", "blueberry"};
         double averageLength = Arrays.stream(words).filter(w -> w.length() < 7).mapToInt(w -> w.length()).average().getAsDouble();
         return averageLength;
     }
 
-    public double ProductUnitPriceAverage() {
+    public double productUnitPriceAverage() {
         List<Product> products = getProductList();
         double averageUnitPrice = products.stream().mapToDouble(p -> p.getUnitPrice()).average().getAsDouble();
         return averageUnitPrice;
     }
 
-    public double ExpensiveProductUnitPriceAverage() {
+    public double expensiveProductUnitPriceAverage() {
         List<Product> products = getProductList();
         double averageUnitPrice = products.stream().filter(p -> p.getUnitPrice() > 100)
                 .mapToDouble(p -> p.getUnitPrice()).average().getAsDouble();
         return averageUnitPrice;
     }
 
-    public double ExpensiveProductStockAverage() {
+    public double expensiveProductStockAverage() {
         List<Product> products = getProductList();
         double averageUnitPrice = products.stream().filter(p -> p.getUnitPrice() > 100)
                 .mapToInt(p -> p.getUnitsInStock()).average().getAsDouble();
         return averageUnitPrice;
     }
 
-    public double ProductLongNameLengthAverage() {
+    public double productLongNameLengthAverage() {
         List<Product> products = getProductList();
         double averageUnitPrice = products.stream().map(p -> p.getProductName())
                 .filter(name -> name.length() > 7).mapToInt(name -> name.length()).average().getAsDouble();
         return averageUnitPrice;
     }
 
-    public List<Pair<String, Double>> CustomerOrdersTotalAverage() {
+    public List<Pair<String, Double>> customerOrdersTotalAverage() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalAverage = customers.stream().map(c -> Pair.with(c.getCustomerId(),
                 c.getOrders().stream().mapToDouble(o -> o.getTotal()).average().getAsDouble())).toList();
         return ordersTotalAverage;
     }
 
-    public Map<String, Double> CustomerOrdersTotalAverageDict() {
+    public Map<String, Double> customerOrdersTotalAverageDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalAverage = customers.stream().collect(toMap(c -> c.getCustomerId(),
                 c -> c.getOrders().stream().mapToDouble(o -> o.getTotal()).average().getAsDouble()));
         return ordersTotalAverage;
     }
 
-    public List<Pair<String, Double>> CustomerInRegionOrdersTotalAverage(String region) {
+    public List<Pair<String, Double>> customerInRegionOrdersTotalAverage(String region) {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalAverage = customers.stream().filter(c -> c.getRegion().equals(region))
                 .map(c -> Pair.with(c.getCustomerId(),
@@ -136,7 +136,7 @@ public class AverageMethods {
         return ordersTotalAverage;
     }
 
-    public Map<String, Double> CustomerInRegionOrdersTotalAverageDict(String region) {
+    public Map<String, Double> customerInRegionOrdersTotalAverageDict(String region) {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalAverage = customers.stream().filter(c -> c.getRegion().equals(region))
                 .collect(toMap(c -> c.getCustomerId(),
@@ -144,7 +144,7 @@ public class AverageMethods {
         return ordersTotalAverage;
     }
 
-    public List<Pair<String, Double>> CustomerExpensiveOrdersTotalAverage() {
+    public List<Pair<String, Double>> customerExpensiveOrdersTotalAverage() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalAverage = customers.stream().map(c -> Pair.with(c.getCustomerId(),
                 c.getOrders().stream().filter(o -> o.getTotal() > 100)
@@ -152,7 +152,7 @@ public class AverageMethods {
         return ordersTotalAverage;
     }
 
-    public Map<String, Double> CustomerExpensiveOrdersTotalAverageDict() {
+    public Map<String, Double> customerExpensiveOrdersTotalAverageDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalAverage = customers.stream().collect(toMap(c -> c.getCustomerId(),
                 c -> c.getOrders().stream().filter(o -> o.getTotal() > 100)
@@ -162,7 +162,7 @@ public class AverageMethods {
 
     //average grouped: 10
 
-    public List<Pair<String, Double>> ProductEachCategoryStock() {
+    public List<Pair<String, Double>> productEachCategoryStock() {
         List<Product> products = getProductList();
         List<Pair<String, Double>> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -170,7 +170,7 @@ public class AverageMethods {
         return categories;
     }
 
-    public Map<String, Double> ProductEachCategoryStockDict() {
+    public Map<String, Double> productEachCategoryStockDict() {
         List<Product> products = getProductList();
         Map<String, Double> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(),
@@ -178,7 +178,7 @@ public class AverageMethods {
         return categories;
     }
 
-    public List<Pair<String, Double>> ExpensiveProductEachCategoryStock() {
+    public List<Pair<String, Double>> expensiveProductEachCategoryStock() {
         List<Product> products = getProductList();
         List<Pair<String, Double>> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream().filter(
@@ -186,7 +186,7 @@ public class AverageMethods {
         return categories;
     }
 
-    public Map<String, Double> ExpensiveProductEachCategoryStockDict() {
+    public Map<String, Double> expensiveProductEachCategoryStockDict() {
         List<Product> products = getProductList();
         Map<String, Double> categories = products.stream().collect(groupingBy(p -> p.getCategory()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream().filter(
@@ -194,7 +194,7 @@ public class AverageMethods {
         return categories;
     }
 
-    public List<Pair<String, Double>> CustomerEachRegionOrdersAverage() {
+    public List<Pair<String, Double>> customerEachRegionOrdersAverage() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersAverage = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -202,7 +202,7 @@ public class AverageMethods {
         return ordersAverage;
     }
 
-    public Map<String, Double> CustomerEachRegionOrdersAverageDict() {
+    public Map<String, Double> customerEachRegionOrdersAverageDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersAverage = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(),
@@ -210,7 +210,7 @@ public class AverageMethods {
         return ordersAverage;
     }
 
-    public List<Pair<String, Double>> CustomerEachCountryOrdersAverage() {
+    public List<Pair<String, Double>> customerEachCountryOrdersAverage() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersAverage = customers.stream().collect(groupingBy(c -> c.getCountry()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(),
@@ -218,7 +218,7 @@ public class AverageMethods {
         return ordersAverage;
     }
 
-    public Map<String, Double> CustomerEachCountryOrdersAverageDict() {
+    public Map<String, Double> customerEachCountryOrdersAverageDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersAverage = customers.stream().collect(groupingBy(c -> c.getCountry()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(),
@@ -226,7 +226,7 @@ public class AverageMethods {
         return ordersAverage;
     }
 
-    public List<Pair<String, Double>> CustomerEachRegionOrdersTotalAverage() {
+    public List<Pair<String, Double>> customerEachRegionOrdersTotalAverage() {
         List<Customer> customers = getCustomerList();
         List<Pair<String, Double>> ordersTotalAverage = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().map(g -> Pair.with(g.getKey(), g.getValue().stream().flatMap(c ->
@@ -234,7 +234,7 @@ public class AverageMethods {
         return ordersTotalAverage;
     }
 
-    public Map<String, Double> CustomerEachRegionOrdersTotalAverageDict() {
+    public Map<String, Double> customerEachRegionOrdersTotalAverageDict() {
         List<Customer> customers = getCustomerList();
         Map<String, Double> ordersTotalAverage = customers.stream().collect(groupingBy(c -> c.getRegion()))
                 .entrySet().stream().collect(toMap(g -> g.getKey(), g -> g.getValue().stream().flatMap(c ->

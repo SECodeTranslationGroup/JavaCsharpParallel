@@ -71,52 +71,52 @@ public class GeneratorMethods {
         return numbers;
     }
 
-    public List<Integer> RepeatedInts() {
+    public List<Integer> repeatedInts() {
         List<Integer> numbers = Collections.nCopies(50, 0);
         return numbers;
     }
 
-    public List<Integer> RepeatedIntsWithCount(int count) {
+    public List<Integer> repeatedIntsWithCount(int count) {
         List<Integer> numbers = Collections.nCopies(count, 0);
         return numbers;
     }
 
-    public List<Integer> RepeatedIntsWithValue(int value) {
+    public List<Integer> repeatedIntsWithValue(int value) {
         List<Integer> numbers = Collections.nCopies(10, value);
         return numbers;
     }
 
-    public List<Integer> RepeatedIntsWithValueAndCount(int value,int count) {
+    public List<Integer> repeatedIntsWithValueAndCount(int value,int count) {
         List<Integer> numbers = Collections.nCopies(count, value);
         return numbers;
     }
 
-    public List<Product> RepeatedProducts() {
+    public List<Product> repeatedProducts() {
         List<Product> products = Collections.nCopies(30,Product.DEFAULT);
         return products;
     }
 
-    public List<Product> RepeatedProductsWithBase(Product product) {
+    public List<Product> repeatedProductsWithBase(Product product) {
         List<Product> products = Collections.nCopies(10,product);
         return products;
     }
 
-    public List<Product> RepeatedProductsWithCount(int count) {
+    public List<Product> repeatedProductsWithCount(int count) {
         List<Product> products = Collections.nCopies(count,Product.DEFAULT);
         return products;
     }
 
-    public List<Product> RepeatedProductsWithBaseAndCount(Product product,int count) {
+    public List<Product> repeatedProductsWithBaseAndCount(Product product,int count) {
         List<Product> products = Collections.nCopies(count, product);
         return products;
     }
 
-    public List<Customer> RepeatedCustomers() {
+    public List<Customer> repeatedCustomers() {
         List<Customer> customers =  Collections.nCopies(5, Customer.DEFAULT);
         return customers;
     }
 
-    public List<Order> RepeatedOrders() {
+    public List<Order> repeatedOrders() {
         List<Order> orders = Collections.nCopies(10, Order.DEFAULT);
         return orders;
     }
