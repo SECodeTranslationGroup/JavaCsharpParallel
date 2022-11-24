@@ -53,6 +53,7 @@ public class SetMethods {
         char[] words = first.Union(second).ToArray();
         return words;
     }
+    
     public List<string> UnionOfCategory() {
         string[] categories = {"Furnitures", "Seagoods"};
         List<Product> products = GetProductList();
@@ -60,6 +61,7 @@ public class SetMethods {
         List<string> uniqueCategories = productCategories.Union(categories).ToList();
         return uniqueCategories;
     }
+    
     public List<string> UnionOfRegion() {
         string[] regions = {"WA", "AF","RO"};
         List<Customer> customers = GetCustomerList();
@@ -67,6 +69,7 @@ public class SetMethods {
         List<string> uniqueRegions = customerRegions.Union(regions).ToList();
         return uniqueRegions;
     }
+    
     public List<string> UnionOfName() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
@@ -75,6 +78,7 @@ public class SetMethods {
         List<string> uniqueNames = productNames.Union(customerNames).ToList();
         return uniqueNames;
     }
+    
     public List<char> UnionOfNameFirstChar() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
@@ -131,6 +135,7 @@ public class SetMethods {
         char[] words = first.Intersect(second).ToArray();
         return words;
     }
+    
     public List<string> IntersectOfCategory() {
         string[] categories = {"Furnitures", "Seagoods"};
         List<Product> products = GetProductList();
@@ -138,6 +143,7 @@ public class SetMethods {
         List<string> sharedCategories = productCategories.Intersect(categories).ToList();
         return sharedCategories;
     }
+    
     public List<string> IntersectOfRegion() {
         string[] regions = {"WA", "AF","RO"};
         List<Customer> customers = GetCustomerList();
@@ -145,6 +151,7 @@ public class SetMethods {
         List<string> sharedRegions = customerRegions.Intersect(regions).ToList();
         return sharedRegions;
     }
+    
     public List<string> IntersectOfName() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
@@ -210,6 +217,7 @@ public class SetMethods {
         char[] words = first.Except(second).ToArray();
         return words;
     }
+    
     public List<string> ExceptOfCategory() {
         string[] categories = {"Furnitures", "Seagoods"};
         List<Product> products = GetProductList();
@@ -217,6 +225,7 @@ public class SetMethods {
         List<string> differentCategories = productCategories.Except(categories).ToList();
         return differentCategories;
     }
+    
     public List<string> ExceptOfRegion() {
         string[] regions = {"WA", "AF","RO"};
         List<Customer> customers = GetCustomerList();
@@ -224,6 +233,7 @@ public class SetMethods {
         List<string> differentRegions = customerRegions.Except(regions).ToList();
         return differentRegions;
     }
+    
     public List<string> ExceptOfName() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();
@@ -232,6 +242,7 @@ public class SetMethods {
         List<string> differentNames = productNames.Except(customerNames).ToList();
         return differentNames;
     }
+    
     public List<char> ExceptOfNameFirstChar() {
         List<Product> products = GetProductList();
         List<Customer> customers = GetCustomerList();

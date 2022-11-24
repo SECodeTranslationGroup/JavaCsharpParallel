@@ -145,7 +145,7 @@ public class ConvertMethods {
         return productsList;
     }
 
-    public List<double> ProductsConvertToDescendingUnitPriceList() {
+    public List<double> ProductsConvertToUnitPriceList() {
         List<Product> products = GetProductList();
         List<double> pricesList = products.Select(p => p.UnitPrice).OrderBy(d => d).ToList();
         return pricesList;
