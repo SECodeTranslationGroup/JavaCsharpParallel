@@ -7,9 +7,6 @@ import parallel.linq101.datasource.Product;
 
 public class Fstream {
     private final String FILE_NAME = "file.txt";
-    private final String FILE_OUT = "out.txt";
-    private final String FILE_IN = "in.txt";
-    private final int size = 109;
 
     public static FileInputStream getFileInputStream(String filepath) {
         FileInputStream fileInputStream = null;
