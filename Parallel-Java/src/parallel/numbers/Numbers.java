@@ -225,8 +225,8 @@ public class Numbers {
         }//end for
     }
 
-    public double[] getRealRotatedLimits( double phi, double xc, double xpc, double xMin,
-                                          double xMax, double yMin, double yMax) {
+    public double[] getT(double phi,double xc, double xpc, double xMin,
+                         double xMax, double yMin, double yMax){
         double coefX = Math.sin( Math.PI * phi / 180. );
         double coefY = Math.cos( Math.PI * phi / 180. );
 
@@ -248,21 +248,23 @@ public class Numbers {
         if ( coefX != 0. ) {
             t[3] = ( xMin - xc ) / coefX;
         }
+        return t;
+    }
+
+    public double[] getRealRotatedLimits( double []t, double phi, double xc, double xpc) {
+        double coefX = Math.sin( Math.PI * phi / 180. );
+        double coefY = Math.cos( Math.PI * phi / 180. );
 
         double tTR = Double.MAX_VALUE;
-        int iTR = -1;
         for ( int i = 0; i < 4; i++ ) {
             if ( Math.abs( tTR ) > Math.abs( t[i] ) ) {
-                iTR = i;
                 tTR = t[i];
             }
         }
 
         double tBL = Double.MAX_VALUE;
-        int iBL = -1;
         for ( int i = 0; i < 4; i++ ) {
             if ( tTR * t[i] < 0. && Math.abs( tBL ) > Math.abs( t[i] ) ) {
-                iBL = i;
                 tBL = t[i];
             }
         }

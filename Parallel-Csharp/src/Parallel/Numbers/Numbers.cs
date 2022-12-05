@@ -211,10 +211,10 @@ public class Numbers
         }//end for
     }
     
-    public double[] GetRealRotatedLimits( double phi, double xc, double xpc, double xMin,
-                                        double xMax, double yMin, double yMax) {
-        double coefX = Math.Sin( Math.PI * phi / 180 );
-        double coefY = Math.Cos( Math.PI * phi / 180 );
+    public double[] GetT(double phi,double xc, double xpc, double xMin,
+        double xMax, double yMin, double yMax){
+        double coefX = Math.Sin( Math.PI * phi / 180.0 );
+        double coefY = Math.Cos( Math.PI * phi / 180.0 );
 
         //top right corner
         double[] t = new double[4];
@@ -234,21 +234,23 @@ public class Numbers
         if ( coefX != 0.0 ) {
             t[3] = ( xMin - xc ) / coefX;
         }
-
+        return t;
+    }
+    
+    public double[] GetRealRotatedLimits( double []t, double phi, double xc, double xpc) {
+        double coefX = Math.Sin( Math.PI * phi / 180 );
+        double coefY = Math.Cos( Math.PI * phi / 180 );
+        
         double tTR = double.MaxValue;
-        int iTR = -1;
         for ( int i = 0; i < 4; i++ ) {
             if ( Math.Abs( tTR ) > Math.Abs( t[i] ) ) {
-                iTR = i;
                 tTR = t[i];
             }
         }
 
         double tBL = double.MaxValue;
-        int iBL = -1;
         for ( int i = 0; i < 4; i++ ) {
             if ( tTR * t[i] < 0.0 && Math.Abs( tBL ) > Math.Abs( t[i] ) ) {
-                iBL = i;
                 tBL = t[i];
             }
         }
