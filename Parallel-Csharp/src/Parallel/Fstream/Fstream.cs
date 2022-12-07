@@ -4,8 +4,7 @@ using System.IO;
 using Parallel.Linq101.DataSources;
 namespace Parallel_Csharp.Parallel.fstream;
 
-public class Fstream
-{
+public class Fstream {
     private const string FileName = "file.txt";
     private const int Size = 109;
 

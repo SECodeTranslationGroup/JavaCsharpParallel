@@ -1,7 +1,6 @@
 namespace Parallel.Linq101.Chrono;
 using System;
-public class DateTimeLess
-{
+public class DateTimeLess {
     //reuse
     public bool TimeLess(DateTime time1, DateTime time2){
         return time1 < time2;

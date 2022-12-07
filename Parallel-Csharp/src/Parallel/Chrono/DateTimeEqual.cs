@@ -1,7 +1,6 @@
 namespace Parallel.Linq101.Chrono;
 using System;
-public class DateTimeEqual
-{
+public class DateTimeEqual {
     public DateTime GetCurrentTime(){
         return DateTime.Now;
     }

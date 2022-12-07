@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace Parallel_Csharp.Parallel.Cmath;
 
-public class Cmath
-{
+public class Cmath {
     public List<int> RandomColor()
     {
         Random random = new Random();

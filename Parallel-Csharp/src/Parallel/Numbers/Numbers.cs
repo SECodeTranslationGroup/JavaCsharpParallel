@@ -2,8 +2,7 @@ using System;
 
 namespace Parallel_Csharp.Parallel.Numbers;
 
-public class Numbers
-{
+public class Numbers {
     public  double Calculate(double base1, double n) {
         return Math.Pow(Math.E, Math.Log(base1)/n);
     }

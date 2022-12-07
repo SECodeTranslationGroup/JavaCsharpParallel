@@ -1,7 +1,6 @@
 namespace Parallel.Linq101.Chrono;
 using System;
-public class DateTimeGreater
-{
+public class DateTimeGreater {
     //reuse
     public bool TimeGreater(DateTime time1, DateTime time2){
         return time1 > time2;

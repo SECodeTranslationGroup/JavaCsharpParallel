@@ -4,8 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Parallel_Csharp.Parallel.MyRegex;
 
-public class MyRegex
-{
+public class MyRegex {
     private int files = 0, ok = 0, warns = 0, css = 0, errs = 0, overflow = 0;
     public void Scan(List<string> lines, Regex[] patterns, SortedDictionary<Regex, int> counts)
     {

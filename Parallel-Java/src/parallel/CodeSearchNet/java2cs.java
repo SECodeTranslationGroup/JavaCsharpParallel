@@ -1,4 +1,7 @@
-public static void morePositiveNums(String... args) { 
+package parallel.java2cs;
+
+public class java2cs{
+public static void morePositiveNums(String... args) {
     Scanner sc = new Scanner(System.in); 
     Integer[] lines = new Integer[sc.nextInt()]; 
     for(int i = 0; sc.hasNext(); i++) { lines[i] = sc.nextInt(); }
@@ -1059,77 +1062,77 @@ public static void checkQuotien(String[] args){
     System.out.println(Math.ceil((double)d / s) > t ? "No" :"Yes");
 }
 public static void toOdd(String args[])
+{
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int ar[]=new int[n];
+        for(int i=0;i<n;i++)
         {
-                Scanner scan=new Scanner(System.in);
-                int n=scan.nextInt();
-                int ar[]=new int[n];
-                for(int i=0;i<n;i++)
-                {
-                        ar[i]=scan.nextInt();
-                }
-                Arrays.sort(ar);
-                if(n%2==1)
-                {
-                        System.out.println(0);
-                }else {
-                        int div=(int) Math.ceil(n/2);
-                        System.out.println(ar[div]-ar[div-1]);
-                }
+                ar[i]=scan.nextInt();
         }
-
-        public static void getV(String args[]){
-            Scanner sc = new Scanner(System.in);
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int h = sc.nextInt();
-            int m = sc.nextInt();
-            sc.close();
-            double degree = (30*h + 0.5*m) - 6*m;
-            double distance = Math.sqrt(a*a + b*b -2*a*b*Math.cos(Math.toRadians(degree)));
-            System.out.println(distance);
-        }    
-
-        public static void calcAngle(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            double A = sc.nextDouble();
-            double B = sc.nextDouble();
-            double H = sc.nextDouble();
-            double M = sc.nextDouble();
-            System.out.println(Math.sqrt(A*A+B*B-2.0*A*B*Math.cos(2.0*Math.PI*(H/12.0+M/12.0/60.0-M/60.0))));
+        Arrays.sort(ar);
+        if(n%2==1)
+        {
+                System.out.println(0);
+        }else {
+                int div=(int) Math.ceil(n/2);
+                System.out.println(ar[div]-ar[div-1]);
         }
+}
 
-        static double calcAngle(double h, double m) 
-    { 
-        if (h <0 || m < 0 || h >12 || m > 60) 
-            System.out.println("Wrong input"); 
-        if (h == 12) 
-            h = 0; 
-        if (m == 60)  
-            m = 0; 
-        double hour_angle = (double)(0.5 * (h*60 + m)); 
-        double minute_angle = (double)(6*m); 
-        double angle = (double)Math.abs(hour_angle - minute_angle); 
-        angle = (double)Math.min(360-angle, angle); 
-        return angle; 
-    } 
+public static void getV(String args[]){
+    Scanner sc = new Scanner(System.in);
+    int a = sc.nextInt();
+    int b = sc.nextInt();
+    int h = sc.nextInt();
+    int m = sc.nextInt();
+    sc.close();
+    double degree = (30*h + 0.5*m) - 6*m;
+    double distance = Math.sqrt(a*a + b*b -2*a*b*Math.cos(Math.toRadians(degree)));
+    System.out.println(distance);
+}
 
-    public static void calcAngle()
-    {
-        DecimalFormat df = new DecimalFormat("#.####################");
-        double a=in.nextDouble(),b=in.nextDouble();
-        double h=in.nextDouble(),m=in.nextDouble();
-        double angle=Math.abs(30*h - 11*m/2.0);
-       double ans=Math.toRadians(angle);
-        double c= Math.sqrt(a*a + b*b - 2.0*a*b*Math.cos(ans));
-        System.out.println(df.format(c));
-    }
+public static void calcAngle(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    double A = sc.nextDouble();
+    double B = sc.nextDouble();
+    double H = sc.nextDouble();
+    double M = sc.nextDouble();
+    System.out.println(Math.sqrt(A*A+B*B-2.0*A*B*Math.cos(2.0*Math.PI*(H/12.0+M/12.0/60.0-M/60.0))));
+}
 
-    static double third_side(double a,  
-                    double b, double c) 
-    { 
-        double angle =(double) Math.cos((double)Math.toRadians(c));
-        return (double)Math.sqrt((a * a) + 
-            (b * b) - 2 * a * b * angle); 
+static double calcAngle(double h, double m)
+{
+    if (h <0 || m < 0 || h >12 || m > 60)
+        System.out.println("Wrong input");
+    if (h == 12)
+        h = 0;
+    if (m == 60)
+        m = 0;
+    double hour_angle = (double)(0.5 * (h*60 + m));
+    double minute_angle = (double)(6*m);
+    double angle = (double)Math.abs(hour_angle - minute_angle);
+    angle = (double)Math.min(360-angle, angle);
+    return angle;
+}
+
+public static void calcAngle()
+{
+    DecimalFormat df = new DecimalFormat("#.####################");
+    double a=in.nextDouble(),b=in.nextDouble();
+    double h=in.nextDouble(),m=in.nextDouble();
+    double angle=Math.abs(30*h - 11*m/2.0);
+   double ans=Math.toRadians(angle);
+    double c= Math.sqrt(a*a + b*b - 2.0*a*b*Math.cos(ans));
+    System.out.println(df.format(c));
+}
+
+static double third_side(double a,
+                double b, double c)
+{
+    double angle =(double) Math.cos((double)Math.toRadians(c));
+    return (double)Math.sqrt((a * a) +
+        (b * b) - 2 * a * b * angle);
 } 
 
 public static void evenTenPow(String[] args) throws IOException {
@@ -1154,16 +1157,16 @@ public static void decimal(String[]args){
     System.out.println(l);
   }
 
-  public static void evenTenPow(String args[]) {
-    Scanner sc = new Scanner(System.in);
-    final int N = sc.nextInt();
-    long ans = 0;
-    for(int i=N;i>0;i--){
-        if(Math.floor(Math.log10(i))%2==0){
-            ans++;
-        }
+public static void evenTenPow(String args[]) {
+Scanner sc = new Scanner(System.in);
+final int N = sc.nextInt();
+long ans = 0;
+for(int i=N;i>0;i--){
+    if(Math.floor(Math.log10(i))%2==0){
+        ans++;
     }
-    System.out.println(ans);
+}
+System.out.println(ans);
 }
 
 int numberOfDigits(int n) {
@@ -1201,52 +1204,52 @@ public static boolean triangle(int i,int[][] t){
     double res=Math.min(Math.min(Math.hypot(t[i][0],t[i][1]),Math.hypot(t[i][0],t[i][2])),Math.hypot(t[i][2],t[i][1]));
     if(res==max){return true;}
     else{return false;}
-    }
-
-    public static void getTickDistance(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int A = scan.nextInt();
-        int B = scan.nextInt();
-        int H = scan.nextInt();
-        int M = scan.nextInt();
-        double arg1 = 30 * H + 0.5 * M;
-        double arg2 = 6 * M;
-        double x1 = A * Math.cos(Math.toRadians(arg1));
-        double y1 = A * Math.sin(Math.toRadians(arg1));
-        double x2 = B * Math.cos(Math.toRadians(arg2));
-        double y2 = B * Math.sin(Math.toRadians(arg2));
-        System.out.println(Math.hypot(x2 - x1, y2 - y1));
-      }
-
-      public void getTickDistance(int testNumber, InputReader in, PrintWriter out) {
-        double a = in.nextInt(), b = in.nextInt();
-        double h = in.nextInt(), m = in.nextInt();
-        double x1 = a * Math.cos((h + m / 60) / 12 * 2 * Math.PI);
-        double y1 = a * Math.sin((h + m / 60) / 12 * 2 * Math.PI);
-        double x2 = b * Math.cos(m / 60 * 2 * Math.PI);
-        double y2 = b * Math.sin(m / 60 * 2 * Math.PI);
-        out.println(Util.formatDouble(Math.hypot(x1 - x2, y1 - y2)));
-    }
-
-    public static void isTriangle(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int D = sc.nextInt();
-        long x = 0;
-        long y = 0;
-        int count = 0;
-        double distance = 0;
-        for (int i = 0; i < N; i++ ) {
-                x = sc.nextLong();
-                y = sc.nextLong();
-                distance = Math.hypot(x, y);
-                if (distance <= D) count++;
-        }
-        sc.close();
-        System.out.println(count);
 }
 
-    public static void triangle(String args[]) {
+public static void getTickDistance(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    int A = scan.nextInt();
+    int B = scan.nextInt();
+    int H = scan.nextInt();
+    int M = scan.nextInt();
+    double arg1 = 30 * H + 0.5 * M;
+    double arg2 = 6 * M;
+    double x1 = A * Math.cos(Math.toRadians(arg1));
+    double y1 = A * Math.sin(Math.toRadians(arg1));
+    double x2 = B * Math.cos(Math.toRadians(arg2));
+    double y2 = B * Math.sin(Math.toRadians(arg2));
+    System.out.println(Math.hypot(x2 - x1, y2 - y1));
+  }
+
+  public void getTickDistance(int testNumber, InputReader in, PrintWriter out) {
+    double a = in.nextInt(), b = in.nextInt();
+    double h = in.nextInt(), m = in.nextInt();
+    double x1 = a * Math.cos((h + m / 60) / 12 * 2 * Math.PI);
+    double y1 = a * Math.sin((h + m / 60) / 12 * 2 * Math.PI);
+    double x2 = b * Math.cos(m / 60 * 2 * Math.PI);
+    double y2 = b * Math.sin(m / 60 * 2 * Math.PI);
+    out.println(Util.formatDouble(Math.hypot(x1 - x2, y1 - y2)));
+}
+
+public static void isTriangle(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    int D = sc.nextInt();
+    long x = 0;
+    long y = 0;
+    int count = 0;
+    double distance = 0;
+    for (int i = 0; i < N; i++ ) {
+            x = sc.nextLong();
+            y = sc.nextLong();
+            distance = Math.hypot(x, y);
+            if (distance <= D) count++;
+    }
+    sc.close();
+    System.out.println(count);
+}
+
+public static void triangle(String args[]) {
      Scanner s=new Scanner(System.in);
   int n=s.nextInt();
   double d=s.nextDouble();
@@ -1264,7 +1267,7 @@ public static boolean triangle(int i,int[][] t){
       }
   }
   System.out.println(c);
-    }
+}
 
 public static double log2(long N) 
 { 
@@ -1386,20 +1389,20 @@ static long min(long n,long m)
         return Math.min(n,m);
     }
 
-    public static void getDifference(String[]args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.next();
-        int min = s.length();
-        int max = 0;
-        for(int i = 0; i < s.length(); i++) {
-                if('A'==s.charAt(i)) {
-                        min = Math.min(min, i);
-                }
-                if('Z'==s.charAt(i)) {
-                        max = Math.max(max, i);
-                }
-        }
-        System.out.println((max - min) + 1);
+public static void getDifference(String[]args) {
+    Scanner sc = new Scanner(System.in);
+    String s = sc.next();
+    int min = s.length();
+    int max = 0;
+    for(int i = 0; i < s.length(); i++) {
+            if('A'==s.charAt(i)) {
+                    min = Math.min(min, i);
+            }
+            if('Z'==s.charAt(i)) {
+                    max = Math.max(max, i);
+            }
+    }
+    System.out.println((max - min) + 1);
 }
 
 public int minGap(int n, int[] height) {
@@ -1479,31 +1482,31 @@ public static void countBigDist(String[] args) throws Exception {
 }
 
 void countSmallDist()
+{
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int d=sc.nextInt();
+    int c=0;
+    while(n-->0)
     {
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int d=sc.nextInt();
-        int c=0;
-        while(n-->0)
-        {
-            int x=sc.nextInt();
-            int y=sc.nextInt();
-            double sp=Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
-            if(sp<=d)
-            c++;
-        }
-        println(c);
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        double sp=Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
+        if(sp<=d)
+        c++;
     }
+    println(c);
+}
 
-    public static boolean isExpN(long a,int base){
-        int x=1;
-        while((int)Math.pow(x, 2) <= a){
-                if((int)Math.pow(x, 2) == a){
-                        return true;
-                }
-                x*=base;
-        }
-        return false;
+public static boolean isExpN(long a,int base){
+    int x=1;
+    while((int)Math.pow(x, 2) <= a){
+            if((int)Math.pow(x, 2) == a){
+                    return true;
+            }
+            x*=base;
+    }
+    return false;
 }
 
 public static void sumPow(String[] args){
@@ -1580,7 +1583,7 @@ public static void maxPow(String[] arg){
       ans = 1;
     }
     System.out.println(Math.round(ans));
-  }
+}
 
   public static void maxPow(String[] args) {
     Scanner scan = new Scanner(System.in);
@@ -1675,9 +1678,9 @@ static List<Integer> primeList(int n){
       if (prime[i]){list.add(i);}
     }
     return list;
-  }
+}
 
-  static boolean isPrime (int n) {
+static boolean isPrime (int n) {
     if (n==2) return true;
     if (n<2 || n%2==0) return false;
     double d = Math.sqrt(n);
@@ -1697,81 +1700,81 @@ public void nTimesSum(int testNumber, Scanner in, PrintWriter out) {
 }
 
 public static boolean[] sieve(long n)
+{
+    boolean[] prime = new boolean[(int)n+1];
+    Arrays.fill(prime,true);
+    prime[0] = false;
+    prime[1] = false;
+    long m = (long)Math.sqrt(n);
+    for(int i=2;i<=m;i++)
     {
-        boolean[] prime = new boolean[(int)n+1];
-        Arrays.fill(prime,true);
-        prime[0] = false;
-        prime[1] = false;
-        long m = (long)Math.sqrt(n);
-        for(int i=2;i<=m;i++)
+        if(prime[i])
         {
-            if(prime[i])
+            for(int k=i*i;k<=n;k+=i)
             {
-                for(int k=i*i;k<=n;k+=i)
-                {
-                    prime[k] = false;
-                }
+                prime[k] = false;
             }
-        }
-        return prime;
-    } 
-
-    public static void checkMapSize(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String[] arr = sc.nextLine().split(" ");
-        sc.close();
-        Map<Integer, Integer> countMap = new HashMap<>();
-        for (String val : arr) {
-            Integer count = countMap.get(Integer.parseInt(val));
-            if (Objects.isNull(count)) {
-                countMap.put(Integer.parseInt(val), 0);
-            }else{
-            countMap.put(Integer.parseInt(val), count++);
-            }
-        }
-        if (countMap.size() == 2) {
-            System.out.println("Yes");
-        } else {
-            System.out.println("No");
         }
     }
+    return prime;
+}
 
-    public static void string2Map(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        Map<Integer, Integer> resultMap = new HashMap<>();
-        for (int i = 1; i < N; i++) {
-            int boss = sc.nextInt();
-            Integer count = resultMap.get(boss);
-            if (Objects.isNull(count)) {
-                count = 1;
-            } else {
-                count += 1;
-            }
-            resultMap.put(boss, count);
+public static void checkMapSize(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String[] arr = sc.nextLine().split(" ");
+    sc.close();
+    Map<Integer, Integer> countMap = new HashMap<>();
+    for (String val : arr) {
+        Integer count = countMap.get(Integer.parseInt(val));
+        if (Objects.isNull(count)) {
+            countMap.put(Integer.parseInt(val), 0);
+        }else{
+        countMap.put(Integer.parseInt(val), count++);
         }
-        for (int i = 1; i <= N; i++) {
-            Integer val = resultMap.get(i);
-            if (Objects.isNull(val)) {
-                System.out.println(0);
-            } else {
-                System.out.println(val);
-            }
-        }
-    }  
+    }
+    if (countMap.size() == 2) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
+    }
+}
 
-    public static void getMaxMultiple4(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
-        int d = sc.nextInt();
-        long ac = (long)a*c;
-        long ad = (long)a*d;
-        long bc = (long)b*c;
-        long bd = (long)b*d;
-        Optional<Long> max = Arrays.asList(ac,ad,bc,bd).stream().max(Comparator.naturalOrder());
-        System.out.println(max.get());
+public static void string2Map(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    Map<Integer, Integer> resultMap = new HashMap<>();
+    for (int i = 1; i < N; i++) {
+        int boss = sc.nextInt();
+        Integer count = resultMap.get(boss);
+        if (Objects.isNull(count)) {
+            count = 1;
+        } else {
+            count += 1;
+        }
+        resultMap.put(boss, count);
+    }
+    for (int i = 1; i <= N; i++) {
+        Integer val = resultMap.get(i);
+        if (Objects.isNull(val)) {
+            System.out.println(0);
+        } else {
+            System.out.println(val);
+        }
+    }
+}
+
+public static void getMaxMultiple4(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int a = sc.nextInt();
+    int b = sc.nextInt();
+    int c = sc.nextInt();
+    int d = sc.nextInt();
+    long ac = (long)a*c;
+    long ad = (long)a*d;
+    long bc = (long)b*c;
+    long bd = (long)b*d;
+    Optional<Long> max = Arrays.asList(ac,ad,bc,bd).stream().max(Comparator.naturalOrder());
+    System.out.println(max.get());
 }
 
 public static void checkBothTimes(String[] args) {
@@ -3766,6 +3769,7 @@ public  static void main(String[] args){
             }
             System.out.println(count);
     }
+}
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
@@ -4089,7 +4093,7 @@ public void solve(int testNumber, Scanner in, PrintWriter out) {
     }
     out.println(ans);
 }
-}
+
 
 public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -4862,288 +4866,286 @@ public static void main(String[] args) throws IOException {
     for(int i=0;i<word2.length();i++)q2.add(word2.charAt(i));
     for(int i=0;i<word3.length();i++)q3.add(word3.charAt(i));
     char  g = 'a';
-    while(true){
-        if(g=='a'){
-            if(q1.isEmpty()){
+    while(true) {
+        if (g == 'a') {
+            if (q1.isEmpty()) {
                 System.out.println('A');
                 break;
-            }
-            else{
+            } else {
                 g = q1.poll();
             }
-        }
-        else if(g=='b'){
-            if(q2.isEmpty()){
+        } else if (g == 'b') {
+            if (q2.isEmpty()) {
                 System.out.println('B');
                 break;
-            }
-            else{
+            } else {
                 g = q2.poll();
             }
-        }
-        else{
-            if(q3.isEmpty()){
+        } else {
+            if (q3.isEmpty()) {
                 System.out.println('C');
                 break;
-            }
-            else{
+            } else {
                 g = q3.poll();
             }
         }
-
-        private static String solve(char[][] sm) {
-            List<Deque<Character>> listDeque = new ArrayList<>();
-            for (char[] ss : sm) {
-              Deque<Character> deque = new ArrayDeque<>();
-              for (char c : ss) {
-                deque.addLast(c);
-              }
-              listDeque.add(deque);
-            }
-            int player = 0;
-            while (true) {
-              if (listDeque.get(player).isEmpty()) {
-                return "" + (char)('A' + player);
-              }
-              player = listDeque.get(player).pollFirst() - 'a';
-            }
-          }
-
-          public void solve() {
-            char[] line = in.next().toCharArray();
-            ArrayDeque<Character> deque = new ArrayDeque<>();
-            for (char c : line) {
-                    if (c == 'B') {
-                            if (!deque.isEmpty()) deque.pollLast();
-                    } else {
-                            deque.addLast(c);
-                    }
-            }
-            while (!deque.isEmpty()) out.print(deque.pollFirst());
-            out.println();
     }
+}
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        long h = Long.parseLong(sc.next());
-        Queue<Long> queue = new ArrayDeque<>();
-        queue.add(h);
-        Long vital;
-        Long sum = 0L;
-        Long base = 1L;
-        while(!queue.isEmpty()){
-          vital = queue.poll();
-          sum+=base;
-          base*=2;
-          if(vital>1){
-            queue.add(vital/2);
-          }
+private static String solve ( char[][] sm){
+    List<Deque<Character>> listDeque = new ArrayList<>();
+    for (char[] ss : sm) {
+        Deque<Character> deque = new ArrayDeque<>();
+        for (char c : ss) {
+            deque.addLast(c);
         }
-        System.out.print(sum);
-        System.out.flush();
-      }
+        listDeque.add(deque);
+    }
+    int player = 0;
+    while (true) {
+        if (listDeque.get(player).isEmpty()) {
+            return "" + (char) ('A' + player);
+        }
+        player = listDeque.get(player).pollFirst() - 'a';
+    }
+}
 
-      public static void main(String[] args) {
-        FastScanner sc = new FastScanner(System.in);
-        String s = sc.next();
-        Deque<Character> stack = new ArrayDeque<>();
-        for (char c : s.toCharArray()) {
-          if (!stack.isEmpty() && stack.peek() != c) {
+public void solve () {
+    char[] line = in.next().toCharArray();
+    ArrayDeque<Character> deque = new ArrayDeque<>();
+    for (char c : line) {
+        if (c == 'B') {
+            if (!deque.isEmpty()) deque.pollLast();
+        } else {
+            deque.addLast(c);
+        }
+    }
+    while (!deque.isEmpty()) out.print(deque.pollFirst());
+    out.println();
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    long h = Long.parseLong(sc.next());
+    Queue<Long> queue = new ArrayDeque<>();
+    queue.add(h);
+    Long vital;
+    Long sum = 0L;
+    Long base = 1L;
+    while (!queue.isEmpty()) {
+        vital = queue.poll();
+        sum += base;
+        base *= 2;
+        if (vital > 1) {
+            queue.add(vital / 2);
+        }
+    }
+    System.out.print(sum);
+    System.out.flush();
+}
+
+public static void main (String[]args){
+    FastScanner sc = new FastScanner(System.in);
+    String s = sc.next();
+    Deque<Character> stack = new ArrayDeque<>();
+    for (char c : s.toCharArray()) {
+        if (!stack.isEmpty() && stack.peek() != c) {
             stack.pop();
-          } else {
+        } else {
             stack.push(c);
-          }
         }
-        System.out.println(s.length() - stack.size());
-      }
+    }
+    System.out.println(s.length() - stack.size());
+}
 
-      public static void main (String[] args) {
-        Scanner in = new Scanner(System.in);
-        while (in.hasNext()) {
-          String S = in.next();
-          ArrayDeque<Character> stack = new ArrayDeque<Character>();
-          for (int i = 0; i < S.length(); ++i) {
+public static void main (String[]args){
+    Scanner in = new Scanner(System.in);
+    while (in.hasNext()) {
+        String S = in.next();
+        ArrayDeque<Character> stack = new ArrayDeque<Character>();
+        for (int i = 0; i < S.length(); ++i) {
             char cube = S.charAt(i);
             if (stack.isEmpty()) {
-              stack.push(cube);
+                stack.push(cube);
             } else if (cube == '1' && stack.peek() == '0') {
-              stack.pop();
+                stack.pop();
             } else if (cube == '0' && stack.peek() == '1') {
-              stack.pop();
+                stack.pop();
             } else {
-              stack.push(cube);
-            }
-          }
-          System.out.println(S.length() - stack.size());
-        }
-      }
-
-      public static void main(String[] args)
-      {
-          Scanner sc = new Scanner(System.in);
-          Queue<String> queue = new ArrayDeque<>();
-          int i,k;
-          while(true)
-          {
-              String input = sc.next();
-              if(input.equals("-")) break;
-              String[] binput = input.split("");
-              for(i=0; i<binput.length; i++) queue.add(binput[i]);
-              int m = sc.nextInt();
-              int h;
-              for(i=0; i<m; i++)
-              {
-                  h = sc.nextInt();
-                  for(k=0; k<h; k++) queue.add(queue.poll());
-              }
-              for(String a : queue) System.out.printf("%s",a);
-              System.out.printf("\n");
-              queue.clear();
-          }
-          sc.close();
-      }
-
-      public static void main(String[] args)throws Exception{
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        PriorityQueue<String> s=new PriorityQueue<String>();
-        Queue<String> t=new ArrayDeque<String>();
-        for(int i=0;i<n;i++){
-            s.add(sc.next());
-        }
-        int max=0;
-        while(s.peek()!=null){
-            String str=s.peek();
-            int i=0;
-            for(;s.peek()!=null&&s.peek().equals(str);i++){
-                s.remove();
-            }
-            if(max==i){
-                t.add(str);
-            }else if(max<i){
-                max=i;
-                t.clear();
-                t.add(str);
+                stack.push(cube);
             }
         }
-        while(t.peek()!=null){
-            System.out.println(t.remove());
-        }
+        System.out.println(S.length() - stack.size());
     }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Deque<List<Integer>> D = new ArrayDeque<>();
-        List<Integer> tmp = new ArrayList<Integer>();
-
-        int N=sc.nextInt();
-        for(int i=0;i<N;i++) {
-                int a = sc.nextInt();
-                int b = sc.nextInt();
-                tmp.add(a);
-                tmp.add(b);
-                D.add(tmp.stream().collect(Collectors.toList()));
-                tmp.clear();
-        }
-        tmp=null;
-        int cnt=0;
-        while(D.size()!=0 && cnt<3){
-                List<Integer> d =D.poll();
-                if(d.get(0)==d.get(1)) {
-                        cnt+=1;
-                }
-                else {
-                        cnt=0;
-                }
-        }
-        if(cnt>=3) {
-                System.out.println("Yes");
-        }
-        else {
-                System.out.println("No");
-        }
-        sc.close();
 }
 
-public static void main(String[] args){
-    Scanner sc= new Scanner(System.in);
-    int n= sc.nextInt(),  q= sc.nextInt();
+public static void main (String[]args)
+{
+    Scanner sc = new Scanner(System.in);
+    Queue<String> queue = new ArrayDeque<>();
+    int i, k;
+    while (true) {
+        String input = sc.next();
+        if (input.equals("-")) break;
+        String[] binput = input.split("");
+        for (i = 0; i < binput.length; i++) queue.add(binput[i]);
+        int m = sc.nextInt();
+        int h;
+        for (i = 0; i < m; i++) {
+            h = sc.nextInt();
+            for (k = 0; k < h; k++) queue.add(queue.poll());
+        }
+        for (String a : queue) System.out.printf("%s", a);
+        System.out.printf("\n");
+        queue.clear();
+    }
+    sc.close();
+}
+
+public static void main (String[]args)throws Exception {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    PriorityQueue<String> s = new PriorityQueue<String>();
+    Queue<String> t = new ArrayDeque<String>();
+    for (int i = 0; i < n; i++) {
+        s.add(sc.next());
+    }
+    int max = 0;
+    while (s.peek() != null) {
+        String str = s.peek();
+        int i = 0;
+        for (; s.peek() != null && s.peek().equals(str); i++) {
+            s.remove();
+        }
+        if (max == i) {
+            t.add(str);
+        } else if (max < i) {
+            max = i;
+            t.clear();
+            t.add(str);
+        }
+    }
+    while (t.peek() != null) {
+        System.out.println(t.remove());
+    }
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    Deque<List<Integer>> D = new ArrayDeque<>();
+    List<Integer> tmp = new ArrayList<Integer>();
+
+    int N = sc.nextInt();
+    for (int i = 0; i < N; i++) {
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        tmp.add(a);
+        tmp.add(b);
+        D.add(tmp.stream().collect(Collectors.toList()));
+        tmp.clear();
+    }
+    tmp = null;
+    int cnt = 0;
+    while (D.size() != 0 && cnt < 3) {
+        List<Integer> d = D.poll();
+        if (d.get(0) == d.get(1)) {
+            cnt += 1;
+        } else {
+            cnt = 0;
+        }
+    }
+    if (cnt >= 3) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
+    }
+    sc.close();
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt(), q = sc.nextInt();
     Deque<String> P = new ArrayDeque<String>();
     Deque<Integer> T = new ArrayDeque<Integer>();
-    for(int i=0; i<n; i++){
-            P.add( sc.next() );  
-            T.add( sc.nextInt() );
+    for (int i = 0; i < n; i++) {
+        P.add(sc.next());
+        T.add(sc.nextInt());
     }
-    int total=0;
-    while ( !P.isEmpty() ) {
-            String p= P.pop();
-            int t= T.pop();
+    int total = 0;
+    while (!P.isEmpty()) {
+        String p = P.pop();
+        int t = T.pop();
 
-            if(q<t) { T.add(t-q); P.add(p); total+= q; }
-            else { total+= t;  System.out.println(p +" "+ total); } 
+        if (q < t) {
+            T.add(t - q);
+            P.add(p);
+            total += q;
+        } else {
+            total += t;
+            System.out.println(p + " " + total);
+        }
     }
 }
 
-public static void main(String [] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     int q = sc.nextInt();
     int time = 0;
-    int [] T = new int[n];
-    String [] Name = new String[n];
+    int[] T = new int[n];
+    String[] Name = new String[n];
     Queue<Integer> L = new ArrayDeque<>();
     ArrayList<Integer> opt = new ArrayList<>();
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++) {
         Name[i] = sc.next();
         T[i] = sc.nextInt();
         L.add(i);
     }
-    while(L.size()!=0){
+    while (L.size() != 0) {
         int p_num = L.poll();
-        if(T[p_num]-q>0){
-            time+=q;
-            T[p_num]-=q;
+        if (T[p_num] - q > 0) {
+            time += q;
+            T[p_num] -= q;
             L.add(p_num);
-        }
-        else{
-            time+=T[p_num];
-            T[p_num]=time;
+        } else {
+            time += T[p_num];
+            T[p_num] = time;
             opt.add(p_num);
         }
     }
-    for(int i:opt) System.out.println(Name[i]+" "+T[i]);
+    for (int i : opt) System.out.println(Name[i] + " " + T[i]);
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     FastScanner sc = new FastScanner();
     PrintWriter pw = new PrintWriter(System.out);
     int N = sc.ni();
     int[] next = new int[N];
     for (int i = 0; i < N; i++)
-            next[i] = sc.ni()-1;
+        next[i] = sc.ni() - 1;
     int[] dist = new int[N];
-    Arrays.fill(dist,-1);
+    Arrays.fill(dist, -1);
     dist[0] = 0;
     ArrayDeque<Integer> bfs = new ArrayDeque<Integer>();
     bfs.add(0);
     while (!bfs.isEmpty()) {
-            int node = bfs.poll();
-            if (dist[next[node]] == -1) {
-                    bfs.add(next[node]);
-                    dist[next[node]] = dist[node]+1;
-            }
+        int node = bfs.poll();
+        if (dist[next[node]] == -1) {
+            bfs.add(next[node]);
+            dist[next[node]] = dist[node] + 1;
+        }
     }
     pw.println(dist[1]);
     pw.close();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     StringBuilder sb = new StringBuilder();
     int n = sc.nextInt();
     int[] a = new int[n];
     for (int i = 0; i < n; i++) {
-            a[i] = sc.nextInt() - 1;
+        a[i] = sc.nextInt() - 1;
     }
     boolean[] memo = new boolean[n];
     memo[0] = true;
@@ -5152,81 +5154,81 @@ public static void main(String[] args) {
     int t, cnt = 1;
     boolean b = false;
     while (!deque.isEmpty()) {
-            t = deque.poll();
-            if (t == 1) {
-                    b = true;
-                    break;
-            } else if (!memo[t]) {
-                    deque.add(a[t]);
-                    memo[t] = true;
-                    cnt++;
-            } else {
-                    break;
-            }
+        t = deque.poll();
+        if (t == 1) {
+            b = true;
+            break;
+        } else if (!memo[t]) {
+            deque.add(a[t]);
+            memo[t] = true;
+            cnt++;
+        } else {
+            break;
+        }
     }
     if (b) {
-            System.out.println(cnt);
+        System.out.println(cnt);
     } else {
-            System.out.println(-1);
+        System.out.println(-1);
     }
 }
 
-public void solve(InputReader in, PrintWriter out) {
+public void solve (InputReader in, PrintWriter out){
     int n = in.nextInt(), x;
-    int[] a = new int[n+1];
-    int[] visit = new int[n+1];
+    int[] a = new int[n + 1];
+    int[] visit = new int[n + 1];
     Queue<Integer> Q = new ArrayDeque<Integer>();
     int ans = 0;
-    for (int i=1; i<=n; ++i) {
-            a[i] = in.nextInt();
+    for (int i = 1; i <= n; ++i) {
+        a[i] = in.nextInt();
     }
     Arrays.fill(visit, -1);
     visit[1] = 0;
     Q.add(1);
     while (!Q.isEmpty()) {
-            x = Q.poll();
-            if (visit[a[x]] == -1) {
-                    if (a[x] == 2) {
-                            ans = visit[x] + 1;
-                            out.println(ans);
-                            return;
-                    }
-                    visit[a[x]] = visit[x] + 1;
-                    Q.add(a[x]);
+        x = Q.poll();
+        if (visit[a[x]] == -1) {
+            if (a[x] == 2) {
+                ans = visit[x] + 1;
+                out.println(ans);
+                return;
             }
+            visit[a[x]] = visit[x] + 1;
+            Q.add(a[x]);
+        }
     }
     out.println(-1);
 }
 
-public static void main(String[] args)throws Exception{
-    Scanner sc=new Scanner(System.in);
-    int n=sc.nextInt();
-    PriorityQueue<String> s=new PriorityQueue<String>();
-    Queue<String> t=new ArrayDeque<String>();
-    for(int i=0;i<n;i++){
+public static void main (String[]args)throws Exception {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    PriorityQueue<String> s = new PriorityQueue<String>();
+    Queue<String> t = new ArrayDeque<String>();
+    for (int i = 0; i < n; i++) {
         s.add(sc.next());
     }
-    int max=0;
-    while(s.peek()!=null){
-        String str=s.peek();
-        int i=0;
-        for(;s.peek()!=null&&s.peek().equals(str);i++){
+    int max = 0;
+    while (s.peek() != null) {
+        String str = s.peek();
+        int i = 0;
+        for (; s.peek() != null && s.peek().equals(str); i++) {
             s.remove();
         }
-        if(max==i){
+        if (max == i) {
             t.add(str);
-        }else if(max<i){
-            max=i;
+        } else if (max < i) {
+            max = i;
             t.clear();
             t.add(str);
         }
     }
-    while(t.peek()!=null){
+    while (t.peek() != null) {
         System.out.println(t.remove());
     }
 }
 
-public void solve(int testNumber, InputReader in, PrintWriter out) {
+public void solve ( int testNumber, InputReader in, PrintWriter out){
     char[] a = in.nextString().toCharArray();
     char[] b = in.nextString().toCharArray();
     char[] c = in.nextString().toCharArray();
@@ -5234,39 +5236,39 @@ public void solve(int testNumber, InputReader in, PrintWriter out) {
     Queue<Character> bq = new ArrayDeque<Character>();
     Queue<Character> cq = new ArrayDeque<Character>();
     for (int i = 0; i < a.length; i++) {
-            aq.add(a[i]);
+        aq.add(a[i]);
     }
     for (int i = 0; i < b.length; i++) {
-            bq.add(b[i]);
+        bq.add(b[i]);
     }
     for (int i = 0; i < c.length; i++) {
-            cq.add(c[i]);
+        cq.add(c[i]);
     }
     char cur = aq.remove();
     while (true) {
-            if (cur == 'a') {
-                    if (aq.isEmpty()) {
-                            out.println("A");
-                            return;
-                    }
-                    cur = aq.remove();
-            } else if (cur == 'b') {
-                    if (bq.isEmpty()) {
-                            out.println("B");
-                            return;
-                    }
-                    cur = bq.remove();
-            } else if (cur == 'c') {
-                    if (cq.isEmpty()) {
-                            out.println("C");
-                            return;
-                    }
-                    cur = cq.remove();
+        if (cur == 'a') {
+            if (aq.isEmpty()) {
+                out.println("A");
+                return;
             }
+            cur = aq.remove();
+        } else if (cur == 'b') {
+            if (bq.isEmpty()) {
+                out.println("B");
+                return;
+            }
+            cur = bq.remove();
+        } else if (cur == 'c') {
+            if (cq.isEmpty()) {
+                out.println("C");
+                return;
+            }
+            cur = cq.remove();
+        }
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     Queue<String> name_array = new ArrayDeque<String>();
     Queue<Integer> time_array = new ArrayDeque<Integer>();
@@ -5281,7 +5283,7 @@ public static void main(String[] args) {
     while (name_array.peek() != null) {
         String str = name_array.remove();
         int tmp = time_array.remove();
-        if(tmp > q) {
+        if (tmp > q) {
             name_array.add(str);
             time_array.add(tmp - q);
             sum_time += q;
@@ -5292,39 +5294,39 @@ public static void main(String[] args) {
     }
 }
 
-public static void main(String arg[]){
+public static void main (String arg[]){
     Scanner sc = new Scanner(System.in);
     Queue<Integer> queue = new ArrayDeque<Integer>();
     Queue<String> name = new ArrayDeque<String>();
     int N = sc.nextInt();
     int q = sc.nextInt();
     int tlen = 0;
-    for (int i=0; i<N; i++) {
-            name.add(sc.next());
-            queue.add(sc.nextInt());
+    for (int i = 0; i < N; i++) {
+        name.add(sc.next());
+        queue.add(sc.nextInt());
     }
-    while (queue.size()!=0) {
-            if (queue.element() > q){
-                    tlen += q;
-                    queue.add(queue.element() - q);
-                    queue.remove();
-                    name.add(name.element());
-                    name.remove();
-            } else {
-                    tlen += queue.element();
-                    System.out.println(name.element()+" "+tlen);
-                    queue.remove();
-                    name.remove();
-            }
+    while (queue.size() != 0) {
+        if (queue.element() > q) {
+            tlen += q;
+            queue.add(queue.element() - q);
+            queue.remove();
+            name.add(name.element());
+            name.remove();
+        } else {
+            tlen += queue.element();
+            System.out.println(name.element() + " " + tlen);
+            queue.remove();
+            name.remove();
+        }
     }
 }
 
-public static void main(String[] wjy){
+public static void main (String[]wjy){
     Scanner in = new Scanner(System.in);
     Queue<String[]> input = new ArrayDeque<String[]>();
-    int num = Integer.parseInt(in.next()) ;
+    int num = Integer.parseInt(in.next());
     int quan = Integer.parseInt(in.next());
-    for (int i=0;i<num;i++) {
+    for (int i = 0; i < num; i++) {
         String[] a = new String[2];
         a[0] = in.next();
         a[1] = in.next();
@@ -5332,23 +5334,22 @@ public static void main(String[] wjy){
     }
     in.close();
     int calculate = 0;
-    while (!input.isEmpty()){
-         String[] k = input.remove();
-         String name =(String) k[0];
-         int time =Integer.parseInt(k[1]);
-         if (time<=quan){
-            calculate=calculate+time;
-            System.out.println(name +" "+calculate);
-         }
-         else{
-            k[1]=Integer.toString((time-quan));
+    while (!input.isEmpty()) {
+        String[] k = input.remove();
+        String name = (String) k[0];
+        int time = Integer.parseInt(k[1]);
+        if (time <= quan) {
+            calculate = calculate + time;
+            System.out.println(name + " " + calculate);
+        } else {
+            k[1] = Integer.toString((time - quan));
             input.offer(k);
-            calculate=calculate+quan;
-         }
+            calculate = calculate + quan;
+        }
     }
 }
 
-public static void main(String[] args) throws IOException {
+public static void main (String[]args) throws IOException {
     InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
     BufferedReader in = new BufferedReader(reader);
     int N = Integer.parseInt(in.readLine());
@@ -5356,19 +5357,19 @@ public static void main(String[] args) throws IOException {
     Deque<Character> deque = new ArrayDeque<>();
     deque.addLast(S[0]);
     for (int i = 1; i < N; ++i) {
-            if (S[i] != deque.getLast()) {
-                    deque.addLast(S[i]);
-            }
+        if (S[i] != deque.getLast()) {
+            deque.addLast(S[i]);
+        }
     }
     System.out.println(deque.size());
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner in = new Scanner(System.in);
     int N = in.nextInt();
     String slims = in.next();
     Deque<Character> stack = new ArrayDeque<>();
-    for (char c: slims.toCharArray()) {
+    for (char c : slims.toCharArray()) {
         if (stack.isEmpty() || stack.peek() != c) {
             stack.push(c);
         }
@@ -5377,40 +5378,38 @@ public static void main(String[] args) {
     in.close();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     Deque<List<Integer>> D = new ArrayDeque<>();
     List<Integer> tmp = new ArrayList<Integer>();
-    int N=sc.nextInt();
-    for(int i=0;i<N;i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            tmp.add(a);
-            tmp.add(b);
-            D.add(tmp.stream().collect(Collectors.toList()));
-            tmp.clear();
+    int N = sc.nextInt();
+    for (int i = 0; i < N; i++) {
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        tmp.add(a);
+        tmp.add(b);
+        D.add(tmp.stream().collect(Collectors.toList()));
+        tmp.clear();
     }
-    tmp=null;
-    int cnt=0;
-    while(D.size()!=0 && cnt<3){
-            List<Integer> d =D.poll();
-            if(d.get(0)==d.get(1)) {
-                    cnt+=1;
-            }
-            else {
-                    cnt=0;
-            }
+    tmp = null;
+    int cnt = 0;
+    while (D.size() != 0 && cnt < 3) {
+        List<Integer> d = D.poll();
+        if (d.get(0) == d.get(1)) {
+            cnt += 1;
+        } else {
+            cnt = 0;
+        }
     }
-    if(cnt>=3) {
-            System.out.println("Yes");
-    }
-    else {
-            System.out.println("No");
+    if (cnt >= 3) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
     }
     sc.close();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner scanner = new Scanner(System.in);
     while (true) {
         String originalSequence = "";
@@ -5438,43 +5437,42 @@ public static void main(String[] args) {
     }
 }
 
-public static void main(String[] args) {
-    Scanner scanner =new Scanner(System.in);
+public static void main (String[]args){
+    Scanner scanner = new Scanner(System.in);
     char[] line = scanner.next().toCharArray();
     Deque<Character> q = new ArrayDeque<Character>();
     for (int i = 0; i < line.length; i++) {
-            if (line[i] == '0') {
-                    q.addLast('0');
-            } else if(line[i] == '1'){
-                    q.addLast('1');
-            } else if(line[i] == 'B'){
-                    if (q.size() != 0) {
-                            q.removeLast();
-                    } 
+        if (line[i] == '0') {
+            q.addLast('0');
+        } else if (line[i] == '1') {
+            q.addLast('1');
+        } else if (line[i] == 'B') {
+            if (q.size() != 0) {
+                q.removeLast();
             }
+        }
     }
     for (Character character : q) {
-            System.out.print(character);
+        System.out.print(character);
     }
     System.out.println();
     scanner.close();
 }
 
-public static void main(String[] args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String s = sc.nextLine();
     int n = s.length();
     char[] c = s.toCharArray();
     int count = 0;
     Deque<Character> deque = new ArrayDeque<>();
-    for(int i = 0;i<n;i++){
-        if(deque.peekFirst() == null){
+    for (int i = 0; i < n; i++) {
+        if (deque.peekFirst() == null) {
             deque.addFirst(s.charAt(i));
-        }else{
-            if(deque.peekFirst() == s.charAt(i)){
+        } else {
+            if (deque.peekFirst() == s.charAt(i)) {
                 deque.addFirst(s.charAt(i));
-            }
-            else{
+            } else {
                 deque.removeFirst();
                 count++;
             }
@@ -5483,60 +5481,60 @@ public static void main(String[] args){
     System.out.println(count * 2);
 }
 
-public static void main(String args[]){
+public static void main (String args[]){
     Scanner sc = new Scanner(System.in);
-    final int modder=1000000007;
-    int n=sc.nextInt();
-    int m=sc.nextInt();
-    Deque<Integer> h=new ArrayDeque<>(m);
-    for(int i=0;i<m;i++){
-      h.addLast(sc.nextInt());
+    final int modder = 1000000007;
+    int n = sc.nextInt();
+    int m = sc.nextInt();
+    Deque<Integer> h = new ArrayDeque<>(m);
+    for (int i = 0; i < m; i++) {
+        h.addLast(sc.nextInt());
     }
-    int dp[]=new int[n+1+2];
-    Arrays.fill(dp,0);
-    dp[0]=1;
-    for(int i=0;i<=n;i++){
-      if(h.peekFirst()!=null&&h.peekFirst()==i){
-        h.pollFirst();
-        dp[i]=0;
-      }else{
-        dp[i+1]=(dp[i+1]+dp[i])%modder;
-        dp[i+2]=(dp[i+2]+dp[i])%modder;
-      }
+    int dp[] = new int[n + 1 + 2];
+    Arrays.fill(dp, 0);
+    dp[0] = 1;
+    for (int i = 0; i <= n; i++) {
+        if (h.peekFirst() != null && h.peekFirst() == i) {
+            h.pollFirst();
+            dp[i] = 0;
+        } else {
+            dp[i + 1] = (dp[i + 1] + dp[i]) % modder;
+            dp[i + 2] = (dp[i + 2] + dp[i]) % modder;
+        }
     }
     System.out.println(dp[n]);
-  }
+}
 
-  public static void main(String[] args){
-    Scanner sc=new Scanner(System.in);
-    int mod=1000_000_007;
-    int n=sc.nextInt();
-    int[] a=new int[n+1];
-    int m=sc.nextInt();
-    Deque<Integer> dq=new ArrayDeque<>();
-    for(int i=0;i<m;i++){
-      dq.addLast(sc.nextInt());
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int mod = 1000_000_007;
+    int n = sc.nextInt();
+    int[] a = new int[n + 1];
+    int m = sc.nextInt();
+    Deque<Integer> dq = new ArrayDeque<>();
+    for (int i = 0; i < m; i++) {
+        dq.addLast(sc.nextInt());
     }
-    dq.addLast(n*2);
-    a[0]=1;
-    if(dq.peekFirst()==1){
-      a[1]=0;
-      dq.pollFirst();
-    }else{
-      a[1]=1;
-    }
-    for(int i=2;i<=n;i++){
-      if(i==dq.peekFirst()){
-        a[i]=0;
+    dq.addLast(n * 2);
+    a[0] = 1;
+    if (dq.peekFirst() == 1) {
+        a[1] = 0;
         dq.pollFirst();
-      }else{
-        a[i]=(a[i-1]+a[i-2])%mod;
-      }
+    } else {
+        a[1] = 1;
+    }
+    for (int i = 2; i <= n; i++) {
+        if (i == dq.peekFirst()) {
+            a[i] = 0;
+            dq.pollFirst();
+        } else {
+            a[i] = (a[i - 1] + a[i - 2]) % mod;
+        }
     }
     System.out.println(a[n]);
-  }
+}
 
-  public void solve(int testNumber, InputReader in, PrintWriter out) {
+public void solve ( int testNumber, InputReader in, PrintWriter out){
     char[] s = in.next().toCharArray();
     int n = s.length;
     Deque<Boolean> stack = new ArrayDeque<>();
@@ -5552,41 +5550,41 @@ public static void main(String args[]){
     out.println(answer);
 }
 
-public static void main(String[] args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     Deque<Integer> deq = new ArrayDeque<Integer>();
     String str = "";
     int a = 0, b = 0;
-    while(sc.hasNext()){
-            str = sc.next();
-            if(str.equals("+")){
-                    a = deq.pollLast();
-                    b = deq.pollLast();
-                    deq.addLast(a + b);
-            }else if(str.equals("-")){
-                    a = deq.pollLast();
-                    b = deq.pollLast();
-                    deq.addLast(b - a);
-            }else if(str.equals("*")){
-                    a = deq.pollLast();
-                    b = deq.pollLast();
-                    deq.addLast(a * b);
-            }else if(str.equals("/")){
-                    a = deq.pollLast();
-                    b = deq.pollLast();
-                    deq.addLast(b / a);
-            }else{
-                    deq.addLast(Integer.parseInt(str));
-            }
+    while (sc.hasNext()) {
+        str = sc.next();
+        if (str.equals("+")) {
+            a = deq.pollLast();
+            b = deq.pollLast();
+            deq.addLast(a + b);
+        } else if (str.equals("-")) {
+            a = deq.pollLast();
+            b = deq.pollLast();
+            deq.addLast(b - a);
+        } else if (str.equals("*")) {
+            a = deq.pollLast();
+            b = deq.pollLast();
+            deq.addLast(a * b);
+        } else if (str.equals("/")) {
+            a = deq.pollLast();
+            b = deq.pollLast();
+            deq.addLast(b / a);
+        } else {
+            deq.addLast(Integer.parseInt(str));
+        }
     }
     System.out.println(deq.peekLast());
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     Integer[] d = new Integer[n];
-    for(int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         d[i] = sc.nextInt();
     }
     Set<Integer> setD = new TreeSet<>(Arrays.asList(d));
@@ -5594,7 +5592,7 @@ public static void main(String[] args) {
     sc.close();
 }
 
-public void solve(int testNumber, InputReader in, PrintWriter out) {
+public void solve ( int testNumber, InputReader in, PrintWriter out){
     int n = in.nextInt();
     HashMap<String, Integer> map = new HashMap<String, Integer>();
     int max = 0;
@@ -5614,7 +5612,7 @@ public void solve(int testNumber, InputReader in, PrintWriter out) {
     }
 }
 
-public void solve(int testNumber, FastReader s, PrintWriter out) {
+public void solve ( int testNumber, FastReader s, PrintWriter out){
     int n = s.nextInt();
     int l = s.nextInt();
     int sum = 0;
@@ -5645,29 +5643,29 @@ public void solve(int testNumber, FastReader s, PrintWriter out) {
     }
 }
 
-public static void main(String[] args) throws IOException {
+public static void main (String[]args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st;
     st = new StringTokenizer(br.readLine());
     int N = parseInt(st.nextToken());
     int T = parseInt(st.nextToken());
     TreeSet<Integer> set = new TreeSet<Integer>();
-    for(int i=0;i<N;i++) {
-            st = new StringTokenizer(br.readLine());
-            int c = parseInt(st.nextToken());
-            int t = parseInt(st.nextToken());
-            if(t <= T) {
-                    set.add(c);
-            }
+    for (int i = 0; i < N; i++) {
+        st = new StringTokenizer(br.readLine());
+        int c = parseInt(st.nextToken());
+        int t = parseInt(st.nextToken());
+        if (t <= T) {
+            set.add(c);
+        }
     }
-    if(set.isEmpty()) {
-            System.out.println("TLE");
-    }else {
-            System.out.println(set.first());
+    if (set.isEmpty()) {
+        System.out.println("TLE");
+    } else {
+        System.out.println(set.first());
     }
 }
 
-public void solve(int testNumber, InputReader in, PrintWriter out) {
+public void solve ( int testNumber, InputReader in, PrintWriter out){
     int n = in.nextInt();
     HashMap<String, Integer> map = new HashMap<String, Integer>();
     int max = 0;
@@ -5687,155 +5685,164 @@ public void solve(int testNumber, InputReader in, PrintWriter out) {
     }
 }
 
-public static void main(String[] args) throws IOException 
+public static void main (String[]args) throws IOException
 {
-        Reader sc=new Reader();Main G=new Main();
-        PrintWriter o = new PrintWriter(System.out);
-        int t=1;
-        long x,x0,x1,x2;long y,y0,y1,y2;int s,s0,s1,s2;
-        int n,m;int a[],b[],in[],in1[];
-        long k,l;boolean b1,b2;String ss1[],ss;
-        ArrayList<ArrayList<Integer>> ll=new ArrayList<>();
-        ArrayList<Integer> a1=new ArrayList<>();
-        ArrayList<Integer> a2=new ArrayList<>();
-        ArrayList<Integer> a3=new ArrayList<>();
-        ArrayDeque<Integer> deq=new ArrayDeque<>();
-        TreeSet<Integer> h0=new TreeSet<>();
-        TreeSet<Integer> h1=new TreeSet<>();
-        HashMap<Integer,Integer> h=new HashMap<>();
-        try{
-        while (t-->0)
-        {
-            x=sc.nextLong();x0=sc.nextLong();
-            x1=sc.nextLong();x2=sc.nextLong();
-            y=x*x1;y0=x*x2;y1=x0*x1;y2=x0*x2;
-            k=Math.max(y,y0);l=Math.max(y1,y2);
-            o.println(Math.max(k,l));
-            h0.clear();ll.clear();a1.clear();a2.clear();h1.clear();
+    Reader sc = new Reader();
+    Main G = new Main();
+    PrintWriter o = new PrintWriter(System.out);
+    int t = 1;
+    long x, x0, x1, x2;
+    long y, y0, y1, y2;
+    int s, s0, s1, s2;
+    int n, m;
+    int a[], b[], in[], in1[];
+    long k, l;
+    boolean b1, b2;
+    String ss1[], ss;
+    ArrayList<ArrayList<Integer>> ll = new ArrayList<>();
+    ArrayList<Integer> a1 = new ArrayList<>();
+    ArrayList<Integer> a2 = new ArrayList<>();
+    ArrayList<Integer> a3 = new ArrayList<>();
+    ArrayDeque<Integer> deq = new ArrayDeque<>();
+    TreeSet<Integer> h0 = new TreeSet<>();
+    TreeSet<Integer> h1 = new TreeSet<>();
+    HashMap<Integer, Integer> h = new HashMap<>();
+    try {
+        while (t-- > 0) {
+            x = sc.nextLong();
+            x0 = sc.nextLong();
+            x1 = sc.nextLong();
+            x2 = sc.nextLong();
+            y = x * x1;
+            y0 = x * x2;
+            y1 = x0 * x1;
+            y2 = x0 * x2;
+            k = Math.max(y, y0);
+            l = Math.max(y1, y2);
+            o.println(Math.max(k, l));
+            h0.clear();
+            ll.clear();
+            a1.clear();
+            a2.clear();
+            h1.clear();
         }
-        }
-        catch (Throwable e)
-        {
-            e.printStackTrace();
-        }
-o.flush();
-o.close();
+    } catch (Throwable e) {
+        e.printStackTrace();
+    }
+    o.flush();
+    o.close();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     FastScanner sc = new FastScanner();
     PrintWriter out = new PrintWriter(System.out);
     int N = sc.nextInt();
     String[] S = new String[N];
-    for(int i=0;i<N;i++){
+    for (int i = 0; i < N; i++) {
         S[i] = sc.next();
     }
-Arrays.sort(S);
-TreeSet<String> s = new TreeSet<>();
-int c = 1;
-int M = 1;
-for(int i=0;i<N-1;i++){
-    if(S[i].equals(S[i+1])){
-        c++;
-    }
-    else{
-        if(c>M){
-            s.clear();
-            s.add(S[i]);
-            M = c;
+    Arrays.sort(S);
+    TreeSet<String> s = new TreeSet<>();
+    int c = 1;
+    int M = 1;
+    for (int i = 0; i < N - 1; i++) {
+        if (S[i].equals(S[i + 1])) {
+            c++;
+        } else {
+            if (c > M) {
+                s.clear();
+                s.add(S[i]);
+                M = c;
+            } else if (c == M) {
+                s.add(S[i]);
+                M = c;
+            }
+            c = 1;
         }
-        else if(c==M){
-            s.add(S[i]);
-            M = c;
-        }
-        c = 1;
     }
-}
-if(c>M){
-    s.clear();
-    s.add(S[N-1]);
-}
-else if(c==M){
-    s.add(S[N-1]);
-}
-for(String a :s){
-    out.println(a);
-}
+    if (c > M) {
+        s.clear();
+        s.add(S[N - 1]);
+    } else if (c == M) {
+        s.add(S[N - 1]);
+    }
+    for (String a : s) {
+        out.println(a);
+    }
     out.flush();
 }
 
-public static void main(String[] args) throws IOException {
+public static void main (String[]args) throws IOException {
     int N = in.nextInt();
     HashMap<String, Integer> map = new HashMap<>();
-    for(int i = 0; i < N; i++){
+    for (int i = 0; i < N; i++) {
         String s = in.next();
         map.put(s, map.getOrDefault(s, 0) + 1);
     }
     TreeSet<String> set = new TreeSet<>();
     int maxVote = 0;
-    for(String s: map.keySet()){
+    for (String s : map.keySet()) {
         int vote = map.get(s);
-        if(vote > maxVote){
+        if (vote > maxVote) {
             set.clear();
             maxVote = vote;
             set.add(s);
-        }
-        else if(vote == maxVote){
+        } else if (vote == maxVote) {
             set.add(s);
         }
     }
-    for(String s: set){
+    for (String s : set) {
         println(s);
     }
     in.close();
     out.close();
 }
 
-public static void main(String[] args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     int cnt = 0;
     Set<Integer> set = new TreeSet<>();
-    for(int i = 1; i <= n; i+=2){
-      int tmp = i;
-      for(int j = 1; j <= Math.sqrt(tmp); j++){
-        if(tmp % j == 0){
-          set.add(tmp);
-          set.add(j);
-          set.add(tmp / j);
+    for (int i = 1; i <= n; i += 2) {
+        int tmp = i;
+        for (int j = 1; j <= Math.sqrt(tmp); j++) {
+            if (tmp % j == 0) {
+                set.add(tmp);
+                set.add(j);
+                set.add(tmp / j);
+            }
         }
-      }
-      if(set.size() == 8){
-        cnt++;
-      }
-      set.clear();
+        if (set.size() == 8) {
+            cnt++;
+        }
+        set.clear();
     }
     System.out.println(cnt);
-  }
+}
 
-  public static void solve_abc155_c(){
+public static void solve_abc155_c () {
     FastScanner sc = new FastScanner(System.in);
     int n = sc.nextInt();
     Map<String, Integer> m = new HashMap<>();
-    Map<Integer, Set<String>>  ml = new HashMap<>();
-    for(int i=0;i<=n;i++) ml.put(i, new HashSet<String>());
+    Map<Integer, Set<String>> ml = new HashMap<>();
+    for (int i = 0; i <= n; i++) ml.put(i, new HashSet<String>());
     int max = 0;
-    for(int i=0;i<n;i++){
-            String Keyword = sc.next();
-            int count = m.getOrDefault(Keyword, 0) + 1;
-            m.put(Keyword, count);
-            max = Math.max(max      , count);
-            Set<String> ln = ml.get(count);
-            ln.add(Keyword);
+    for (int i = 0; i < n; i++) {
+        String Keyword = sc.next();
+        int count = m.getOrDefault(Keyword, 0) + 1;
+        m.put(Keyword, count);
+        max = Math.max(max, count);
+        Set<String> ln = ml.get(count);
+        ln.add(Keyword);
     }
     TreeSet<String> myTreeSet = new TreeSet<>();
     myTreeSet.addAll(ml.get(max));
-    for(String ans: myTreeSet){
-            System.out.println(ans);
+    for (String ans : myTreeSet) {
+        System.out.println(ans);
     }
 }
 
-public void solve(int testNumber, InputReader in, PrintWriter out) {
+public void solve ( int testNumber, InputReader in, PrintWriter out){
     int n = in.nextInt();
     int[] a = in.nextIntArray(n);
     TreeSet<Integer> set = new TreeSet<>();
@@ -5854,7 +5861,7 @@ public void solve(int testNumber, InputReader in, PrintWriter out) {
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int A = sc.nextInt();
     int B = sc.nextInt();
@@ -5863,42 +5870,42 @@ public static void main(String[] args) {
     set.add(A);
     set.add(B);
     set.add(C);
-    if(set.size()==2) {
-            System.out.println("Yes");
+    if (set.size() == 2) {
+        System.out.println("Yes");
     } else {
-            System.out.println("No");
+        System.out.println("No");
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner in = new Scanner(System.in);
     Set<String> items = new TreeSet<String>();
     final int N = Integer.parseInt(in.next());
-    for(int i = 0; i < N; i++) {
-            items.add(in.next());
+    for (int i = 0; i < N; i++) {
+        items.add(in.next());
     }
     System.out.println(items.size());
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt(); sc.nextLine();
+    int n = sc.nextInt();
+    sc.nextLine();
     TreeSet<String> vals = new TreeSet<>();
-    for(int i = 0; i< n; i++){
-            vals.add(sc.nextLine());
+    for (int i = 0; i < n; i++) {
+        vals.add(sc.nextLine());
     }
     System.out.println(vals.size());
 }
 
-public static void main(String args[])throws Exception
+public static void main (String args[])throws Exception
 {
-    BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-    PrintWriter pw=new PrintWriter(System.out);
-    int n=Integer.parseInt(br.readLine());
-    TreeSet<String> set=new TreeSet<>();
-    for(int i=0;i<n;i++)
-    {
-        String s=br.readLine();
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    PrintWriter pw = new PrintWriter(System.out);
+    int n = Integer.parseInt(br.readLine());
+    TreeSet<String> set = new TreeSet<>();
+    for (int i = 0; i < n; i++) {
+        String s = br.readLine();
         set.add(s);
     }
     pw.println(set.size());
@@ -5906,84 +5913,84 @@ public static void main(String args[])throws Exception
     pw.close();
 }
 
-void solve(){
+void solve () {
     Scanner scan = new Scanner(System.in);
     int n = scan.nextInt();
     TreeSet<String> s = new TreeSet<>();
-    for(int i = 0; i < n; i++) s.add(scan.next());
+    for (int i = 0; i < n; i++) s.add(scan.next());
     System.out.println(s.size());
 }
 
-public static void process()throws IOException
-    {
-        int n=ni();
-        TreeSet<Integer> set = new TreeSet<Integer>();
-        for(int i=1;i<=n;i++){
-                set.add(ni());
-        }
-        if(set.size()==n)
-                pn("YES");
-        else
-                pn("NO");
+public static void process ()throws IOException
+{
+    int n = ni();
+    TreeSet<Integer> set = new TreeSet<Integer>();
+    for (int i = 1; i <= n; i++) {
+        set.add(ni());
     }
-
-    static void solution() throws IOException {
-        int n = nextInt();
-        int k = nextInt();
-        TreeSet<Integer> tr = new TreeSet<>();
-        for (int i = 0; i < k; i++) {
-            int l = nextInt();
-            for (int j = 0; j < l; j++) {
-                tr.add(nextInt());
-            }
-        }
-        out.println(n-tr.size());
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        Integer[] d = new Integer[n];
-        for(int i=0; i<n; i++) {
-            d[i] = sc.nextInt();
-        }
-        Set<Integer> setD = new TreeSet<>(Arrays.asList(d));
-        System.out.println(setD.size());
-        sc.close();
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        Set<Integer> kuku = new TreeSet<>();
-        for (int i = 1; i < 10; i++) {
-                for (int j = 1; j < 10; j++) {
-                        kuku.add(i * j);
-                }
-        }
-        System.out.println(kuku.contains(N)? "Yes" : "No");
-        sc.close();
+    if (set.size() == n)
+        pn("YES");
+    else
+        pn("NO");
 }
 
-public static void main(String[] args) {
-    Scanner sc =new Scanner(System.in);
+static void solution () throws IOException {
+    int n = nextInt();
+    int k = nextInt();
+    TreeSet<Integer> tr = new TreeSet<>();
+    for (int i = 0; i < k; i++) {
+        int l = nextInt();
+        for (int j = 0; j < l; j++) {
+            tr.add(nextInt());
+        }
+    }
+    out.println(n - tr.size());
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    Integer[] d = new Integer[n];
+    for (int i = 0; i < n; i++) {
+        d[i] = sc.nextInt();
+    }
+    Set<Integer> setD = new TreeSet<>(Arrays.asList(d));
+    System.out.println(setD.size());
+    sc.close();
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    Set<Integer> kuku = new TreeSet<>();
+    for (int i = 1; i < 10; i++) {
+        for (int j = 1; j < 10; j++) {
+            kuku.add(i * j);
+        }
+    }
+    System.out.println(kuku.contains(N) ? "Yes" : "No");
+    sc.close();
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
     TreeSet<Integer> st = new TreeSet<>();
-    int n=sc.nextInt();
-    for(int i=0;i<n;i++){
-        int b=sc.nextInt();
+    int n = sc.nextInt();
+    for (int i = 0; i < n; i++) {
+        int b = sc.nextInt();
         st.add(b);
     }
-    int q=sc.nextInt();
-    int ans=0;
-    for(int i=0;i<q;i++){
-    int c=sc.nextInt();
-    if(st.contains(c)) ans++; 
+    int q = sc.nextInt();
+    int ans = 0;
+    for (int i = 0; i < q; i++) {
+        int c = sc.nextInt();
+        if (st.contains(c)) ans++;
     }
     System.out.println(ans);
     sc.close();
 }
 
-public void solve(int testNumber, InputReader in, PrintWriter out) {
+public void solve ( int testNumber, InputReader in, PrintWriter out){
     int n = in.nextInt();
     int[] a = in.nextIntArray(n);
     TreeSet<Integer> set = new TreeSet<>();
@@ -6002,7 +6009,7 @@ public void solve(int testNumber, InputReader in, PrintWriter out) {
     }
 }
 
-public void solve(int testNumber, FastReader s, PrintWriter out) {
+public void solve ( int testNumber, FastReader s, PrintWriter out){
     int n = s.nextInt();
     int l = s.nextInt();
     int sum = 0;
@@ -6033,145 +6040,143 @@ public void solve(int testNumber, FastReader s, PrintWriter out) {
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     Set<Integer> T = new TreeSet<Integer>();
-    for(int i=0;i<n;i++){
-            T.add(sc.nextInt());
+    for (int i = 0; i < n; i++) {
+        T.add(sc.nextInt());
     }
     int p = sc.nextInt();
-    int cnt=0;
-    for(int i=0;i<p;i++){
-            int t= sc.nextInt();
-            if(T.contains(t)){
-                    cnt++;
-            }
+    int cnt = 0;
+    for (int i = 0; i < p; i++) {
+        int t = sc.nextInt();
+        if (T.contains(t)) {
+            cnt++;
+        }
     }
     System.out.println(cnt);
 }
 
-public static void main(String args[])throws Exception
-    {
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter pw=new PrintWriter(System.out);
-        String str[]=br.readLine().split(" ");
-        int x=Integer.parseInt(str[0]);
-        int n=Integer.parseInt(str[1]);
-        TreeSet<Integer> ts=new TreeSet<>();
-        for(int i=0;i<=101;i++)
+public static void main (String args[])throws Exception
+{
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    PrintWriter pw = new PrintWriter(System.out);
+    String str[] = br.readLine().split(" ");
+    int x = Integer.parseInt(str[0]);
+    int n = Integer.parseInt(str[1]);
+    TreeSet<Integer> ts = new TreeSet<>();
+    for (int i = 0; i <= 101; i++)
         ts.add(i);
-        str=br.readLine().split(" ");
-        for(int i=0;i<n;i++)
+    str = br.readLine().split(" ");
+    for (int i = 0; i < n; i++)
         ts.remove(new Integer(Integer.parseInt(str[i])));
-        int t1=ts.floor(x);
-        int t2=ts.ceiling(x);
-        if((int)Math.abs(t1-x)<(int)Math.abs(t2-x))
+    int t1 = ts.floor(x);
+    int t2 = ts.ceiling(x);
+    if ((int) Math.abs(t1 - x) < (int) Math.abs(t2 - x))
         pw.println(t1);
-        else if((int)Math.abs(t1-x)>(int)Math.abs(t2-x))
+    else if ((int) Math.abs(t1 - x) > (int) Math.abs(t2 - x))
         pw.println(t2);
-        else
-        pw.println(Math.min(t1,t2));
-        pw.flush();
-        pw.close();
-    }
-
-    public static void main(String[] args) {
-        IO fs = new IO();
-        int n = fs.nextInt();
-        int[] h = fs.readarray(n);
-        int op = 0;
-        while(true){
-            SortedSet<Integer> st = new TreeSet<Integer>();
-            int prev = 0;
-            for(int i = 0; i<n; i++){
-                if(i == n-1){
-                    st.add(h[i]);
-                    while(!st.isEmpty() && st.first() == 0){
-                        st.remove(st.first());
-                    }
-                    if(!st.isEmpty()){
-                        int minval = ((TreeSet<Integer>) st).first();
-                        op+=minval;
-                        for(int j = prev; j<=i; j++){
-                            if(h[j]!=0)h[j] -= minval;
-                        }
-                        st.clear();
-                    }
-                    prev = i+1;
-                }
-                else if(h[i] == 0 && !st.isEmpty()){
-                    while(!st.isEmpty() && st.first() == 0){
-                        st.remove(st.first());
-                    }
-                    if(!st.isEmpty()){
-                        int minval = ((TreeSet<Integer>) st).first();
-                        op+=minval;
-                        for(int j = prev; j<=i; j++){
-                            if(h[j]!=0)h[j] -= minval;
-                        }
-                        st.clear();
-                    }
-                    prev = i+1;
-                }
-                else if(h[i] == 0 && st.isEmpty())prev+=1;
-                else if(!st.contains(h[i]) && h[i] != 0) st.add(h[i]);
-                else continue;
-            }
-            boolean ok = true;
-            for(int i = 0; i<n; i++){
-                if(h[i]>0)ok = false;
-            }
-            if(ok)break;
-        }
-        System.out.println(op);
-    }
-
-    public static void main(String args[])throws Exception
-    {
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter pw=new PrintWriter(System.out);
-        String str[]=br.readLine().split(" ");
-        int x=Integer.parseInt(str[0]);
-        int n=Integer.parseInt(str[1]);
-        TreeSet<Integer> ts=new TreeSet<>();
-        for(int i=0;i<=101;i++)
-        ts.add(i);
-        str=br.readLine().split(" ");
-        for(int i=0;i<n;i++)
-        ts.remove(new Integer(Integer.parseInt(str[i])));
-        int t1=ts.floor(x);
-        int t2=ts.ceiling(x);
-        if((int)Math.abs(t1-x)<(int)Math.abs(t2-x))
-        pw.println(t1);
-        else if((int)Math.abs(t1-x)>(int)Math.abs(t2-x))
-        pw.println(t2);
-        else
-        pw.println(Math.min(t1,t2));
-        pw.flush();
-        pw.close();
-    }
-    public static void main(String[] args) throws Exception {
-        MScanner sc=new MScanner(System.in);
-        PrintWriter pw=new PrintWriter(System.out);
-        int n=sc.nextInt();
-        int[]in=sc.takearr(n);
-        int ans=0;
-        TreeSet<Integer>t=new TreeSet<Integer>();
-        for(int i=0;i<n;i++) {
-                if(t.floor(in[i])==null) {
-                        ans++;
-                }
-                t.add(in[i]);
-        }
-        pw.println(ans);
-        pw.flush();
+    else
+        pw.println(Math.min(t1, t2));
+    pw.flush();
+    pw.close();
 }
 
-public static void main(String[] args) throws java.lang.Exception { 
-    Reader pm =new Reader(); 
+public static void main (String[]args){
+    IO fs = new IO();
+    int n = fs.nextInt();
+    int[] h = fs.readarray(n);
+    int op = 0;
+    while (true) {
+        SortedSet<Integer> st = new TreeSet<Integer>();
+        int prev = 0;
+        for (int i = 0; i < n; i++) {
+            if (i == n - 1) {
+                st.add(h[i]);
+                while (!st.isEmpty() && st.first() == 0) {
+                    st.remove(st.first());
+                }
+                if (!st.isEmpty()) {
+                    int minval = ((TreeSet<Integer>) st).first();
+                    op += minval;
+                    for (int j = prev; j <= i; j++) {
+                        if (h[j] != 0) h[j] -= minval;
+                    }
+                    st.clear();
+                }
+                prev = i + 1;
+            } else if (h[i] == 0 && !st.isEmpty()) {
+                while (!st.isEmpty() && st.first() == 0) {
+                    st.remove(st.first());
+                }
+                if (!st.isEmpty()) {
+                    int minval = ((TreeSet<Integer>) st).first();
+                    op += minval;
+                    for (int j = prev; j <= i; j++) {
+                        if (h[j] != 0) h[j] -= minval;
+                    }
+                    st.clear();
+                }
+                prev = i + 1;
+            } else if (h[i] == 0 && st.isEmpty()) prev += 1;
+            else if (!st.contains(h[i]) && h[i] != 0) st.add(h[i]);
+            else continue;
+        }
+        boolean ok = true;
+        for (int i = 0; i < n; i++) {
+            if (h[i] > 0) ok = false;
+        }
+        if (ok) break;
+    }
+    System.out.println(op);
+}
+
+public static void main (String args[])throws Exception
+{
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    PrintWriter pw = new PrintWriter(System.out);
+    String str[] = br.readLine().split(" ");
+    int x = Integer.parseInt(str[0]);
+    int n = Integer.parseInt(str[1]);
+    TreeSet<Integer> ts = new TreeSet<>();
+    for (int i = 0; i <= 101; i++)
+        ts.add(i);
+    str = br.readLine().split(" ");
+    for (int i = 0; i < n; i++)
+        ts.remove(new Integer(Integer.parseInt(str[i])));
+    int t1 = ts.floor(x);
+    int t2 = ts.ceiling(x);
+    if ((int) Math.abs(t1 - x) < (int) Math.abs(t2 - x))
+        pw.println(t1);
+    else if ((int) Math.abs(t1 - x) > (int) Math.abs(t2 - x))
+        pw.println(t2);
+    else
+        pw.println(Math.min(t1, t2));
+    pw.flush();
+    pw.close();
+}
+public static void main (String[]args) throws Exception {
+    MScanner sc = new MScanner(System.in);
+    PrintWriter pw = new PrintWriter(System.out);
+    int n = sc.nextInt();
+    int[] in = sc.takearr(n);
+    int ans = 0;
+    TreeSet<Integer> t = new TreeSet<Integer>();
+    for (int i = 0; i < n; i++) {
+        if (t.floor(in[i]) == null) {
+            ans++;
+        }
+        t.add(in[i]);
+    }
+    pw.println(ans);
+    pw.flush();
+}
+
+public static void main (String[]args) throws java.lang.Exception {
+    Reader pm = new Reader();
     int t = 1;
-    while(t-- > 0){
+    while (t-- > 0) {
         long n = pm.nextLong();
         TreeSet<Long> l = new TreeSet<>();
         TreeSet<Long> r = new TreeSet<>();
@@ -6180,190 +6185,191 @@ public static void main(String[] args) throws java.lang.Exception {
         HashMap<Long, Integer> hm = new HashMap<>();
         hm.put(1l, 1);
         int pow = 2;
-        while(pow < 11) {
+        while (pow < 11) {
             l.add(r.last() + 1);
-            long toAdd = (long)Math.pow(26, pow) + l.last() - 1;
+            long toAdd = (long) Math.pow(26, pow) + l.last() - 1;
             r.add(toAdd);
             hm.put(l.last(), pow);
             pow++;
         }
         long low = l.floor(n);
         int pg = hm.get(low);
-        long got = (long)Math.pow(26, pg) + 1;
+        long got = (long) Math.pow(26, pg) + 1;
         StringBuffer sb = new StringBuffer();
-        while(pg-- > 0) 
+        while (pg-- > 0)
             sb.append('a');
         long dif = n - low;
-        int ind = sb.length()-1;
-        while(dif-- > 0) {
+        int ind = sb.length() - 1;
+        while (dif-- > 0) {
             char pre = sb.charAt(ind);
-            if(pre == 'z'){
+            if (pre == 'z') {
                 ind--;
-                if(ind < 0)
+                if (ind < 0)
                     break;
             }
-            int prn = (int)pre;
-            sb.setCharAt(ind, (char)(prn+1));
+            int prn = (int) pre;
+            sb.setCharAt(ind, (char) (prn + 1));
         }
         System.out.println(indexToColumnItr(n, ALPHABET).toLowerCase());
     }
+}
 
-    public void solve(int testNumber, InputReader c, OutputWriter w) {
-        int n = c.readInt();
-        int a[] = c.readIntArray(n);
-        TreeSet<Integer> ts[] = new TreeSet[n + 1];
-        for (int i = 0; i <= n; i++) {
-            ts[i] = new TreeSet<>();
-        }
-        for (int i = 0; i < n; i++) {
-            ts[a[i]].add(i);
-        }
-        if (ts[1].size() == 0) {
-            w.printLine(-1);
+public void solve ( int testNumber, InputReader c, OutputWriter w){
+    int n = c.readInt();
+    int a[] = c.readIntArray(n);
+    TreeSet<Integer> ts[] = new TreeSet[n + 1];
+    for (int i = 0; i <= n; i++) {
+        ts[i] = new TreeSet<>();
+    }
+    for (int i = 0; i < n; i++) {
+        ts[a[i]].add(i);
+    }
+    if (ts[1].size() == 0) {
+        w.printLine(-1);
+        return;
+    }
+    int init = 0, check = 0;
+    for (int i = 1; i <= n; i++) {
+        if (ts[i].ceiling(init) != null) {
+            init = ts[i].ceiling(init);
+        } else {
+            w.printLine(n - i + 1);
             return;
         }
-        int init = 0, check = 0;
-        for (int i = 1; i <= n; i++) {
-            if (ts[i].ceiling(init) != null) {
-                init = ts[i].ceiling(init);
-            } else {
-                w.printLine(n - i + 1);
-                return;
-            }
-        }
-        w.printLine(0);
     }
-
-    public static void main(String[] args) {
-        FastScanner sc = new FastScanner();
-        PrintWriter pw = new PrintWriter(System.out);
-        TreeSet<Integer> ts = new TreeSet<Integer>();
-        for (int i = 1; i <= 9; i++) {
-                ts.add(111*i);
-        }
-        int N = sc.ni();
-        pw.println(ts.ceiling(N));
-        pw.close();
+    w.printLine(0);
 }
 
-public static void main(String[] args) {
-    Scanner scn=new Scanner(System.in);
-    TreeSet<Integer> tset=new TreeSet<>();
-    tset.add(scn.nextInt());
-    tset.add(scn.nextInt());
-    tset.add(scn.nextInt());
-    tset.add(scn.nextInt());
-    tset.add(scn.nextInt());
-    int k=scn.nextInt();
-    int first=tset.first();
-    if(tset.ceiling(first+k+1)!=null) {
-            System.out.println(":(");
-    }else {
-            System.out.println("Yay!");
-    }
-}
-
-public static void main(String[] args) {
+public static void main (String[]args){
     FastScanner sc = new FastScanner();
     PrintWriter pw = new PrintWriter(System.out);
     TreeSet<Integer> ts = new TreeSet<Integer>();
     for (int i = 1; i <= 9; i++) {
-            ts.add(111*i);
+        ts.add(111 * i);
     }
     int N = sc.ni();
     pw.println(ts.ceiling(N));
     pw.close();
 }
 
-public void run() {
+public static void main (String[]args){
+    Scanner scn = new Scanner(System.in);
+    TreeSet<Integer> tset = new TreeSet<>();
+    tset.add(scn.nextInt());
+    tset.add(scn.nextInt());
+    tset.add(scn.nextInt());
+    tset.add(scn.nextInt());
+    tset.add(scn.nextInt());
+    int k = scn.nextInt();
+    int first = tset.first();
+    if (tset.ceiling(first + k + 1) != null) {
+        System.out.println(":(");
+    } else {
+        System.out.println("Yay!");
+    }
+}
+
+public static void main (String[]args){
+    FastScanner sc = new FastScanner();
+    PrintWriter pw = new PrintWriter(System.out);
+    TreeSet<Integer> ts = new TreeSet<Integer>();
+    for (int i = 1; i <= 9; i++) {
+        ts.add(111 * i);
+    }
+    int N = sc.ni();
+    pw.println(ts.ceiling(N));
+    pw.close();
+}
+
+public void run () {
     Scanner sc = new Scanner(System.in);
     S = sc.next();
     ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
     stack.push(0);
     boolean ans = false;
-    while(!stack.isEmpty()) {
-            int i = stack.pop();
-            if(i == S.length()) {
-                    ans = true;
-                    break;
+    while (!stack.isEmpty()) {
+        int i = stack.pop();
+        if (i == S.length()) {
+            ans = true;
+            break;
+        }
+        for (int j = 0; j < 4; j++) {
+            if (i + P[j].length() <= S.length() && P[j].equals(S.substring(i, i + P[j].length()))) {
+                stack.push(i + P[j].length());
             }
-            for(int j=0; j<4; j++) {
-                    if(i+P[j].length() <= S.length() && P[j].equals(S.substring(i, i+P[j].length()))) {
-                            stack.push(i+P[j].length());
-                    }
-            }
+        }
     }
-    if(ans) System.out.println("YES");
+    if (ans) System.out.println("YES");
     else System.out.println("NO");
     sc.close();
 }
 
-public static void main(String... args){
+public static void main (String...args){
     Scanner scan = new Scanner(System.in);
     LinkedList<Double> values = new LinkedList<>();
     Deque<Double> stack = new ArrayDeque<>();
     int num = scan.nextInt();
-    for(int i = 0; i < num; i++){
-            values.add(scan.nextDouble());
+    for (int i = 0; i < num; i++) {
+        values.add(scan.nextDouble());
     }
     Collections.sort(values);
     stack.push(values.poll());
-    while(!values.isEmpty()){
-            stack.push((stack.pop() + values.poll()) / 2.0);
+    while (!values.isEmpty()) {
+        stack.push((stack.pop() + values.poll()) / 2.0);
     }
     System.out.println(stack.pop());
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     ArrayDeque<Integer> ansA = new ArrayDeque<Integer>();
     ArrayDeque<Integer> ansB = new ArrayDeque<Integer>();
-    while(sc.hasNext()){
-            int m = sc.nextInt();
-            int n = sc.nextInt();
-            if(n>m){
-                    int l = m;
-                    m=n;
-                    n=l;
-            }
-            int a = m;
-            int b = n;
-            while(n!=0){
-                    int l = n;
-                    n = m%n;
-                    m = l;
-            }
-            ansA.push(m);
-            ansB.push((a/m)*b);
+    while (sc.hasNext()) {
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        if (n > m) {
+            int l = m;
+            m = n;
+            n = l;
+        }
+        int a = m;
+        int b = n;
+        while (n != 0) {
+            int l = n;
+            n = m % n;
+            m = l;
+        }
+        ansA.push(m);
+        ansB.push((a / m) * b);
     }
     int num = ansA.size();
-    for(int i=0;i<num;i++){
-            System.out.println(ansA.pollLast() + " " + ansB.pollLast());
+    for (int i = 0; i < num; i++) {
+        System.out.println(ansA.pollLast() + " " + ansB.pollLast());
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     ArrayDeque<String> ans = new ArrayDeque<String>();
 
-    while(sc.hasNext()){
-            String s = sc.next();
-            StringBuffer t = new StringBuffer(s);
-            t.reverse();
-            ans.push(t.toString());
+    while (sc.hasNext()) {
+        String s = sc.next();
+        StringBuffer t = new StringBuffer(s);
+        t.reverse();
+        ans.push(t.toString());
     }
     int num = ans.size();
-    for(int i=0;i<num;i++){
-            System.out.println(ans.pollLast());
+    for (int i = 0; i < num; i++) {
+        System.out.println(ans.pollLast());
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner in = new Scanner(System.in);
     int N = in.nextInt();
     String slims = in.next();
     Deque<Character> stack = new ArrayDeque<>();
-    for (char c: slims.toCharArray()) {
+    for (char c : slims.toCharArray()) {
         if (stack.isEmpty() || stack.peek() != c) {
             stack.push(c);
         }
@@ -6372,240 +6378,247 @@ public static void main(String[] args) {
     in.close();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     ArrayDeque<Integer> a = new ArrayDeque<Integer>();
     Scanner sc = new Scanner(System.in);
-    while(sc.hasNext()){
-            if(sc.hasNextInt()){
-                    a.push(sc.nextInt());
-            }else{
-                    int o1 = a.pop();
-                    int o2 = a.pop();
-                    switch(sc.next().charAt(0)){
-                            case '+':
-                                    a.push(o1 + o2);
-                                    break;
-                            case '-':
-                                    a.push(o2 - o1);
-                                    break;
-                            case '*':
-                                    a.push(o1 * o2);
-                                    break;
-                            default:
-                                    break;
-                    }
+    while (sc.hasNext()) {
+        if (sc.hasNextInt()) {
+            a.push(sc.nextInt());
+        } else {
+            int o1 = a.pop();
+            int o2 = a.pop();
+            switch (sc.next().charAt(0)) {
+                case '+':
+                    a.push(o1 + o2);
+                    break;
+                case '-':
+                    a.push(o2 - o1);
+                    break;
+                case '*':
+                    a.push(o1 * o2);
+                    break;
+                default:
+                    break;
             }
+        }
     }
     System.out.println(a.pop());
 }
 
 @Override
-                        public List<Integer> next() {
-                                out:
-                                while (!ist.isEmpty()) {
-                                        int k = ist.pop();
-                                        if (k != -1) {
-                                                used[k] = false;
-                                                perm.remove(perm.size() - 1);
-                                        } else {
-                                                int pos = perm.size();
-                                                if (pos == n) {
-                                                        cnt++;
-                                                        return perm;
-                                                }
-                                        }
-                                        for (int i = k + 1; i < n; i++) {
-                                                if (!used[i]) {
-                                                        ist.push(i);
-                                                        used[i] = true;
-                                                        perm.add(i);
-                                                        ist.push(-1);
-                                                        continue out;
-                                                }
-                                        }
-                                }
-                                return null;
-                        }
-
-                        public static void main(String... args){
-                            Scanner scan = new Scanner(System.in);
-                            LinkedList<Double> values = new LinkedList<>();
-                            Deque<Double> stack = new ArrayDeque<>();
-                            int num = scan.nextInt();
-                            for(int i = 0; i < num; i++){
-                                    values.add(scan.nextDouble());
-                            }
-                            Collections.sort(values);
-                            stack.push(values.poll());
-                            while(!values.isEmpty()){
-                                    stack.push((stack.pop() + values.poll()) / 2.0);
-                            }
-                            System.out.println(stack.pop());
-                    }
-                    public static void main(String[] args){
-                        Scanner sc= new Scanner(System.in);
-                        int n= sc.nextInt(),  q= sc.nextInt();
-                        Deque<String> P = new ArrayDeque<String>();
-                        Deque<Integer> T = new ArrayDeque<Integer>();
-                        for(int i=0; i<n; i++){
-                                P.add( sc.next() );  
-                                T.add( sc.nextInt() );
-                        }
-                        int total=0;
-                        while ( !P.isEmpty() ) {
-                                String p= P.pop();
-                                int t= T.pop();
-                                if(q<t) { T.add(t-q); P.add(p); total+= q; }
-                                else { total+= t;  System.out.println(p +" "+ total); } 
-                        }
-                }
-    
-                public void solve(int testNumber, InputReader in, PrintWriter out) {
-                    Deque<Integer> stack = new ArrayDeque<Integer>();
-                    char[] s = in.nextString().toCharArray();
-                    for (char c : s) {
-                            if (c == '0') {
-                                    stack.push(0);
-                            } else if (c == '1') {
-                                    stack.push(1);
-                            } else if (c == 'B') {
-                                    if (stack.isEmpty()) continue;
-                                    stack.pop();
-                            }
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    while (!stack.isEmpty()) {
-                            sb.append(stack.pop());
-                    }
-                    out.println(sb.reverse().toString());
+public List<Integer> next () {
+    out:
+    while (!ist.isEmpty()) {
+        int k = ist.pop();
+        if (k != -1) {
+            used[k] = false;
+            perm.remove(perm.size() - 1);
+        } else {
+            int pos = perm.size();
+            if (pos == n) {
+                cnt++;
+                return perm;
             }
-
-            public static void main(String[] args) {
-                FastScanner sc = new FastScanner(System.in);
-                String s = sc.next();
-                Deque<Character> stack = new ArrayDeque<>();
-                for (char c : s.toCharArray()) {
-                  if (!stack.isEmpty() && stack.peek() != c) {
-                    stack.pop();
-                  } else {
-                    stack.push(c);
-                  }
-                }
-                System.out.println(s.length() - stack.size());
-              }
-
-              public static void main(String[] args) {
-                Scanner cin=new Scanner(System.in);
-                int n=cin.nextInt(),q=cin.nextInt(),TIME=0;
-                Queue<String> name=new ArrayDeque<>();Queue<Integer>time=new ArrayDeque<>();
-                for(int i=0;i<n;i++) {
-                        name.add(cin.next());time.add(cin.nextInt());
-                }
-                while(name.peek()!=null) {
-                        String str=name.remove();int t=time.remove();
-                        if(t>q) {
-                                name.add(str);time.add(t-q);
-                                TIME+=q;
-                        }
-                        else{
-                                System.out.println(str+" "+(TIME+t));
-                                TIME+=t;
-                        }
-                }
         }
-
-        public static void main(String[] args) {
-            Scanner in = new Scanner(System.in);
-            int N = in.nextInt();
-            String slims = in.next();
-            Deque<Character> stack = new ArrayDeque<>();
-            for (char c: slims.toCharArray()) {
-                if (stack.isEmpty() || stack.peek() != c) {
-                    stack.push(c);
-                }
+        for (int i = k + 1; i < n; i++) {
+            if (!used[i]) {
+                ist.push(i);
+                used[i] = true;
+                perm.add(i);
+                ist.push(-1);
+                continue out;
             }
-            System.out.println(stack.size());
-            in.close();
         }
-
-        public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            StringBuilder s = new StringBuilder(scanner.next());
-            Deque<String> stack = new ArrayDeque<>();
-            for(int i=0; i<s.length(); i++) {
-                    if(stack.size()==0) {
-                            stack.push(s.substring(i, i+1));
-                    }
-                    else {
-                            if(!stack.peek().equals(s.substring(i, i+1))) {
-                                    stack.pop();
-                            }
-                            else {
-                                    stack.push(s.substring(i, i+1));
-                            }
-                    }
-            }
-            System.out.println(s.length()-stack.size());
-            scanner.close();
     }
-
-    public static void main (String[] args) {
-        Scanner in = new Scanner(System.in);
-        while (in.hasNext()) {
-          String S = in.next();
-          ArrayDeque<Character> stack = new ArrayDeque<Character>();
-          for (int i = 0; i < S.length(); ++i) {
-            char cube = S.charAt(i);
-            if (stack.isEmpty()) {
-              stack.push(cube);
-            } else if (cube == '1' && stack.peek() == '0') {
-              stack.pop();
-            } else if (cube == '0' && stack.peek() == '1') {
-              stack.pop();
-            } else {
-              stack.push(cube);
-            }
-          }
-          System.out.println(S.length() - stack.size());
-        }
-      }
-
-      public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        Deque<Integer> numbers = new ArrayDeque<>();
-        String str;
-        int a = 0;
-        int b = 0;
-        while(scan.hasNext()) {
-                str = scan.next();
-                switch(str) {
-                        case "+":
-                                a = numbers.pop();
-                                b = numbers.pop();
-                                numbers.push(a + b);
-                                break;
-                        case "-":
-                                b = numbers.pop();
-                                a = numbers.pop();
-                                numbers.push(a - b);
-                                break;
-                        case "*":
-                                a = numbers.pop();
-                                b = numbers.pop();
-                                numbers.push(a * b);
-                                break;
-                        default:
-                                numbers.push(Integer.parseInt(str));
-                }
-        }
-        System.out.println(numbers.peek());
+    return null;
 }
 
-private static boolean isEnd() {
+public static void main (String...args){
+    Scanner scan = new Scanner(System.in);
+    LinkedList<Double> values = new LinkedList<>();
+    Deque<Double> stack = new ArrayDeque<>();
+    int num = scan.nextInt();
+    for (int i = 0; i < num; i++) {
+        values.add(scan.nextDouble());
+    }
+    Collections.sort(values);
+    stack.push(values.poll());
+    while (!values.isEmpty()) {
+        stack.push((stack.pop() + values.poll()) / 2.0);
+    }
+    System.out.println(stack.pop());
+}
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt(), q = sc.nextInt();
+    Deque<String> P = new ArrayDeque<String>();
+    Deque<Integer> T = new ArrayDeque<Integer>();
+    for (int i = 0; i < n; i++) {
+        P.add(sc.next());
+        T.add(sc.nextInt());
+    }
+    int total = 0;
+    while (!P.isEmpty()) {
+        String p = P.pop();
+        int t = T.pop();
+        if (q < t) {
+            T.add(t - q);
+            P.add(p);
+            total += q;
+        } else {
+            total += t;
+            System.out.println(p + " " + total);
+        }
+    }
+}
+
+public void solve ( int testNumber, InputReader in, PrintWriter out){
+    Deque<Integer> stack = new ArrayDeque<Integer>();
+    char[] s = in.nextString().toCharArray();
+    for (char c : s) {
+        if (c == '0') {
+            stack.push(0);
+        } else if (c == '1') {
+            stack.push(1);
+        } else if (c == 'B') {
+            if (stack.isEmpty()) continue;
+            stack.pop();
+        }
+    }
+    StringBuilder sb = new StringBuilder();
+    while (!stack.isEmpty()) {
+        sb.append(stack.pop());
+    }
+    out.println(sb.reverse().toString());
+}
+
+public static void main (String[]args){
+    FastScanner sc = new FastScanner(System.in);
+    String s = sc.next();
+    Deque<Character> stack = new ArrayDeque<>();
+    for (char c : s.toCharArray()) {
+        if (!stack.isEmpty() && stack.peek() != c) {
+            stack.pop();
+        } else {
+            stack.push(c);
+        }
+    }
+    System.out.println(s.length() - stack.size());
+}
+
+public static void main (String[]args){
+    Scanner cin = new Scanner(System.in);
+    int n = cin.nextInt(), q = cin.nextInt(), TIME = 0;
+    Queue<String> name = new ArrayDeque<>();
+    Queue<Integer> time = new ArrayDeque<>();
+    for (int i = 0; i < n; i++) {
+        name.add(cin.next());
+        time.add(cin.nextInt());
+    }
+    while (name.peek() != null) {
+        String str = name.remove();
+        int t = time.remove();
+        if (t > q) {
+            name.add(str);
+            time.add(t - q);
+            TIME += q;
+        } else {
+            System.out.println(str + " " + (TIME + t));
+            TIME += t;
+        }
+    }
+}
+
+public static void main (String[]args){
+    Scanner in = new Scanner(System.in);
+    int N = in.nextInt();
+    String slims = in.next();
+    Deque<Character> stack = new ArrayDeque<>();
+    for (char c : slims.toCharArray()) {
+        if (stack.isEmpty() || stack.peek() != c) {
+            stack.push(c);
+        }
+    }
+    System.out.println(stack.size());
+    in.close();
+}
+
+public static void main (String[]args){
+    Scanner scanner = new Scanner(System.in);
+    StringBuilder s = new StringBuilder(scanner.next());
+    Deque<String> stack = new ArrayDeque<>();
+    for (int i = 0; i < s.length(); i++) {
+        if (stack.size() == 0) {
+            stack.push(s.substring(i, i + 1));
+        } else {
+            if (!stack.peek().equals(s.substring(i, i + 1))) {
+                stack.pop();
+            } else {
+                stack.push(s.substring(i, i + 1));
+            }
+        }
+    }
+    System.out.println(s.length() - stack.size());
+    scanner.close();
+}
+
+public static void main (String[]args){
+    Scanner in = new Scanner(System.in);
+    while (in.hasNext()) {
+        String S = in.next();
+        ArrayDeque<Character> stack = new ArrayDeque<Character>();
+        for (int i = 0; i < S.length(); ++i) {
+            char cube = S.charAt(i);
+            if (stack.isEmpty()) {
+                stack.push(cube);
+            } else if (cube == '1' && stack.peek() == '0') {
+                stack.pop();
+            } else if (cube == '0' && stack.peek() == '1') {
+                stack.pop();
+            } else {
+                stack.push(cube);
+            }
+        }
+        System.out.println(S.length() - stack.size());
+    }
+}
+
+public static void main (String[]args){
+    Scanner scan = new Scanner(System.in);
+    Deque<Integer> numbers = new ArrayDeque<>();
+    String str;
+    int a = 0;
+    int b = 0;
+    while (scan.hasNext()) {
+        str = scan.next();
+        switch (str) {
+            case "+":
+                a = numbers.pop();
+                b = numbers.pop();
+                numbers.push(a + b);
+                break;
+            case "-":
+                b = numbers.pop();
+                a = numbers.pop();
+                numbers.push(a - b);
+                break;
+            case "*":
+                a = numbers.pop();
+                b = numbers.pop();
+                numbers.push(a * b);
+                break;
+            default:
+                numbers.push(Integer.parseInt(str));
+        }
+    }
+    System.out.println(numbers.peek());
+}
+
+private static boolean isEnd () {
     return Qmap.get(CURRENT_STATE).isEmpty();
 }
 
-public void solve(int testNumber, InputReader in, PrintWriter out) {
+public void solve ( int testNumber, InputReader in, PrintWriter out){
     int n = in.nextInt();
     HashMap<String, Integer> map = new HashMap<String, Integer>();
     int max = 0;
@@ -6625,82 +6638,79 @@ public void solve(int testNumber, InputReader in, PrintWriter out) {
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
-    Map<String,Integer> s = new LinkedHashMap<String,Integer>();
-    for(int i = 0; i < n; i++) {
-            String temp = sc.next();
-            if(s.containsKey(temp)) {
-                    int c = s.get(temp)+1;
-                    s.put(temp, c);
-            }
-            else {
-                    s.put(temp, 1);
-            }
+    Map<String, Integer> s = new LinkedHashMap<String, Integer>();
+    for (int i = 0; i < n; i++) {
+        String temp = sc.next();
+        if (s.containsKey(temp)) {
+            int c = s.get(temp) + 1;
+            s.put(temp, c);
+        } else {
+            s.put(temp, 1);
+        }
     }
-    Map<String,Integer> ans = new TreeMap<String,Integer>();
+    Map<String, Integer> ans = new TreeMap<String, Integer>();
     int count = 0;
-    for(String key:s.keySet()) {
-            if(count < s.get(key)) {
-                    ans.clear();
-                    count = s.get(key);
-                    ans.put(key, count);
-            }
-            else if(count==s.get(key)) {
-                    ans.put(key, count);
-            }
+    for (String key : s.keySet()) {
+        if (count < s.get(key)) {
+            ans.clear();
+            count = s.get(key);
+            ans.put(key, count);
+        } else if (count == s.get(key)) {
+            ans.put(key, count);
+        }
     }
-    for(String key:ans.keySet()) {
-            System.out.println(key);
+    for (String key : ans.keySet()) {
+        System.out.println(key);
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     FS in = new FS();
     HashMap<Integer, TreeSet<Integer>> map;
     map = new HashMap<>();
     int n = in.nextInt();
     for (int i = 0; i < n; i++) {
-            int a = in.nextInt();
-            map.putIfAbsent(a, new TreeSet<>());
-            map.get(a).add(i);
-            map.get(a).add(n + 1);
+        int a = in.nextInt();
+        map.putIfAbsent(a, new TreeSet<>());
+        map.get(a).add(i);
+        map.get(a).add(n + 1);
     }
     int k = 0, l = -1;
     while (true) {
-            if (!map.containsKey(k + 1))
-                    break;
-            if (map.get(k + 1).higher(l) != (n + 1)) {
-                    l = map.get(k + 1).higher(l);
-                    k++;
-            }
-            else
-                    break;
+        if (!map.containsKey(k + 1))
+            break;
+        if (map.get(k + 1).higher(l) != (n + 1)) {
+            l = map.get(k + 1).higher(l);
+            k++;
+        } else
+            break;
     }
     int ans = n - k;
     if (l == -1)
-            ans = l;
+        ans = l;
     System.out.println(ans);
 }
 
-public HashMap<Integer,Integer> factorCount(int i){
-    HashMap<Integer,Integer> res = new HashMap<>();
-    while(i!=1){
-        res.putIfAbsent(f[i],0);
-        res.put(f[i],res.get(f[i])+1);
+public HashMap<Integer, Integer> factorCount ( int i){
+    HashMap<Integer, Integer> res = new HashMap<>();
+    while (i != 1) {
+        res.putIfAbsent(f[i], 0);
+        res.put(f[i], res.get(f[i]) + 1);
         i /= f[i];
     }
     return res;
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner scan = new Scanner(System.in);
     int n = scan.nextInt();
     int d = scan.nextInt();
-    Map<Integer,Integer> squares = new HashMap<>();
+    Map<Integer, Integer> squares = new HashMap<>();
     for (int i = 1; i <= 200; i++) {
-        squares.putIfAbsent(i*i,i);
+        squares.putIfAbsent(i * i, i);
     }
     int[][] dp = new int[n][d];
     for (int i = 0; i < n; i++) {
@@ -6710,12 +6720,12 @@ public static void main(String[] args) {
     }
     int counter = 0;
     for (int i = 0; i < n; i++) {
-        for (int j = i+1; j < n; j++) {
+        for (int j = i + 1; j < n; j++) {
             int x = 0;
             for (int k = 0; k < d; k++) {
-                x+=Math.pow(dp[i][k] - dp[j][k],2);
+                x += Math.pow(dp[i][k] - dp[j][k], 2);
             }
-            if(squares.containsKey(x)){
+            if (squares.containsKey(x)) {
                 counter++;
             }
         }
@@ -6723,18 +6733,18 @@ public static void main(String[] args) {
     System.out.println(counter);
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner scan = new Scanner(System.in);
     long a = scan.nextLong();
     long b = scan.nextLong();
-    long diff = b-a;
-    if(diff >= 2019){
+    long diff = b - a;
+    if (diff >= 2019) {
         System.out.println(0);
-    }else{
+    } else {
         long min = Integer.MAX_VALUE;
-        HashMap<Long,Integer> ab = new HashMap();
+        HashMap<Long, Integer> ab = new HashMap();
         for (long i = a; i <= b; i++) {
-            ab.putIfAbsent(i % 2019,1);
+            ab.putIfAbsent(i % 2019, 1);
         }
         ArrayList<Long> list = new ArrayList<>(ab.keySet());
         for (int i = 0; i < list.size(); i++) {
@@ -6746,543 +6756,77 @@ public static void main(String[] args) {
     }
 }
 
-public static void main(String args[])
-    {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        Map<String,Integer> map = new HashMap<>();
-        for(int i=0;i<a;i++)
-        {
-            map.putIfAbsent(sc.next(),1);
-
-        }
-        System.out.print(map.size());
-    }
-
-
-    public static void main(String args[]){
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        HashMap<String,Integer> num = new HashMap<>();
-        for (int i = 0; i < N; i++) {
-            String s = scanner.next();
-            int[] count = new int[26];
-            for (int j = 0; j < 10; j++) {
-                char sj = s.charAt(j);
-                count[sj-'a']++;
-            }
-            String val = "";
-            for(int j=0; j<26; j++){
-                val += String.valueOf('a'+count[j]);
-            }
-            num.putIfAbsent(val, 0);
-            num.put(val,num.get(val) + 1);
-        }
-        long ans = 0;
-        for(Integer n:num.values()){
-            ans += (long)n*(long)(n-1)/2;
-        }
-        System.out.println(ans);
-    }
-
-    public static void main(String[] args) throws Exception {
-        BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-        Long count = new Long(0);
-        Integer n = Integer.parseInt(stdin.readLine());
-        Map<String, Integer> map = new HashMap<>();
-        String line;
-        while ((line = stdin.readLine()) != null) {
-            char[] chars = line.toCharArray();
-            Arrays.sort(chars);
-            String newStr = new String(chars);
-            Integer temp = map.get(newStr);
-            if (temp == null) {
-                map.put(newStr, 1);
-            } else {
-                count += temp;
-                map.put(newStr, temp+1);
-            }
-        }
-        System.out.println(count);
-    }
-
-    public static void main(String args[]) {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        scanner.nextLine();
-        HashMap<String, Integer> map = new HashMap<>();
-        long ans = 0;
-        for(int i = 0; i < N; i++) {
-            String line = scanner.nextLine();
-            char[] c = line.toCharArray();
-            Arrays.sort(c);
-            String sortedLine = new String(c);
-            if(map.containsKey(sortedLine)) {
-                ans += map.get(sortedLine);
-                map.put(sortedLine, map.get(sortedLine) + 1);
-            } else {
-                map.put(sortedLine, 1);
-            }
-        }
-        System.out.println(ans);
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        long ans = 0;
-        int n = sc.nextInt();
-        Map<String, Long> map = new HashMap<>();
-        for(int i = 0; i < n; i++) {
-            char[] ca = sc.next().toCharArray();
-            Arrays.sort(ca);
-            String s = String.valueOf(ca);
-            if(map.containsKey(s)) map.put(s, map.get(s) + 1);
-            else map.put(s, 1L);
-        }
-        for(String key : map.keySet()) {
-            ans += map.get(key) * (map.get(key) - 1) / 2;
-        }
-        System.out.println(ans);
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        long N = Integer.parseInt(sc.next());
-        HashMap<String, Integer> map = new HashMap<>();
-        long count = 0;
-        for (int i = 0; i < N; i++) {
-                char[] c = sc.next().toCharArray();
-                Arrays.sort(c);
-                String s = new String(c);
-                Integer n;
-                if (map.containsKey(s)) {
-                        n = map.get(s);
-                        map.put(s, n+1);
-                        count += n+1;
-                }
-                else {
-                        map.put(s, 0);
-                }
-        }
-        System.out.println(count);
-}
-
-public static int func(HashMap<Integer, Integer> hmap, int a, int i) {
-    if(hmap.containsKey(a)) {
-            return i;
-    }
-    hmap.put(a, i);
-    return func(hmap,solve(i+1,a),i+1);
-}
-
-public static void main(String[] args) throws Exception {
-    Map<Integer,Integer> po=new HashMap<Integer,Integer>();
-    Scanner sc=new Scanner(System.in);
-    int n=sc.nextInt();
-    int count=1;
-    for(;!(po.containsKey(n));count++){
-        po.put(n,n);
-        if(n%2==0)n/=2;
-        else n=n*3+1;
-    }
-    System.out.println(count);
-}
-
-public static void main(String args[]){
+public static void main (String args[])
+{
     Scanner sc = new Scanner(System.in);
-    HashMap<String,String> map = new HashMap<>();
-    int N = sc.nextInt();
-    for (int i = 0; i < N; i++) {
-        String k = sc.next();
-        if(!map.containsKey(k)){
-            map.put(k, "a");
-        }   
-    System.out.println(map.size());
+    int a = sc.nextInt();
+    Map<String, Integer> map = new HashMap<>();
+    for (int i = 0; i < a; i++) {
+        map.putIfAbsent(sc.next(), 1);
+
+    }
+    System.out.print(map.size());
 }
 
-public static void main(String[] arg) {
-    Scanner scan = new Scanner(System.in);
-    int n = scan.nextInt();
-    ArrayList<String> list = new ArrayList<String>();
-    Map<String, Integer> map = new HashMap<String, Integer>();
-    for(int i = 0; i < n; i++){
-            String s = scan.next();
-            if(map.containsKey(s)){
-                    int v = map.get(s);
-                    map.put(s, v+1);
-            } else {
-                    map.put(s, 1);
-            }
-    }
-    System.out.println(map.keySet().size());
-}
 
-public static void main(String[] args) {
-    int n = GetInput.getInt();
-    HashMap<String , Integer> hashMap = new HashMap<>();
-    while(n-->0) {
-        String key = GetInput.getInputString().toString();
-        if (hashMap.get(key) == null) {
-            hashMap.put(key, 1);
-            continue;
-        }
-        hashMap.replace(key, hashMap.get(key)+1);
-    }
-    System.out.println(hashMap.size());
-}
-
-public static void main(String args[]) {
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    HashMap<String, Integer> hashmap = new HashMap<String, Integer>();
-    for(int i = 0; i < n; i++){
-      String check = sc.next();
-      if(!hashmap.containsKey(check)){
-        hashmap.put(check, 0);
-      }
-    }
-    System.out.println(hashmap.size());
-    sc.close();
-  }
-
-  public static void main(String [] args)
-  {
-      Scanner sc = new Scanner(System.in);
-      int n = sc.nextInt(); HashMap<String, Integer> map = new HashMap<>();
-      for (int i = 0; i < n; i++) {
-          String s = sc.next();
-          map.put(s, map.getOrDefault(s, 0) + 1);
-      }
-      System.out.println(map.keySet().size());
-  }
-
-  public static void main(String[] args) throws IOException {
-    Scanner sc = new Scanner(System.in);
-    PrintWriter out = new PrintWriter(System.out);
-    HashMap<String,Integer> a = new HashMap<>();
-    int n = sc.nextInt();
-    long ans = 0;
-    for (int i = 0; i < n; i++) {
-        String[] s = sc.next().split("");
-        Arrays.sort(s);
-        String ss = "";
-        for (int j = 0; j < s.length; j++) {
-            ss += s[j];
-        }
-        if(a.containsKey(ss)){
-            ans += a.get(ss);
-            a.put(ss,a.get(ss)+1);
-        }
-        else {
-            a.put(ss,1);
-        }
-    }
-    out.print(ans);
-    out.flush();
-}
-
-public static void main(String[] args) throws Exception {
-    Scanner scan = new Scanner(System.in);
-    Integer N = scan.nextInt();
-    long count = 0;
-    HashMap<String, Long> map = new HashMap<String, Long>(); 
-    for(int i = 0; i < N; i++) {
-        String s = scan.next();
-        char[] sArray = s.toCharArray();
-        Arrays.sort(sArray);
-        String sorted = new String(sArray);
-        if(map.containsKey(sorted))
-            map.put(sorted, map.get(sorted) + 1);
-        else
-            map.put(sorted, (long)1);
-    }
-    for(Entry<String, Long> entry : map.entrySet()) {
-        long value = entry.getValue();
-        count += value * (value - 1) / 2;
-    }
-    System.out.println(count);
-}
-
-public static void main(String[] args) {
+public static void main (String args[]){
     Scanner scanner = new Scanner(System.in);
-    char[] S = scanner.nextLine().toCharArray();
-    HashMap<Character, Integer> map = new HashMap<Character, Integer>();
-    for (int i = 0; i < 4; i++) {
-      if (map.containsKey(S[i])) {
-        map.put(S[i], map.get(S[i]) + 1);
-      } else {
-        map.put(S[i], 1);
-      }
-    }
-    boolean isFiftyFifty = true;
-    for (char key : map.keySet()) {
-      if (map.get(key) != 2) {
-        isFiftyFifty = false;
-      }
-    }
-    if (isFiftyFifty) {
-      System.out.println("Yes");
-    } else {
-      System.out.println("No");
-    }
-  }
-
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    int n = Integer.parseInt(sc.next());
-    int[] a = new int[n+1];
-    for (int i = 1; i < n+1; i++) {
-            a[i] = Integer.parseInt(sc.next());
-    }
-    int b = 1;
-    int ans = -1;
-    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    map.put(1, 1);
-    for (int i = 1; i < n + 1; i++) {
-            b = a[b];
-            if (b == 2) {
-                    ans = i;
-                    break;
-            }
-            if (map.containsKey(b)) {
-                    break;
-            }
-    }
-    System.out.println(ans);
-}
-
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt();
-    HashMap<Integer,Integer> A = new HashMap<>();
-    for (int i = 0; i < N; i++){
-        int a = sc.nextInt();
-        if (A.containsKey(a)){
-            System.out.println("NO");
-            return;
+    int N = scanner.nextInt();
+    HashMap<String, Integer> num = new HashMap<>();
+    for (int i = 0; i < N; i++) {
+        String s = scanner.next();
+        int[] count = new int[26];
+        for (int j = 0; j < 10; j++) {
+            char sj = s.charAt(j);
+            count[sj - 'a']++;
         }
-        A.put(a,0);
-    }
-    System.out.println("YES");
-}
-
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    HashMap<String,Integer> vote = new HashMap<>();
-    int n = sc.nextInt();
-    for(int i=0;i<n;i++){
-        String name = sc.next();
-        if(vote.containsKey(name)){
-            int temp = vote.get(name);
-            vote.remove(name);
-            vote.put(name,temp+1);
+        String val = "";
+        for (int j = 0; j < 26; j++) {
+            val += String.valueOf('a' + count[j]);
         }
-        else{
-            vote.put(name,1);
-        }
+        num.putIfAbsent(val, 0);
+        num.put(val, num.get(val) + 1);
     }
-}
-
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    HashMap<String, Integer> map = new HashMap<String, Integer>();
-    int n = sc.nextInt();
-    for( int i=0; i<n; i++) {
-        String str = sc.next();
-        Integer count = map.get(str);
-        if (count == null) {
-            map.put(str,1);
-        } else {
-    map.remove(str);
-            map.put(str,count+1);
-        }
-    }
-}
-
-public static void solution(String[] args) throws Exception{
-    long L = nextLong();
-    long R = nextLong();
-    HashMap<Integer,Integer> map = new HashMap<>();
-    for(int i=0;i<=2019;i++){
-            map.put(i, i);
-    }
-    long ans =2019;
-    for(long i=L;i<R;i++){
-            HashMap<Integer,Integer> tmp = new HashMap<>();
-            for(long k=i+1;k<=R;k++){
-                    int x = (int)((i%2019)*(k%2019))%2019;
-                    ans = Math.min(ans, x);
-                    if(tmp.containsKey(x)){
-                            break;
-                    }
-                    tmp.put(x, x);
-            }
-            for(int x:tmp.keySet()){
-                    map.remove(x);
-            }
-            if(ans==0||map.size()==0){
-                    break;
-            }
-    }
-    pw.println(ans);
-}
-
-public Main(int opt1, int opt2) {
-    Map<Integer, Integer> map = new HashMap<>();
-    map.put(1, 1);
-    map.put(2, 2);
-    map.put(3, 3);
-    map.remove(opt1);
-    map.remove(opt2);
-    String res = map.values().toString();
-    System.out.println(res.substring(1,2));
-}
-
-public static void remove(HashMap<Integer,Integer> hm, int val){
-    hm.put(val, hm.get(val)-1);
-    if(hm.get(val)==0){
-            hm.remove(val);
-    }
-}
-
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    int n=sc.nextInt();
-    int k=sc.nextInt();
-    HashMap<Integer,Integer>hm=new HashMap<>();
-    for(int j=0;j<n;j++)
-        hm.put(j+1,1);
-    for(int j=0;j<k;j++)
-    {
-        int d=sc.nextInt();
-        for(int l=0;l<d;l++)
-        {
-            int m=sc.nextInt();
-            if(hm.get(m)!=null)
-                hm.remove(m);
-        }
-    }
-    System.out.println(hm.size());
-}
-
-public static void main (String[] args) throws java.lang.Exception
-        {
-                Scanner in = new Scanner(System.in);
-                int N = in.nextInt();
-                HashMap<String, Integer> cnt = new HashMap<>();
-                for (int i = 0; i < N; ++i) {
-                        String s = sorted(in.next());
-                        cnt.put(s, cnt.getOrDefault(s, 0) + 1);
-                }
-                long ans = 0;
-                for (String s : cnt.keySet()) {
-                        ans += nc2(cnt.get(s));
-                }
-                System.out.println(ans);
-        }
-
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int N = Integer.parseInt(sc.next());
-            long res = 0;
-            Map<String, Integer> map = new HashMap<>();
-            for (int i = 0; i < N; i++) {
-                char[] c = sc.next().toCharArray();
-                Arrays.sort(c);
-                String s = String.valueOf(c);
-                int tmp = map.getOrDefault(s, 0);
-                res += tmp;
-                map.put(s, tmp + 1);
-            }
-            System.out.println(res);
-        }
-
-        public static void main(String[] args){
-            Scanner scanner = new Scanner(System.in);
-            int n = scanner.nextInt();
-            long ans = 0;
-            HashMap<String, Integer> map = new HashMap<>();
-            for(int i = 0; i < n; i++){
-                String s = scanner.next();
-                char sa[] = s.toCharArray(); 
-                Arrays.sort(sa);
-                String sorted = new String(sa);
-                ans += map.getOrDefault(sorted, 0);
-                map.put(sorted, map.getOrDefault(sorted, 0)+1);
-            }
-            System.out.println(ans);
-        }
-
-        public static void main(String[] args) throws Exception {
-            int N = nextInt();
-            HashMap<String,Integer> map = new HashMap<>();
-            for(int i=0;i<N;i++){
-                    char[] c = nextString().toCharArray();
-                    Arrays.sort(c);
-                    String s = String.valueOf(c);
-                    map.put(s, map.getOrDefault(s,0)+1);
-            }
-            long ans = 0;
-            for(int val:map.values()){
-                    if(val!=1){
-                            ans+=(long)(val)*(val-1)/2L;
-                    }
-            }
-            System.out.println(ans);
-    }
-
-    public static void main(String[] args) {
-        FastReader r = new FastReader();
-        int[] arr = r.ria();
-        int sum = 0;
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int i = 0; i<arr[0]; i++) {
-                int[] t = r.ria();
-                for(int j = 1; j<t.length; j++) {
-                        map.put(t[j], map.getOrDefault(t[j],0)+1);
-                        if(map.get(t[j]) == arr[0]) sum++;
-                }
-        }
-        print(sum);
-}
-
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    int n = Integer.parseInt(sc.next());
-    char[] c = new char[10];
-    String s;
-    HashMap<String, Long> map = new HashMap<>();
-    for (int i = 0; i < n; i++) {
-            c = sc.next().toCharArray();
-            Arrays.sort(c);
-            s = new String(c);
-            if (map.get(s) == null) {
-                    map.put(s, 1L);
-            } else {
-                    map.put(s, map.get(s) + 1);
-            }
-    }
-
     long ans = 0;
-    for (Long v : map.values()) {
-            ans += v * (v - 1) / 2;
+    for (Integer n : num.values()) {
+        ans += (long) n * (long) (n - 1) / 2;
     }
     System.out.println(ans);
 }
 
-public static void main(String args[]) {
+public static void main (String[]args) throws Exception {
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+    Long count = new Long(0);
+    Integer n = Integer.parseInt(stdin.readLine());
+    Map<String, Integer> map = new HashMap<>();
+    String line;
+    while ((line = stdin.readLine()) != null) {
+        char[] chars = line.toCharArray();
+        Arrays.sort(chars);
+        String newStr = new String(chars);
+        Integer temp = map.get(newStr);
+        if (temp == null) {
+            map.put(newStr, 1);
+        } else {
+            count += temp;
+            map.put(newStr, temp + 1);
+        }
+    }
+    System.out.println(count);
+}
+
+public static void main (String args[]){
     Scanner scanner = new Scanner(System.in);
     int N = scanner.nextInt();
     scanner.nextLine();
     HashMap<String, Integer> map = new HashMap<>();
     long ans = 0;
-    for(int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++) {
         String line = scanner.nextLine();
         char[] c = line.toCharArray();
         Arrays.sort(c);
         String sortedLine = new String(c);
-
-        if(map.containsKey(sortedLine)) {
+        if (map.containsKey(sortedLine)) {
             ans += map.get(sortedLine);
             map.put(sortedLine, map.get(sortedLine) + 1);
         } else {
@@ -7292,207 +6836,666 @@ public static void main(String args[]) {
     System.out.println(ans);
 }
 
-public void readD(String str) {
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    long ans = 0;
+    int n = sc.nextInt();
+    Map<String, Long> map = new HashMap<>();
+    for (int i = 0; i < n; i++) {
+        char[] ca = sc.next().toCharArray();
+        Arrays.sort(ca);
+        String s = String.valueOf(ca);
+        if (map.containsKey(s)) map.put(s, map.get(s) + 1);
+        else map.put(s, 1L);
+    }
+    for (String key : map.keySet()) {
+        ans += map.get(key) * (map.get(key) - 1) / 2;
+    }
+    System.out.println(ans);
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    long N = Integer.parseInt(sc.next());
+    HashMap<String, Integer> map = new HashMap<>();
+    long count = 0;
+    for (int i = 0; i < N; i++) {
+        char[] c = sc.next().toCharArray();
+        Arrays.sort(c);
+        String s = new String(c);
+        Integer n;
+        if (map.containsKey(s)) {
+            n = map.get(s);
+            map.put(s, n + 1);
+            count += n + 1;
+        } else {
+            map.put(s, 0);
+        }
+    }
+    System.out.println(count);
+}
+
+public static int func (HashMap < Integer, Integer > hmap,int a, int i){
+    if (hmap.containsKey(a)) {
+        return i;
+    }
+    hmap.put(a, i);
+    return func(hmap, solve(i + 1, a), i + 1);
+}
+
+public static void main (String[]args) throws Exception {
+    Map<Integer, Integer> po = new HashMap<Integer, Integer>();
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int count = 1;
+    for (; !(po.containsKey(n)); count++) {
+        po.put(n, n);
+        if (n % 2 == 0) n /= 2;
+        else n = n * 3 + 1;
+    }
+    System.out.println(count);
+}
+
+public static void main (String args[]){
+    Scanner sc = new Scanner(System.in);
+    HashMap<String, String> map = new HashMap<>();
+    int N = sc.nextInt();
+    for (int i = 0; i < N; i++) {
+        String k = sc.next();
+        if (!map.containsKey(k)) {
+            map.put(k, "a");
+        }
+        System.out.println(map.size());
+    }
+}
+
+public static void main (String[]arg){
+    Scanner scan = new Scanner(System.in);
+    int n = scan.nextInt();
+    ArrayList<String> list = new ArrayList<String>();
+    Map<String, Integer> map = new HashMap<String, Integer>();
+    for (int i = 0; i < n; i++) {
+        String s = scan.next();
+        if (map.containsKey(s)) {
+            int v = map.get(s);
+            map.put(s, v + 1);
+        } else {
+            map.put(s, 1);
+        }
+    }
+    System.out.println(map.keySet().size());
+}
+
+public static void main (String[]args){
+    int n = GetInput.getInt();
+    HashMap<String, Integer> hashMap = new HashMap<>();
+    while (n-- > 0) {
+        String key = GetInput.getInputString().toString();
+        if (hashMap.get(key) == null) {
+            hashMap.put(key, 1);
+            continue;
+        }
+        hashMap.replace(key, hashMap.get(key) + 1);
+    }
+    System.out.println(hashMap.size());
+}
+
+public static void main (String args[]){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    HashMap<String, Integer> hashmap = new HashMap<String, Integer>();
+    for (int i = 0; i < n; i++) {
+        String check = sc.next();
+        if (!hashmap.containsKey(check)) {
+            hashmap.put(check, 0);
+        }
+    }
+    System.out.println(hashmap.size());
+    sc.close();
+}
+
+public static void main (String[]args)
+{
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    HashMap<String, Integer> map = new HashMap<>();
+    for (int i = 0; i < n; i++) {
+        String s = sc.next();
+        map.put(s, map.getOrDefault(s, 0) + 1);
+    }
+    System.out.println(map.keySet().size());
+}
+
+public static void main (String[]args) throws IOException {
+    Scanner sc = new Scanner(System.in);
+    PrintWriter out = new PrintWriter(System.out);
+    HashMap<String, Integer> a = new HashMap<>();
+    int n = sc.nextInt();
+    long ans = 0;
+    for (int i = 0; i < n; i++) {
+        String[] s = sc.next().split("");
+        Arrays.sort(s);
+        String ss = "";
+        for (int j = 0; j < s.length; j++) {
+            ss += s[j];
+        }
+        if (a.containsKey(ss)) {
+            ans += a.get(ss);
+            a.put(ss, a.get(ss) + 1);
+        } else {
+            a.put(ss, 1);
+        }
+    }
+    out.print(ans);
+    out.flush();
+}
+
+public static void main (String[]args) throws Exception {
+    Scanner scan = new Scanner(System.in);
+    Integer N = scan.nextInt();
+    long count = 0;
+    HashMap<String, Long> map = new HashMap<String, Long>();
+    for (int i = 0; i < N; i++) {
+        String s = scan.next();
+        char[] sArray = s.toCharArray();
+        Arrays.sort(sArray);
+        String sorted = new String(sArray);
+        if (map.containsKey(sorted))
+            map.put(sorted, map.get(sorted) + 1);
+        else
+            map.put(sorted, (long) 1);
+    }
+    for (Entry<String, Long> entry : map.entrySet()) {
+        long value = entry.getValue();
+        count += value * (value - 1) / 2;
+    }
+    System.out.println(count);
+}
+
+public static void main (String[]args){
+    Scanner scanner = new Scanner(System.in);
+    char[] S = scanner.nextLine().toCharArray();
+    HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+    for (int i = 0; i < 4; i++) {
+        if (map.containsKey(S[i])) {
+            map.put(S[i], map.get(S[i]) + 1);
+        } else {
+            map.put(S[i], 1);
+        }
+    }
+    boolean isFiftyFifty = true;
+    for (char key : map.keySet()) {
+        if (map.get(key) != 2) {
+            isFiftyFifty = false;
+        }
+    }
+    if (isFiftyFifty) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
+    }
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n = Integer.parseInt(sc.next());
+    int[] a = new int[n + 1];
+    for (int i = 1; i < n + 1; i++) {
+        a[i] = Integer.parseInt(sc.next());
+    }
+    int b = 1;
+    int ans = -1;
+    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    map.put(1, 1);
+    for (int i = 1; i < n + 1; i++) {
+        b = a[b];
+        if (b == 2) {
+            ans = i;
+            break;
+        }
+        if (map.containsKey(b)) {
+            break;
+        }
+    }
+    System.out.println(ans);
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    HashMap<Integer, Integer> A = new HashMap<>();
+    for (int i = 0; i < N; i++) {
+        int a = sc.nextInt();
+        if (A.containsKey(a)) {
+            System.out.println("NO");
+            return;
+        }
+        A.put(a, 0);
+    }
+    System.out.println("YES");
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    HashMap<String, Integer> vote = new HashMap<>();
+    int n = sc.nextInt();
+    for (int i = 0; i < n; i++) {
+        String name = sc.next();
+        if (vote.containsKey(name)) {
+            int temp = vote.get(name);
+            vote.remove(name);
+            vote.put(name, temp + 1);
+        } else {
+            vote.put(name, 1);
+        }
+    }
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    HashMap<String, Integer> map = new HashMap<String, Integer>();
+    int n = sc.nextInt();
+    for (int i = 0; i < n; i++) {
+        String str = sc.next();
+        Integer count = map.get(str);
+        if (count == null) {
+            map.put(str, 1);
+        } else {
+            map.remove(str);
+            map.put(str, count + 1);
+        }
+    }
+}
+
+public static void solution (String[]args) throws Exception {
+    long L = nextLong();
+    long R = nextLong();
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i <= 2019; i++) {
+        map.put(i, i);
+    }
+    long ans = 2019;
+    for (long i = L; i < R; i++) {
+        HashMap<Integer, Integer> tmp = new HashMap<>();
+        for (long k = i + 1; k <= R; k++) {
+            int x = (int) ((i % 2019) * (k % 2019)) % 2019;
+            ans = Math.min(ans, x);
+            if (tmp.containsKey(x)) {
+                break;
+            }
+            tmp.put(x, x);
+        }
+        for (int x : tmp.keySet()) {
+            map.remove(x);
+        }
+        if (ans == 0 || map.size() == 0) {
+            break;
+        }
+    }
+    pw.println(ans);
+}
+
+public Main( int opt1, int opt2){
+    Map<Integer, Integer> map = new HashMap<>();
+    map.put(1, 1);
+    map.put(2, 2);
+    map.put(3, 3);
+    map.remove(opt1);
+    map.remove(opt2);
+    String res = map.values().toString();
+    System.out.println(res.substring(1, 2));
+}
+
+public static void remove (HashMap < Integer, Integer > hm,int val){
+    hm.put(val, hm.get(val) - 1);
+    if (hm.get(val) == 0) {
+        hm.remove(val);
+    }
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int k = sc.nextInt();
+    HashMap<Integer, Integer> hm = new HashMap<>();
+    for (int j = 0; j < n; j++)
+        hm.put(j + 1, 1);
+    for (int j = 0; j < k; j++) {
+        int d = sc.nextInt();
+        for (int l = 0; l < d; l++) {
+            int m = sc.nextInt();
+            if (hm.get(m) != null)
+                hm.remove(m);
+        }
+    }
+    System.out.println(hm.size());
+}
+
+public static void main (String[]args) throws java.lang.Exception
+{
+    Scanner in = new Scanner(System.in);
+    int N = in.nextInt();
+    HashMap<String, Integer> cnt = new HashMap<>();
+    for (int i = 0; i < N; ++i) {
+        String s = sorted(in.next());
+        cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+    }
+    long ans = 0;
+    for (String s : cnt.keySet()) {
+        ans += nc2(cnt.get(s));
+    }
+    System.out.println(ans);
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int N = Integer.parseInt(sc.next());
+    long res = 0;
+    Map<String, Integer> map = new HashMap<>();
+    for (int i = 0; i < N; i++) {
+        char[] c = sc.next().toCharArray();
+        Arrays.sort(c);
+        String s = String.valueOf(c);
+        int tmp = map.getOrDefault(s, 0);
+        res += tmp;
+        map.put(s, tmp + 1);
+    }
+    System.out.println(res);
+}
+
+public static void main (String[]args){
+    Scanner scanner = new Scanner(System.in);
+    int n = scanner.nextInt();
+    long ans = 0;
+    HashMap<String, Integer> map = new HashMap<>();
+    for (int i = 0; i < n; i++) {
+        String s = scanner.next();
+        char sa[] = s.toCharArray();
+        Arrays.sort(sa);
+        String sorted = new String(sa);
+        ans += map.getOrDefault(sorted, 0);
+        map.put(sorted, map.getOrDefault(sorted, 0) + 1);
+    }
+    System.out.println(ans);
+}
+
+public static void main (String[]args) throws Exception {
+    int N = nextInt();
+    HashMap<String, Integer> map = new HashMap<>();
+    for (int i = 0; i < N; i++) {
+        char[] c = nextString().toCharArray();
+        Arrays.sort(c);
+        String s = String.valueOf(c);
+        map.put(s, map.getOrDefault(s, 0) + 1);
+    }
+    long ans = 0;
+    for (int val : map.values()) {
+        if (val != 1) {
+            ans += (long) (val) * (val - 1) / 2L;
+        }
+    }
+    System.out.println(ans);
+}
+
+public static void main (String[]args){
+    FastReader r = new FastReader();
+    int[] arr = r.ria();
+    int sum = 0;
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < arr[0]; i++) {
+        int[] t = r.ria();
+        for (int j = 1; j < t.length; j++) {
+            map.put(t[j], map.getOrDefault(t[j], 0) + 1);
+            if (map.get(t[j]) == arr[0]) sum++;
+        }
+    }
+    print(sum);
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n = Integer.parseInt(sc.next());
+    char[] c = new char[10];
+    String s;
+    HashMap<String, Long> map = new HashMap<>();
+    for (int i = 0; i < n; i++) {
+        c = sc.next().toCharArray();
+        Arrays.sort(c);
+        s = new String(c);
+        if (map.get(s) == null) {
+            map.put(s, 1L);
+        } else {
+            map.put(s, map.get(s) + 1);
+        }
+    }
+
+    long ans = 0;
+    for (Long v : map.values()) {
+        ans += v * (v - 1) / 2;
+    }
+    System.out.println(ans);
+}
+
+public static void main (String args[]){
+    Scanner scanner = new Scanner(System.in);
+    int N = scanner.nextInt();
+    scanner.nextLine();
+    HashMap<String, Integer> map = new HashMap<>();
+    long ans = 0;
+    for (int i = 0; i < N; i++) {
+        String line = scanner.nextLine();
+        char[] c = line.toCharArray();
+        Arrays.sort(c);
+        String sortedLine = new String(c);
+
+        if (map.containsKey(sortedLine)) {
+            ans += map.get(sortedLine);
+            map.put(sortedLine, map.get(sortedLine) + 1);
+        } else {
+            map.put(sortedLine, 1);
+        }
+    }
+    System.out.println(ans);
+}
+
+public void readD (String str){
     String[] strArr = str.split("\\s+");
     HashMap<Integer, Integer> hist = new HashMap<Integer, Integer>();
     int dmax = 1;
     for (int i = 0; i < N; i++) {
-            int d = Integer.parseInt(strArr[i]);
-            if (hist.containsKey(d)) {
-                    hist.put(d, hist.get(d) + 1);
-            } else {
-                    hist.put(d, 1);
-            }
-            if (d > dmax)
-                    dmax = d;
+        int d = Integer.parseInt(strArr[i]);
+        if (hist.containsKey(d)) {
+            hist.put(d, hist.get(d) + 1);
+        } else {
+            hist.put(d, 1);
+        }
+        if (d > dmax)
+            dmax = d;
     }
     int cnt = 0;
     int h = 0;
     for (int i = 0; i < dmax && h <= N / 2; i++) {
-            if (hist.containsKey(i)) {
-                    h += hist.get(i);
-            }
-            if (h == N / 2)
-                    cnt++;
+        if (hist.containsKey(i)) {
+            h += hist.get(i);
+        }
+        if (h == N / 2)
+            cnt++;
     }
     System.out.println(cnt);
 }
 
-public static void main(String[] args) {
-                Scanner sc = new Scanner(System.in);
-                int N = sc.nextInt();
-                HashMap<String, Integer> S = new HashMap<String, Integer>();
-                for (int i = 0; i < N; i++) {
-                        String SS = sc.next();
-                        if (S.containsKey(SS)) {
-                                S.put(SS, S.get(SS) + 1);
-                        } else {
-                                S.put(SS, 1);
-                        }
-                }
-        }
-
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            String[] s = new String[n];
-            int max = 1;
-            HashMap<String, Integer> map = new HashMap();
-            for (int i = 0; i < n; i++) {
-                s[i] = sc.next();
-                if (map.containsKey(s[i])) {
-                    int v = map.get(s[i]) + 1;
-                    map.put(s[i], v);
-                    if (v > max) max = v;
-                } else {
-                    map.put(s[i], 1);
-                }
-            }
-            Arrays.sort(s);
-            for (int i = 0; i < n; i++) {
-                int v = map.get(s[i]);
-                if (v == max) {
-                    System.out.println(s[i]);
-                }
-                i += (v - 1);
-            }
-        }
-
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int x = sc.nextInt();
-            int n = sc.nextInt();
-            int max = 105;
-            Set<Integer> set = new HashSet<>();
-            for (int i = 0; i < n; i++) {
-              set.add(sc.nextInt());
-            }
-            int ans = -1;
-            if (set.isEmpty()) {
-              ans = x;
-            } else {
-              for (int i = 0; i <= max; i++) {
-                if (!set.contains(i) && Math.abs(ans - x) > Math.abs(i - x)) {
-                  ans = i;
-                }
-              }
-            }
-            System.out.println(ans);
-            System.out.flush();
-            sc.close();
-          }
-
-          public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            int n = scanner.nextInt();
-            Set<Integer> fixed = new HashSet<>();
-            int free = 0;
-            for(int i = 0; i < n; i ++) {
-                    int a = scanner.nextInt();
-                    if(a / 400 < 8) {
-                            fixed.add(a / 400);
-                    } else {
-                            free ++;
-                    }
-            }
-            int min = 0;
-            int max = 0;
-            if(fixed.isEmpty()) {
-                    min = 1;
-                    max = free;
-            } else {
-                    min = fixed.size();
-                    max = min + free;
-            }
-            System.out.println(min + " " + max);
-            scanner.close();
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.next();
-        char[] ary = s.toCharArray();
-        List<Character> oary = Arrays.asList('R', 'U', 'D');
-        List<Character> eary = Arrays.asList('L', 'U', 'D');
-        Set<Character> hso = new HashSet<>();
-        Set<Character> hse = new HashSet<>();
-        for (int i = 0; i < s.length(); i++) {
-            if ((i + 1) % 2 == 0) {
-                hse.add(ary[i]);
-            } else {
-                hso.add(ary[i]);
-            }
-        }
-        hso.removeAll(oary);
-        hse.removeAll(eary);
-        if (hso.isEmpty() && hse.isEmpty()) {
-            System.out.println("Yes");
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    HashMap<String, Integer> S = new HashMap<String, Integer>();
+    for (int i = 0; i < N; i++) {
+        String SS = sc.next();
+        if (S.containsKey(SS)) {
+            S.put(SS, S.get(SS) + 1);
         } else {
-            System.out.println("No");
+            S.put(SS, 1);
         }
     }
-
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int n=sc.nextInt();
-        int m=sc.nextInt();
-        Set<Integer> foods = new HashSet<Integer>();
-        for(int i=0;i<m;i++){
-          foods.add(i);
-        }
-        Set<Integer> tmp = new HashSet<Integer>();
-        for(int i=0;i<n;i++){
-          int x=sc.nextInt();
-          for(int j=0;j<x;j++){
-            tmp.add(sc.nextInt()-1);
-          }
-          foods.retainAll(tmp);
-          tmp.clear();
-        }
-        System.out.println(foods.size());
-      }
-
-      public void solve(int testNumber, MyScanner in, PrintWriter out) {
-        int N = in.Int();
-        int cnt = 0;
-        Set<Integer> set = new HashSet<>();
-        for (int i = 105; i <= N; i += 2) {
-            set.clear();
-            for (int j = 1; j <= i; j++) {
-                if (i % j == 0) {
-                    set.add(j);
-                    set.add(i / j);
-                }
-            }
-            if (set.size() == 8) cnt++;
-        }
-        out.println(cnt);
-    }
-
-    public static void main(String[] args) {
-        Scanner scan=new Scanner(System.in);
-        Set<BigInteger> set=new HashSet<BigInteger>();
-        int c=0;
-        int n=scan.nextInt();
-        for(int i=1;i<=n;i++)
-        {
-                set.add(scan.nextBigInteger());
-        }
-        ArrayList<BigInteger> bi=new ArrayList<BigInteger>(set);
-        int m=set.size();
-        for(int i=0;i<m;i++)
-        {
-                if(bi.get(i).isProbablePrime(10)==true)
-                {
-                        c++;
-                }
-        }
-        System.out.println(c);
-        bi.clear();
-        set.clear();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    String[] s = new String[n];
+    int max = 1;
+    HashMap<String, Integer> map = new HashMap();
+    for (int i = 0; i < n; i++) {
+        s[i] = sc.next();
+        if (map.containsKey(s[i])) {
+            int v = map.get(s[i]) + 1;
+            map.put(s[i], v);
+            if (v > max) max = v;
+        } else {
+            map.put(s[i], 1);
+        }
+    }
+    Arrays.sort(s);
+    for (int i = 0; i < n; i++) {
+        int v = map.get(s[i]);
+        if (v == max) {
+            System.out.println(s[i]);
+        }
+        i += (v - 1);
+    }
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int x = sc.nextInt();
+    int n = sc.nextInt();
+    int max = 105;
+    Set<Integer> set = new HashSet<>();
+    for (int i = 0; i < n; i++) {
+        set.add(sc.nextInt());
+    }
+    int ans = -1;
+    if (set.isEmpty()) {
+        ans = x;
+    } else {
+        for (int i = 0; i <= max; i++) {
+            if (!set.contains(i) && Math.abs(ans - x) > Math.abs(i - x)) {
+                ans = i;
+            }
+        }
+    }
+    System.out.println(ans);
+    System.out.flush();
+    sc.close();
+}
+
+public static void main (String[]args){
+    Scanner scanner = new Scanner(System.in);
+    int n = scanner.nextInt();
+    Set<Integer> fixed = new HashSet<>();
+    int free = 0;
+    for (int i = 0; i < n; i++) {
+        int a = scanner.nextInt();
+        if (a / 400 < 8) {
+            fixed.add(a / 400);
+        } else {
+            free++;
+        }
+    }
+    int min = 0;
+    int max = 0;
+    if (fixed.isEmpty()) {
+        min = 1;
+        max = free;
+    } else {
+        min = fixed.size();
+        max = min + free;
+    }
+    System.out.println(min + " " + max);
+    scanner.close();
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    String s = sc.next();
+    char[] ary = s.toCharArray();
+    List<Character> oary = Arrays.asList('R', 'U', 'D');
+    List<Character> eary = Arrays.asList('L', 'U', 'D');
+    Set<Character> hso = new HashSet<>();
+    Set<Character> hse = new HashSet<>();
+    for (int i = 0; i < s.length(); i++) {
+        if ((i + 1) % 2 == 0) {
+            hse.add(ary[i]);
+        } else {
+            hso.add(ary[i]);
+        }
+    }
+    hso.removeAll(oary);
+    hse.removeAll(eary);
+    if (hso.isEmpty() && hse.isEmpty()) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
+    }
+}
+
+public static void main (String args[]){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int m = sc.nextInt();
+    Set<Integer> foods = new HashSet<Integer>();
+    for (int i = 0; i < m; i++) {
+        foods.add(i);
+    }
+    Set<Integer> tmp = new HashSet<Integer>();
+    for (int i = 0; i < n; i++) {
+        int x = sc.nextInt();
+        for (int j = 0; j < x; j++) {
+            tmp.add(sc.nextInt() - 1);
+        }
+        foods.retainAll(tmp);
+        tmp.clear();
+    }
+    System.out.println(foods.size());
+}
+
+public void solve ( int testNumber, MyScanner in, PrintWriter out){
+    int N = in.Int();
+    int cnt = 0;
+    Set<Integer> set = new HashSet<>();
+    for (int i = 105; i <= N; i += 2) {
+        set.clear();
+        for (int j = 1; j <= i; j++) {
+            if (i % j == 0) {
+                set.add(j);
+                set.add(i / j);
+            }
+        }
+        if (set.size() == 8) cnt++;
+    }
+    out.println(cnt);
+}
+
+public static void main (String[]args){
+    Scanner scan = new Scanner(System.in);
+    Set<BigInteger> set = new HashSet<BigInteger>();
+    int c = 0;
+    int n = scan.nextInt();
+    for (int i = 1; i <= n; i++) {
+        set.add(scan.nextBigInteger());
+    }
+    ArrayList<BigInteger> bi = new ArrayList<BigInteger>(set);
+    int m = set.size();
+    for (int i = 0; i < m; i++) {
+        if (bi.get(i).isProbablePrime(10) == true) {
+            c++;
+        }
+    }
+    System.out.println(c);
+    bi.clear();
+    set.clear();
+}
+
+public static void main (String[]args){
     FastScanner sc = new FastScanner(System.in);
     int n = sc.nextInt();
     int[] v = sc.nextIntArray(n);
@@ -7503,52 +7506,52 @@ public static void main(String[] args) {
     Set<Integer> ndp = new HashSet<>();
     dp.add(0);
     for (int i = 0; i < n; i++) {
-      ndp.clear();
-      for (int val : dp) {
-        ndp.add(val);
-        ndp.add(val + values[i]);
-      }
-      dp.clear();
-      dp.addAll(ndp);
+        ndp.clear();
+        for (int val : dp) {
+            ndp.add(val);
+            ndp.add(val + values[i]);
+        }
+        dp.clear();
+        dp.addAll(ndp);
     }
     int max = Integer.MIN_VALUE;
     for (int val : dp) max = Math.max(max, val);
     System.out.println(max);
-  }
+}
 
-  public static void main(String[] args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String S = sc.next();
-    if (S.charAt(0) == 'A'){
-      int countC = 0;
-      for (int i = 2; i < S.length() - 1; i++){
-        if (S.charAt(i) == 'C'){
-          countC++;
+    if (S.charAt(0) == 'A') {
+        int countC = 0;
+        for (int i = 2; i < S.length() - 1; i++) {
+            if (S.charAt(i) == 'C') {
+                countC++;
+            }
         }
-      }
-      HashSet<Character> set = new HashSet<>();
-      set.add('A');
-      set.add('C');
-      if (countC == 1){
-        for (char c: S.toCharArray()){
-          if (Character.isUpperCase(c) && !set.contains(c)){
-            System.out.println("WA");
+        HashSet<Character> set = new HashSet<>();
+        set.add('A');
+        set.add('C');
+        if (countC == 1) {
+            for (char c : S.toCharArray()) {
+                if (Character.isUpperCase(c) && !set.contains(c)) {
+                    System.out.println("WA");
+                    return;
+                }
+            }
+            System.out.println("AC");
             return;
-          }
         }
-        System.out.println("AC");
-        return;
-      }
     }
     System.out.println("WA");
     return;
-  }
+}
 
-  public void addChild(Node node) {
+public void addChild (Node node){
     children.add(node);
 }
 
-public static List<Integer> readIntegerList(InputReader in, int size) {
+public static List<Integer> readIntegerList (InputReader in,int size){
     List<Integer> set = new ArrayList<>();
     for (int i = 0; i < size; i++) {
         set.add(in.readInt());
@@ -7556,61 +7559,61 @@ public static List<Integer> readIntegerList(InputReader in, int size) {
     return set;
 }
 
-static ArrayList<Integer> intersect(ArrayList<Integer> a, ArrayList<Integer> b) {
+static ArrayList<Integer> intersect (ArrayList < Integer > a, ArrayList < Integer > b){
     ArrayList<Integer> res = new ArrayList<>();
     if (b.size() != 0) {
-            HashSet<Integer> hm = new HashSet<>();
-            for (int x : a)
-                    hm.add(x);
-            for (int x : b)
-                    if (hm.contains(x))
-                            res.add(x);
+        HashSet<Integer> hm = new HashSet<>();
+        for (int x : a)
+            hm.add(x);
+        for (int x : b)
+            if (hm.contains(x))
+                res.add(x);
     }
     return res;
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     FastScanner sc = new FastScanner();
     int Kuji = sc.nextInt();
     HashSet<String> hs = new HashSet<String>();
-for(int i = 1; i <= Kuji; i++) {
-    String syohin = sc.next();
-            hs.add(syohin);
-}
-System.out.println(hs.size());
+    for (int i = 1; i <= Kuji; i++) {
+        String syohin = sc.next();
+        hs.add(syohin);
+    }
+    System.out.println(hs.size());
 }
 
-private int solveMe(int n, String[] a) {
+private int solveMe ( int n, String[] a){
     HashSet<String> set = new HashSet<>();
     set.addAll(toArrayList(a));
     return set.size();
 }
 
-public static void main(String[] args) throws IOException{
+public static void main (String[]args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     Set<String> set = new HashSet<>();
     int n = Integer.parseInt(br.readLine());
     String[] str = new String[n];
-    for(int i=0; i<n; ++i)
+    for (int i = 0; i < n; ++i)
         str[i] = br.readLine();
     Arrays.sort(str);
     set.addAll(Arrays.asList(str));
     System.out.println(set.size());
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     FastScanner sc = new FastScanner(System.in);
     String s = sc.next();
     Set<String> chars = new HashSet<>();
     chars.addAll(Arrays.asList(s.split("")));
     if (chars.size() == 2) {
-      System.out.println("Yes");
+        System.out.println("Yes");
     } else {
-      System.out.println("No");
+        System.out.println("No");
     }
-  }
+}
 
-  public static void main(String[] args) {
+public static void main (String[]args){
     FastScanner sc = new FastScanner(System.in);
     int n = sc.nextInt();
     int[] v = sc.nextIntArray(n);
@@ -7621,52 +7624,52 @@ public static void main(String[] args) {
     Set<Integer> ndp = new HashSet<>();
     dp.add(0);
     for (int i = 0; i < n; i++) {
-      ndp.clear();
-      for (int val : dp) {
-        ndp.add(val);
-        ndp.add(val + values[i]);
-      }
-      dp.clear();
-      dp.addAll(ndp);
+        ndp.clear();
+        for (int val : dp) {
+            ndp.add(val);
+            ndp.add(val + values[i]);
+        }
+        dp.clear();
+        dp.addAll(ndp);
     }
     int max = Integer.MIN_VALUE;
     for (int val : dp) max = Math.max(max, val);
     System.out.println(max);
-  }
+}
 
-  public static void main(String[] args) {
-    Scanner scn=new Scanner(System.in);
-    int n=scn.nextInt();
-    int m=scn.nextInt();
-    HashSet<Integer> set=new HashSet<>();
-    HashSet<Integer> s=new HashSet<>();
-    for(int i=0;i<n;i++) {
-            int k=scn.nextInt();
-            s=new HashSet<>();
-            for(int j=0;j<k;j++) {
-                    int x=scn.nextInt();
+public static void main (String[]args){
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    int m = scn.nextInt();
+    HashSet<Integer> set = new HashSet<>();
+    HashSet<Integer> s = new HashSet<>();
+    for (int i = 0; i < n; i++) {
+        int k = scn.nextInt();
+        s = new HashSet<>();
+        for (int j = 0; j < k; j++) {
+            int x = scn.nextInt();
 
-                    if(i==0) {
-                            set.add(x);
-                            s.add(x);
-                    }else {
-                            if(set.contains(x)) {
-                                    s.add(x);
-                            }
-                    }
+            if (i == 0) {
+                set.add(x);
+                s.add(x);
+            } else {
+                if (set.contains(x)) {
+                    s.add(x);
+                }
             }
-            if(i!=0) {
-                    set.removeAll(set);
-                    set.addAll(s);
-            }
+        }
+        if (i != 0) {
+            set.removeAll(set);
+            set.addAll(s);
+        }
     }
     System.out.println(s.size());
 }
 
-public static void main(String[] args) throws IOException {
+public static void main (String[]args) throws IOException {
     int input = nextInt();
-    HashSet <String> kinds = new HashSet<>();
-    for (int x=0; x<input; x++) {
+    HashSet<String> kinds = new HashSet<>();
+    for (int x = 0; x < input; x++) {
         String cur = next();
         if (!kinds.contains(cur)) {
             kinds.add(cur);
@@ -7675,45 +7678,44 @@ public static void main(String[] args) throws IOException {
     System.out.println(kinds.size());
 }
 
-public static void main(String args[])
-  {
-    Scanner in=new Scanner(System.in);
-    int a=in.nextInt();
-    HashSet<String> set=new HashSet<>();
-    while(a>0)
-    {
-     String s=in.next();
-     set.add(s);  
-      a--;
+public static void main (String args[])
+{
+    Scanner in = new Scanner(System.in);
+    int a = in.nextInt();
+    HashSet<String> set = new HashSet<>();
+    while (a > 0) {
+        String s = in.next();
+        set.add(s);
+        a--;
     }
-    System.out.print(set.size());  
-  }
+    System.out.print(set.size());
+}
 
-  public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
-    int times = sc.nextInt(); 
+    int times = sc.nextInt();
     HashSet<String> kuji = new HashSet<String>();
-    for(int i=0 ; i<times ; i++) {
-            kuji.add(sc.next());
+    for (int i = 0; i < times; i++) {
+        kuji.add(sc.next());
     }
     System.out.print(kuji.size());
     sc.close();
 }
 
-private int solveMe(int n, String[] a) {
+private int solveMe ( int n, String[] a){
     HashSet<String> set = new HashSet<>();
     set.addAll(toArrayList(a));
     return set.size();
 }
 
-void solve() throws IOException {
+void solve () throws IOException {
     Set<Integer> set = new HashSet<>();
-    for(int i=0;i<3;i++) set.add(sc.nextInt());
-    String ans = set.size()==2?"Yes":"No";
+    for (int i = 0; i < 3; i++) set.add(sc.nextInt());
+    String ans = set.size() == 2 ? "Yes" : "No";
     System.out.println(ans);
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String s = sc.next();
     Set<String> set = new HashSet<String>();
@@ -7728,41 +7730,43 @@ public static void main(String[] args) {
             idx -= 5;
         } else if (set.contains(s.substring(idx - 6, idx))) {
             idx -= 6;
-        } else if (set.contains(s.substring(idx - 7, idx))){ 
+        } else if (set.contains(s.substring(idx - 7, idx))) {
             idx -= 7;
         } else {
             break;
         }
     }
-    String res =  idx == 0 ? "YES" : "NO";
+    String res = idx == 0 ? "YES" : "NO";
     System.out.println(res);
 }
 
-public static void main(String[] args) throws IOException {
-    Writer out=new Writer(System.out);
-    Reader in=new Reader(System.in);
-    int ts=1;
-    outer: while(ts-->0) {
-            int n=in.nextInt(); int k=in.nextInt();
-            Set<Integer> set=new HashSet<>();
-            for(int i=1; i<=n; i++) set.add(i);
-            for(int i=0; i<k; i++) {
-                    int d=in.nextInt();
-                    int a[]=in.readArray(d);
-                    for(int j: a) if(set.contains(j)) set.remove(j);
-            }
-            out.println(set.size());
+public static void main (String[]args) throws IOException {
+    Writer out = new Writer(System.out);
+    Reader in = new Reader(System.in);
+    int ts = 1;
+    outer:
+    while (ts-- > 0) {
+        int n = in.nextInt();
+        int k = in.nextInt();
+        Set<Integer> set = new HashSet<>();
+        for (int i = 1; i <= n; i++) set.add(i);
+        for (int i = 0; i < k; i++) {
+            int d = in.nextInt();
+            int a[] = in.readArray(d);
+            for (int j : a) if (set.contains(j)) set.remove(j);
+        }
+        out.println(set.size());
     }
     out.close();
 }
 
-public static void main(String[] args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     int k = sc.nextInt();
     HashSet<Integer> sunuke = new HashSet<>();
     for (int i = 0; i < n; i++) {
-        sunuke.add(i+1);
+        sunuke.add(i + 1);
     }
     for (int i = 0; i < k; i++) {
         int ki = sc.nextInt();
@@ -7777,23 +7781,23 @@ public static void main(String[] args){
     System.out.println(sunuke.size());
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int X = sc.nextInt();
     int N = sc.nextInt();
     Set<Integer> p = new HashSet<>();
-    for(int i = 0; i < N; i++)
-            p.add(sc.nextInt());
-    int ans = 0, min = Integer.MAX_VALUE/2;
-    for(int i = -100; i <= 200; i++)
-            if(!p.contains(i) && Math.abs(i-X) < min) {
-                    ans = i;
-                    min = Math.abs(i-X);
-            }
+    for (int i = 0; i < N; i++)
+        p.add(sc.nextInt());
+    int ans = 0, min = Integer.MAX_VALUE / 2;
+    for (int i = -100; i <= 200; i++)
+        if (!p.contains(i) && Math.abs(i - X) < min) {
+            ans = i;
+            min = Math.abs(i - X);
+        }
     System.out.println(ans);
 }
 
-public void solve() {
+public void solve () {
     Scanner scan = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
     int X = scan.nextInt();
     int N = scan.nextInt();
@@ -7816,69 +7820,68 @@ public void solve() {
     System.out.println(ans);
 }
 
-public void solve() {
+public void solve () {
     int X = ni();
     int N = ni();
-    if(N == 0) {
-            out.println(X);
-            return;
+    if (N == 0) {
+        out.println(X);
+        return;
     }
-    for (int i = 0; i < N; i++)     {
-            set.add(ni());
+    for (int i = 0; i < N; i++) {
+        set.add(ni());
     }
     int ans = 0, sv = 200;
     for (int i = 0; i <= 101; i++) {
-            if(set.contains(i))             continue;
-            if(sv > Math.abs(i - X)) {
-                    sv = Math.abs(i - X);
-                    ans = i;
-            }
+        if (set.contains(i)) continue;
+        if (sv > Math.abs(i - X)) {
+            sv = Math.abs(i - X);
+            ans = i;
+        }
     }
     out.println(ans);
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner s = new Scanner(System.in);
     int x = s.nextInt();
     int n = s.nextInt();
     HashSet<Integer> h = new HashSet<>();
-    while(n--!=0) {
-            h.add(s.nextInt());
+    while (n-- != 0) {
+        h.add(s.nextInt());
     }
-    int t=0;
-    while(h.contains(x-t) && h.contains(x+t)) {
-            t++;
+    int t = 0;
+    while (h.contains(x - t) && h.contains(x + t)) {
+        t++;
     }
-    if(!h.contains(x-t)) {
-            System.out.println(x-t);
-    }
-    else if(!h.contains(x+t)) {
-            System.out.println(x+t);
+    if (!h.contains(x - t)) {
+        System.out.println(x - t);
+    } else if (!h.contains(x + t)) {
+        System.out.println(x + t);
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int a = sc.nextInt();
     int b = sc.nextInt();
     sc.close();
     HashSet<Integer> set = new HashSet<Integer>();
     for (int i = 0; i < 3; i++) {
-            set.add(i + 1);
+        set.add(i + 1);
     }
     set.remove(a);
     set.remove(b);
     System.out.println(set.toArray()[0]);
 }
 
-public static void main(String[] args)  {
+public static void main (String[]args){
     Set<Integer> set = new HashSet<>();
     set.add(1);
     set.add(2);
     set.add(3);
     String line;
-    try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-        while((line = br.readLine()) != null) {
+    try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+        while ((line = br.readLine()) != null) {
             int num = Integer.parseInt(line);
             set.remove(num);
         }
@@ -7888,319 +7891,315 @@ public static void main(String[] args)  {
     System.out.println(set.iterator().next());
 }
 
-public void removeChild(Node node) {
+public void removeChild (Node node){
     children.remove(node);
 }
 
-public static void main(String args[]) throws Exception
-        {
-            try
-            {
-                Scanner sc=new Scanner(System.in);
-                int n=sc.nextInt();
-                String str[]=new String[2*100000];
-                for(int i=0;i<n;i++)
-                {
-                          str[i]=sc.next();
-                }
-                Set<String> set=new HashSet<>(Arrays.asList(str));
-                set.remove(null);
-                System.out.println(set.size());
-            }
-            catch(Exception e)
-            {}
+public static void main (String args[]) throws Exception
+{
+    try {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String str[] = new String[2 * 100000];
+        for (int i = 0; i < n; i++) {
+            str[i] = sc.next();
         }
-
-        public static void main(String args[]) {
-            MyScanner sc = new MyScanner();
-            HashSet<Integer> set = new HashSet<Integer>();
-            int n = sc.nextInt(), m = sc.nextInt();
-            boolean[] selected = new boolean[m];
-            for(int i = 0; i < m; i++){
-                set.add(i);
-            }    
-            for(int i = 0; i < n; ++i){
-                for(int j = 0; j < m; ++j){
-                    selected[j] = true;
-                }
-                int c = sc.nextInt();
-                for(int j = 0; j < c; ++j){
-                    selected[sc.nextInt() - 1] = false;
-                }
-                for(int j = 0; j < m; ++j){
-                    if(selected[j]){
-                        set.remove(j);
-                    }
-                }
-            }
-            System.out.println(set.size());
-        }
-
-        public static <T> void comb(ArrayList<T> n, Integer r, HashSet<ArrayList<T>> ans) {
-            if (n.size() == r) {
-                ans.add(n);
-                return;
-            }
-            for (int i = 0; i < n.size(); i++) {
-                ArrayList<T> N = new ArrayList<>(n);
-                N.remove(i);
-                comb(N, r, ans);
-            }
-        }
-
-        public static void main(String[] args) throws Exception {
-            Scanner sc = new Scanner(System.in);
-            String w = sc.next();
-            Set<String> set = new HashSet<String>();
-            for (int i = 0; i < w.length(); i++) {
-                String c = String.valueOf(w.charAt(i));
-                if (set.contains(c)) {
-                    set.remove(c);
-                } else {
-                    set.add(c);
-                }
-            }
-            if (set.size() == 0) {
-                System.out.println("Yes");
-            } else {
-                System.out.println("No");
-            }
-        }
-
-        private static void sortNatualOrder(List<Integer> intList) {
-            int tmp = intList.get(1);
-            if (intList.get(0) > intList.get(1)) {
-                intList.set(1, intList.get(0));
-                intList.set(0, tmp);
-            }
-        }
-
-        public static void swap(ArrayList<Integer> ary, int i, int j){
-            Integer tmp = ary.get(i);
-            ary.set(i, ary.get(j));
-            ary.set(j, tmp);
-        }
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int N = sc.nextInt();
-            String S = sc.next();
-            List<String> arr = new ArrayList<String>();
-            for(int i = 0; i < N;i++){
-                arr.add(String.valueOf(S.charAt(i)));
-            }
-            for(int j = 0; j < N-1; j++){
-                if(arr.get(j).equals(arr.get(j+1))){
-                    arr.set(j, "0");
-                }
-            }
-            arr.removeAll(Arrays.asList("0"));
-            System.out.println(arr.size());
-        }
-
-        private static <T> void swap(List<T> nums, int i, int j) {
-            T temp = nums.get(i);
-            nums.set(i,nums.get(j));
-            nums.set(j,temp);
-        }
-
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            ArrayList<Integer> n = new ArrayList<>();
-            for (int i = 0; i < 3; i++) {
-              n.add(sc.nextInt());
-            }
-            int k = sc.nextInt();
-            Collections.sort(n);
-            for (int i = 0; i < k; i++)
-              n.set(2, ((Integer) n.get(2) * 2));
-            int ans = 0;
-            for (Integer num : n)
-              ans += num;
-            System.out.println(ans);
-          }
-
-          public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int N = sc.nextInt();
-            int res = 0;
-            for(int i = 1; i <= N; i++) {
-                String s = String.valueOf(i);
-                int len = s.length();
-                if(len % 2 != 0) res++;
-            }
-            System.out.println(res);
-        }
-
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            String s = sc.next();
-            Set<String> set = new HashSet<>();
-            for (char c : s.toCharArray()) {
-                set.add(String.valueOf(c));
-            }
-            System.out.println(set.size() == 2 ? "Yes" : "No");
-        }
-
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            String s = sc.next();
-            List<String> array = new ArrayList<>();
-            array.add(String.valueOf(s.charAt(0)));
-            array.add(String.valueOf(s.charAt(1)));
-            array.add(String.valueOf(s.charAt(2)));
-            array.add(String.valueOf(s.charAt(3)));
-            Collections.sort(array);
-            if (array.get(0).equals(array.get(1)) && !array.get(1).equals(array.get(2)) && array.get(2).equals(array.get(3))) {
-                System.out.println("Yes");
-            } else {
-                System.out.println("No");
-            }
-        }
-
-        static boolean check(String s) {
-            if(s.charAt(0) != 'A')return false;
-            boolean flag = false;
-            for(int i = 1;i < s.length();i ++) {
-                    if(s.charAt(i) != 'C') {
-                            if(s.charAt(i) >= 'A' && s.charAt(i) <= 'Z')return false;
-                    }
-                    else if(flag || i < 2 || s.length() - i < 2)return false;
-                    else flag = true;
-            }
-            return flag;
+        Set<String> set = new HashSet<>(Arrays.asList(str));
+        set.remove(null);
+        System.out.println(set.size());
+    } catch (Exception e) {
     }
+}
 
-    static void printBWD(String str, int n) {
-        if (n < str.length()) {
-            printBWD(str, n + 1);
-            System.out.print(str.charAt(n));
+public static void main (String args[]){
+    MyScanner sc = new MyScanner();
+    HashSet<Integer> set = new HashSet<Integer>();
+    int n = sc.nextInt(), m = sc.nextInt();
+    boolean[] selected = new boolean[m];
+    for (int i = 0; i < m; i++) {
+        set.add(i);
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            selected[j] = true;
         }
+        int c = sc.nextInt();
+        for (int j = 0; j < c; ++j) {
+            selected[sc.nextInt() - 1] = false;
+        }
+        for (int j = 0; j < m; ++j) {
+            if (selected[j]) {
+                set.remove(j);
+            }
+        }
+    }
+    System.out.println(set.size());
+}
+
+public static <T > void comb (ArrayList < T > n, Integer r, HashSet < ArrayList < T >> ans){
+    if (n.size() == r) {
+        ans.add(n);
         return;
     }
-
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str, reverse;
-        int num;
-        while ((str = br.readLine()) != null){
-                reverse = "";
-                num = str.length();
-                char[] word = new char[num];
-                for (int i = 0; i < num; i++) {
-                        word[i] = str.charAt(i);
-                }
-                for (int i = num-1; i >=0; i--) {
-                        reverse = reverse + word[i];
-                }
-                System.out.println(reverse);
-        }
+    for (int i = 0; i < n.size(); i++) {
+        ArrayList<T> N = new ArrayList<>(n);
+        N.remove(i);
+        comb(N, r, ans);
+    }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args) throws Exception {
     Scanner sc = new Scanner(System.in);
-    String s,r = "";
-    s = sc.next();
-for(int i=s.length()-1;i>=0;i--){
-     r += String.valueOf(s.charAt(i));
-}
-System.out.println(r);
+    String w = sc.next();
+    Set<String> set = new HashSet<String>();
+    for (int i = 0; i < w.length(); i++) {
+        String c = String.valueOf(w.charAt(i));
+        if (set.contains(c)) {
+            set.remove(c);
+        } else {
+            set.add(c);
+        }
+    }
+    if (set.size() == 0) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
+    }
 }
 
-public static void main(String[] args) { 
+private static void sortNatualOrder (List < Integer > intList) {
+    int tmp = intList.get(1);
+    if (intList.get(0) > intList.get(1)) {
+        intList.set(1, intList.get(0));
+        intList.set(0, tmp);
+    }
+}
+
+public static void swap (ArrayList < Integer > ary,int i, int j){
+    Integer tmp = ary.get(i);
+    ary.set(i, ary.get(j));
+    ary.set(j, tmp);
+}
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    String S = sc.next();
+    List<String> arr = new ArrayList<String>();
+    for (int i = 0; i < N; i++) {
+        arr.add(String.valueOf(S.charAt(i)));
+    }
+    for (int j = 0; j < N - 1; j++) {
+        if (arr.get(j).equals(arr.get(j + 1))) {
+            arr.set(j, "0");
+        }
+    }
+    arr.removeAll(Arrays.asList("0"));
+    System.out.println(arr.size());
+}
+
+private static <T > void swap (List < T > nums,int i, int j){
+    T temp = nums.get(i);
+    nums.set(i, nums.get(j));
+    nums.set(j, temp);
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    ArrayList<Integer> n = new ArrayList<>();
+    for (int i = 0; i < 3; i++) {
+        n.add(sc.nextInt());
+    }
+    int k = sc.nextInt();
+    Collections.sort(n);
+    for (int i = 0; i < k; i++)
+        n.set(2, ((Integer) n.get(2) * 2));
+    int ans = 0;
+    for (Integer num : n)
+        ans += num;
+    System.out.println(ans);
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    int res = 0;
+    for (int i = 1; i <= N; i++) {
+        String s = String.valueOf(i);
+        int len = s.length();
+        if (len % 2 != 0) res++;
+    }
+    System.out.println(res);
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    String s = sc.next();
+    Set<String> set = new HashSet<>();
+    for (char c : s.toCharArray()) {
+        set.add(String.valueOf(c));
+    }
+    System.out.println(set.size() == 2 ? "Yes" : "No");
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    String s = sc.next();
+    List<String> array = new ArrayList<>();
+    array.add(String.valueOf(s.charAt(0)));
+    array.add(String.valueOf(s.charAt(1)));
+    array.add(String.valueOf(s.charAt(2)));
+    array.add(String.valueOf(s.charAt(3)));
+    Collections.sort(array);
+    if (array.get(0).equals(array.get(1)) && !array.get(1).equals(array.get(2)) && array.get(2).equals(array.get(3))) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
+    }
+}
+
+static boolean check (String s){
+    if (s.charAt(0) != 'A') return false;
+    boolean flag = false;
+    for (int i = 1; i < s.length(); i++) {
+        if (s.charAt(i) != 'C') {
+            if (s.charAt(i) >= 'A' && s.charAt(i) <= 'Z') return false;
+        } else if (flag || i < 2 || s.length() - i < 2) return false;
+        else flag = true;
+    }
+    return flag;
+}
+
+static void printBWD (String str,int n){
+    if (n < str.length()) {
+        printBWD(str, n + 1);
+        System.out.print(str.charAt(n));
+    }
+    return;
+}
+
+public static void main (String[]args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String str, reverse;
+    int num;
+    while ((str = br.readLine()) != null) {
+        reverse = "";
+        num = str.length();
+        char[] word = new char[num];
+        for (int i = 0; i < num; i++) {
+            word[i] = str.charAt(i);
+        }
+        for (int i = num - 1; i >= 0; i--) {
+            reverse = reverse + word[i];
+        }
+        System.out.println(reverse);
+    }
+}
+
+public static void main (String[]args){
+    Scanner sc = new Scanner(System.in);
+    String s, r = "";
+    s = sc.next();
+    for (int i = s.length() - 1; i >= 0; i--) {
+        r += String.valueOf(s.charAt(i));
+    }
+    System.out.println(r);
+}
+
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
-    String ans="";
-    for(int i=1;i<=str.length();i++)
-            ans+=str.charAt(str.length()-i);
+    String ans = "";
+    for (int i = 1; i <= str.length(); i++)
+        ans += str.charAt(str.length() - i);
     System.out.println(ans);
 
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringBuilder sb = new StringBuilder();
     String str = "";
     try {
-            while((str = br.readLine()) != "") {
-                    for(int i=str.length(); i>0; i--) {
-                            sb.append(str.substring(i-1, i));
-                    }
-                    System.out.println(sb.toString());
+        while ((str = br.readLine()) != "") {
+            for (int i = str.length(); i > 0; i--) {
+                sb.append(str.substring(i - 1, i));
             }
-    } catch(Exception e) {
-            e.getMessage();
+            System.out.println(sb.toString());
+        }
+    } catch (Exception e) {
+        e.getMessage();
     }
 }
 
-public static void main(String args[]) {
+public static void main (String args[]){
     Scanner sc = new Scanner(System.in);
     String st = sc.next();
     for (int i = st.length() - 1; 0 <= i; i--) {
-            System.out.print(st.charAt(i));
+        System.out.print(st.charAt(i));
     }
     System.out.println();
 }
 
-public static void main(String[]args){
+public static void main (String[]args){
     int n;
-    String s,t;
-    n=nextInt();
-    s=next();
-    t=next();
-    char[] arr = new char[2*n];
-    for(int i=0;i<n;i++){
-        arr[2*i]=s.charAt(i);
-        arr[2*i+1]=t.charAt(i);
+    String s, t;
+    n = nextInt();
+    s = next();
+    t = next();
+    char[] arr = new char[2 * n];
+    for (int i = 0; i < n; i++) {
+        arr[2 * i] = s.charAt(i);
+        arr[2 * i + 1] = t.charAt(i);
     }
-    for(char a:arr){
-        System.out.printf("%c",a);
+    for (char a : arr) {
+        System.out.printf("%c", a);
     }
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     String s = sc.next();
     String t = sc.next();
     String ans = "";
-    for(int i = 0; i < n; i++) {
-      String s1 = String.valueOf(s.charAt(i));
-      String s2 = String.valueOf(t.charAt(i));
-      ans += s1;
-      ans += s2;
+    for (int i = 0; i < n; i++) {
+        String s1 = String.valueOf(s.charAt(i));
+        String s2 = String.valueOf(t.charAt(i));
+        ans += s1;
+        ans += s2;
     }
     System.out.println(ans);
-  }
+}
 
-  private String solve() {
+private String solve () {
     String answer = "";
-    for (int i=0; i<N; i++) {
-            answer += String.valueOf(S.charAt(i));
-            answer += String.valueOf(T.charAt(i));
+    for (int i = 0; i < N; i++) {
+        answer += String.valueOf(S.charAt(i));
+        answer += String.valueOf(T.charAt(i));
     }
-    
+
     return answer;
 }
 
-static int res(String ss, String t) {
+static int res (String ss, String t){
     int cnt = 0;
-    for(int i=0;i<ss.length();i++) {
-        if(ss.charAt(i) != t.charAt(i)) {
+    for (int i = 0; i < ss.length(); i++) {
+        if (ss.charAt(i) != t.charAt(i)) {
             cnt++;
         }
     }
     return cnt;
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     FastScanner fs = new FastScanner();
     String S = fs.next();
     String T = fs.next();
     int ans = Integer.MAX_VALUE;
-    for (int i = 0; i <= S.length()-T.length(); ++i) {
+    for (int i = 0; i <= S.length() - T.length(); ++i) {
         int cnt = T.length();
         for (int j = 0; j < T.length(); ++j) {
-            if (S.charAt(i+j) == T.charAt(j)) {
+            if (S.charAt(i + j) == T.charAt(j)) {
                 --cnt;
             }
         }
@@ -8210,27 +8209,27 @@ public static void main(String[] args) {
 }
 
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String s = sc.next();
     String t = sc.next();
     boolean flag = false;
-    for(int i = 0; i < s.length(); i++) {
-            if (s.equals(t)){
-                    flag = true;
-                    break;
-            }
-            Character c = s.charAt(0);
-            s = s.substring(1, s.length()) + c;
+    for (int i = 0; i < s.length(); i++) {
+        if (s.equals(t)) {
+            flag = true;
+            break;
+        }
+        Character c = s.charAt(0);
+        s = s.substring(1, s.length()) + c;
     }
-    if(flag) {
-            System.out.println("Yes");
-    }else {
-            System.out.println("No");
+    if (flag) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
     }
 }
 
-public void solve(int testNumber, LightScanner in, LightWriter out) {
+public void solve ( int testNumber, LightScanner in, LightWriter out){
     String s = in.string(), t = in.string();
     for (int i = 0; i <= 100; i++) {
         if (s.equals(t)) {
@@ -8242,23 +8241,23 @@ public void solve(int testNumber, LightScanner in, LightWriter out) {
     out.noln();
 }
 
-public static String[] toStringArray(String s) {
+public static String[] toStringArray (String s){
     String[] tmp = new String[s.length()];
     char[] c = s.toCharArray();
     for (int i = 0; i < tmp.length; i++) {
-            tmp[i] = String.valueOf(c[i]);
+        tmp[i] = String.valueOf(c[i]);
     }
     return tmp;
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String s = sc.next();
     long k = Long.parseLong(sc.next());
     char c[] = s.toCharArray();
     char cs = '1';
-    for(int i = 0; i < k; i++){
-        if(c[i] != '1'){
+    for (int i = 0; i < k; i++) {
+        if (c[i] != '1') {
             cs = c[i];
             break;
         }
@@ -8267,107 +8266,102 @@ public static void main(String[] args) {
     sc.close();
 }
 
-static char[] nc() {
+static char[] nc () {
     return sc.next().toCharArray();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner scanner = new Scanner(System.in);
-    int    n = Integer.parseInt(scanner.nextLine());
+    int n = Integer.parseInt(scanner.nextLine());
     String s = scanner.nextLine();
-    if(n % 2 == 1 || n == 0){
+    if (n % 2 == 1 || n == 0) {
         System.out.println("No");
         return;
     }
-    String s1 = s.substring(0  , n/2);
-    String s2 = s.substring(n/2, n);
-    
-    if(s1.startsWith(s2)){
+    String s1 = s.substring(0, n / 2);
+    String s2 = s.substring(n / 2, n);
+
+    if (s1.startsWith(s2)) {
         System.out.println("Yes");
-    }
-    else{
+    } else {
         System.out.println("No");
     }
     scanner.close();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner scanner = new Scanner(System.in);
     String s = scanner.next();
-    String sub = s.substring(2,s.length()-1);
-    if (s.startsWith("A") && sub.contains("C") && sub.indexOf('C')==sub.lastIndexOf('C')){
-            int idxC = sub.indexOf('C')+2;
-            for (int i=1;i<s.length(); i++){
-                    if (i==idxC) continue;
-                    if (Character.isUpperCase(s.charAt(i))) {
-                            System.out.println("WA");
-                            System.exit(0);
-                    }
+    String sub = s.substring(2, s.length() - 1);
+    if (s.startsWith("A") && sub.contains("C") && sub.indexOf('C') == sub.lastIndexOf('C')) {
+        int idxC = sub.indexOf('C') + 2;
+        for (int i = 1; i < s.length(); i++) {
+            if (i == idxC) continue;
+            if (Character.isUpperCase(s.charAt(i))) {
+                System.out.println("WA");
+                System.exit(0);
             }
-            System.out.println("AC");
-    }else {
-            System.out.println("WA");
+        }
+        System.out.println("AC");
+    } else {
+        System.out.println("WA");
     }
 }
 
-public static void main(String[] args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String a = sc.next();
     String b = sc.next();
     System.out.println(b.startsWith(a) ? "Yes" : "No");
-  }
-
-  public void solve(int testNumber, MyScanner in, PrintWriter out)
-                {
-                        String s = in.next();
-                        if( s.endsWith("s") )
-                        {
-                                s += "es";
-                        }
-                        else
-                        {
-                                s += "s";
-                        }
-                        out.println(s);
-                }
-    
-                public static void main(String[] args) {
-                    Scanner in = new Scanner(System.in);
-                    while (in.hasNext()) {
-                        int n = in.nextInt();
-                        in.nextLine();
-                        String s = in.nextLine();
-                        if (n % 2 == 1) {
-                            System.out.println("No");
-                        } else {
-                            n /= 2;
-                            System.out.println((s.substring(0, n).endsWith(s.substring(n))) ? "Yes" : "No");
-                        }
-                    }
 }
 
-public static void main(String[] args) throws IOException {
+public void solve ( int testNumber, MyScanner in, PrintWriter out)
+{
+    String s = in.next();
+    if (s.endsWith("s")) {
+        s += "es";
+    } else {
+        s += "s";
+    }
+    out.println(s);
+}
+
+public static void main (String[]args){
+    Scanner in = new Scanner(System.in);
+    while (in.hasNext()) {
+        int n = in.nextInt();
+        in.nextLine();
+        String s = in.nextLine();
+        if (n % 2 == 1) {
+            System.out.println("No");
+        } else {
+            n /= 2;
+            System.out.println((s.substring(0, n).endsWith(s.substring(n))) ? "Yes" : "No");
+        }
+    }
+}
+
+public static void main (String[]args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     String N = "" + nextInt();
-    if(N.contains("7")){
+    if (N.contains("7")) {
         System.out.println("Yes");
-    }
-    else {
+    } else {
         System.out.println("No");
     }
 }
 
-public static String checkInf(String S, String K){
+public static String checkInf (String S, String K){
     long count = 0;
-    for(int i = 0; i < S.length(); i++){
+    for (int i = 0; i < S.length(); i++) {
         int val = S.charAt(i) - '0';
-        if(val == 1)
+        if (val == 1)
             count++;
         else {
-            if(K.compareTo(key) > 0 && val == 2){
-                while(i < S.length()){
+            if (K.compareTo(key) > 0 && val == 2) {
+                while (i < S.length()) {
                     int val1 = S.charAt(i) - '0';
-                    if(val1 != 1)
+                    if (val1 != 1)
                         return String.valueOf((char) ('0' + val));
                     i++;
                 }
@@ -8375,42 +8369,41 @@ public static String checkInf(String S, String K){
             }
             return String.valueOf((char) ('0' + val));
         }
-        if(K.compareTo(String.valueOf(count)) == 0)
-            return String.valueOf((char)('0' + val));
+        if (K.compareTo(String.valueOf(count)) == 0)
+            return String.valueOf((char) ('0' + val));
     }
     return null;
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     FastReader sc = new FastReader();
-    int n=sc.nextInt();
-    String ac="AC";
-    long a=0;
-    String tle="TLE";
-    long t=0;
-    String wa="WA";
-    long w=0;
-    String re="RE";
-    long r=0;
-    for(int j=0;j<n;j++)
-    {
-        String s=sc.nextLine();
-        if(s.compareTo(ac)==0)
+    int n = sc.nextInt();
+    String ac = "AC";
+    long a = 0;
+    String tle = "TLE";
+    long t = 0;
+    String wa = "WA";
+    long w = 0;
+    String re = "RE";
+    long r = 0;
+    for (int j = 0; j < n; j++) {
+        String s = sc.nextLine();
+        if (s.compareTo(ac) == 0)
             a++;
-        else if(s.compareTo(tle)==0)
+        else if (s.compareTo(tle) == 0)
             t++;
-        else if(s.compareTo(wa)==0)
+        else if (s.compareTo(wa) == 0)
             w++;
         else
             r++;
     }
-    System.out.println(ac+ " "+"x"+" "+a);
-    System.out.println(wa+ " "+"x"+" "+w);
-    System.out.println(tle+ " "+"x"+" "+t);
-    System.out.println(re+ " "+"x"+" "+r);
+    System.out.println(ac + " " + "x" + " " + a);
+    System.out.println(wa + " " + "x" + " " + w);
+    System.out.println(tle + " " + "x" + " " + t);
+    System.out.println(re + " " + "x" + " " + r);
 }
 
-public static void main(String[] args) throws IOException {
+public static void main (String[]args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     Scanner sc = new Scanner(System.in);
@@ -8419,128 +8412,131 @@ public static void main(String[] args) throws IOException {
     bw.flush();
 }
 
-public static void main(String[] arg){
+public static void main (String[]arg){
     Scanner sc = new Scanner(System.in);
     String s = sc.next();
     int ansA = s.indexOf("A");
     int ansB = s.lastIndexOf("Z");
     System.out.println(ansB - ansA + 1);
-  }
+}
 
-  public static void main(String args[]) throws IOException {
+public static void main (String args[]) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String s = br.readLine();
-    if((s.charAt(s.indexOf(" ") - 1) & 1) == 0){
-      System.out.println("Even");
+    if ((s.charAt(s.indexOf(" ") - 1) & 1) == 0) {
+        System.out.println("Even");
     } else if ((s.charAt(s.length() - 1) & 1) == 0) {
-      System.out.println("Even");
+        System.out.println("Even");
     } else {
-      System.out.println("Odd");
+        System.out.println("Odd");
     }
-  }
+}
 
-  public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String S = sc.next();
     String result = "WA";
-    if("A".equals(S.substring(0,1))) {
-            S = S.substring(1);
-            if(S.indexOf("C") > 0  && S.indexOf("C") < S.length()-1
-                            && S.indexOf("C") == S.lastIndexOf("C")) {
-                    S = S.substring(0,S.indexOf("C")) + S.substring(S.indexOf("C")+1);
-                    String s = S.toLowerCase();
-                    if(S.equals(s)) {
-                            result = "AC";
-                    }
+    if ("A".equals(S.substring(0, 1))) {
+        S = S.substring(1);
+        if (S.indexOf("C") > 0 && S.indexOf("C") < S.length() - 1
+                && S.indexOf("C") == S.lastIndexOf("C")) {
+            S = S.substring(0, S.indexOf("C")) + S.substring(S.indexOf("C") + 1);
+            String s = S.toLowerCase();
+            if (S.equals(s)) {
+                result = "AC";
             }
+        }
     }
     System.out.println(result);
 }
 
-public static void main(String [] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String S = sc.next();
     int A = 0;
     int Z = 0;
     A = S.indexOf("A");
     Z = S.lastIndexOf("Z");
-    System.out.println(Z-A+1);
+    System.out.println(Z - A + 1);
 }
 
-public static void main(String args[]) {
+public static void main (String args[]){
     Scanner sc = new Scanner(System.in);
     String k = sc.next();
     System.out.println(k.lastIndexOf('Z') - k.indexOf('A') + 1);
 }
 
-public static void main(String[]args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int N = Integer.parseInt(sc.nextLine());
     int m = 0, sum = 0;
-    for(int i = 0; i < N; i++){
-      int n = Integer.parseInt(sc.next());
-      sum += n;
-      m = m < n ? n : m;
+    for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(sc.next());
+        sum += n;
+        m = m < n ? n : m;
     }
     sum -= m;
     System.out.println(sum > m ? "Yes" : "No");
-  }
+}
 
-  public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     int n = Integer.parseInt(sc.next());
     int[] l = new int[n];
     int max = 0;
     int sum = 0;
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++) {
         l[i] = Integer.parseInt(sc.next());
         max = Math.max(max, l[i]);
-        sum+=l[i];
+        sum += l[i];
     }
-    if(sum-max > max){
+    if (sum - max > max) {
         System.out.println("Yes");
-    }else{
+    } else {
         System.out.println("No");
     }
     sc.close();
 }
 
-public static void main(String[] args) {
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
-    int n= sc.nextInt();
+    int n = sc.nextInt();
     int sum = 0;
     String str[] = String.valueOf(n).split("");
-    for (int i=0 ; i < str.length ; i++){
+    for (int i = 0; i < str.length; i++) {
         sum += Integer.parseInt(str[i]);
     }
-        System.out.println(n%sum==0?"Yes":"No");
-  }
+    System.out.println(n % sum == 0 ? "Yes" : "No");
+}
 
-  public long[] nl() throws IOException {
+public long[] nl () throws IOException {
     String[] data = bf.readLine().split(" ");
     long[] send = new long[data.length];
     for (int i = 0, h = data.length; i < h; i++) send[i] = Long.parseLong(data[i]);
     return send;
 }
 
-public long l() throws IOException {
+public long l () throws IOException {
     return Long.parseLong(bf.readLine());
 }
 
-float nf() {return Float.parseFloat(ns());}
+float nf () {
+    return Float.parseFloat(ns());
+}
 
-public static void main(String[] args){
+public static void main (String[]args){
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();
     sc.close();
     String[] num_str = str.split(" ");
-    if(Float.parseFloat(num_str[0]) / Float.parseFloat(num_str[1]) <= Float.parseFloat(num_str[2])){
-            System.out.println("Yes");
-    }else{
-            System.out.println("No");
+    if (Float.parseFloat(num_str[0]) / Float.parseFloat(num_str[1]) <= Float.parseFloat(num_str[2])) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
     }
 }
 
-public double nextDouble() {
+public double nextDouble () {
     return Double.parseDouble(next());
+}
 }
