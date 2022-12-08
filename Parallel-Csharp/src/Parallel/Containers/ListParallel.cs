@@ -1,6 +1,6 @@
 namespace Parallel_Csharp.Parallel.Containers;
 
-public class List {
+public class ListParallel {
     public void MakeListToLengthStr(LinkedList<string> list, int length)
     {
         int count = list.Count;

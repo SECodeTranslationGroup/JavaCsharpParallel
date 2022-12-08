@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-public class DateTimeP {
+public class DateTimeParallel {
     public LocalDateTime getCurrentTime(){
         return LocalDateTime.now();
     }

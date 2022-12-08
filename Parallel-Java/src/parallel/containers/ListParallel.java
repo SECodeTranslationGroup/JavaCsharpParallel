@@ -2,7 +2,7 @@ package parallel.containers;
 
 import java.util.*;
 
-public class ListP {
+public class ListParallel {
     public void makeListToLengthStr(LinkedList<String> list, int length){
         if (list.size() >= length)
             list.subList(length, list.size()).clear();
