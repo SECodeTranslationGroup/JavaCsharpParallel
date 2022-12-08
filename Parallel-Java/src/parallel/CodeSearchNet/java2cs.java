@@ -1,4 +1,10 @@
-package parallel.java2cs;
+package parallel.CodeSearchNet;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.*;
 
 public class java2cs{
 public static void morePositiveNums(String... args) {
@@ -49,7 +55,7 @@ public static void countSlimeColor(String[] args) {
     System.out.println(cnt);
 }   
 
-public static void countLetter(String[]args) throws IOException{
+public static void countLetter(String[]args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String str;
     int count[] = new int[26];
@@ -840,7 +846,7 @@ public List<Integer> gerPrimes() {
 }
 
 static void dispResult(Map<String, Integer> result) {
-    static final List<String> RESULT_TYPE = 
+    static final List<String> RESULT_TYPE =
     Collections.unmodifiableList(Arrays.asList("AC", "WA", "TLE", "RE"));
     for (String R : RESULT_TYPE) {
       System.out.println(R + " x " + (result.get(R) == null ? 0 : result.get(R)));

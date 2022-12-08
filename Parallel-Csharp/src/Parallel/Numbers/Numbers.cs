@@ -7,7 +7,7 @@ public class Numbers {
         return Math.Pow(Math.E, Math.Log(base1)/n);
     }
     
-    public double getDegree(int x, int a, int b){
+    public double GetDegree(int x, int a, int b){
         if((double)2*x/(a*a)-b>=0){
             double bb=((double)2*x)/(a*a)-b;
             return (Math.Atan((-bb+b)/a)*180/Math.PI);
@@ -133,6 +133,26 @@ public class Numbers {
         return ((v & 0x0FFFF) << displacement);
     }
     
+    public long getLongMax(long[] pixelArray) {
+        long max = long.MinValue;
+        foreach (long v in pixelArray) {
+            if (v > max) {
+                max = v;
+            }
+        }
+        return max;
+    }
+
+    public long getLongMin(long[] pixelArray) {
+        long min = long.MaxValue;
+        foreach (long v in pixelArray) {
+            if (v < min) {
+                min = v;
+            }
+        }
+        return min;
+    }
+    
     // Normalisation of RGB values from (0,...,255) to (-128,...,127)
     public byte[] RGBPixel(short red, short green, short blue) {
         byte r = (byte) (red + byte.MinValue);
@@ -144,7 +164,7 @@ public class Numbers {
     }
     
     public void Write(byte b){}
-    public void writePackedInt(int value) {
+    public void WritePackedInt(int value) {
         if (value <= 240) {
             Write((byte) value);
         } else if (value <= 2287) {
