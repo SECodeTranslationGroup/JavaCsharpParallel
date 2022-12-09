@@ -131,7 +131,7 @@ public class MapParallel {
         return value1 + value2;
     }
     
-    public double MapProcessString(Dictionary<string, double> map)
+    public double MapProcessDouble(Dictionary<string, double> map)
     {
         string a = "value1";
         string b = "value2";
@@ -142,7 +142,7 @@ public class MapParallel {
         return value1 + value2;
     }
     
-    public bool MapProcessString(Dictionary<string, bool> map)
+    public bool MapProcessBool(Dictionary<string, bool> map)
     {
         string a = "value1";
         string b = "value2";
@@ -152,4 +152,118 @@ public class MapParallel {
 
         return value1 && value2;
     }
+    
+    //todo
+    public List<object> InfoExtractUid(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = user["screen_name"].ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                infos.Add(uid);
+            }
+        }
+        return infos;
+    }
+
+    public List<object> InfoExtractName(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = (user["screen_name"]).ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                string? name = user["name"].ToString();
+                if (name == null) continue;
+                infos.Add(name);
+            }
+        }
+        return infos;
+    }
+
+    public List<object> InfoExtractDescription(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = user["screen_name"].ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                string? description = user["description"].ToString();
+                if (description == null) continue;
+                infos.Add(description);
+            }
+        }
+        return infos;
+    }
+
+    public List<object> InfoExtractIcon(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = user["screen_name"].ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                string? icon = user["profile_image_url"].ToString();
+                if (icon == null) continue;
+                infos.Add(icon);
+            }
+        }
+        return infos;
+    }
+    
+     public List<object> InfoExtractUidWithFlag(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = user["screen_name"].ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                uidMap[uid] = true;
+                infos.Add(uid);
+            }
+        }
+        return infos;
+    }
+
+    public List<object> InfoExtractNameWithFlag(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = (user["screen_name"]).ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                string? name = user["name"].ToString();
+                if (name == null) continue;
+                uidMap[uid] = true;
+                infos.Add(name);
+            }
+        }
+        return infos;
+    }
+
+    public List<object> InfoExtractDescriptionWithFlag(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = user["screen_name"].ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                string? description = user["description"].ToString();
+                if (description == null) continue;
+                uidMap[uid] = true;
+                infos.Add(description);
+            }
+        }
+        return infos;
+    }
+
+    public List<object> InfoExtractIconWithFlag(List<Dictionary<string, object>> users, Dictionary<string, object> uidMap){
+        List<object> infos = new List<object>();
+        foreach (Dictionary<string, object> user in users) {
+            string? uid = user["screen_name"].ToString();
+            if (uid == null) continue;
+            if (!uidMap.ContainsKey(uid)) {
+                string? icon = user["profile_image_url"].ToString();
+                if (icon == null) continue;
+                uidMap[uid] = true;
+                infos.Add(icon);
+            }
+        }
+        return infos;
+    }
+    
 }

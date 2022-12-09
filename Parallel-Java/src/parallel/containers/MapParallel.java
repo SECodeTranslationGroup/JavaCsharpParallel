@@ -154,5 +154,104 @@ public class MapParallel {
 
         return value1 && value2;
     }
+
+    public List<Object> infoExtractUid(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                infos.add(uid);
+            }
+        }
+        return infos;
+    }
+
+    public List<Object> infoExtractName(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                String name = String.valueOf(user.get("name"));
+                infos.add(name);
+            }
+        }
+        return infos;
+    }
+
+    public List<Object> infoExtractDescription(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                String description = String.valueOf(user.get("description"));
+                infos.add(description);
+            }
+        }
+        return infos;
+    }
+
+    public List<Object> infoExtractIcon(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                String icon = String.valueOf(user.get("profile_image_url"));
+                infos.add(icon);
+            }
+        }
+        return infos;
+    }
+
+    public List<Object> infoExtractUidWithFlag(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                uidMap.put(uid, true);
+                infos.add(uid);
+            }
+        }
+        return infos;
+    }
+
+    public List<Object> infoExtractNameWithFlag(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                String name = String.valueOf(user.get("name"));
+                uidMap.put(uid, true);
+                infos.add(name);
+            }
+        }
+        return infos;
+    }
+
+    public List<Object> infoExtractDescriptionWithFlag(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                String description = String.valueOf(user.get("description"));
+                uidMap.put(uid, true);
+                infos.add(description);
+            }
+        }
+        return infos;
+    }
+
+    public List<Object> infoExtractIconWithFlag(List<HashMap<String, Object>> users, HashMap<String, Object> uidMap){
+        List<Object> infos = new ArrayList<>();
+        for (HashMap<String, Object> user : users) {
+            String uid = String.valueOf(user.get("screen_name"));
+            if (!uidMap.containsKey(uid)) {
+                String icon = String.valueOf(user.get("profile_image_url"));
+                uidMap.put(uid, true);
+                infos.add(icon);
+            }
+        }
+        return infos;
+    }
+
 }
 
