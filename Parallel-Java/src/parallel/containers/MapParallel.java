@@ -253,5 +253,10 @@ public class MapParallel {
         return infos;
     }
 
+    public boolean equalMap(HashMap map1, HashMap map2){
+        if(map1.size() != map2.size()) return false;
+        else return map1.equals(map2);
+    }
+
 }
 

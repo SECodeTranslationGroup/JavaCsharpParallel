@@ -266,4 +266,9 @@ public class MapParallel {
         return infos;
     }
     
+    public bool EqualMap(Dictionary<object,object> map1, Dictionary<object,object> map2){
+        if(map1.Count != map2.Count) return false;
+        return Enumerable.SequenceEqual(map1, map2);
+    }
+    
 }

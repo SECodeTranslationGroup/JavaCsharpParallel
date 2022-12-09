@@ -1,6 +1,6 @@
 namespace Parallel.Linq101.Chrono;
 using System;
-public class DateTimeP {
+public class DateTimeParallel {
     public DateTime GetCurrentTime(){
         return DateTime.Now;
     }
