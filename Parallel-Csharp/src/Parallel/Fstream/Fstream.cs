@@ -144,7 +144,7 @@ public class Fstream {
         return str;
     }
 
-    public void WriteData(String fileName)
+    public void WriteData(string fileName)
     {
         try
         {
@@ -161,7 +161,7 @@ public class Fstream {
         }
     }
 
-    public void ReadData(String fileName)
+    public void ReadData(string fileName)
     {
         try {
             FileStream binaryInFile = new FileStream("file.txt", FileMode.Open, FileAccess.Read);

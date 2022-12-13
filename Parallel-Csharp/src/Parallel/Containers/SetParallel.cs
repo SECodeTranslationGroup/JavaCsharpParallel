@@ -52,49 +52,49 @@ public class SetParallel {
     }
     
     // Convert Char to String
-    public SortedSet<String> UnionGetterWithString(SortedSet<String> set1, SortedSet<String> set2) {
-        SortedSet<String> set = new SortedSet<String>();
+    public SortedSet<string> UnionGetterWithString(SortedSet<string> set1, SortedSet<string> set2) {
+        SortedSet<string> set = new SortedSet<string>();
         set.UnionWith(set1);
         set.UnionWith(set2);
         return set;
     }
 
-    public SortedSet<String> UnionGetterWithStringV2(SortedSet<String> set1, SortedSet<String> set2) {
-        SortedSet<String> set = new SortedSet<String>(set1);
+    public SortedSet<string> UnionGetterWithStringV2(SortedSet<string> set1, SortedSet<string> set2) {
+        SortedSet<string> set = new SortedSet<string>(set1);
         set.UnionWith(set2);
         return set;
     }
 
-    public SortedSet<String> DifferenceGetterWithString(SortedSet<String> set1, SortedSet<String> set2) {
-        SortedSet<String> set = new SortedSet<String>();
+    public SortedSet<string> DifferenceGetterWithString(SortedSet<string> set1, SortedSet<string> set2) {
+        SortedSet<string> set = new SortedSet<string>();
         set.UnionWith(set1);
         set.ExceptWith(set2);
         return set;
     }
 
-    public SortedSet<String> DifferenceGetterWithStringV2(SortedSet<String> set1, SortedSet<String> set2) {
-        SortedSet<String> set = new SortedSet<String>(set1);
+    public SortedSet<string> DifferenceGetterWithStringV2(SortedSet<string> set1, SortedSet<string> set2) {
+        SortedSet<string> set = new SortedSet<string>(set1);
         set.ExceptWith(set2);
         return set;
     }
 
-    public SortedSet<String> IntersectionGetterWithString(SortedSet<String> set1, SortedSet<String> set2){
-        SortedSet<String> temp=new SortedSet<String>(set1);
+    public SortedSet<string> IntersectionGetterWithString(SortedSet<string> set1, SortedSet<string> set2){
+        SortedSet<string> temp=new SortedSet<string>(set1);
         temp.IntersectWith(set2);
         return temp;
     }
 
-    public SortedSet<String> IntersectionGetterWithStringV2(SortedSet<String> set1, SortedSet<String> set2){
-        SortedSet<String> temp=new SortedSet<String>();
+    public SortedSet<string> IntersectionGetterWithStringV2(SortedSet<string> set1, SortedSet<string> set2){
+        SortedSet<string> temp=new SortedSet<string>();
         temp.UnionWith(set1);
         temp.IntersectWith(set2);
         return temp;
     }
 
-    public SortedSet<String> SymmetricGetterWithString(SortedSet<String> set1, SortedSet<String> set2){
-        SortedSet<String> resultSet = new SortedSet<String>(set1);
+    public SortedSet<string> SymmetricGetterWithString(SortedSet<string> set1, SortedSet<string> set2){
+        SortedSet<string> resultSet = new SortedSet<string>(set1);
         resultSet.UnionWith(set2);
-        SortedSet<String> tmpSet = new SortedSet<String>(set1);
+        SortedSet<string> tmpSet = new SortedSet<string>(set1);
         tmpSet.IntersectWith(set2);
         resultSet.ExceptWith(tmpSet);
 

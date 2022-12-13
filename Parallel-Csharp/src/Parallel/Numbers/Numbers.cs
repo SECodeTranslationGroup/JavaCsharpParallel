@@ -83,7 +83,7 @@ public class Numbers {
         }
     }
     
-    public int OpNums(int leftVal, int rightVal, String op){
+    public int OpNums(int leftVal, int rightVal, string op){
         int result;
         if (op.Equals("+"))
             result = leftVal + rightVal;

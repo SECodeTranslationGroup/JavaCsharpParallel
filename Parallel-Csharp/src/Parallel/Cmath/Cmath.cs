@@ -209,7 +209,7 @@ public class Cmath {
         return (int)Math.Floor(c);
     }
     
-    public bool Operation7(String scLine){
+    public bool Operation7(string scLine){
         double[] incomingDouble = new double[3];
         int first = scLine.IndexOf(" ");
         int second = scLine.LastIndexOf(" ");
@@ -269,9 +269,9 @@ public class Cmath {
         Console.WriteLine(hour + ":" + minutes + ":" +second);
     }
 
-    public String GenerateText(int length, char[] lowercaseLetters,
+    public string GenerateText(int length, char[] lowercaseLetters,
         char[] uppercaseLetters, char[]symbols){
-        String generatedText = "";
+        string generatedText = "";
         Random random = new Random(0);
         for (int i = 0; i < length; i++) {
             // Randomly choose 1 of the 4 arrays to add text to the end result String

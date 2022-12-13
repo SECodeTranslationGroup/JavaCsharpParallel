@@ -85,10 +85,10 @@ public class StackParallel {
         }
     }
 
-    // todo Convert Char to String
-    public void FindGreaterString(Stack<String> stack, String element){
+    // Convert Char to String
+    public void FindGreaterString(Stack<string> stack, string element){
         while(stack.Count != 0){
-            String c = stack.Peek();
+            string c = stack.Peek();
             if(c.CompareTo(element) < 0){
                 stack.Pop();
                 return;
@@ -96,9 +96,9 @@ public class StackParallel {
         }
     }
 
-    public void FindLessString(Stack<String> stack, String element){
+    public void FindLessString(Stack<string> stack, string element){
         while(stack.Count != 0){
-            String c = stack.Peek();
+            string c = stack.Peek();
             if(c.CompareTo(element) > 0){
                 stack.Pop();
                 return;
@@ -106,9 +106,9 @@ public class StackParallel {
         }
     }
     
-    public void FindEqualString(Stack<String> stack, String element){
+    public void FindEqualString(Stack<string> stack, string element){
         while(stack.Count == 0){
-            String c = stack.Peek();
+            string c = stack.Peek();
             if(c.CompareTo(element) == 0){
                 stack.Pop();
                 return;
