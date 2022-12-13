@@ -166,11 +166,11 @@ public void checkAC( string nextLine) {
     bool ok = true;
     if (s[0] != 'A') ok = false;
     int c = 0;
-    for (int i = 2; i < s.length-1; i++) {
+    for (int i = 2; i < s.Length-1; i++) {
             if (s[i] == 'C') c++;
     }
     if (c != 1) ok = false;
-    for (int i = 0; i < s.length; i++) {
+    for (int i = 0; i < s.Length; i++) {
             if (s[i] == 'A' || s[i] == 'C') {
                     continue;
             }
@@ -247,7 +247,7 @@ public static void calculator(Stack<string> args) throws Exception {
 public static void add(string expression){
     Stack<int> stack=new Stack<int>();
     string[] arrays=expression.Split(" ");
-    for(int i=0;i<arrays.length;i++){
+    for(int i=0;i<arrays.Length;i++){
             if(Char.IsDigit(arrays[i][0]))
                     stack.Add(int.Parse(arrays[i]));
             else if(!Char.IsDigit(arrays[i][0])){
@@ -578,8 +578,8 @@ public static void allToLowerCase(string args) {
 public static void checkAC(int n, int m, string[] args) {
     List<int> ac = new List<int>(new int[n]);
     List<int> pena =new List<int>(new int[n]);
-    Collections.fill(ac, 0);
-    Collections.fill(pena, 0);
+    ac = Enumerable.Repeat(0, n).ToList();
+    pena = Enumerable.Repeat(0, n).ToList();
     for(int i=0; i<m; ++i)  {
             int p = int.Parse(args[i]);
             string s = scan.next();
@@ -599,7 +599,7 @@ public static void checkAC(int n, int m, string[] args) {
     Console.Writeline(AC + " " + PENA);
 }
 
-public static void swapList(int t1, int t2, string args[]){List<int>l=new List<int>();int t=t1,i=0;for(;i++<t;)l.Add(i);for(t=t2;t>0;t--){string[]e=args[t].Split(",");Collections.swap(l, new int(e[0])-1, new int(e[1])-1);}foreach(var e in l)Console.Writeline(e);}
+public static void swapList(int t1, int t2, string args[]){List<int>l=new List<int>();int t=t1,i=0;for(;i++<t;)l.Add(i);for(t=t2;t>0;t--){string[]e=args[t].Split(",");(l[new int(e[0]) - 1], l[new int(e[1]) - 1]) =(l[new int(e[1]) - 1], l[new int(e[0]) - 1] = l[new int(e[1]) - 1];)}for(i=0;i<t;++i)args[i]=String.Format("{0},{1}",l[i],i+1);}reach(var e in l)Console.Writeline(e);}
 
 public static void swapList(string[] arg) throws IOException
 {
@@ -612,7 +612,7 @@ public static void swapList(string[] arg) throws IOException
                 string swapInd = Console.ReadLine()();
                 int swap1 = int.Parse(swapInd.Split(",")[0]);
                 int swap2 = int.Parse(swapInd.Split(",")[1]);
-                Collections.swap(amida,swap1-1,swap2-1);
+                (amida[swap1-1],amida[swap2-1]) = (amida[swap2-1],amida[swap1-1]);
         }
         for(int i=0; i<v; i++)
                 Console.Writeline(amida[i]);
@@ -626,7 +626,7 @@ public static void swapList(int n, int[] inputArray) {
             flag=false;
             for(int i=n-1;i>0;i--) {
                     if(A[i]<A[i - 1]) {
-                            Collections.swap(A, i, i-1);
+                            (A[i] , A[i - 1]) = (A[i - 1], A[i]);
                             c++;
                             flag=true;
                     }
@@ -696,24 +696,24 @@ public static void reverseList( string s){
 public static void checkSameStr(string[] args) throws Exception {
     char[] s = args[0].ToCharArray();
     char[] t = args[1].ToCharArray();
-    if(s.length != t.length) {
+    if(s.Length != t.Length) {
         Console.Writeline("No");
         return;
     }
-    int len = s.length;
+    int len = s.Length;
     List<char> sl = new List<char>();
     foreach(var c in s){
         sl.Add(c);
     }
     for(int i = 0; i < len; i++){
-        bool bool = true;
+        bool b = true;
         for(int j = 0; j < len; j++){
             if(sl[j] != t[j]){
-                bool = false;
+                b = false;
                 break;
             }
         }
-        if(bool){
+        if(b){
             Console.Writeline("Yes");
             return;
         }
@@ -949,7 +949,7 @@ void checkQuotient() {
     }
 }
 
-static bool isint(double number){return Math.Ceiling(number) == Math.Floor(number); }
+static bool isInteger(double number){return Math.Ceiling(number) == Math.Floor(number); }
 
 public static void checkQuotien(int d, int t, int s){
     Console.Writeline(Math.Ceiling((double)d / s) > t ? "No" :"Yes");
@@ -1347,7 +1347,8 @@ public static void sumPow(int K, int inputArray[]){
     int d = inputArray[i];
             a.Add(d);
     }
-    Collections.sort(a,Collections.reverseOrder());
+    a.Sort();
+    a.Reverse();
     for(int i=0; i<a.Count;i++)
     {
             sum += (Math.Pow((-1),(i)))*(a[i]);
@@ -1486,7 +1487,7 @@ static List<int> primeList(int n){
         prime[i * j] = false;
       }
     }
-    for (int i = 0; i < prime.length; i++){
+    for (int i = 0; i < prime.Length; i++){
       if (prime[i]){list.Add(i);}
     }
     return list;
@@ -1530,7 +1531,7 @@ public static bool[] sieve(long n)
         return prime;
     } 
 
-    public static void checkDictionarySize(string nextLine) {
+    public static void checkMapSize(string nextLine) {
         string[] arr = nextLine.Split(" ");
         ;
         Dictionary<int, int> countDictionary = new Dictionary<int, int>();
@@ -1549,7 +1550,7 @@ public static bool[] sieve(long n)
         }
     }
 
-    public static void string2Dictionary(int N) {
+    public static void string2Map(int N) {
         Dictionary<int, int> resultDictionary = new Dictionary<int, int>();
         for (int i = 1; i < N; i++) {
             int boss = sc.nextInt();
@@ -1740,7 +1741,7 @@ public static void subMax(int N, int inputArray[]) {
 public static void differentNext(char[] s) {
     LinkedList<char> ans = new LinkedList<char>();
     ans.Add(s[0]);
-    for(int i = 0;i<s.length - 1;i++){
+    for(int i = 0;i<s.Length - 1;i++){
         if(s[i] != s[i + 1]){
             ans.Add(s[i + 1]);
         }
@@ -2168,10 +2169,10 @@ static void seive() {
 
 static void shuffle(int a[]) {
     List<int> l = new List<int>();
-    for (int i = 0; i < a.length; i++)
+    for (int i = 0; i < a.Length; i++)
         l.Add(a[i]);
     Collections.shuffle(l);
-    for (int i = 0; i < a.length; i++)
+    for (int i = 0; i < a.Length; i++)
         a[i] = l[i];
 }
 
@@ -2364,13 +2365,13 @@ public static void getLastUpper(string A, string B, string C){
     }
 
     private void perm(int[] a, int cur, List<int> tmp, List<List<int>> list) {
-        if (cur == a.length) {
+        if (cur == a.Length) {
             List<int> res = new List<int>();
             foreach(var item in tmp) res.AddLast(item);
             list.Add(res);
             return;
         }
-        for (int i = cur; i < a.length; ++i) {
+        for (int i = cur; i < a.Length; ++i) {
             swap(a, i, cur);
             tmp.Add(a[cur]);
             perm(a, cur + 1, tmp, list);
@@ -2408,7 +2409,7 @@ public static void getLastUpper(string A, string B, string C){
         }
     }
 
-    public static void intListPrint(List<int> list) {
+    public static void intArrayListPrint(List<int> list) {
         for (int i = 0; i < list.Count; i++) {
             Console.Writeline(list[i]);  
         }
@@ -2439,7 +2440,7 @@ public static bool isDrawPolygon(List<int> sideList) {
   }
 
 
-  public static void getALlCase(string[] args) throws Exception, IOException {
+  public static void getAllCase(string[] args) throws Exception, IOException {
     List<int> arrPost = new List<int>();
     while(true) {
             int n = int.Parse(Console.ReadLine());
@@ -2479,7 +2480,7 @@ public static void findMiddle(string args[]) throws java.lang.Exception
                 string hh[]=new string[0];
                 if(int.Parse(h[1])!=0){hh=Console.ReadLine().Split(" ");}
                 HashSet<int>hash=new HashSet<int>();
-                for(int i=0;i<hh.length;i++){hash.Add(int.Parse(hh[i]));}
+                for(int i=0;i<hh.Length;i++){hash.Add(int.Parse(hh[i]));}
                 int x=int.Parse(h[0]);
                 int x1=x;
                 int ans=0;
@@ -2856,7 +2857,7 @@ static string nextPermutation(string s) {
                     }
             }
     }
-    Collections.swap(list, pivotPos, minPos);
+    (list[pivotPos] , list[minPos]) = (list[minPos], list[pivotPos]);
     list.GetRange(L, R+1 - L ).Sort();
     StringBuilder sb=new StringBuilder();
     for(int i=0;i<list.Count;i++) {
@@ -3310,7 +3311,7 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
     public static void calRemain(int a[]) throws Exception {
         int r[] = new int[5];
         SortedDictionary<int, int> map = new TreeDictionary();
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.Length; i++) {
                 
                 r[i] = a[i]%10;
                 int b =10;
@@ -3321,7 +3322,7 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
         }
         int ans = 0;
         if (map.Count == 0) {
-                for (int i = 0; i < a.length; i++) {
+                for (int i = 0; i < a.Length; i++) {
                         ans += a[i];
                 }
                 Console.Writeline(ans);
@@ -3329,7 +3330,7 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
         }
         int last = map[map.lastKey()];
         int idx = 0;
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.Length; i++) {
                 if(a[i] == last) {
                         idx = i;
                 }
@@ -3555,7 +3556,7 @@ public static void getExtinct(int N, string[] args) {
                     map[s] = 1;
             }
     }
-    int ans  = map.values().toArray().length;
+    int ans  = map.values().toArray().Length;
 }
 
 public static void getRepeatKey(int n, string[] s){
@@ -3963,7 +3964,7 @@ public static void getMean(int n, double[] args) {
 }
 
 public static int sumHeap(int[] arr, int k) {
-    int n = arr.length;
+    int n = arr.Length;
     if(n==0) {
         return 0;
     }
@@ -4091,7 +4092,7 @@ public static long getsinputSum(Queue<int> q , int K) {
 
     long sum = 0;
     if (K <= N)
-            for (int l = K; l < t.length; l++) {
+            for (int l = K; l < t.Length; l++) {
                     sum += t[l];
             }
     return sum;
@@ -4166,7 +4167,7 @@ public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Ex
     }
 
     public static int getHeapSum(int[] arr, int k) {
-        int n = arr.length;
+        int n = arr.Length;
         if(n==0) {
             return 0;
         }
@@ -4378,7 +4379,7 @@ public static void take3Turn(string word1, string word2, string word3) throws IO
               args.Remove(First());
               if(input.Equals("-")) break;
               string[] binput = input.Split("");
-              for(i=0; i<binput.length; i++) queue.Enqueue(binput[i]);
+              for(i=0; i<binput.Length; i++) queue.Enqueue(binput[i]);
               int m = sc.nextInt();
               int h;
               for(i=0; i<m; i++)
@@ -4601,13 +4602,13 @@ public string getMostABC( string inputA, string inputB, string inputC) {
     Queue<char> aq = new Queue<char>();
     Queue<char> bq = new Queue<char>();
     Queue<char> cq = new Queue<char>();
-    for (int i = 0; i < a.length; i++) {
+    for (int i = 0; i < a.Length; i++) {
             aq.Enqueue(a[i]);
     }
-    for (int i = 0; i < b.length; i++) {
+    for (int i = 0; i < b.Length; i++) {
             bq.Enqueue(b[i]);
     }
-    for (int i = 0; i < c.length; i++) {
+    for (int i = 0; i < c.Length; i++) {
             cq.Enqueue(c[i]);
     }
     char cur = aq.Dequeue();
@@ -4789,7 +4790,7 @@ public static void repeatH(int n, int[] args, List<string> inputLines) {
 
 public static void doBackspace(char[] line) {
     Queue<char> q = new Queue<char>();
-    for (int i = 0; i < line.length; i++) {
+    for (int i = 0; i < line.Length; i++) {
             if (line[i] == '0') {
                     q.Enqueue('0');
             } else if(line[i] == '1'){
@@ -4875,7 +4876,7 @@ public static void calDpMod(int n, int m, string args[]){
 
   public int checkLast( string nextLine) {
     char[] s = nextLine.ToCharArray();
-    int n = s.length;
+    int n = s.Length;
     Stack<bool> stack = new Stack<bool>();
     for (int i = 0; i < n; i++) {
         bool cur = s[i] == '1';
@@ -6117,7 +6118,7 @@ public static void getExtinctSize(int n, string args[]) {
         string[] s = args[i].Split("");
         Array.Sort(s);
         string ss = "";
-        for (int j = 0; j < s.length; j++) {
+        for (int j = 0; j < s.Length; j++) {
             ss += s[j];
         }
         if(a.ContainsKey(ss)){
@@ -6366,7 +6367,7 @@ public static void countKeys (int N, string[] inputS) throws java.lang.Exception
         Dictionary<int,int> map = new Dictionary<int,int>();
         for(int i = 0; i<arr[0]; i++) {
                 int[] t = args[i];
-                for(int j = 1; j<t.length; j++) {
+                for(int j = 1; j<t.Length; j++) {
                         map[t[j]] = map.GetValueOrDefault(t[j],0)+1;
                         if(map[t[j]] == arr[0]) sum++;
                 }
@@ -7270,7 +7271,7 @@ public bool isRepeated(string s, string t, LightWriter out) {
 public static string[] tostringArray(string s) {
     string[] tmp = new string[s.Length];
     char[] c = s.ToCharArray();
-    for (int i = 0; i < tmp.length; i++) {
+    for (int i = 0; i < tmp.Length; i++) {
             tmp[i] = c[i].ToString();
     }
     return tmp;
@@ -7494,7 +7495,7 @@ public static void isSum2Max(string[]args){
 public static void sumNoRemainer(int n) {
     int sum = 0;
     string str[] = n.ToString().Split("");
-    for (int i=0 ; i < str.length ; i++){
+    for (int i=0 ; i < str.Length ; i++){
         sum += int.Parse(str[i]);
     }
         Console.Writeline(n%sum==0?"Yes":"No");
@@ -7502,8 +7503,8 @@ public static void sumNoRemainer(int n) {
 
   public long[] nl() throws IOException {
     string[] data = Console.ReadLine().Split(" ");
-    long[] send = new long[data.length];
-    for (int i = 0, h = data.length; i < h; i++) send[i] = long.Parse(data[i]);
+    long[] send = new long[data.Length];
+    for (int i = 0, h = data.Length; i < h; i++) send[i] = long.Parse(data[i]);
     return send;
 }
 
