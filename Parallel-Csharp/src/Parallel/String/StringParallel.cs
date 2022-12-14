@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Parallel_Csharp.Parallel.String;
 
 public class StringParallel { 
@@ -70,5 +72,27 @@ public class StringParallel {
         bool b1 = str.Contains(a);
         bool b2 = str.Contains(b);
         return b1 && b2;
+    }
+    
+    public string StringBuilderLength(char c, int length){
+        StringBuilder buf = new StringBuilder();
+        while(length != 0){
+            --length;
+            buf.Append(c);
+        }
+        return buf.ToString();
+    }
+
+    public string TrimStringLast(string str, int length){
+        StringBuilder buf = new StringBuilder(str);
+        buf.Remove(buf.Length - length, length);
+        return buf.ToString();
+    }
+
+    public string ReString(string str, int position, char c){
+        StringBuilder buf = new StringBuilder(str);
+        buf.Remove(position, 1);
+        buf.Insert(position, new string(c, 1) );
+        return buf.ToString();
     }
 }

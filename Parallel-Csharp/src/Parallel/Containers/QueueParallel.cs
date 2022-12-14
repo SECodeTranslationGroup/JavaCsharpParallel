@@ -340,4 +340,100 @@ public class QueueParallel {
         if(queue1.Count != queue2.Count) return false;
         else return queue1.SequenceEqual(queue2);
     }
+    
+    // NT1
+    public void RemoveToEndChar(Queue<char> queue1, char ele){
+        int size = queue1.Count;
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.First()){
+                char t = queue1.Dequeue();
+                queue1.Enqueue(t);
+            }
+        }
+    }
+
+    public void RemoveUntilChar(Queue<char> queue1, char ele){
+        while(queue1.Count != 0 && queue1.First() != ele){
+            queue1.Dequeue();
+        }
+    }
+
+    public void RemoveUntilLengthChar(Queue<char> queue1, int length){
+        if(queue1.Count <= length) return;
+        while(queue1.Count > length){
+            queue1.Dequeue();
+        }
+    }
+    
+    // to String
+    public void RemoveToEndString(Queue<string> queue1, string ele){
+        int size = queue1.Count;
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.First()){
+                string t = queue1.Dequeue();
+                queue1.Enqueue(t);
+            }
+        }
+    }
+
+    public void RemoveUntilString(Queue<string> queue1, string ele){
+        while(queue1.Count != 0 && queue1.First() != ele){
+            queue1.Dequeue();
+        }
+    }
+
+    public void RemoveUntilLengthString(Queue<string> queue1, int length){
+        if(queue1.Count <= length) return;
+        while(queue1.Count > length){
+            queue1.Dequeue();
+        }
+    }
+    
+    // to int
+    public void RemoveToEndInt(Queue<int> queue1, int ele){
+        int size = queue1.Count;
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.First()){
+                int t = queue1.Dequeue();
+                queue1.Enqueue(t);
+            }
+        }
+    }
+
+    public void RemoveUntilInt(Queue<int> queue1, int ele){
+        while(queue1.Count != 0 && queue1.First() != ele){
+            queue1.Dequeue();
+        }
+    }
+
+    public void RemoveUntilLengthInt(Queue<int> queue1, int length){
+        if(queue1.Count <= length) return;
+        while(queue1.Count > length){
+            queue1.Dequeue();
+        }
+    }
+    
+    // to double
+    public void RemoveToEndDouble(Queue<double> queue1, double ele){
+        int size = queue1.Count;
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.First()){
+                double t = queue1.Dequeue();
+                queue1.Enqueue(t);
+            }
+        }
+    }
+
+    public void RemoveUntilDouble(Queue<double> queue1, double ele){
+        while(queue1.Count != 0 && queue1.First() != ele){
+            queue1.Dequeue();
+        }
+    }
+
+    public void RemoveUntilLengthDouble(Queue<double> queue1, int length){
+        if(queue1.Count <= length) return;
+        while(queue1.Count > length){
+            queue1.Dequeue();
+        }
+    }
 }

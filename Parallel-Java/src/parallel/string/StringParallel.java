@@ -74,4 +74,25 @@ public class StringParallel {
         boolean b2 = str.contains(b);
         return b1 && b2;
     }
+
+    public String stringBuilderLength(Character c, int length){
+        StringBuilder buf = new StringBuilder();
+        while(length != 0){
+            --length;
+            buf.append(c);
+        }
+        return buf.toString();
+    }
+
+    public String trimStringLast(String str, int length){
+        StringBuilder buf = new StringBuilder(str);
+        buf.delete(buf.length() - length, buf.length());
+        return buf.toString();
+    }
+
+    public String reString(String str, int position, Character c){
+        StringBuilder buf = new StringBuilder(str);
+        buf.replace(position, position+1, String.valueOf(c));
+        return buf.toString();
+    }
 }

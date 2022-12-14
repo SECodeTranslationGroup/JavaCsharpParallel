@@ -251,4 +251,80 @@ public class UnorderedSetParallel {
             }
         }
     }
+    
+    // NT1  
+    public HashSet<char> GetFoodSetChar(){
+        HashSet<char> set = new HashSet<char>{'a', 'b', 'c'};
+        set.Add('d');
+        return set;
+    }
+
+    public bool ContainsTwoFoodSetChar(HashSet<char> set, char ele1, char ele2){
+        bool b1 = set.Contains(ele1);
+        bool b2 = set.Contains(ele2);
+        return b1 && b2;
+    }
+
+    public void ClearSmallSetChar(HashSet<char> set, int length){
+        if(set.Count == 0) return;
+        if(set.Count <= length)
+            set.Clear();
+    }
+    
+    // to String
+    public HashSet<string> GetFoodSetString(){
+        HashSet<string> set = new HashSet<string>{"aa", "bb", "cc"};
+        set.Add("dd");
+        return set;
+    }
+
+    public bool ContainsTwoFoodSetString(HashSet<string> set, string ele1, string ele2){
+        bool b1 = set.Contains(ele1);
+        bool b2 = set.Contains(ele2);
+        return b1 && b2;
+    }
+
+    public void ClearSmallSetString(HashSet<string> set, int length){
+        if(set.Count == 0) return;
+        if(set.Count <= length)
+            set.Clear();
+    }
+    
+    // to int
+    public HashSet<int> GetFoodSetInt(){
+        HashSet<int> set = new HashSet<int>{1, 2, 3};
+        set.Add(4);
+        return set;
+    }
+
+    public bool ContainsTwoFoodSetInt(HashSet<int> set, int ele1, int ele2){
+        bool b1 = set.Contains(ele1);
+        bool b2 = set.Contains(ele2);
+        return b1 && b2;
+    }
+
+    public void ClearSmallSetInt(HashSet<int> set, int length){
+        if(set.Count == 0) return;
+        if(set.Count <= length)
+            set.Clear();
+    }
+    
+    // to double
+    public HashSet<double> GetFoodSetDouble(){
+        HashSet<double> set = new HashSet<double>{1.0, 2.0, 3.0};
+        set.Add(4.0);
+        return set;
+    }
+
+    public bool ContainsTwoFoodSetDouble(HashSet<double> set, double ele1, double ele2){
+        bool b1 = set.Contains(ele1);
+        bool b2 = set.Contains(ele2);
+        return b1 && b2;
+    }
+
+    public void ClearSmallSetDouble(HashSet<double> set, int length){
+        if(set.Count == 0) return;
+        if(set.Count <= length)
+            set.Clear();
+    }
 }

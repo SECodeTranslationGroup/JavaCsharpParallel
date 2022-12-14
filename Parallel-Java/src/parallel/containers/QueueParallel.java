@@ -344,4 +344,100 @@ public class QueueParallel {
         else return Arrays.equals(queue1.toArray(), queue2.toArray());
     }
 
+    // NT1
+    public void removeToEndChar(ArrayDeque<Character> queue1, Character ele){
+        int size = queue1.size();
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.peekFirst()){
+                Character t = queue1.remove();
+                queue1.add(t);
+            }
+        }
+    }
+
+    public void removeUntilChar(ArrayDeque<Character> queue1, Character ele){
+        while(!queue1.isEmpty() && queue1.peekFirst() != ele){
+            queue1.remove();
+        }
+    }
+
+    public void removeUntilLengthChar(ArrayDeque<Character> queue1, int length){
+        if(queue1.size() <= length) return;
+        while(queue1.size() > length){
+            queue1.remove();
+        }
+    }
+    
+    // to String
+    public void removeToEndString(ArrayDeque<String> queue1, String ele){
+        int size = queue1.size();
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.peekFirst()){
+                String t = queue1.remove();
+                queue1.add(t);
+            }
+        }
+    }
+
+    public void removeUntilString(ArrayDeque<String> queue1, String ele){
+        while(!queue1.isEmpty() && queue1.peekFirst() != ele){
+            queue1.remove();
+        }
+    }
+
+    public void removeUntilLengthString(ArrayDeque<String> queue1, int length){
+        if(queue1.size() <= length) return;
+        while(queue1.size() > length){
+            queue1.remove();
+        }
+    }
+    
+    // to Int
+    public void removeToEndInt(ArrayDeque<Integer> queue1, Integer ele){
+        int size = queue1.size();
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.peekFirst()){
+                Integer t = queue1.remove();
+                queue1.add(t);
+            }
+        }
+    }
+
+    public void removeUntilInt(ArrayDeque<Integer> queue1, Integer ele){
+        while(!queue1.isEmpty() && queue1.peekFirst() != ele){
+            queue1.remove();
+        }
+    }
+
+    public void removeUntilLengthInt(ArrayDeque<Integer> queue1, int length){
+        if(queue1.size() <= length) return;
+        while(queue1.size() > length){
+            queue1.remove();
+        }
+    }
+    
+    // to Double
+    public void removeToEndDouble(ArrayDeque<Double> queue1, Double ele){
+        int size = queue1.size();
+        for(int i = 0; i< size; ++i){
+            if(ele != queue1.peekFirst()){
+                Double t = queue1.remove();
+                queue1.add(t);
+            }
+        }
+    }
+
+    public void removeUntilDouble(ArrayDeque<Double> queue1, Double ele){
+        while(!queue1.isEmpty() && queue1.peekFirst() != ele){
+            queue1.remove();
+        }
+    }
+
+    public void removeUntilLengthDouble(ArrayDeque<Double> queue1, int length){
+        if(queue1.size() <= length) return;
+        while(queue1.size() > length){
+            queue1.remove();
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 package parallel.containers;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -256,5 +257,81 @@ public class UnorderedSetParallel {
                 set1.remove(ele);
             }
         }
+    }
+
+    // NT1
+    public HashSet<Character> getFoodSetChar(){
+        HashSet<Character> set = new HashSet<>(Arrays.asList('a', 'b', 'c'));
+        set.add('d');
+        return set;
+    }
+
+    public boolean containsTwoFoodSetChar(HashSet<Character> set, Character ele1, Character ele2){
+        boolean b1 = set.contains(ele1);
+        boolean b2 = set.contains(ele2);
+        return b1 && b2;
+    }
+
+    public void clearSmallSetChar(HashSet<Character> set, int length){
+        if(set.isEmpty()) return;
+        if(set.size() <= length)
+            set.clear();
+    }
+    
+    // to String
+    public HashSet<String> getFoodSetString(){
+        HashSet<String> set = new HashSet<>(Arrays.asList("aa", "bb", "cc"));
+        set.add("dd");
+        return set;
+    }
+
+    public boolean containsTwoFoodSetString(HashSet<String> set, String ele1, String ele2){
+        boolean b1 = set.contains(ele1);
+        boolean b2 = set.contains(ele2);
+        return b1 && b2;
+    }
+
+    public void clearSmallSetString(HashSet<String> set, int length){
+        if(set.isEmpty()) return;
+        if(set.size() <= length)
+            set.clear();
+    }
+    
+    // to int
+    public HashSet<Integer> getFoodSetInt(){
+        HashSet<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3));
+        set.add(4);
+        return set;
+    }
+
+    public boolean containsTwoFoodSetInt(HashSet<Integer> set, Integer ele1, Integer ele2){
+        boolean b1 = set.contains(ele1);
+        boolean b2 = set.contains(ele2);
+        return b1 && b2;
+    }
+
+    public void clearSmallSetInt(HashSet<Integer> set, int length){
+        if(set.isEmpty()) return;
+        if(set.size() <= length)
+            set.clear();
+    }
+    
+    // to double
+    public HashSet<Double> getFoodSetDouble(){
+        HashSet<Double> set = new HashSet<>(Arrays.asList(1.0, 2.0, 3.0));
+        set.add(4.0);
+        return set;
+    }
+
+    public boolean containsTwoFoodSetDouble(HashSet<Double> set, Double ele1, Double ele2){
+        boolean b1 = set.contains(ele1);
+        boolean b2 = set.contains(ele2);
+        return b1 && b2;
+    }
+
+    public void clearSmallSetDouble(HashSet<Double> set, int length){
+        if(set.isEmpty()) return;
+        if(set.size() <= length)
+            set.clear();
     }
 }
