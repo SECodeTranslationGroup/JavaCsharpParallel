@@ -1,19 +1,40 @@
-public static void morePositiveNums(Integer[] lines) { 
+using System.Collections.Immutable;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.Serialization;
+using System.Text;
+
+namespace Parallel_Csharp.Parallel.CodeSearchNet;
+
+public  class java2cs {
+   
+    private  static int CURRENT_STATE = 1;
+
+    private int ZERO = 0;
+public static void morePositiveNums(int[] lines) { 
     List<int> list = new List<int>(lines);  
     if(list.Max() >= sum(list)) {
-        Console.Writeline("No");
+        Console.WriteLine("No");
     } else {
-        Console.Writeline("Yes");
+        Console.WriteLine("Yes");
     }
 }
 
-static List<string> myconv(string str, int no) {
-    string splitstring = CONVSTR.Substring(no,1);
+private static int sum(List<int> list)
+{
+    int sum = 0;
+    foreach (var i in list)
+        sum += i;
+    return sum;
+}
+
+static List<string> myconv(string str, int no, List<string> CONVSTR) {
+    string splitstring = CONVSTR[no];
     return new List<string>(str.Split(splitstring));
 }
 
-static List<int> inputIntList() throws Exception {
-    List<string> strList = new List<int>(Console.ReadLine()().Trim().Split(" "));
+static List<int> inputIntList(string input) {
+    List<string> strList = new List<string>(input.Trim().Split(" "));
     List<int> intList = new List<int>();
     foreach (var elem in strList){
         intList.Add(int.Parse(elem));
@@ -25,7 +46,7 @@ public static void isEven(string nextLine) {
     List<string> input=new List<string>(nextLine.Split(" "));
     int result=int.Parse(input.First())*int.Parse(input[1]);
     string msg=result%2==0?"Even":"Odd";
-    Console.Writeline(msg);
+    Console.WriteLine(msg);
 
 }
 
@@ -37,14 +58,14 @@ public static void countSlimeColor(int numSlime , string slimeColor) {
             cnt++;
         }
     }
-    Console.Writeline(cnt);
+    Console.WriteLine(cnt);
 }   
 
-public static void countLetter() throws IOException{
+public static void countLetter1(Stack<string> stringStack){
     string str;
-    int count[] = new int[26];
+    int[] count = new int[26];
     char abc ='a';   
-    while((str=Console.ReadLine()())!=null){      
+    while((str = stringStack.Pop()) != null){      
         for(int i=0;i<str.Length;i++){
             if(Char.IsLetter(str[i])){
                 count[Char.ToLower(str[i]) - 'a']++;
@@ -53,23 +74,22 @@ public static void countLetter() throws IOException{
     }
 }
 
-public static void countLetter(List<string> args) {
+public static void countLetter2(Stack<string> args) {
     int[] alpha = new int['z' - 'a' + 1];
     while (args.Count > 0) {
-        string str = args.First().ToLower();
+        string str = args.Pop().ToLower();
         for (int i = 0; i < str.Length; i++) {
             if (Char.IsLetter(str[i])) {
                 alpha[str[i] - 'a']++;
             }
         }
-        args.Remove(First());
     }
 }
 
-public static void swapUpperAndLowerLetter(string[] args) throws Exception {
+public static void swapUpperAndLowerLetter(Stack<string> args) {
     StringBuilder sb = new StringBuilder();
-    while (sc.hasNext()) {
-        string s = sc.next();   
+    while (args.Count > 0) {
+        string s = args.Pop();   
         for (int i = 0; i < s.Length; i++) {
             char c = s[i];
             if (Char.IsLetter(c)) {
@@ -84,51 +104,51 @@ public static void swapUpperAndLowerLetter(string[] args) throws Exception {
         sb.Append(" ");
     }
     sb.Remove(sb.Length-1, 1);
-    Console.Writeline(sb);
+    Console.WriteLine(sb);
 }
 
 
-public static void isOneLetterMore (string s , string s1) throws java.lang.Exception
+public static void isOneLetterMore (string s , string s1)
 {
         int t,f=0;
         if(((s1.Length-s.Length) ==1) && (Char.IsLetter(s1[^1])))
         {
             for(t=0;t<s.Length;t++)
             {
-                if(s.charAt[t] != s1.charAt[t])
+                if(s[t] != s1[t])
                 f=1;
             }
             if(f==0)
             {
-                Console.Writeline("Yes");
+                Console.WriteLine("Yes");
             }
             else{
-                Console.Writeline("No"); 
+                Console.WriteLine("No"); 
             }
         }
         else{
-            Console.Writeline("No");          
+            Console.WriteLine("No");          
             }        
 }
 
 public static void countLetter(List<string> args) {
             int[] alphabet = new int[26];
             char a = 'a', ch;
-            while (args.size > 0) {
+            while (args.Count> 0) {
                     string str = args.First().ToLower();
                     for (int i=0; i< str.Length; i++) {
                             if (Char.IsLetter(ch = str[i])) {
                                     alphabet[ch - a]++;
                             }
                     }
-                args.Remove(First());
+                args.Remove(args.First());
             }
             for (int i=0; i <= ('z' - 'a'); i++) {
-                    Console.Writeline(new StringBuilder().Append(a++).Append(" : ").Append(alphabet[i]).ToString());
+                    Console.WriteLine(new StringBuilder().Append(a++).Append(" : ").Append(alphabet[i]).ToString());
             }
 }
 
-public static void isLetterEven( string s) throws Exception {
+public static void isLetterEven( string s)  {
     int[] frq = new int[26];
     for(int i = 0 ; i < s.Length ; i++)
     {
@@ -145,11 +165,11 @@ public static void isLetterEven( string s) throws Exception {
             break;
         }
     if(flag)
-        Console.Writeline("Yes");
-    else Console.Writeline("No");
+        Console.WriteLine("Yes");
+    else Console.WriteLine("No");
 }
 
-private static void countup(char c){
+private static void countup(char c, int[] counter){
     if(Char.IsLower(c)){
             int num=c-'a';
             counter[num]++;
@@ -161,7 +181,7 @@ private static void countup(char c){
     }
 }
 
-public void checkAC( string nextLine) {
+public void checkAC(string nextLine) {
     char[] s = nextLine.ToCharArray();
     bool ok = true;
     if (s[0] != 'A') ok = false;
@@ -179,7 +199,7 @@ public void checkAC( string nextLine) {
     Console.WriteLine(ok ? "AC" : "WA");
 }
 
-static bool checkAC(string s) {
+static bool checkAC1(string s) {
     if (s[0] != 'A') return false;
     int cnt = 0;
     for (int i = 1; i < s.Length; i++)
@@ -194,22 +214,22 @@ static bool checkAC(string s) {
 }
 
 
-public static void checkFirstLetterCase(string s){
+public static void checkFirstLetterCase1(string s){
     if(Char.IsLower(s[0])){
-        Console.Writeline("a");
+        Console.WriteLine("a");
     }else{
-        Console.Writeline("A");
+        Console.WriteLine("A");
     }
     ;
   }
 
-  public static void checkFirstLetterCase(string input) throws IOException { 
+  public static void checkFirstLetterCase2(string input) { 
     char [] ch = input.ToCharArray();
-    if(Char.IsLower(ch[0])) Console.Writeline("a");
-    else Console.Writeline("A");
+    if(Char.IsLower(ch[0])) Console.WriteLine("a");
+    else Console.WriteLine("A");
 } 
 
-public static void checkAC(string s ){
+public static void checkAC2(string s ){
     string result = "AC";
     if(s[0] != 'A') result = "WA";
     bool flg = false;
@@ -223,14 +243,14 @@ public static void checkAC(string s ){
         }
     }
     if(!flg) result = "WA";
-    Console.Writeline(result);
+    Console.WriteLine(result);
 }
 
-public static void calculator(Stack<string> args) throws Exception {   
+public static void calculator1(Stack<string> args){   
     string st;
     Stack<int> stack = new Stack<int>();
     while (args.Count > 0) {                        
-        st = args.First();
+        st = args.Pop();
         if (Char.IsDigit(st[0])) stack.Push(int.Parse(st));
         else {
             int x = stack.Pop();
@@ -239,31 +259,30 @@ public static void calculator(Stack<string> args) throws Exception {
             else if (st.Equals("-")) stack.Push(y - x);
             else if (st.Equals("*")) stack.Push(y * x);
         }
-        args.Pop();
     }
-    Console.Writeline(stack.Pop());
+    Console.WriteLine(stack.Pop());
 }  
 
-public static void add(string expression){
+public static void add1(string expression){
     Stack<int> stack=new Stack<int>();
     string[] arrays=expression.Split(" ");
     for(int i=0;i<arrays.Length;i++){
             if(Char.IsDigit(arrays[i][0]))
-                    stack.Add(int.Parse(arrays[i]));
+                    stack.Push(int.Parse(arrays[i]));
             else if(!Char.IsDigit(arrays[i][0])){
                     int number2=stack.Pop();
                     int number1=stack.Pop();
-                    stack.Push(add(number1,number2,arrays[i][0]));
+                    stack.Push(number1 + number2 + arrays[i][0]);
             }
     }
-    Console.Writeline(stack.Pop());
+    Console.WriteLine(stack.Pop());
 }
 
-public static void calculator(Stack<string> args) throws Exception {      
+public static void calculator(Stack<string> args) {      
     string st;
     Stack<int> stack = new Stack<int>();
-    while (args.size > 0) {                        
-        st = args.args.Pop();
+    while (args.Count > 0) {                        
+        st = args.Pop();
         if (Char.IsDigit(st[0])) stack.Push(int.Parse(st));
         else {
             int x = stack.Pop();
@@ -273,7 +292,7 @@ public static void calculator(Stack<string> args) throws Exception {
             else if (st.Equals("*")) stack.Push(y * x);
         }  
     }
-    Console.Writeline(stack.Pop());
+    Console.WriteLine(stack.Pop());
 } 
 
 static bool isNum(string s){
@@ -295,17 +314,17 @@ static bool isNum(string s){
         long l = long.Parse(n);
         long sum = 0;
         foreach (char c in n.ToCharArray()) {
-            sum += Character.IsDigit(c, 10);
+            sum += long.Parse(c.ToString());
         }
         if (l % sum == 0) {
-            out.print("Yes");
+            Console.WriteLine("Yes");
         } else {
-            out.print("No");
+            Console.WriteLine("No");
         }
     }
 
-public static void addMedium(string args[]) throws Exception{
-    string[] s = Console.ReadLine().Split(" ");
+public static void addMedium(string readLine){
+    string[] s = readLine.Split(" ");
     int N = int.Parse(s[0]);
     int A = int.Parse(s[1]);
     int B = int.Parse(s[2]);
@@ -314,14 +333,14 @@ public static void addMedium(string args[]) throws Exception{
         string str = i.ToString();
         int count = 0;
         for(int j = 0 ; j < str.Length; j++) {
-            count += Char.IsDigit(str[j]);
+            count += int.Parse(str[j].ToString());
         }
         if(A <= count && count <= B) num+=i;
     }
-    Console.Writeline(num);
+    Console.WriteLine(num);
 }
 
-public static void Summation(List<string>  args) {
+public static void Summation1(List<string>  args) {
     while(true){
             string x = args.First();
             if(x.Equals("0")){
@@ -329,97 +348,107 @@ public static void Summation(List<string>  args) {
             }
             int sum = 0;
             for(int i = 0; i < x.Length; i++){
-                    sum += Char.IsDigit(x[i]);
+                    sum += int.Parse(x[i].ToString());
             }
-            Console.Writeline(sum);
-            args.Remove(First());
+            Console.WriteLine(sum);
+            args.Remove(args.First());
     }
 }
 
-public static void Summation(Stack<string> args) {
+public static void Summation2(Stack<string> args) {
     while (true) {
         string s = args.Pop();
         if (s.Length == 1 && s[0] == '0')
             break;
         int sum = 0;
         for (int i = 0; i < s.Length; i++)
-            sum += Char.IsDigit(s[i]);
-        Console.Writeline(sum);
+            sum += int.Parse(s[i].ToString());
+        Console.WriteLine(sum);
     }
 }
 
-public static void Summation(Stack<string> args){
+public static void Summation3(Stack<string> args){
     for(;;){
     int ans =0;
     string s=args.Pop();
     if(s.Equals("0"))break;
     for(int i=0; i<s.Length; i++){
-            ans += Char.IsDigit(s[i],10);
+            ans +=int.Parse(s[i].ToString());
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
     }
 }
 
 char nextChar() {
     try {
-        int b = input.read();
-        while (Char.IsWhiteSpace(b)) {
-            b = input.read();
+        int b = Console.Read();
+        while (Char.IsWhiteSpace((char)b)){
+            b =  Console.Read();
         }
         return (char) b;
     } catch (IOException e) {
-        e.printStackTrace();
-        return 0;
+        Console.WriteLine(e);
+        return (char)0;
     }
 }
 
 string nextStr() {
     try {
         StringBuilder sb = new StringBuilder();
-        int b = input.read();
-        while (Char.IsWhiteSpace(b)) {
-            b = input.read();
+        int b = Console.Read();
+        while (Char.IsWhiteSpace((char)b)) {
+            b = Console.Read();
         }
-        while (b != -1 && !Char.IsWhiteSpace(b)) {
+        while (b != -1 && !Char.IsWhiteSpace((char)b)) {
             sb.Append((char) b);
-            b = input.read();
+            b = Console.Read();
         }
         return sb.ToString();
     } catch (IOException e) {
-        e.printStackTrace();
+        Console.WriteLine(e);
         return "";
     }
 }
 
-public string next() throws IOException{
-    byte c = read();
-    while(Char.IsWhiteSpace(c)){
-        c = read();
+public string next1(){
+    try {
+
+    byte c =(byte)Console.Read();
+    while (Char.IsWhiteSpace((char)c))
+    {
+        c = (byte)Console.Read();
     }
-     StringBuilder builder = new StringBuilder();
+
+    StringBuilder builder = new StringBuilder();
     builder.Append((char)c);
-    c = read();
-    while(!Char.IsWhiteSpace(c)){
+    c = (byte)Console.Read();
+    while (!Char.IsWhiteSpace((char)c))
+    {
         builder.Append((char)c);
-        c = read();
-    }   
+        c = (byte)Console.Read();
+    }
+
     return builder.ToString();
+} catch (IOException e) {
+    Console.WriteLine(e);
+    return "";
+}
 }
 
-public string nextStr() {
+public string nextStr2() {
     try {
         StringBuilder sb = new StringBuilder();
-        int b = input.read();
-        while (Char.IsWhiteSpace(b)) {
-            b = input.read();
+        int b = Console.Read();
+        while (Char.IsWhiteSpace((char)b)) {
+            b = Console.Read();
         }
-        while (b != -1 && !Char.IsWhiteSpace(b)) {
+        while (b != -1 && !Char.IsWhiteSpace((char)b)) {
             sb.Append((char) b);
-            b = input.read();
+            b = Console.Read();
         }
         return sb.ToString();
     } catch (IOException e) {
-        e.printStackTrace();
+        Console.WriteLine(e);
         return "";
     }
 }
@@ -440,18 +469,14 @@ public void isLRUD( string s) {
     Console.WriteLine("Yes");
 }
 
-public static void LongMultiplestring(long a){
-    long a = scan.nextLong();
-    string bs = scan.next();
+public static void LongMultiplestring(long a, string bs){
     int b = int.Parse(bs[0].ToString()) * 100
             + int.Parse(bs[2].ToString()) * 10
             + int.Parse(bs[3].ToString());
-    Console.Writeline((long)a * b / 100);
-    scan.close();
+    Console.WriteLine((long)a * b / 100);
 }
 
-public static void countABC(int N,  string S) throws FileNotFoundException {
-    ;
+public static void countABC(int N,  string S){
     int ans = 0;
     char[] s = S.ToCharArray();
     for(int i=0;i<S.Length-2;i++) {
@@ -460,7 +485,7 @@ public static void countABC(int N,  string S) throws FileNotFoundException {
                     ans++;
             }
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
 public static void addMid(int n, int a, int b){
@@ -481,40 +506,37 @@ public static void addMid(int n, int a, int b){
 private void changingACharchter(int k, string nextLine) {
     char[] s = nextLine.ToCharArray();
     s[k - 1] = Char.ToLower(s[k - 1]);
-    Console.Writeline(new string(s));
+    Console.WriteLine(new string(s));
 }
 
 public static void setLowerCaseK(Stack<int> args, Stack<string> inputS) {
-    while(scan.hasNext())
+    while(args.Count > 0)
     {
             int n,k;
             n=args.Pop();
             k=args.Pop();
             string s,s1 ;
             s=inputS.Pop();
-            char arr[]=s.ToCharArray();
+            char[]arr=s.ToCharArray();
             char c=Char.ToLower(arr[k-1]);
             arr[k-1]=c;
-            Console.Writeline(arr);
+            Console.WriteLine(arr);
     }
 }
 
-public void setLowerCaseK( string N, string K) {
+public void setLowerCaseK(string S, string N, string K) {
     int n = int.Parse(N);
     int k = int.Parse(K);
-    string S = in.next();
     string tmp1 = S.Substring(0, k - 1);
     string tmp2 = S.Substring(k);
     char tmp3 = Char.ToLower(S[k - 1]);
     Console.WriteLine(tmp1 + tmp3 + tmp2);
 }
 
-private static void setLowerCaseK(){
-            int n = ni();
-            int k = ni();
-            char[] ca = next().ToCharArray();
+private static void setLowerCaseK(int n, int k, string next){
+            char[] ca = next.ToCharArray();
             ca[k-1] = Char.ToLower(ca[k-1]);
-            Console.Writeline(new string(ca));
+            Console.WriteLine(new string(ca));
 }
 
 private static string invertCase(string str) {
@@ -533,46 +555,46 @@ public static void covertCharacterCase( string str){
     char c;
     for(int i=0;i<str.Length;i++){
         c=str[i];
-        if(Char.IsUpper(c))Console.Writeline(Char.ToLower(c));
-        else Console.Writeline(Char.ToUpper(c));
+        if(Char.IsUpper(c))Console.WriteLine(Char.ToLower(c));
+        else Console.WriteLine(Char.ToUpper(c));
     }
-    Console.Writeline();
+    Console.WriteLine();
 }
 
 public static void normalizatoin(string src){
-    string Array[] = src.Split("");
+    string[] Array = src.Split("");
     List<string> list = new List<string>(Array);
     int count0 = list.Count(i => i == "0");
     int count1 = list.Count(i => i == "1");
     if(count0 > count1){
-            Console.Writeline(count1*2);
+            Console.WriteLine(count1*2);
     }else{
-            Console.Writeline(count0*2);
+            Console.WriteLine(count0*2);
     }
 }
 
 public static void allToLowerCase(List<string> args) {
     List<string> str = new List<string>();
     string target = args.First().ToLower();
-    args.Remove(First());
+    args.Remove(args.First());
     while(true) {
         string tmp = args.First();
-        args.Remove(First());
+        args.Remove(args.First());
         if(tmp.Equals("END_OF_TEXT")) {
             break;
         }
         str.Add(tmp.ToLower());
     }
-    Console.Writeline(str.Count(i => i == target));
+    Console.WriteLine(str.Count(i => i == target));
 }
 
-public static void allToLowerCase(string args) {
-    string ptn = args.ToLower();
+public static void allToLowerCase(string next, Stack<string> args) {
+    string ptn = next.ToLower();
     List<string> als = new List<string>();
-    while(scn.hasNext()) {
-        als.Add(scn.next().ToLower());
+    while(args.Count > 0) {
+        als.Add(args.Pop().ToLower());
     }
-    Console.Writeline(als.Count(i => i == ptn));
+    Console.WriteLine(als.Count(i => i == ptn));
 }
 
 public static void checkAC(int n, int m, string[] args) {
@@ -582,7 +604,7 @@ public static void checkAC(int n, int m, string[] args) {
     pena = Enumerable.Repeat(0, n).ToList();
     for(int i=0; i<m; ++i)  {
             int p = int.Parse(args[i]);
-            string s = scan.next();
+            string s = args[i];
             --p;
             if(ac[p] == 1) continue;
             if(s.Equals("AC")) {
@@ -596,26 +618,37 @@ public static void checkAC(int n, int m, string[] args) {
             AC += ac[i];
             if(ac[i] == 1) PENA += pena[i];
     }
-    Console.Writeline(AC + " " + PENA);
+    Console.WriteLine(AC + " " + PENA);
 }
 
-public static void swapList(int t1, int t2, string args[]){List<int>l=new List<int>();int t=t1,i=0;for(;i++<t;)l.Add(i);for(t=t2;t>0;t--){string[]e=args[t].Split(",");(l[new int(e[0]) - 1], l[new int(e[1]) - 1]) =(l[new int(e[1]) - 1], l[new int(e[0]) - 1] = l[new int(e[1]) - 1];)}for(i=0;i<t;++i)args[i]=String.Format("{0},{1}",l[i],i+1);}reach(var e in l)Console.Writeline(e);}
-
-public static void swapList(string[] arg) throws IOException
+public static void swapList(int t1, int t2, string[] args)
 {
-        int v = int.Parse(Console.ReadLine()());
+    List<int>l=new List<int>();
+    int t=t1,i=0;
+    for(;i++<t;)
+        l.Add(i);
+    for (t = t2; t > 0; t--)
+    {
+        string[] e = args[t].Split(",");
+        (l[int.Parse(e[0]) - 1], l[int.Parse(e[1]) - 1]) = (l[int.Parse(e[1]) - 1], l[int.Parse(e[0]) - 1]);
+    }
+    foreach(var e in l)Console.WriteLine(e);
+    
+}
+
+public static void swapList(int v, int h, Stack<string> args) 
+{
         List<int> amida = new List<int>(v);
         for(int i=0; i<v; i++)
                 amida.Add(i+1);
-        int h = int.Parse(Console.ReadLine()());
         for(int i=0; i<h; i++){
-                string swapInd = Console.ReadLine()();
+                string swapInd = args.Pop();
                 int swap1 = int.Parse(swapInd.Split(",")[0]);
                 int swap2 = int.Parse(swapInd.Split(",")[1]);
                 (amida[swap1-1],amida[swap2-1]) = (amida[swap2-1],amida[swap1-1]);
         }
         for(int i=0; i<v; i++)
-                Console.Writeline(amida[i]);
+                Console.WriteLine(amida[i]);
 }
 
 public static void swapList(int n, int[] inputArray) {
@@ -633,54 +666,60 @@ public static void swapList(int n, int[] inputArray) {
             }
     }
     for(int i=0;i<n;i++) {
-            Console.Writeline(A[i]);
-            if(i!=n-1)Console.Writeline(" ");
+            Console.WriteLine(A[i]);
+            if(i!=n-1)Console.WriteLine(" ");
     }
-    Console.Writeline();
-    Console.Writeline(c);
+    Console.WriteLine();
+    Console.WriteLine(c);
 }
 
-public static void reverseList(string[] args) {
+public static void reverseList1(string[] args) {
     string str;
     List<int> al = new List<int>();
     try {
-        while((str = Console.ReadLine()()) != null) {
+        while((str = Console.ReadLine()) != null) {
             al.Add( int.Parse(str) );
         }
     } catch (Exception e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+        Console.WriteLine(e);
+    } 
     al.Sort();
     al.Reverse();
     for(int i=0; i<3; i++) {
-        Console.Writeline(al[i]);
+        Console.WriteLine(al[i]);
     }
 }
 
-public static void reverseList(List<int> list) {
+public static void reverseList2(List<int> list) {
     list.Sort();
     list.Reverse();
     for (int i = 0; i < 3; i++) {
-        Console.Writeline(list[i]);
+        Console.WriteLine(list[i]);
     }
 }
 
-public static void reverseList(string[] args) throws IOException {
-    List<int> array = new List<int>();
-    for(int i = 0; i < 10; i++) {
-      int x = int.Parse(Console.ReadLine());
-      array.Add(x);
+public static void reverseList3(string[] args) {
+    try
+    {
+        List<int> array = new List<int>();
+        for(int i = 0; i < 10; i++) {
+            int x = int.Parse(Console.ReadLine());
+            array.Add(x);
+        }
+        array.Sort();
+        array.Reverse();
+        for(int i = 0; i < 3; i++) {
+            Console.WriteLine(array[i]);
+        }
     }
-    array.Sort();
-    array.Reverse();
-    for(int i = 0; i < 3; i++) {
-      Console.Writeline(array[i]);
+    catch (IOException e)
+    {
+        Console.WriteLine(e);
+        throw;
     }
 }
 
-public static void reverseList( string s){
+public static void reverseList4( string s){
     List<string> list = new List<string>();
     string[] str = s.Split("");
     foreach(var a in str){
@@ -688,16 +727,16 @@ public static void reverseList( string s){
     }
     list.Reverse();
     foreach(var a in list){
-            Console.Writeline(a);
+            Console.WriteLine(a);
     }
-    Console.Writeline("");
+    Console.WriteLine("");
 }
 
-public static void checkSameStr(string[] args) throws Exception {
+public static void checkSameStr(string[] args) {
     char[] s = args[0].ToCharArray();
     char[] t = args[1].ToCharArray();
     if(s.Length != t.Length) {
-        Console.Writeline("No");
+        Console.WriteLine("No");
         return;
     }
     int len = s.Length;
@@ -714,22 +753,17 @@ public static void checkSameStr(string[] args) throws Exception {
             }
         }
         if(b){
-            Console.Writeline("Yes");
+            Console.WriteLine("Yes");
             return;
         }
-        Collections.rotate(sl,1);
+        sl= sl.Skip(1).Concat(sl.Take(1)).ToList();
     }
-    Console.Writeline("No");
+    Console.WriteLine("No");
 }
 
 
 int upperBound(List<long> list, long target){
-    int i = list.BinarySearch(target, new UpperBoundComparator<long>());
-    return ~i;
-}
-
-int lowerBound(List<long> list, long target){
-    int i = list.BinarySearch(target, new LowerBoundComparator<long>());
+    int i = list.BinarySearch(target);
     return ~i;
 }
 
@@ -737,15 +771,15 @@ public static void search(int n ,List<string> args) {
     List<string> array = new List<string>();
     while(args.Count > 0) {
             string s = args.First();
-            args.Remove(First());
+            args.Remove(args.First());
             int index = array.BinarySearch(s);
             if(index < 0) {
                     index = - (index + 1);
-                    array.Add(index, s);
+                    array.Insert(index, s);
             }
     }
     int ans = array.Count;
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
 private static int search(List<int> list, int key) {
@@ -753,15 +787,15 @@ private static int search(List<int> list, int key) {
     return r < 0 ? ~r : r;
 }
 
-public List<int> gerPrimes() {
-    return Collections.unmodifiableList(primes);
+public ImmutableList<int> gerPrimes(List<int> primes) {
+    return primes.ToImmutableList();
 }
 
 static void dispResult(Dictionary<string, int> result) {
-    static final List<string> RESULT_TYPE = 
-    Collections.unmodifiableList(new List<int>(new[] {"AC", "WA", "TLE", "RE"}));
+    ImmutableList<string> RESULT_TYPE = 
+    (new List<string>{"AC", "WA", "TLE", "RE"}).ToImmutableList();
     foreach (var R in RESULT_TYPE) {
-      Console.Writeline(R + " x " + (result[R] == null ? 0 : result[R]));
+      Console.WriteLine(R + " x " + (result[R] == null ? 0 : result[R]));
     }
 }
 
@@ -772,7 +806,7 @@ public static bool isNumber(double val) {
     return false;
 }
 
-public static void isSquareNumber(string[] args) {
+public static void isSquareNumber(int count, List<int> intList) {
     count = 0;
     for (int i = 0; i < intList.Count; i++) {
         if ((Math.Sqrt(intList[i]) == Math.Floor(Math.Sqrt(intList[i])))
@@ -794,40 +828,37 @@ public static void countRemain(int N, int K, int[] inputArray ) {
         }
       }
     }
-    Console.Writeline(nList.Count);
+    Console.WriteLine(nList.Count);
 }
 
-private void nArray() {
-    int numN = nextInt();
-    int[] wk = IntStream.range(0, numN).toArray();
+private int[] nArray(int numN)
+{
+    int[] wk = new int[numN];
+    for (int i = 0; i < numN; i++) wk[i] = i;
+    return wk;
 }
 
-public static void maxDifference(string[]args){
-    int N=sc.nextInt();
-    int[]A=new int[N];
-    for(int i=0;i<N;i++){
-            A[i]=sc.nextInt();
-    }
+public static void maxDifference1(int N, int[]A){
     int max=0;
     Array.Sort(A);
     max=Math.Abs(A[0]-A[N-1]);
-    Console.Writeline(max);
+    Console.WriteLine(max);
 }
 
-public static void maxDifference(int n, int[] inputArray){
+public static void maxDifference2(int n, int[] inputArray){
     List<int> list = new List<int>(n);
     for(int i = 0;i < n; i++){
       list.Add(inputArray[i]);
       }
     list.Sort();
-    Console.Writeline(Math.Abs(list.Last() - list.First()));
+    Console.WriteLine(Math.Abs(list.Last() - list.First()));
 }
 
 public static long dist(long[] p1, long[] p2) {
     return (Math.Abs(p2[0]-p1[0])+Math.Abs(p2[1]-p1[1]));
 }
 
-public static void maxDifference(string nextLine) {
+public static void maxDifference3(string nextLine) {
     string[] t = nextLine.Split(" ");
     int n = int.Parse(t[0]);
     int l = int.Parse(t[1]);
@@ -839,10 +870,10 @@ public static void maxDifference(string nextLine) {
             if(Math.Abs(min) > Math.Abs(list[i - 1])) {min = list[i - 1];}
             sum += list[i - 1];
     }
-    Console.Writeline(sum - min);
+    Console.WriteLine(sum - min);
 }
 
-static string check(int k) {
+static string check(int k,int[] arr) {
     for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                     int x = Math.Abs(arr[i] - arr[j]);
@@ -855,27 +886,35 @@ static string check(int k) {
 }
 
 public static void round(int val) {
-    Console.Writeline(4*val*Math.Acos(0));
+    Console.WriteLine(4*val*Math.Acos(0));
 }
 
-public static void negetiveRound(string[] args) throws IOException {
-    int R = int.Parse(Console.ReadLine());
-    Console.Writeline(2*R*Math.Acos(-1));
+public static void negetiveRound(string[] args) {
+    try
+    {
+        int R = int.Parse(Console.ReadLine());
+        Console.WriteLine(2 * R * Math.Acos(-1));
+    }
+    catch (IOException e)
+    {
+        Console.WriteLine(e);
+        throw;
+    }
 }
 
-public static void round(int r){
+public static void round2(int r){
   double PI = 2 * Math.Acos(0.0);
-    Console.Writeline(2 * PI * r);
+    Console.WriteLine(2 * PI * r);
 }
 
 public static void d(int a, int b, int x ){
     if((double)2*x/(a*a)-b>=0){
         double bb=((double)2*x)/(a*a)-b;
-        Console.Writeline(Math.Atan((-bb+b)/a)*180/Math.PI);
+        Console.WriteLine(Math.Atan((-bb+b)/a)*180/Math.PI);
     }
     else{
         double aa=((double)2*x)/(a*b);
-        Console.Writeline(Math.Atan(((double)b)/aa)*180/Math.PI);
+        Console.WriteLine(Math.Atan(((double)b)/aa)*180/Math.PI);
     }
 }
 
@@ -884,7 +923,7 @@ public static void findMaxPow(double a) {
     double three=Math.Cbrt(a);
     double four=Math.Pow(a,0.25);
     double five=Math.Pow(a,0.2);
-    double unti[];
+    double[] unti;
     unti=new double[4];
     unti[0]=Math.Floor(two);
     unti[1]=Math.Floor(three);
@@ -896,7 +935,7 @@ public static void findMaxPow(double a) {
         max=Math.Max(max,jo);
     }
     int ans=(int)max;
-    Console.Writeline(ans);  
+    Console.WriteLine(ans);  
 }
 
 public static void adjustSqrt( double a){
@@ -920,66 +959,63 @@ public static void adjustSqrt( double a){
     } else if (ans < 243 && 243 <= aInt){
       ans = 243;
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
 public static void checkMid(int x, int y) {
     double turu = 2 * x - y / 2.0;
     double kame = y / 2.0 - x ;
     if (turu < 0 || kame < 0) {
-        Console.Writeline("No");
+        Console.WriteLine("No");
         return;
     }
     if (Math.Ceiling(turu) == Math.Floor(turu) && Math.Ceiling(kame) == Math.Floor(kame)) {
-        Console.Writeline("Yes");
+        Console.WriteLine("Yes");
     } else {
-        Console.Writeline("No");
+        Console.WriteLine("No");
     }
 }
 
-void checkQuotient() {
-    int D = sc.nextInt();
-    int T = sc.nextInt();
-    int S = sc.nextInt();
+void checkQuotient(int D, int T, int S) {
     int ans = (int)Math.Ceiling(1.0*D / S);
     if(ans <= T) {
-            Console.Writeline("Yes");
+            Console.WriteLine("Yes");
     }else {
-            Console.Writeline("No");
+            Console.WriteLine("No");
     }
 }
 
 static bool isInteger(double number){return Math.Ceiling(number) == Math.Floor(number); }
 
 public static void checkQuotien(int d, int t, int s){
-    Console.Writeline(Math.Ceiling((double)d / s) > t ? "No" :"Yes");
+    Console.WriteLine(Math.Ceiling((double)d / s) > t ? "No" :"Yes");
 }
-public static void toOdd(int n,int ar[])
+public static void toOdd(int n,int[] ar)
         {
                 Array.Sort(ar);
                 if(n%2==1)
                 {
-                        Console.Writeline(0);
+                        Console.WriteLine(0);
                 }else {
-                        int div=(int) Math.Ceiling(n/2);
-                        Console.Writeline(ar[div]-ar[div-1]);
+                        int div=(int) Math.Ceiling((double)n/2);
+                        Console.WriteLine(ar[div]-ar[div-1]);
                 }
         }
 
         public static void getV(int a , int b , int h , int m ){
             double degree = (30*h + 0.5*m) - 6*m;
             double distance = Math.Sqrt(a*a + b*b -2*a*b*Math.Cos((Math.PI/180)*degree));
-            Console.Writeline(distance);
+            Console.WriteLine(distance);
         }    
 
-        public static void calcAngle(double A, double B, double H , double M ) {
-            Console.Writeline(Math.Sqrt(A*A+B*B-2.0*A*B*Math.Cos(2.0*Math.PI*(H/12.0+M/12.0/60.0-M/60.0))));
+        public static void calcAngle1(double A, double B, double H , double M ) {
+            Console.WriteLine(Math.Sqrt(A*A+B*B-2.0*A*B*Math.Cos(2.0*Math.PI*(H/12.0+M/12.0/60.0-M/60.0))));
         }
 
-        static double calcAngle(double h, double m) 
+        static double calcAngle2(double h, double m) 
     { 
         if (h <0 || m < 0 || h >12 || m > 60) 
-            Console.Writeline("Wrong input"); 
+            Console.WriteLine("Wrong input"); 
         if (h == 12) 
             h = 0; 
         if (m == 60)  
@@ -991,14 +1027,12 @@ public static void toOdd(int n,int ar[])
         return angle; 
     } 
 
-    public static void calcAngle()
+    public static void calcAngle3(double a,  double b,  double h,  double m)
     {
-        double a=in.nextdouble(),b=in.nextdouble();
-        double h=in.nextdouble(),m=in.nextdouble();
         double angle=Math.Abs(30*h - 11*m/2.0);
        double ans=(Math.PI/180)*angle;
         double c= Math.Sqrt(a*a + b*b - 2.0*a*b*Math.Cos(ans));
-        Console.Writeline("{0:0.00000000000000000000}", c);
+        Console.WriteLine("{0:0.00000000000000000000}", c);
     }
 
     static double third_side(double a,  
@@ -1009,32 +1043,31 @@ public static void toOdd(int n,int ar[])
             (b * b) - 2 * a * b * angle); 
 } 
 
-public static void evenTenPow(int N) throws IOException {
+public static void evenTenPow(int N)  {
     int result = 0;
     for(int i = 1; i <= N; i++) {
             if((int)Math.Floor(Math.Log10(i) + 1) % 2 == 1) {
                     result++;
             }
     }
-    Console.Writeline(result);
-    ;
+    Console.WriteLine(result);
 }
 
-public static void decimal(int n){
+public static void decimal1(int n){
     double m=n/2;
     double k=Math.Floor(m);
     double l=(n-k)/n;
-    Console.Writeline(l);
+    Console.WriteLine(l);
   }
 
-  public static void evenTenPow(final int N) {
+  public static void evenTenPow2(int N) {
     long ans = 0;
     for(int i=N;i>0;i--){
         if(Math.Floor(Math.Log10(i))%2==0){
             ans++;
         }
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
 int numberOfDigits(int n) {
@@ -1042,25 +1075,24 @@ int numberOfDigits(int n) {
 }
 
 public static void halfDecimal(long N) {
-    Console.Writeline((double)(N - Math.Floor(N/2)) / N);
+    Console.WriteLine((double)(N - Math.Floor((double)N/2)) / N);
 }
 
-public static void countTriangle(int n) {
- double d=s.nextdouble();
+public static void countTriangle(int n, double d, int[] inputX, int[] inputY) {
  int c=0;
  for(int i=0;i<n;i++)
  {
-     int x=s.nextInt();
-     int y=s.nextInt();
+     int x=inputX[i];
+     int y=inputY[i];
      long x1=x*x;
      long y1=y*y;
-    double d1 = Double.Hypot(x, y);
+     double d1 =Math.Sqrt(x * x + y * y);
      if(d1<=d)
      {
      c++;
      }
  }
- Console.Writeline(c);
+ Console.WriteLine(c);
 }
 
 public static bool triangle(int i,int[][] t){
@@ -2380,7 +2412,7 @@ public static void getLastUpper(string A, string B, string C){
         }
     }
 
-    public static List<string> getStrOnLine() throws IOException {
+    public static List<string> getStrOnLine() throws System.IO.IOException {
         List<string> list = new List<string>();
         string line = getLine();
         
@@ -5074,7 +5106,6 @@ else if(c==M){
 foreach(string a in s){
     Console.WriteLine(a);
 }
-    out.flush();
 }
 
 public static void countMaxVote(int N, string[] args) throws IOException {
@@ -6836,7 +6867,6 @@ public static void removeInput(string[] args) throws IOException {
             }
             Console.WriteLine(set.Count);
     }
-    out.close();
 }
 
 public static void removeInput(int n, int k, int[] inputKI, int[] inputTemp){
@@ -7525,4 +7555,6 @@ public static void compareQuotient( string str){
 
 public double nextdouble() {
     return double.Parse(next());
+}
+
 }
