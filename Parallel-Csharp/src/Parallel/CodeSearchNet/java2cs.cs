@@ -1,6 +1,7 @@
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Drawing;
+using System.Reflection.Metadata;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -1097,43 +1098,45 @@ public static void countTriangle(int n, double d, int[] inputX, int[] inputY) {
 
 public static bool triangle(int i,int[][] t){
     double max=Math.Max(Math.Max(t[i][0],t[i][1]),t[i][2]);
-    double res=Math.Min(Math.Min(Double.Hypot(t[i][0],t[i][1]),Double.Hypot(t[i][0],t[i][2])),Double.Hypot(t[i][2],t[i][1]));
+    double res=Math.Min(Math.Min(Math.Sqrt(t[i][0] * t[i][0] + t[i][1] * t[i][1]),Math.Sqrt(t[i][0] * t[i][0] + t[i][2] * t[i][2])),Math.Sqrt(t[i][2] * t[i][2] + t[i][1] * t[i][1]));
     if(res==max){return true;}
     else{return false;}
     }
 
-    public static void getTickDistance(int A, int B , int H , int M) {
+    public static void getTickDistance1(int A, int B , int H , int M) {
         double arg1 = 30 * H + 0.5 * M;
         double arg2 = 6 * M;
         double x1 = A * Math.Cos((Math.PI/180)*arg1);
         double y1 = A * Math.Sin((Math.PI/180)*arg1);
         double x2 = B * Math.Cos((Math.PI/180)*arg2);
         double y2 = B * Math.Sin((Math.PI/180)*arg2);
-        Console.Writeline(Double.Hypot(x2 - x1, y2 - y1));
+        
+        Console.WriteLine(Math.Sqrt((x2 - x1) * (x2 - x1)+ (y2 - y1) * (y2 - y1)));
       }
 
-      public void getTickDistance( double a, double b, double h, double m) {
+      public void getTickDistance2( double a, double b, double h, double m) {
         double x1 = a * Math.Cos((h + m / 60) / 12 * 2 * Math.PI);
         double y1 = a * Math.Sin((h + m / 60) / 12 * 2 * Math.PI);
         double x2 = b * Math.Cos(m / 60 * 2 * Math.PI);
         double y2 = b * Math.Sin(m / 60 * 2 * Math.PI);
-        Console.WriteLine(Util.formatdouble(Double.Hypot(x1 - x2, y1 - y2)));
+        Console.WriteLine(Math.Sqrt((x2 - x1) * (x2 - x1)+ (y2 - y1) * (y2 - y1)));
     }
 
-    public static void isTriangle(int N, int D, long x, long y) {
+    public static void isTriangle(int N, int D, long[] inputx, long[] inputy) {
         int count = 0;
         double distance = 0;
+        long x, y;
         for (int i = 0; i < N; i++ ) {
-                x = sc.nextLong();
-                y = sc.nextLong();
-                distance = Double.Hypot(x, y);
+            x = inputx[i];
+            y = inputy[i];
+                distance = Math.Sqrt(x * x + y * y);
                 if (distance <= D) count++;
         }
         ;
-        Console.Writeline(count);
+        Console.WriteLine(count);
 }
 
-    public static void triangle(int n , double d, int inputArray[]) {
+    public static void triangle(int n , double d, int[] inputArray) {
   int c=0;
   for(int i=0;i<n;i++)
   {
@@ -1141,13 +1144,13 @@ public static bool triangle(int i,int[][] t){
       int y=inputArray[2*i + 1];
       long x1=x*x;
       long y1=y*y;
-     double d1 = Double.Hypot(x, y);
+     double d1 = Math.Sqrt(x * x + y * y);
       if(d1<=d)
       {
       c++;
       }
   }
-  Console.Writeline(c);
+  Console.WriteLine(c);
     }
 
 public static double log2(long N) 
@@ -1156,14 +1159,8 @@ public static double log2(long N)
     return result; 
 }
 
-static double log(double base,double antilogarithm){
-    return Math.Log(antilogarithm)/Math.Log(base);
-}
-
-public SegmentTree(int n) {       
-    int h = (int)Math.Ceiling((double)Math.Log(n)/Math.Log(2));
-    this.size = (int)Math.Pow(2,h)*2-1;
-    seg = new int[size];
+static double log(double base1,double antilogarithm){
+    return Math.Log(antilogarithm)/Math.Log(base1);
 }
 
 static bool isPower(int a, int b)
@@ -1178,14 +1175,13 @@ static bool isPower(int a, int b)
         return (1<<n);
 }
 
-public static void sqrLog(string[] args) throws IOException {
-    long n = long.Parse(Console.ReadLine());
+public static void sqrLog( long n) {
     long a = 1;
     for(int i=1; i<=Math.Sqrt(n); i++){
       if(n%i==0)
         a = n/i;
     }
-    Console.Writeline((int)Math.Log10(a)+1);
+    Console.WriteLine((int)Math.Log10(a)+1);
   }
 
   private static int compareLog(long a, long b) {
@@ -1207,44 +1203,31 @@ public static void countLog(int n) {
             count++;
         }
     }
-    Console.Writeline(count);
+    Console.WriteLine(count);
 }
 
-static long max(long a, long b) {
+static long maxLong(long a, long b) {
 
     return Math.Max(a, b);
 }
 
-public static string largestSum(TestCase testCase) {
-    List<int> L = testCase.L;
-    int largest = 0;
-    int sum = 0;
-    foreach (var side in L) {
-        largest = Math.Max(largest, side);
-        sum += side;
-    }
-    return (largest < (sum - largest)) ? YES : NO;
-}
-
-static double max(double d, double e) {
+static double maxDouble(double d, double e) {
 
     return Math.Max(d, e);
 }
 
-private static int getDifference(int n, int[] as) {
-    int aMax = as[0];
-    int aMin = as[0];
-    foreach (var a in as) {
+
+private static int getDifference1(int n, int[] as1) {
+    int aMax = as1[0];
+    int aMin = as1[0];
+    foreach (var a in as1) {
       aMax = Math.Max(aMax, a);
       aMin = Math.Min(aMin, a);
     }
     return aMax - aMin;
   }
 
-  public void mergeSort( int n, int[] arr ) throws IOException {
-    for (int i = 0; i < n; i++) {
-        arr[i] = in.nextInt();
-    }
+  public void mergeSort( int n, int[] arr )  {
     int[] right = new int[n];
     int[] left = new int[n];
     right[n-1] = 0;
@@ -1265,7 +1248,7 @@ static long min(long n,long m)
         return Math.Min(n,m);
     }
 
-    public static void getDifference(string s , int min , int max) {
+    public static void getDifference2(string s , int min , int max) {
         for(int i = 0; i < s.Length; i++) {
                 if('A'==s[i]) {
                         min = Math.Min(min, i);
@@ -1274,10 +1257,10 @@ static long min(long n,long m)
                         max = Math.Max(max, i);
                 }
         }
-        Console.Writeline((max - min) + 1);
+        Console.WriteLine((max - min) + 1);
 }
 
-public int minGap(int n, int[] height) {
+public int minGap1(int n, int[] height) {
     int pre = 0;
     int cur = 0;
     if(n <= 1)
@@ -1293,8 +1276,8 @@ public int minGap(int n, int[] height) {
     return cur;
 }
 
-static int minGap(int n,int arr[]) {
-    int dp[] = new int[n];
+static int minGap2(int n,int[] arr) {
+    int[] dp = new int[n];
     dp[0] = 0;
     for(int i=1;i<n;i++) {
             int ans = 0;
@@ -1310,33 +1293,31 @@ static int minGap(int n,int arr[]) {
 }
 
 
-public static void minGap()throws IOException
+public static void minGap3(int n, int[]A)
 {
-    int n=ni();
-    int[]A=nai(n);
     int[]dp=new int[n];
     dp[0]=0;
     dp[1]=Math.Abs(A[0]-A[1]);
     for(int i=2;i<n;i++)
         dp[i]=Math.Min(dp[i-1]+Math.Abs(A[i-1]-A[i]),dp[i-2]+Math.Abs(A[i-2]-A[i]));
-    pn(dp[n-1]);
+    Console.WriteLine(dp[n-1]);
 }
 
-public static void countSmallDist (int n, double d, int inputX[], int inputY[]) throws Exception
+public static void countSmallDist1 (int n, double d, int[] inputX, int[] inputY) 
 {
         int count = 0;
         while(n-- >0){
-                int x = input[n];
-                int y = input[n];
+                int x = inputX[n];
+                int y = inputY[n];
                 double dis = Math.Sqrt(Math.Pow(x,2)+Math.Pow(y,2));
                 if(dis<=d){
                         count++;
                 }
         }
-        Console.Writeline(count);
+        Console.WriteLine(count);
 }
 
-public static void countBigDist(int N, int D, int inputX[], int inputY[]) throws Exception {
+public static void countBigDist(int N, int D, int[] inputX, int[] inputY)  {
     int count = 0;
     for(int i = 0; i < N; i++){
         int x = inputX[i];
@@ -1344,16 +1325,16 @@ public static void countBigDist(int N, int D, int inputX[], int inputY[]) throws
         double d = (Math.Pow(x, 2) + Math.Pow(y, 2));
         if(Math.Pow(D, 2) >= d) count++;
     }
-    Console.Writeline(count);
+    Console.WriteLine(count);
 }
 
-void countSmallDist(int n, double d, int inputX[], int inputY[])
+void countSmallDist2(int n, double d, int[] inputX, int[] inputY)
     {
         int c=0;
         while(n-->0)
         {
-            int x = input[n];
-            int y = input[n];
+            int x = inputX[n];
+            int y = inputY[n];
             double sp=Math.Sqrt(Math.Pow(x,2)+Math.Pow(y,2));
             if(sp<=d)
             c++;
@@ -1361,18 +1342,18 @@ void countSmallDist(int n, double d, int inputX[], int inputY[])
         Console.WriteLine(c);
     }
 
-    public static bool isExpN(long a,int base){
+    public static bool isExpN(long a,int base1){
         int x=1;
         while((int)Math.Pow(x, 2) <= a){
                 if((int)Math.Pow(x, 2) == a){
                         return true;
                 }
-                x*=base;
+                x*=base1;
         }
         return false;
 }
 
-public static void sumPow(int K, int inputArray[]){
+public static void sumPow(int K, int[] inputArray){
     int sum = 0;
     List<int> a = new List<int>();
     for (int i = 0; i < K; i++) {
@@ -1383,43 +1364,43 @@ public static void sumPow(int K, int inputArray[]){
     a.Reverse();
     for(int i=0; i<a.Count;i++)
     {
-            sum += (Math.Pow((-1),(i)))*(a[i]);
+            sum += (int)((Math.Pow((-1),(i)))*(a[i]));
     }
-    Console.Writeline(sum);
+    Console.WriteLine(sum);
 }
 
 public static void pow100(int D, int N) {
     if(D == 0&&N == 100){
-            Console.Writeline(101);
+            Console.WriteLine(101);
     }else if(D == 1&&N == 100){
-            Console.Writeline(10100);
+            Console.WriteLine(10100);
     }else if(D == 2&&N ==100){
-            Console.Writeline(1010000);
+            Console.WriteLine(1010000);
     }else{
-            Console.Writeline(Math.Round(N * Math.Pow(100,D)));
+            Console.WriteLine(Math.Round(N * Math.Pow(100,D)));
     }
 }
 
 public static void pow100(string[] line) {
-    final int a = int.Parse(line[0]);
-    final int b = int.Parse(line[1]);
-    final long pow = Math.Round(Math.Pow(100, a));
+    int a = int.Parse(line[0]);
+    int b = int.Parse(line[1]);
+    long pow = (long)Math.Round(Math.Pow(100, a));
     if (b <= 99) {
-        Console.Writeline(b * pow);
+        Console.WriteLine(b * pow);
     } else {
-        Console.Writeline(101 * pow);
+        Console.WriteLine(101 * pow);
     }
 }
 
 public static void intDevide(int A, int B , int t ) {
     int T = (int) Math.Round(t + 0.5);
     int b = 0;
-    for (int t = 1; t < T; t++) {
+    for (t = 1; t < T; t++) {
         if (t % A == 0) {
             b += B;
         }
     }
-    Console.Writeline(b);
+    Console.WriteLine(b);
 }
 
 public static void maxPow(double a){
@@ -1433,36 +1414,38 @@ public static void maxPow(double a){
     if(a == 1){
       ans = 1;
     }
-    Console.Writeline(Math.Round(ans));
+    Console.WriteLine(Math.Round(ans));
   }
 
   public static void maxPow(int N ) {
-    int N = scan.nextInt();
     int n = 0;
     while (Math.Pow(2,n + 1) <= N ) {
       n = n + 1;
     } 
-      Console.Writeline(Math.Round(Math.Pow(2,n)));
+      Console.WriteLine(Math.Round(Math.Pow(2,n)));
 }
 
-public static void getTickDistance(double a , double b , double h , double m) {
+public static void getTickDistance3(double a , double b , double h , double m) {
     double mm = -(Math.PI/180)*m*6;
     double hh = -(Math.PI/180)*(h+m/60)*30;
     double x = Math.Cos(hh)*a-Math.Cos(mm)*b;
     double y = Math.Sin(hh)*a-Math.Sin(mm)*b;
-    Console.Writeline(Math.Sqrt(x*x+y*y));
+    Console.WriteLine(Math.Sqrt(x*x+y*y));
 }
 
 private static Point point(double r, double deg) {
     double x = r * Math.Sin(deg);
     double y = r * Math.Cos(deg);
-    return new Point(x, y);
+    return new Point((int)x, (int)y);
 }
 
-public Point(double deg, double r) {
+public Point init (double deg, double r)
+{
+    double x, y;
     double rad = deg * Math.PI / 180.0;
     x = Math.Cos(rad) * r;
     y = Math.Sin(rad) * r;
+    return new Point((int) x, (int) y);
   }
 
   public static double dist(int x1, int b, double angle){
@@ -1470,30 +1453,25 @@ public Point(double deg, double r) {
     return Math.Sqrt(Math.Pow((x2-x1), 2)+y2*y2);
 }
 
-public void getTickDistance( ) {
-    double a = Console.ReadLine(), b = Console.ReadLine();
-    double h = Console.ReadLine(), m = Console.ReadLine();
+public void getTickDistance4(double a, double b, double h, double m ) {
     double x1 = a * Math.Cos((h + m / 60) / 12 * 2 * Math.PI);
     double y1 = a * Math.Sin((h + m / 60) / 12 * 2 * Math.PI);
     double x2 = b * Math.Cos(m / 60 * 2 * Math.PI);
     double y2 = b * Math.Sin(m / 60 * 2 * Math.PI);
-    Console.WriteLine(Util.formatdouble(Double.Hypot(x1 - x2, y1 - y2)));
+    
+    Console.WriteLine(Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) ));
 }
 
-private static void getTickDistance(){
-    double A = nd();
-    double B = nd();
-    double H = nd();
-    double M = nd();
+private static void getTickDistance5(double A, double B, double H,  double M){
     double ang = 30D * H + 0.5D * M - 6D * M;
     double asin = A * Math.Sin((Math.PI/180)*ang);
     double acos = A * Math.Cos((Math.PI/180)*ang);
     double height = asin;
     double width = B - acos;
-    Console.Writeline(Math.Sqrt(height * height + width * width));
+    Console.WriteLine(Math.Sqrt(height * height + width * width));
 }
 
-private static bool isPrime(int n) {
+private static bool isPrime1(int n) {
     if (n == 2)
         return true;
     else if ((n % 2 == 0 && n > 2) || n < 2)
@@ -1525,7 +1503,7 @@ static List<int> primeList(int n){
     return list;
   }
 
-  static bool isPrime (int n) {
+  static bool isPrime2 (int n) {
     if (n==2) return true;
     if (n<2 || n%2==0) return false;
     double d = Math.Sqrt(n);
@@ -1569,25 +1547,25 @@ public static bool[] sieve(long n)
         Dictionary<int, int> countDictionary = new Dictionary<int, int>();
         foreach (var val in arr) {
             int count = countDictionary[int.Parse(val)];
-            if (count is null) {
+            if (count == null) {
                 countDictionary[int.Parse(val)] = 0;
             }else{
             countDictionary[int.Parse(val)] = count++;
             }
         }
         if (countDictionary.Count == 2) {
-            Console.Writeline("Yes");
+            Console.WriteLine("Yes");
         } else {
-            Console.Writeline("No");
+            Console.WriteLine("No");
         }
     }
 
-    public static void string2Map(int N) {
+    public static void string2Map(int N, int[] input) {
         Dictionary<int, int> resultDictionary = new Dictionary<int, int>();
         for (int i = 1; i < N; i++) {
-            int boss = sc.nextInt();
+            int boss = input[i];
             int count = resultDictionary[boss];
-            if (count is null) {
+            if (count == null) {
                 count = 1;
             } else {
                 count += 1;
@@ -1596,10 +1574,10 @@ public static bool[] sieve(long n)
         }
         for (int i = 1; i <= N; i++) {
             int val = resultDictionary[i];
-            if (val is null) {
-                Console.Writeline(0);
+            if (val == null) {
+                Console.WriteLine(0);
             } else {
-                Console.Writeline(val);
+                Console.WriteLine(val);
             }
         }
     }  
@@ -1609,33 +1587,32 @@ public static bool[] sieve(long n)
         long ad = (long)a*d;
         long bc = (long)b*c;
         long bd = (long)b*d;
-        long? max = new List<long>(new[] {ac,ad,bc,bd}).Max(Comparator.naturalOrder());
-        Console.Writeline(max);
+        long? max = new List<long>(new[] {ac,ad,bc,bd}).Max();
+        Console.WriteLine(max);
 }
 
-public static double calculate(double base, double n) {
-    return Math.Pow(Math.E, Math.Log(base)/n);
+public static double calculate(double base1, double n) {
+    return Math.Pow(Math.E, Math.Log(base1)/n);
 }
 
-public static void areaAndCircumference(double r) {
+public static void areaAndCircumference1(double r) {
     double area = r * r * Math.PI;
     double circumference = r * 2 * Math.PI;
     Console.WriteLine("%f %f\n", area, circumference);
   }
 
-  public static void areaAndCircumference(double r) {
+  public static void areaAndCircumference2(double r) {
     double area = Math.PI * r * r;
     double circumference = 2 * Math.PI * r;
-    string areastr = String.Format("%.6f", area);
-    string circumferencestr = String.Format("%.6f", circumference);
-    Console.Writeline(areastr + " " + circumferencestr);
+    string areastr = string.Format("%.6f", area);
+    string circumferencestr = string.Format("%.6f", circumference);
+    Console.WriteLine(areastr + " " + circumferencestr);
 }
 
-public static void areaAndCircumference(double r){
-    Formatter frm=new Formatter();
+public static void areaAndCircumference3(double r){
     double S=Math.PI*r*r*1.0;
     double d=2*Math.PI*r*1.0;
-    Console.Writeline(String.Format("%5f",S)+" "+String.Format("%5f",d));
+    Console.WriteLine(string.Format("%5f",S)+" "+string.Format("%5f",d));
 }
 
 private static double cal_area(double r){
@@ -1648,8 +1625,7 @@ private static double cal_cirum(double r){
     return (2 * r * pi);
 }
 
-private int getDifference(int n, int inputArray[]) {
-    int n = in.nextInt();
+private int getDifference3(int n, int[] inputArray) {
     int min = int.MaxValue;
     int max = int.MaxValue;
     for (int i = 0; i < n; i++) {
@@ -1661,7 +1637,7 @@ private int getDifference(int n, int inputArray[]) {
     return max - min;
 }
 
-public static void getDifference(int n, int[] args) throws IOException {
+public static void getDifference4(int n, int[] args)  {
     int min = int.MaxValue;
     int max = int.MaxValue;
     for (int i = 0; i < n; i++) {
@@ -1676,32 +1652,26 @@ public static void getDifference(int n, int[] args) throws IOException {
     Console.WriteLine(max - min);
 }
 
-public int nextInt() {
-    long nl = nextLong();
+public int nextInt(long nl) {
     if (nl < int.MaxValue || nl > int.MaxValue) throw new Exception();
     return (int) nl;
 }
 
-public static void cal(string[] args) throws IOException {
-    int N = readInt(), X = readInt(), min = int.MaxValue; for(int i = 1; i<=N; i++) {
-            int k = readInt(); X-=k; min = Math.Min(k, min);
+public static void cal(int N , int X, int[] args) {
+    int  min = int.MaxValue; for(int i = 1; i<=N; i++) {
+            int k = args[i]; X-=k; min = Math.Min(k, min);
     }
      Console.WriteLine(N + X/min);
-    exit();
 }
 
-public static void findMaxv(int n, int minv, int inputArray[]){
+public static void findMaxv(int n, int minv, int[] inputArray){
     int maxv = int.MaxValue;
     for(int i=1;i<n;i++){
-       int in = inputArray[i];
-       maxv = Math.Max(maxv, in-minv);
-       minv = Math.Min(minv, in);
+       int in1 = inputArray[i];
+       maxv = Math.Max(maxv, in1-minv);
+       minv = Math.Min(minv, in1);
     }
-    Console.Writeline(maxv);
-}
-
-public List<int> gerPrimes() {
-    return Collections.unmodifiableList(primes);
+    Console.WriteLine(maxv);
 }
 
 static int countGreater(LinkedList<int> q) {
@@ -1710,9 +1680,9 @@ static int countGreater(LinkedList<int> q) {
     size/=2;
     while (size-->0) {
         int first = q.First();
-        q.Remove(First());
+        q.Remove(q.First());
         int second = q.First();
-        q.Remove(First());
+        q.Remove(q.First());
         if(first+second>=10) count++;
         int newValue = (first+second)%10;
         q.AddLast(newValue);
@@ -1720,25 +1690,25 @@ static int countGreater(LinkedList<int> q) {
     return count;
 }
 
-static void bfs(int s)
+static void bfs(int s, int[] color, bool[] vis, int[] level, int[] p,List<int>[] hs)
 {
     vis[s] = true;
-    Queue<int> q = new LinkedList<int>();
-    q.Add(s);
+    Queue<int> q = new Queue<int>();
+    q.Enqueue(s);
     color[s] = 1;
     level[s] = 0;
     p[s] = s;
     while(q.Count>0)
     {
         int cc = q.Dequeue();
-        Iterator itr = hs[cc].iterator();
-        while(itr.hasNext())
+        List<int>.Enumerator itr = hs[cc].GetEnumerator();
+        while(itr.MoveNext())
         {
-            int e = (int) itr.next();
+            int e = itr.Current;
             if(!vis[e])
             {
                
-                q.Add(e);
+                q.Enqueue(e);
                 p[e] = cc;
                 if(color[cc]==1)
                     color[e] = 2;
@@ -1751,8 +1721,8 @@ static void bfs(int s)
     }   
 }
 
-public static void subMax(int N, int inputArray[]) {
-    LinkedListList<int> list = new LinkedList<int>();
+public static void subMax(int N, int[] input) {
+    List<int> list = new List<int>();
     int max = 0;
     int order = 0;
     for (int i = 0; i < N; i++) {
@@ -1764,21 +1734,21 @@ public static void subMax(int N, int inputArray[]) {
             list.Add(num);
     }
     list.Sort();
-    int submax = list.get(list.Count - 2);
+    int submax = list[list.Count - 2];
     for (int i = 0; i < N; i++) {
-                    Console.Writeline(i == order ? submax : max);
+                    Console.WriteLine(i == order ? submax : max);
     }
 }
 
 public static void differentNext(char[] s) {
-    LinkedList<char> ans = new LinkedList<char>();
+    List<char> ans = new List<char>();
     ans.Add(s[0]);
     for(int i = 0;i<s.Length - 1;i++){
         if(s[i] != s[i + 1]){
             ans.Add(s[i + 1]);
         }
     }
-    Console.Writeline(ans.Count);
+    Console.WriteLine(ans.Count);
 }
 
 public static void top2Bot(int n, string str) {
@@ -1790,25 +1760,20 @@ public static void top2Bot(int n, string str) {
             }
             stack.Push(c);
     }
-    Console.Writeline(stack.Count);
+    Console.WriteLine(stack.Count);
 }
 
-public static void count0(LinkedList<string> list) {
+public static void count04(List<string> list) {
     int ans = 0;
     for (int i = 0; i < list.Count; i++) {
             if (list[i].Equals("0")) {
                     ans = i + 1;
             }
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
-public void differentNext() throws Exception{
-    final int N = sc.nextInt();
-    final string[] S = new string[N+1];
-    for(int i=0;i<N;i++) {
-            S[i] = sc.next();
-    }
+public void differentNext(int N, string[] S) {
     S[N] = "";
     Array.Sort(S, 0, N);
     int max = 0;
@@ -1819,9 +1784,9 @@ public void differentNext() throws Exception{
                     if(max < cnt) {
                             list.Clear();
                             max = cnt;
-                            list.Add(S[i-1]);
+                            list.AddLast(S[i-1]);
                     }else if (max == cnt){
-                            list.Add(S[i-1]);
+                            list.AddLast(S[i-1]);
                     }
                     cnt = 1;
             }else {
@@ -1835,7 +1800,7 @@ public void differentNext() throws Exception{
 
 public static void allContainPos(int n, string[] args){
     Dictionary<string,int> map = new Dictionary<string,int>();
-    LinkedList<string> array = new LinkedList<string>();
+    List<string> array = new List<string>();
     int max = 1;
     for(int i = 0; i < n; i++){
       string s = args[i];
@@ -1853,10 +1818,10 @@ public static void allContainPos(int n, string[] args){
         array.Add(s);
       }
     }
-    array.sort(Comparator.naturalOrder());
+    array.Sort();
     foreach(string value in array)
         {
-      Console.Writeline(value);
+      Console.WriteLine(value);
         }
   }
 
@@ -1872,9 +1837,9 @@ public static void allContainPos(int n, string[] args){
             if (hs[i] < min) {
                     min = hs[i];
                     list.Clear();
-                    list.Add(i);
+                    list.AddLast(i);
             } else if (hs[i] == min) {
-                    list.Add(i);
+                    list.AddLast(i);
             }
     }
     int result = min - height; 
@@ -1888,28 +1853,28 @@ public static void allContainPos(int n, string[] args){
 }
 
 public static void compareFirst(int n, string[] args) {
-    LinkedHashSet<string> lhs = new LinkedHashSet<string>();
-    LinkedList<string> ll = new LinkedList<string>();
+    HashSet<string> lhs = new HashSet<string>();
+    List<string> ll = new List<string>();
     int f = 0;
     while(n-- != 0)
     {
-        string s = args[i];
+        string s = args[n];
         if(lhs.Contains(s))
         f = 1;
         lhs.Add(s);
     }
     if(f == 1)
-    Console.Writeline("No");
+    Console.WriteLine("No");
     else
     {
         foreach (var item in lhs)
         {
-            ll.AddLast(str)
+            ll.Add(item);
         }
         for(int i = 0;i < ll.Count - 1;i++)
         {
             string s1 = ll[i];
-            string s2 = ll.get(i + 1);
+            string s2 = ll[i + 1];
             if(s1[s1.Length - 1] != s2[0])
             {
             f = 1;
@@ -1917,36 +1882,37 @@ public static void compareFirst(int n, string[] args) {
             }
         }
         if(f == 1)
-        Console.Writeline("No");
+        Console.WriteLine("No");
         else
-        Console.Writeline("Yes");
+        Console.WriteLine("Yes");
     }
 }
 
-public static void lineUp( int n, int q, string nameArray[], int timeArray[]){
+public static void lineUp( int n, int q, string[] nameArray, int[] timeArray){
     LinkedList<string> name=new LinkedList<string>();
     LinkedList<int> time=new LinkedList<int>();
     int t=0;
     for(int i=0;i<n;i++){
-            name.Add(nameArray[i]);
-            time.Add(timeArray[i]);
+            name.AddLast(nameArray[i]);
+            time.AddLast(timeArray[i]);
     }
     while(name.Count != 0){
             if(time.First()<=q){
-                    Console.Writeline(name.Dequeue()+" ");
-                    t=t+time.Dequeue();
-                    Console.Writeline(t);
+                    Console.WriteLine(name.First()+" ");
+                    t=t+time.First();
+                    Console.WriteLine(t);
             }else{
-                    name.Add(name.Dequeue());
-                    time.Add(time.Dequeue()-q);
+                    name.AddLast(name.First());
+                    name.RemoveFirst();
+                    time.AddLast(time.First()-q);
+                    time.RemoveFirst();
                     t=t+q;
             }
     }
 }
 
-    void radix26() {
-            long N = sc.nextLong() - 1;
-            LinkedList<int> stack = new LinkedList<int>();
+    void radix261(long N) {
+            Stack<int> stack = new Stack<int>();
             while(N >= 0) {
                     stack.Push((int)(N % 26));
                     N -= 26;
@@ -1954,80 +1920,26 @@ public static void lineUp( int n, int q, string nameArray[], int timeArray[]){
                     N /= 26;
             }
             while(stack.Count != 0) {
-                    int c = stack.First();
-                    stack.Remove(First());
-                    Console.Writeline((char)(c + 'a'));
+                    int c = stack.Pop();
+                    Console.WriteLine((char)(c + 'a'));
             }
     }
 
-    static void radix26() throws Exception{
+    static void radix262(long n){
         LinkedList<int>ans=new LinkedList<int>();
-        long n=sc.nextLong();
         while(n>0) {
                 n--;
                 ans.AddFirst((int)(n%26));
                 n/=26;
         }
         while(ans.Count != 0) {
-                pw.print((char)(ans.Dequeue()+'a'));
+                Console.WriteLine((char)(ans.First()+'a'));
+                ans.RemoveFirst();
         }
 }
+    
 
-
-public static void calWaitingTime(int n, int q, string nameArray[], int timeArray[]){
-    LinkedList<Pair> queue = new LinkedList<Pair>();
-    int time_w = 0;
-    for(int i=0; i<n; i++){
-        string str = nameArray[i];
-        int time = timeArray[i];
-        if(time > q){
-            time_w += q;
-            queue.Add(new Pair(str, time-q));
-        }else{
-            time_w += time;
-            Console.Writeline(str+" "+time_w);
-        }
-    }
-    while(queue.Count != 0){
-        Pair p = queue.Dequeue();
-        string str = p.name;
-        int time = p.left;
-        if(time > q){
-            time_w += q;
-            queue.Add(new Pair(str, time-q));
-        }else{
-            time_w += time;
-            Console.Writeline(str+" "+time_w);
-        }
-    }
-}
-
-public static void calWaitingTime(string first, Stack<string> args) {
-    string[] components = first.Split(" ");
-    int inputs = int.Parse(components[0]);
-    int quantum = int.Parse(components[1]);
-    int time = 0;
-    LinkedList<Process> q = new LinkedList<Process>();
-    while (args.Count > 0) {
-            string i = args.First();
-            args.Pop();
-            string[] c = i.Split(" ");
-            q.Add(new Process(c[0], int.Parse(c[1])));
-    }
-    while (q.Count != 0) {
-            Process curr = q.Dequeue();
-            if (curr.t <= quantum) {
-                    time += curr.t;
-                    Console.Writeline(curr.n + " " + time);
-            } else {
-                    curr.t -= quantum;
-                    time += quantum;
-                    q.Add(curr);
-            }
-    }
-}
-
-    public static void checkAns( string str, string ans){
+    public static void checkAns1( string str, string ans){
             int count = 0;
             int max = 0;
             LinkedList<string> word = new LinkedList<string>();
@@ -2035,48 +1947,58 @@ public static void calWaitingTime(string first, Stack<string> args) {
             for (int i = 0; i < str.Length; i++) {
                 string str2 = str[i].ToString();
                 string ans2 = ans[i].ToString();
-                word.Add(str2);
-                Ans.Add(ans2);
+                word.AddLast(str2);
+                Ans.AddLast(ans2);
             }
             for(int i=0; i<str.Length; i++){
                     word.AddFirst(word.Last());
                     word.RemoveLast();
                     if(word.Equals(Ans)){
-                            Console.Writeline("Yes");
+                            Console.WriteLine("Yes");
                             return;
                     }
             }
-            Console.Writeline("No");
+            Console.WriteLine("No");
     }
 
     public static void calculator(LinkedList<string> input) {
         LinkedList<int> stack = new LinkedList<int>();
         while(input.Count != 0){
-                string ops = input.Dequeue();
+                string ops = input.First();
+                input.RemoveFirst();
                 if("+".Equals(ops)){
-                        final int a = stack.Dequeue();
-                        final int b = stack.Dequeue();
+                        int a = stack.First();
+                        stack.RemoveFirst();
+                        int b = stack.First();
+                        stack.RemoveFirst();
                         stack.AddFirst(b + a);
                 }else if("-".Equals(ops)){
-                        final int a = stack.Dequeue();
-                        final int b = stack.Dequeue();
+                    int a = stack.First();
+                    stack.RemoveFirst();
+                    int b = stack.First();
+                    stack.RemoveFirst();
                         stack.AddFirst(b - a);
                 }else if("*".Equals(ops)){
-                        final int a = stack.Dequeue();
-                        final int b = stack.Dequeue();
+                    int a = stack.First();
+                    stack.RemoveFirst();
+                    int b = stack.First();
+                    stack.RemoveFirst();
                         stack.AddFirst(b * a);
                 }else if("/".Equals(ops)){
-                        final int a = stack.Dequeue();
-                        final int b = stack.Dequeue();
+                    int a = stack.First();
+                    stack.RemoveFirst();
+                    int b = stack.First();
+                    stack.RemoveFirst();
                         stack.AddFirst(b / a);
                 }else{
                         stack.AddFirst(int.Parse(ops));
                 }
         }
-        Console.Writeline(stack.Dequeue());
+        Console.WriteLine(stack.First());
+        stack.RemoveFirst();
 }
 
-public static LinkedList<long> divisors(long N){
+public static LinkedList<long> divisors1(long N){
     LinkedList<long> ans = new LinkedList<long>();
     for(long n = (long)(Math.Sqrt(N)+2); n>0; n--){
         if(n*n>N) continue;
@@ -2090,8 +2012,8 @@ public static LinkedList<long> divisors(long N){
 }
 
 
-public static void getMean(int N, double inputArray[]) {
-    LinkedList<double> v = new LinkedList<double>();
+public static void getMean1(int N, double[] inputArray) {
+    List<double> v = new List<double>();
     for (int i = 0; i < N; i++) {
       v.Add(inputArray[i]);
     }
