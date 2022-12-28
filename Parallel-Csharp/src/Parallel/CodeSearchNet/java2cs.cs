@@ -2002,7 +2002,7 @@ public static LinkedList<long> divisors1(long N){
     LinkedList<long> ans = new LinkedList<long>();
     for(long n = (long)(Math.Sqrt(N)+2); n>0; n--){
         if(n*n>N) continue;
-        else if(n*n==N) ans.Add(n);
+        else if(n*n==N) ans.AddLast(n);
         else if(N%n==0){
             ans.AddFirst(n);
             ans.AddLast(N/n);
@@ -2013,20 +2013,21 @@ public static LinkedList<long> divisors1(long N){
 
 
 public static void getMean1(int N, double[] inputArray) {
-    List<double> v = new List<double>();
+    LinkedList<double> v = new LinkedList<double>();
     for (int i = 0; i < N; i++) {
-      v.Add(inputArray[i]);
+      v.AddLast(inputArray[i]);
     }
-    v.Sort();
     while (v.Count > 1) {
-      double a = v.Dequeue();
-      double b = v.Dequeue();
+      double a = v.First();
+      v.RemoveFirst();
+      double b = v.First();
+      v.RemoveFirst();
       v.AddFirst((a + b) / 2.0);
     }
-    Console.Writeline(v.First());
+    Console.WriteLine(v.First());
   }
 
-  void radix26(long n) {
+  void radix263(long n) {
     LinkedList<string> ans = new LinkedList<string>();
     do {
         n--;
@@ -2035,15 +2036,15 @@ public static void getMean1(int N, double[] inputArray) {
     } while (n != 0);
 }
 
-static int countCarry(LinkedList<int> q) {
+static int countCarry1(LinkedList<int> q) {
     int size = q.Count;
     int count = 0;
     size/=2;
     while (size-->0) {
         int first = q.First();
-        q.Remove(First());
+        q.Remove(q.First());
         int second = q.First();
-        q.Remove(First());
+        q.Remove(q.First());
         if(first+second>=10) count++;
         int newValue = (first+second)%10;
         q.AddLast(newValue);
@@ -2055,7 +2056,8 @@ public static LinkedList<int> comp(LinkedList<int> q){
     LinkedList<int> op = new LinkedList<int>();
     Stack<int> stack = new Stack<int>();
     while(q.Count>0){
-            stack.Push(q.Pop());
+            stack.Push(q.First());
+            q.RemoveFirst();
     }
     while(stack.Count>0){
             op.AddLast(stack.Pop());
@@ -2067,7 +2069,7 @@ public static LinkedList<long> divisors(long N){
     LinkedList<long> ans = new LinkedList<long>();
     for(long n = (long)(Math.Sqrt(N)+2); n>0; n--){
         if(n*n>N) continue;
-        else if(n*n==N) ans.Add(n);
+        else if(n*n==N) ans.AddLast(n);
         else if(N%n==0){
             ans.AddFirst(n);
             ans.AddLast(N/n);
@@ -2076,20 +2078,19 @@ public static LinkedList<long> divisors(long N){
     return ans;
 }
 
-public static void checkLast( string s ) {
-    string s = sc.next();
+public static void checkLast1( string s ) {
     LinkedList<char> display = new LinkedList<char>();
     for(int i=0;i<s.Length;i++){
-            if(s[i]=='B') display.DequeueLast();
+            if(s[i]=='B') { display.Last(); display.RemoveLast();}
             else display.AddLast(s[i]);
     }
-    foreach(var c in display) Console.Writeline(c);
-    Console.Writeline();
+    foreach(var c in display) Console.WriteLine(c);
+    Console.WriteLine();
 }
 
-public int checkLast(string S) {
+public int checkLast2(string S) {
     int ans = 0;
-    LinkedList<int> list = new LinkedList();
+    LinkedList<int> list = new LinkedList<int>();
     foreach (var c in S.ToCharArray()) {
       int i = (int) c - ZERO;
       if (list.Count == 0) {
@@ -2106,11 +2107,14 @@ public int checkLast(string S) {
     return ans;
   }
 
-  public void push(int item) {
+  public void push(int item, LinkedList<int> stack) {
     stack.AddLast(item);
 }
 
-static void seive() {
+static void seive(bool[] v)
+{
+    int t = 0;
+    List<int> l = new List<int>();
     for (int i = 2; i < 100001; i++) {
         if (!v[i]) {
             t++;
@@ -2121,24 +2125,25 @@ static void seive() {
     }
 }
 
-static void shuffle(int a[]) {
+static void shuffle(int[] a) {
     List<int> l = new List<int>();
     for (int i = 0; i < a.Length; i++)
         l.Add(a[i]);
-    Collections.shuffle(l);
+    Random rng = new Random();
+    l = l.OrderBy(i => rng.Next()).ToList();
     for (int i = 0; i < a.Length; i++)
         a[i] = l[i];
 }
 
-static int countCarry(LinkedList<int> q) {
+static int countCarry2(LinkedList<int> q) {
     int size = q.Count;
     int count = 0;
     size/=2;
     while (size-->0) {
         int first = q.First();
-        q.Remove(First());
+        q.RemoveFirst();
         int second = q.First();
-        q.Remove(First());
+        q.RemoveFirst();
         if(first+second>=10) count++;
         int newValue = (first+second)%10;
         q.AddLast(newValue);
@@ -2152,10 +2157,10 @@ public static void mergeStr(int iNum, string sStr ) {
     string s2 = sSplitStr[1];
     string[] s1Split = s1.Split("");
     string[] s2Split = s2.Split("");
-    List<string> listStr = new LinkedList<string>();
+    LinkedList<string> listStr = new LinkedList<string>();
     for (int i = 0; i < iNum; i++) {
-      listStr.Add(s1Split[i]);
-      listStr.Add(s2Split[i]);
+      listStr.AddLast(s1Split[i]);
+      listStr.AddLast(s2Split[i]);
     }
     StringBuilder sb = new StringBuilder();
     foreach (var str in listStr) {
@@ -2164,21 +2169,23 @@ public static void mergeStr(int iNum, string sStr ) {
     Console.WriteLine(sb.ToString());
   }
 
-  public static void compList(string s , string t) throws Exception {
-    List <string> sList = new LinkedList<string>(new LinkedList<string>(t.Split("")));
-    List <string> tList = new LinkedList<string>(new LinkedList<string>(s.Split("")));
+  public static void compList(string s , string t)  {
+    LinkedList <string> sList = new LinkedList<string>(new LinkedList<string>(t.Split("")));
+    List <string> tList = new List<string>(new LinkedList<string>(s.Split("")));
     int flag = 0;
     int n = tList.Count;
-    for(int i = 0; i < n; i++){
-        string a = tList.RemoveAt(n-1);
-        tList.Add(0,a);
+    for(int i = 0; i < n; i++)
+    {
+        string a = tList[n - 1];
+        tList.RemoveAt(n-1);
+        tList[0] = a;
         if(tList.Equals(sList)){
             flag = 1;
             break;
         }
     }
-    if(flag == 1) Console.Writeline("Yes");
-    else Console.Writeline("No");
+    if(flag == 1) Console.WriteLine("Yes");
+    else Console.WriteLine("No");
 }
 
 public static void compList(string s) {
@@ -2186,25 +2193,22 @@ public static void compList(string s) {
     LinkedList<string> ansList = new LinkedList<string>();
     for(int i = 0; i < s.Length; i++){
             if(sArray[i].Equals("1")) {
-                    ansList.Add("1");
+                    ansList.AddLast("1");
             } else if(sArray[i].Equals("0")) {
-                    ansList.Add("0");
+                    ansList.AddLast("0");
             } else if(sArray[i].Equals("B") && ansList.Count != 0){
                     ansList.RemoveLast();
             }
     }
     foreach(var ans in ansList){
-            Console.Writeline(ans);
+            Console.WriteLine(ans);
     }
 }
 
-void graphInput(int n)
+void graphInput(int n , int a, int b, Dictionary<int,List<int>> graph)
  {
     for(int i = 0;i < n;i++)
     {
-        int a = ni();
-        int b = ni();
-
         if(!graph.ContainsKey(a))
         {
             List<int> l = new List<int>();
@@ -2214,16 +2218,16 @@ void graphInput(int n)
         else
             graph[a].Add(b);
     }
-    Console.Writeline(graph);
+    Console.WriteLine(graph);
 }
 
 public static void checkEven(string w){
     string result = "Yes";
-    List<string> wArray = new LinkedList<string>();
+    LinkedList<string> wArray = new LinkedList<string>();
     HashSet<string> wSet = new HashSet<string>();
     for(int i = 0; i < w.Length; i++){
         string word = w[i].ToString();
-        wArray.Add(word);
+        wArray.AddLast(word);
         wSet.Add(word);
     }
     foreach(var str in wSet){
@@ -2237,17 +2241,17 @@ public static void checkEven(string w){
             break;
         }
     }
-    Console.Writeline(result);
+    Console.WriteLine(result);
 }
 
-public static void count0(LinkedList<string> list) {
+public static void count05(List<string> list) {
     int ans = 0;
     for (int i = 0; i < list.Count; i++) {
             if (list[i].Equals("0")) {
                     ans = i + 1;
             }
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
 public static void countEqual(string anticipation , string real) {
@@ -2262,14 +2266,10 @@ public static void countEqual(string anticipation , string real) {
                     count++;
             }
     }
-    Console.Writeline(count);
+    Console.WriteLine(count);
 }
-static List<string> myconv(string str, int no){//only split
-    string splitstring = CONVSTR.Substring(no,1);
-    return new List<string>(str.Split(splitstring));
-}
-static List<int> inputIntList() throws Exception {
-    List<string> strList = new List<int>(Console.ReadLine()().Trim().Split(" "));
+static List<int> inputIntList2(string nextLine)  {
+    List<string> strList = new List<string>(nextLine.Trim().Split(" "));
     List<int> intList = new List<int>();
     foreach (var elem in strList){
         intList.Add(int.Parse(elem));
@@ -2277,79 +2277,71 @@ static List<int> inputIntList() throws Exception {
     return intList;
 }
 
-public static void morePositiveNums(int[] lines) {
-    List<int> list = new List<int>(lines);
-    if(list.Max() >= sum(list)) {
-        Console.Writeline("No");
-    } else {
-        Console.Writeline("Yes");
-    }
-}
 
-public static void cal(int a, int b, int c){
+public static void cal(int a, int b, int c, int p){
     List <int> list = new List<int>{a, b, c};
     list.Sort();
-    Console.Writeline((int)(list.First() + list[1] + list[2] * Math.Pow(2, sc.nextInt())));
+    Console.WriteLine((int)(list.First() + list[1] + list[2] * Math.Pow(2, p)));
   }
 
 public static void getLastUpper(string A, string B, string C){
-    a.addAll(A.Split(""));
-    b.addAll(B.Split(""));
-    c.addAll(C.Split(""));
+    LinkedList<string> a = new LinkedList<string>();
+    LinkedList<string> b = new LinkedList<string>();
+    LinkedList<string> c = new LinkedList<string>();
+    foreach (var str in A.Split("")) a.AddLast(str);
+    foreach (var str in B.Split("")) b.AddLast(str);
+    foreach (var str in C.Split("")) c.AddLast(str);
     string lastValue = "a";
     string ans = "";
     while(true) {
-    lastValue = syori(lastValue);
     if(Char.IsUpper(lastValue[0])) {
         ans = lastValue;
         break;
     }
 }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
-    public static void getCalMax(int A , int B) {
+    public static void getCalMax(int A, int B) {
         List<int> resultList = new List<int>();
-        foreach (var str in { A+B, A-B, A*B }) resultList.AddLast(str);
+        foreach (var str in (new []{A+B, A-B, A*B})) resultList.Add(str);
         int max = -100;
         for (int i=0; i<resultList.Count; i++) {
             max = Math.Max(max, resultList[i]);
         }
-        Console.Writeline(max);
+        Console.WriteLine(max);
     }
 
     private void perm(int[] a, int cur, List<int> tmp, List<List<int>> list) {
         if (cur == a.Length) {
             List<int> res = new List<int>();
-            foreach(var item in tmp) res.AddLast(item);
+            foreach(var item in tmp) res.Add(item);
             list.Add(res);
             return;
         }
         for (int i = cur; i < a.Length; ++i) {
-            swap(a, i, cur);
             tmp.Add(a[cur]);
             perm(a, cur + 1, tmp, list);
             tmp.RemoveAt(tmp.Count - 1);
-            swap(a, i, cur);
         }
     }
 
-    public static List<string> getStrOnLine() throws System.IO.IOException {
+    public static List<string> getStrOnLine(string line)  {
         List<string> list = new List<string>();
-        string line = getLine();
-        
-        foreach (var str in line.Split(" ")) list.AddLast(str);
+        foreach (var str in line.Split(" ")) list.Add(str);
         return list;
     }
 
-    private static void makePrimeList(int n) {
+    private static void makePrimeList(int n, List<int> primeList) {
         List<int> searchList = new List<int>();
         for (int i = 2; i <= n; ++i) {
             searchList.Add(i);
         }
         primeList = new List<int>(n);
-        do {
-            int prime = searchList.RemoveAt(0);
+        do
+        {
+            int prime = searchList[0];
+            searchList.RemoveAt(0);
             primeList.Add(prime);
             int i = 2;
             while (prime * i <= n) {
@@ -2359,26 +2351,26 @@ public static void getLastUpper(string A, string B, string C){
         } while (searchList.Count > 0 && searchList.First() <= Math.Sqrt(n));
         foreach (var item in searchList)
         {
-            primeList.AddLast(item);
+            primeList.Add(item);
         }
     }
 
     public static void intArrayListPrint(List<int> list) {
         for (int i = 0; i < list.Count; i++) {
-            Console.Writeline(list[i]);  
+            Console.WriteLine(list[i]);  
         }
     }
 
-    static List<long> nextLongArray(){
-        List<string> input = nextStrArray(); List<long> ret = new List<long>(input.Count);
+    static List<long> nextLongArray(List<string> input){
+        List<long> ret = new List<long>(input.Count);
         for(int i = 0; i < input.Count; i++){
                 ret.Add(long.Parse(input[i]));
         }
         return ret;
 }
 
-static List<int> nextIntArray(){
-    List<string> input = nextStrArray(); List<int> ret = new List<int>(input.Count);
+static List<int> nextIntArray(List<string> input){
+    List<int> ret = new List<int>(input.Count);
     for(int i = 0; i < input.Count; i++){
             ret.Add(int.Parse(input[i]));
     }
@@ -2394,24 +2386,33 @@ public static bool isDrawPolygon(List<int> sideList) {
   }
 
 
-  public static void getAllCase(string[] args) throws Exception, IOException {
-    List<int> arrPost = new List<int>();
-    while(true) {
-            int n = int.Parse(Console.ReadLine());
-            if(n == 0)      break;
-            else            arrPost.Add(n);
+  public static void getAllCase(string[] args) {
+      try
+      {
+          List<int> arrPost = new List<int>();
+          while (true)
+          {
+              int n = int.Parse(Console.ReadLine());
+              if (n == 0) break;
+              else arrPost.Add(n);
+          }
+
+          for (int i = 0; i < arrPost.Count; i++) Console.WriteLine("Case " + (i + 1) + ": " + arrPost[i]);
+
+      }
+      catch (IOException)
+      {
+      }
     }
-    for(int i = 0; i < arrPost.Count; i++) Console.Writeline("Case " + (i + 1) + ": " + arrPost[i]);
-}
 
 public static void checkEvenCount(string w){
     string result = "Yes";
-    List<string> wArray = new LinkedList<string>();
+    LinkedList<string> wArray = new LinkedList<string>();
     HashSet<string> wSet = new HashSet<string>();
 
     for(int i = 0; i < w.Length; i++){
         string word = w[i].ToString();
-        wArray.Add(word);
+        wArray.AddLast(word);
         wSet.Add(word);
     }
     foreach(string str in wSet){
@@ -2425,14 +2426,14 @@ public static void checkEvenCount(string w){
             break;
         }
     }
-    Console.Writeline(result);
+    Console.WriteLine(result);
 }
 
-public static void findMiddle(string args[]) throws java.lang.Exception
+public static void findMiddle(string readLine) 
         {
-                string h[]=Console.ReadLine().Split(" ");
-                string hh[]=new string[0];
-                if(int.Parse(h[1])!=0){hh=Console.ReadLine().Split(" ");}
+                string[] h=readLine.Split(" ");
+                string[] hh=new string[0];
+                if(int.Parse(h[1])!=0){hh=readLine.Split(" ");}
                 HashSet<int>hash=new HashSet<int>();
                 for(int i=0;i<hh.Length;i++){hash.Add(int.Parse(hh[i]));}
                 int x=int.Parse(h[0]);
@@ -2449,28 +2450,26 @@ public static void findMiddle(string args[]) throws java.lang.Exception
                         if(!hash.Contains(x1)){if(x-x1<=ans-x){ans=x1;}break;}
                         x1--;
                 }
-                Console.Writeline(ans);
+                Console.WriteLine(ans);
         }
 
-        public static void checkValid(int N, string wordsInput, string args[]) {
-            LinkedList<string> words = new LinkedList<string>();
+        public static void checkValid(int N, string wordsInput, string[] args) {
+            List<string> words = new List<string>();
             words.Add(wordsInput);
             bool valid = true;
             for (int i = 1; i < N; i++) {
                     string x = args[i];
                     string prev = words[i - 1];
-                    if (words.Contains(x)||x[0]!=prev.[^1]) {
+                    if (words.Contains(x)||x[0]!=prev[^1]) {
                             valid = false;
                             break;
                     }
                     words.Add(x);
             }
-            Console.Writeline(valid? "Yes":"No");
+            Console.WriteLine(valid? "Yes":"No");
     }
 
-    public static void getContainsX(int numA , int numB , int numC) {
-        List<int> numAList = getNums(numA);
-        List<int> numBList = getNums(numB);
+    public static void getContainsX(List<int> numAList, List<int> numBList, int numC) {
         List<int> commonList = new List<int>();
         foreach (int num in numAList) {
             if (numBList.Contains(num)) {
@@ -2478,11 +2477,11 @@ public static void findMiddle(string args[]) throws java.lang.Exception
             }
         }
         commonList.Sort((x, y) => -x.CompareTo(y));
-        Console.Writeline(commonList[numC- 1]);
+        Console.WriteLine(commonList[numC- 1]);
     }
 
     public static void calculate(int s) {
-        LinkedList<int> a = new LinkedList<int>();
+        List<int> a = new List<int>();
         a.Add(s);
         for (int i=0; i<=1000000; i++){
         int a_next;
@@ -2492,7 +2491,7 @@ public static void findMiddle(string args[]) throws java.lang.Exception
                 a_next = 3*a[i]+1;
         }
         if (a.Contains(a_next)){
-                Console.Writeline(i+2);
+                Console.WriteLine(i+2);
                 return;
         }else {
                 a.Add(a_next);
@@ -2500,67 +2499,41 @@ public static void findMiddle(string args[]) throws java.lang.Exception
 }
 }
 
-public static void findNotContains(int x, int n, int inputArray[]){
+public static void findNotContains(int x, int n, int[] inputArray){
     LinkedList<int> l=new LinkedList<int>();
     for(int i=0;i<n;i++) {
-            l.Add(inputArray[i]);
+            l.AddLast(inputArray[i]);
     }
     for(int i=0;true;i++) {
             if(!l.Contains(x-i)) {
-                    Console.Writeline(x-i);
+                    Console.WriteLine(x-i);
                     break;
             }
             else if(!l.Contains(x+i)) {
-                    Console.Writeline(x+i);
+                    Console.WriteLine(x+i);
                     break;
             }
     }
 }
 
-public List<int> gerPrimes() {
-    return Collections.unmodifiableList(primes);
-}
 
-public static void queueTime(int n,int q, string[] inputPS, int[] inputPT ){
-    int t=0;
-    LinkedList<Process> list=new LinkedList<Process>();
-    for(int i=0;i<n;i++){
-            string ps=inputPS[i];
-            int pt=inputPT[i];
-            Process pr=new Process(ps,pt);
-            list.AddLast(pr);
-    }
-    while(list.Count>0){
-            if((list.First()).time>q){
-                    Process x=list.Dequeue();
-                    t+=q;
-                    x.time-=q;
-                    list.Add(x);
-            }else{
-                    Process x=list.Dequeue();
-                    t+=x.time;
-                    Console.Writeline(x.name+" "+t);
-            }
-    }
-}
-
-public Process dequeue() {
+public Process dequeue(LinkedList<Process> queue) {
     Process ret = queue.First();
-    queue.Remove(First());
+    queue.RemoveFirst();
     return ret;
 }
 
-public static void listRange(int N, int inputArray[]) {
-    LinkedList<int> A = new LinkedList<int>();
+public static void listRange(int N, int[] inputArray) {
+    List<int> A = new List<int>();
     for(int i = 0; i < N; i++) {
             int a = inputArray[i];
             A.Add(a);
     }
     A.Sort();
-    Console.Writeline(A.Last() - A.First());
+    Console.WriteLine(A.Last() - A.First());
 }
 
-public static void checkAns(string str, string ans){
+public static void checkAns2(string str, string ans){
             int count = 0;
             int max = 0;
             LinkedList<string> word = new LinkedList<string>();
@@ -2568,33 +2541,35 @@ public static void checkAns(string str, string ans){
             for (int i = 0; i < str.Length; i++) {
                 string str2 = str[i].ToString();
                 string ans2 = ans[i].ToString();
-                word.Add(str2);
-                Ans.Add(ans2);
+                word.AddLast(str2);
+                Ans.AddLast(ans2);
             }
             for(int i=0; i<str.Length; i++){
                     word.AddFirst(word.Last());
                     word.RemoveLast();
                     if(word.Equals(Ans)){
-                            Console.Writeline("Yes");
+                            Console.WriteLine("Yes");
                             return;
                     }
             }
-            Console.Writeline("No");
+            Console.WriteLine("No");
     }
 
-    public int pop() {
+    public int pop(LinkedList<int> stack) {
         int ret = stack.Last();
         stack.RemoveLast();
         return ret;
 }
 
-    public static void calWaitingTime(LinkedList<string> qName, LinkedList<int> qTime, int quantum)
+    public static void calWaitingTime3(LinkedList<string> qName, LinkedList<int> qTime, int quantum)
     {
             int time = 0;
             while(qName.Count != 0)
             {
-                    string cName = qName.Remove(First());
-                    int cTime = qTime.Remove(First());
+                string cName = qName.First();
+                qName.RemoveFirst();
+                int cTime = qTime.First();
+                qTime.RemoveFirst();
                     if(cTime > quantum)
                     {
                             time = time + quantum;
@@ -2604,55 +2579,60 @@ public static void checkAns(string str, string ans){
                     }else
                     {
                             time = time + cTime;
-                            Console.Writeline(cName + " " + time);
+                            Console.WriteLine(cName + " " + time);
                     }
             }
     }
 
-    public static void calWaitingTime(LinkedList<string> names , LinkedList<int> amounts ,int clock) {
+    public static void calWaitingTime4(LinkedList<string> names , LinkedList<int> amounts ,int clock) {
         int time = 0;
         while(amounts.Count != 0){
-            string name = names.Remove(First());
-            int amount = amounts.Remove(First());
+            string name = names.First();
+            names.RemoveFirst();
+            int amount = amounts.First();
+            amounts.RemoveFirst();
             if(amount <= clock){
                 time = time + amount;
-                Console.Writeline(name + " " + time);
+                Console.WriteLine(name + " " + time);
             }
             else{
                 time = time + clock;
                 amount = amount - clock;
-                names.Add(name);
-                amounts.Add(amount);
+                names.AddLast(name);
+                amounts.AddLast(amount);
             }
         }
     }
 
-    public static int getMinN(int root, int n, int m, Tree[] edge, int values[]){
+    public static int getMinN(int root, int n, int m, List<int>[] edge, int[] values){
         LinkedList<int> ll =  new LinkedList<int>();
-        ll.Add(root);
-        while(ll.Count>0){
-                int val = ll.Remove(First());
+        ll.AddLast(root);
+        Dictionary<int,int > visited = new Dictionary<int, int>();
+        while(ll.Count>0)
+        {
+            int val = ll.First();
+            ll.RemoveFirst();
                 visited[val] = 0;
-                List<int> al = edge[val].al;
+                List<int> al = edge[val];
                 int length = al.Count;
                 for(int i=0;i<length;i++){
                         ll.AddLast(al[i]);
-                        int hold = edge[val].weight+values[root];
+                        int hold = edge[val][i]+values[root];
                         values[al[i]] = Math.Min(hold,values[al[i]]);
                 }
         }
         return values[n];
 }
 
-public int pop() {
+public int pop2(LinkedList<int> stack) {
     int ret = stack.Last();
     stack.RemoveLast();
     return ret;
 }
 
-public int checkLast(string S) {
+public int checkLast3(string S) {
     int ans = 0;
-    LinkedList<int> list = new LinkedList();
+    LinkedList<int> list = new LinkedList<int>();
     foreach (char c in S.ToCharArray()) {
       int i = (int) c - ZERO;
       if (list.Count == 0) {
@@ -2669,15 +2649,15 @@ public int checkLast(string S) {
     return ans;
   }
 
-  public static void string2List(string s) {
+  public static void string2List1(string s) {
     LinkedList<string> ans = new LinkedList<string>();
     for (int i = 0; i < s.Length; i++) {
         switch (s[i]) {
             case '0':
-                ans.Add("0");
+                ans.AddLast("0");
                 break;
             case '1':
-                ans.Add("1");
+                ans.AddLast("1");
                 break;
             case 'B':
                 if (ans.Count != 0) {
@@ -2686,30 +2666,30 @@ public int checkLast(string S) {
                 break;
         }
     }
-    foreach (string valin ans) {
-        Console.Writeline(val);
+    foreach (string val in ans) {
+        Console.WriteLine(val);
     }
 }
 
-public static void string2List( string s) {
+public static void string2List2( string s) {
     string[] sArray = s.Split("");
     LinkedList<string> ansList = new LinkedList<string>();
     for(int i = 0; i < s.Length; i++){
             if(sArray[i].Equals("1")) {
-                    ansList.Add("1");
+                    ansList.AddLast("1");
             } else if(sArray[i].Equals("0")) {
-                    ansList.Add("0");
+                    ansList.AddLast("0");
             } else if(sArray[i].Equals("B") && ansList.Count != 0){
                     ansList.RemoveLast();
             }
     }
     foreach(string ans in ansList){
-            Console.Writeline(ans);
+            Console.WriteLine(ans);
     }
 }
 
-public void morePositiveNums( List<int> list) {
-    list.sort((x, y) => -x.CompareTo(y));
+public void morePositiveNums3( List<int> list) {
+    list.Sort((x, y) => -x.CompareTo(y));
     int max = list.First();
     list.RemoveAt(0);
     int sum = 0;
@@ -2719,53 +2699,55 @@ public void morePositiveNums( List<int> list) {
     Console.WriteLine(sum > max ? "Yes" : "No");
 }
 
-public static void morePositiveNums(List<int> List){
+public static void morePositiveNums4(List<int> List){
     int max = List.Max();
     int num = List.IndexOf(max);
     List.RemoveAt(num);
     int sum=0;
     for(int a=0;a<List.Count;a++) sum+=List[a];
-    if(sum>max) Console.Writeline("Yes");
-    else Console.Writeline("No");
+    if(sum>max) Console.WriteLine("Yes");
+    else Console.WriteLine("No");
 }
 
-public static void checkSuffix(string s) {
+public static void checkSuffix1(string s) {
     string[] keywords = {"dream", "dreamer", "erase", "eraser"};
     List<string> queue = new List<string>();
     queue.Add(s);
-    while (queue.Count > 0) {
-      s = queue.RemoveAt(queue.Count - 1);
-      if (s.Count == 0) {
-        Console.Writeline("YES");
+    while (queue.Count > 0)
+    {
+        s = queue.Last();
+        queue.RemoveAt(queue.Count - 1);
+      if (s.Length == 0) {
+        Console.WriteLine("YES");
         return;
       }
       for (int i = 0; i < 4; i++) {
         string keyword = keywords[i];
-        string ts = s.replaceAll(keyword, "");
+        string ts = s.Replace(keyword, "");
         if (s.Length > ts.Length) queue.Add(ts);
       }
     }
-    Console.Writeline("NO");
+    Console.WriteLine("NO");
   }
 
   public int calcMin(List<int> A, List<int> C, int min) {
     if (C.Count == 5) {
-        min = Math.Min(min, simulate(C));
+        min = Math.Min(min, C[0]);
         return min;
     }
 
     for (int i = 0; i < A.Count; i++) {
-        List<int> a = new LinkedList<int>(A);
-        List<int> l = new LinkedList<int>(C);
+        List<int> a = new List<int>(A);
+        List<int> l = new List<int>(C);
         int v = a[i];
         a.RemoveAt(i);
         l.Add(v);
-        min = Math.Min(min, calc(a, l, min));
+        min = Math.Min(min, calcMin(a, l, min));
     }
     return min;
 }
 
-public void checkLast(string S, OutputWriter out) {
+public void checkLast4(string S) {
     List<char> stack = new List<char>();
     int ans = 0;
     for (int i = 0; i < S.Length; i++) {
@@ -2789,7 +2771,7 @@ static string nextPermutation(string s) {
             list.Add(s[i]);
     }
     int pivotPos=-1;
-    char pivot=0;
+    char pivot=(char)0;
     for(int i=list.Count-2;i>=0;i--) {
             if(list[i]<list[i+1]) {
                     pivotPos=i;
@@ -2802,7 +2784,7 @@ static string nextPermutation(string s) {
     }
     int L=pivotPos+1,R=list.Count-1;
     int minPos=-1;
-    char min =Character.MaxValue;
+    char min =char.MaxValue;
     for(int i=R;i>=L;i--) {
             if(pivot<list[i]) {
                     if(list[i]<min) {
@@ -2820,22 +2802,22 @@ static string nextPermutation(string s) {
     return sb.ToString();
 }
 
-public static void countSame(List<int> p) {
+public static void countSame(List<int> p, int n) {
     List<int> calcList = new List<int>();
     int ans = 0;
     for(int i = 1; i < n - 1; i++){
-        foreach (var str in p.GetRange(i - 1, 3)) calcList.AddLast(str);
+        foreach (var str in p.GetRange(i - 1, 3)) calcList.Add(str);
         calcList.Sort();
         if(calcList[1].Equals(p[i])){
             ans++;
         }
         calcList.Clear();
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
     return;
 }
 
-public static void calCost(int n , int x ,nt[] costPlaceList ) {
+public static void calCost(int n , int x ,int[] costPlaceList ) {
     List<int> placeList = new List<int>();
     for (int i = 0; i < n + 1; i++) {
         placeList.Add(0);
@@ -2846,15 +2828,15 @@ public static void calCost(int n , int x ,nt[] costPlaceList ) {
     int leftCost = sum(placeList.GetRange(0, x));
     int rightCost = sum(placeList.GetRange(x+1, placeList.Count - x - 1));
     if(leftCost < rightCost) {
-        Console.Writeline(leftCost);
+        Console.WriteLine(leftCost);
     } else {
-        Console.Writeline(rightCost);
+        Console.WriteLine(rightCost);
     }
 }
 
-public static void calBreaking(List<int> li){
+public static void calBreaking1(List<int> li){
     if(!li.Contains(1)){
-      Console.Writeline(-1);
+      Console.WriteLine(-1);
       return;
     }
     int breaking = 0;
@@ -2865,10 +2847,10 @@ public static void calBreaking(List<int> li){
       currentNo++;
     }
     breaking += li.Count;
-    Console.Writeline(breaking);
+    Console.WriteLine(breaking);
   }
 
-  public static void calBreaking(List<int> list) {
+  public static void calBreaking2(List<int> list, int n) {
     List<int> bloks = new List<int>();
     int target = list.Min();
     for (int idx = list.IndexOf(target); idx <= n; idx++) {
@@ -2878,55 +2860,55 @@ public static void calBreaking(List<int> li){
       target += 1;
     }
     if (bloks.Count == 0) {
-      Console.Writeline(0);
+      Console.WriteLine(0);
     } else if (bloks.First() != 1) {
-      Console.Writeline(-1);
+      Console.WriteLine(-1);
     } else {
-      Console.Writeline(n - bloks.Count);
+      Console.WriteLine(n - bloks.Count);
     }
   }
 
   public static void calTotalK(int K , List<int> l){
-    l.sort(null);
+    l.Sort();
     long total = 0;
     for(int i = 0; i < l.Count-K; i++){
         total += l[i];
     }
-    Console.Writeline(total);
+    Console.WriteLine(total);
 }
 
 public static void calTotalK2N(int n, int k , List<int> hps) {
-    hps.sort((x, y) => -x.CompareTo(y));
+    hps.Sort((x, y) => -x.CompareTo(y));
     long result = 0;
     for (int i = k; i < n; i++) {
         result += hps[i];
     }
-    Console.Writeline(result);
+    Console.WriteLine(result);
 }
 
 public void calTotalK2N(long N, long K, List<long> H) {
-    H.sort(Collections.reverseOrder());
+    H.Sort((x, y) => -x.CompareTo(y));
     long ans = 0;
     for (int i = (int) K; i < N; i++) {
         ans += H[i];
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
-public static void getOrdered(List<string> word) {
-    word.sort(Comparator.naturalOrder());
+public static void getOrdered1(List<string> word) {
+    word.Sort();
     foreach(string w in word) {
-      Console.Writeline(w);
+      Console.WriteLine(w);
     }
   }
 
-  public static void getOrdered(List<string> sList) {
+  public static void getOrdered2(List<string> sList) {
     StringBuilder sb = new StringBuilder();
-    sList.sort(Comparator.naturalOrder());
+    sList.Sort();
     foreach (string s in sList){
       sb.Append(s);
     }
-    Console.Writeline(sb);
+    Console.WriteLine(sb);
  }
 
  public static void countOrdered(int n , List<int> h) {
@@ -2942,10 +2924,10 @@ public static void getOrdered(List<string> word) {
             }
             ans = Math.Max(ans, count);
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
-public static void getReverseNum(int length , string[] inputNum) throws IOException{
+public static void getReverseNum(int length , string[] inputNum){
     List<int> numArray = new List<int>();
     for (int i = 0; i < length; i++) {
             numArray.Add(int.Parse(inputNum[i]));
@@ -2953,9 +2935,9 @@ public static void getReverseNum(int length , string[] inputNum) throws IOExcept
     numArray.Reverse();
     for (int i = 0; i < numArray.Count; i++) {
             if (i == numArray.Count-1) {
-                    Console.Writeline(numArray[i]);
+                    Console.WriteLine(numArray[i]);
             }else {
-                    Console.Writeline(numArray[i] + " ");
+                    Console.WriteLine(numArray[i] + " ");
             }
     }
 }
@@ -2971,11 +2953,11 @@ public static void checkAbove4M(int M, List<int> s) {
     for(int m = 0; m < M; m++) {
             int a = s[m];
             if(a*4*M < total) {
-                    Console.Writeline("No");
+                    Console.WriteLine("No");
                     return;
             }
     }
-    Console.Writeline("Yes");
+    Console.WriteLine("Yes");
 }
 
 public void power2(int a, int b, int c, int k){
@@ -2988,29 +2970,27 @@ public void power2(int a, int b, int c, int k){
     for(int i = 0; i < k; i++){
         li[0] = li.First() * 2;
     }
-    ans = li.First() + li[1] + li[2];
-    Console.Writeline(ans);
+    int ans = li.First() + li[1] + li[2];
+    Console.WriteLine(ans);
 }
 
 public static void countReverseNumber(int a, int b) {
-    int b = sc.nextInt();
     int ans =0;
     for (int i = a; i <= b; i++)
     {
-      string as = i.ToString();
+      string as1 = i.ToString();
       List<string> list=new List<string> (i.ToString().Split(""));
       list.Reverse();
-      string[] bs = (string[]) list.toArray(new string[list.Count]);
-      string strb = String.Join("", bs);
-      if (as.Equals(strb))
+      string[] bs = (string[]) list.ToArray();
+      string strb = string.Join("", bs);
+      if (as1.Equals(strb))
         ans++;
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
   }
 
   public static void countVertex(int nV, string[] args) {
-    Dictionary<string,int> tV = new SortedDictionary<string, int>();
-    int nV = scn.nextInt();
+    SortedDictionary<string,int> tV = new SortedDictionary<string, int>();
     int[] VList= new int[nV];
     for(int i = 0;i<nV;i++) {
             string v = args[i];
@@ -3028,17 +3008,15 @@ public static void countReverseNumber(int a, int b) {
     Array.Sort(VList);
 }
 
-public static void countSame(string args[]){
-    InputStream inputStream = System.in;
-    OutputStream outputStream = System.out;
+public static void countSame(string[] args){
     int t,i,j;
     t=1;
     while(t-->0){
         string s1,s2;
         s1=Console.ReadLine();
         s2=Console.ReadLine();
-        char ch1[]=s1.ToCharArray();
-        char ch2[]=s2.ToCharArray();
+        char[] ch1=s1.ToCharArray();
+        char[] ch2=s2.ToCharArray();
         int n=s1.Length,m=s2.Length; 
         LinkedList<char> li=new LinkedList<char>();
         LinkedList<char> li1=new LinkedList<char>();
@@ -3047,11 +3025,13 @@ public static void countSame(string args[]){
             c=0;
             count=0;
             if(li.Count==m-1){
-                li.Add(ch1[i]);
+                li.AddLast(ch1[i]);
                 count=0;
                 c=0;
-                while(li.Count != 0){
-                    char temp=li.Remove(First());
+                while(li.Count != 0)
+                {
+                    char temp = li.First();
+                    li.RemoveFirst();
                     if(ch2[c]==temp){
                         count++;
                         if(count>max){
@@ -3059,25 +3039,24 @@ public static void countSame(string args[]){
                         }
                     }
                     c++;
-                    li1.Add(temp);
+                    li1.AddLast(temp);
                     if(li.Count == 0){
                         break;
                     }
                 }
                 li=li1;
                 li1=new LinkedList<char>();
-                li.Remove(First());
+                li.RemoveFirst();
             }else{
-                li.Add(ch1[i]);
+                li.AddLast(ch1[i]);
             }
         }
         Console.WriteLine(m-max);
     }
-    w.close();
 }
 
 public static void findMax(int n, string[] args) {
-    Dictionary<string,int> s = new LinkedDictionary<string,int>();
+    Dictionary<string,int> s = new Dictionary<string,int>();
     for(int i = 0; i < n; i++) {
             string temp = args[i];
             if(s.ContainsKey(temp)) {
@@ -3088,7 +3067,7 @@ public static void findMax(int n, string[] args) {
                     s[temp] = 1;
             }
     }
-    Dictionary<string,int> ans = new SortedDictionary<string,int>();
+    SortedDictionary<string,int> ans = new SortedDictionary<string,int>();
     int count = 0;
     foreach(string key in s.Keys) {
             if(count < s[key]) {
@@ -3101,21 +3080,21 @@ public static void findMax(int n, string[] args) {
             }
     }
     foreach (string key in ans.Keys) {
-            Console.Writeline(key);
+            Console.WriteLine(key);
     }
 }
 
 public static void countSubstring(int n , string[] args){
     int a;
     string alpha="abcdefghijklmnopqrstuvwxyz";
-    Dictionary <string,int> mapA = new SortedDictionary<string,int>();
-    Dictionary <string,int> mapB = new SortedDictionary<string,int>();
+    SortedDictionary <string,int> mapA = new SortedDictionary<string,int>();
+    SortedDictionary <string,int> mapB = new SortedDictionary<string,int>();
     Dictionary <string,int> mapC = new Dictionary<string,int>();
     int index,index2,index3,count;
     long answer,count2;
     string s,s2;
     for(index=0;index<n;index++) {
-            s = args[i];
+            s = args[index];
             mapA.Clear();
             for(index2=0;index2<10;index2++) {
                     s2=s.Substring(index2,index2+1);
@@ -3131,7 +3110,7 @@ public static void countSubstring(int n , string[] args){
             foreach(string s3 in mapA.Keys) {
                     count=mapA[s3];
                     for(index3=0;index3<count;index3++) {
-                            s2=s2.concat(s3);
+                            s2=s2.Concat(s3).ToString();
                     }
             }
             if(mapB.ContainsKey(s2)) {
@@ -3145,36 +3124,45 @@ public static void countSubstring(int n , string[] args){
     ;
 }
 
-public static void getMaxValueKey(int N, final string[] args) {
-    try{
-        SortedDictionary<string, long > cnt = new SortedDictionary<string, long >();
-        for (int i = 0; i < N; i++) {
+public static void getMaxValueKey1(int N, string[] args)
+{
+    try
+    {
+        SortedDictionary<string, long> cnt = new SortedDictionary<string, long>();
+        for (int i = 0; i < N; i++)
+        {
             string s = args[i];
             cnt.TryAdd(s, 0l);
             cnt[s] = cnt[s] + 1;
         }
-        long max = cnt.values().Max();
-        foreach (var entry in cnt) {
-            if (entry.Value.Equals(max)) {
-                 Console.WriteLine(entry.Key);
+
+        long max = cnt.Values.Max();
+        foreach (var entry in cnt)
+        {
+            if (entry.Value.Equals(max))
+            {
+                Console.WriteLine(entry.Key);
             }
         }
     }
+    catch (IOException e)
+    {
+    }
 }
 
-public static void inputDictionary(int N, string[] args){
-    Dictionary<string,int>map = new SortedDictionary<string,int>();
+public static void inputMap1(int N, string[] args){
+    SortedDictionary<string,int>map = new SortedDictionary<string,int>();
     for(int i = 0;i < N;i++){
       map[args[i]] = 0;
     }
-    Console.Writeline(map.Count);
+    Console.WriteLine(map.Count);
   }
 
-  private void add(SortedDictionary<int, int> map, int key){
+  private void add2(SortedDictionary<int, int> map, int key){
     map[key] = map.GetValueOrDefault(key,0)+1;
 }
 
-private void remove(SortedDictionary<int,int> map,int key){
+private void remove1(SortedDictionary<int,int> map,int key){
     if(!map.ContainsKey(key))
         return;
     map[key] = map.GetValueOrDefault(key,0)-1;
@@ -3183,27 +3171,26 @@ private void remove(SortedDictionary<int,int> map,int key){
 }
 
 
-public static void add(SortedDictionary<int,int> hm, int val){
+public static void add3(SortedDictionary<int,int> hm, int val){
     if(!hm.ContainsKey(val))
             hm[val] = 1;
     else hm[val] = hm[val]+1;
 }
 
-public static void remove(SortedDictionary<int,int> hm, int val){
+public static void remove2(SortedDictionary<int,int> hm, int val){
     hm[val] = hm[val]+1;
     if(hm[val]==0){
             hm.Remove(val);
     }
 }
 
-public static void getMaxValueKey(string[] args) throws Exception {
+public static void getMaxValueKey2(int n, string[] args) {
     try {
-            int n = int.Parse(sc.nextLine());
             Dictionary<string, int> map = new Dictionary<string, int>();
             int ma = int.MaxValue;
             for(int i=0;i<n;i++)
             {
-                    string s = sc.nextLine();
+                    string s = args[i];
                     map[s] = map.GetValueOrDefault(s, 0)+1;
                     ma = Math.Max(ma,map[s]);
             }
@@ -3211,7 +3198,7 @@ public static void getMaxValueKey(string[] args) throws Exception {
             foreach (var pair in map) sorted[pair.Key] = pair.Value;
             foreach(var m in sorted) {
                     if(ma==m.Value) {
-                            Console.Writeline(m.Key);
+                            Console.WriteLine(m.Key);
                     }
             }
     }catch(Exception i) {}
@@ -3229,29 +3216,27 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
      }
     }
     if(map.Count==0){
-      Console.Writeline("TLE");
+      Console.WriteLine("TLE");
     }else{
-      Console.Writeline(map.firstKey());
+      Console.WriteLine(map.Keys.First());
     }
   }
 
-  public static void inputDictionary(int N , string[] args){
-    Dictionary<string,int>map = new SortedDictionary<string,int>();
+  public static void inputMap2(int N , string[] args){
+    SortedDictionary<string,int>map = new SortedDictionary<string,int>();
     for(int i = 0;i < N;i++){
         map[args[i]] = 0;
     }
-    Console.Writeline(map.Count);
+    Console.WriteLine(map.Count);
   }
 
-  public static void countNotCovered(int N, int K, int []d) {
-            int[][]A = new int[K][N];
-            Dictionary<int,List<int>>map = new SortedDictionary<int,List<int>>();
+  public static void countNotCovered(int N, int K, int []d, int[][]A) {
+            SortedDictionary<int,List<int>>map = new SortedDictionary<int,List<int>>();
             for(int i = 0;i<N;i++) {
                     map[i] = new List<int>();
             }
             for(int i = 0;i<K;i++) {
                     for(int j = 0;j<d[i];j++) {
-                            A[i][j] = scan.nextInt();
                             map[A[i][j]-1].Add(i+1);
                     }
             }
@@ -3259,12 +3244,12 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
             for(int i = 0;i<map.Count;i++) {
                     if(map[i].Count==0)count++;
             }
-            Console.Writeline(count);
+            Console.WriteLine(count);
 }
 
-    public static void calRemain(int a[]) throws Exception {
-        int r[] = new int[5];
-        SortedDictionary<int, int> map = new TreeDictionary();
+    public static void calRemain(int[] a) {
+        int[] r = new int[5];
+        SortedDictionary<int, int> map = new SortedDictionary<int, int>();
         for (int i = 0; i < a.Length; i++) {
                 
                 r[i] = a[i]%10;
@@ -3279,10 +3264,10 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
                 for (int i = 0; i < a.Length; i++) {
                         ans += a[i];
                 }
-                Console.Writeline(ans);
+                Console.WriteLine(ans);
                 return;
         }
-        int last = map[map.lastKey()];
+        int last = map[map.Keys.Last()];
         int idx = 0;
         for (int i = 0; i < a.Length; i++) {
                 if(a[i] == last) {
@@ -3291,26 +3276,25 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
         }
 }
 
-public void calGeometricSeries() {
-    long h = nl();
+public void calGeometricSeries(long h) {
     SortedDictionary<long , long > tmap = new SortedDictionary<long , long >();
-    tmap[h] = 1l;
+    tmap[h] = 1L;
     long ans = 0;
     while (tmap.Count > 0) {
-        if (tmap.lastKey() == 1) {
-            ans += tmap[tmap.lastKey()];
+        if (tmap.Keys.Last() == 1) {
+            ans += tmap[tmap.Keys.Last()];
             break;
         }
-        long x = tmap[tmap.lastKey()];
-        long which = tmap.lastKey();
+        long x = tmap[tmap.Keys.Last()];
+        long which = tmap.Keys.Last();
         tmap[which / 2] = tmap.GetValueOrDefault(which / 2, 0l) + 2 * x;
         ans += x;
         tmap.Remove(which);
     }
-    pn(ans);
+    Console.WriteLine(ans);
 }
 
-public static void input2Dictionary(int n, int[] args){
+public static void input2Map(int n, int[] args){
     SortedDictionary<int, int> map = new SortedDictionary<int,int>();
     int i;
     for(i = 0; i < n; i++) {
@@ -3318,17 +3302,17 @@ public static void input2Dictionary(int n, int[] args){
     }
     int cnt = 0;
     int len = map.Count;
-    foreach(int ans in map.values()) {
+    foreach(int ans in map.Values) {
             cnt++;
             if(len > cnt)
-                    Console.Writeline(ans + " ");
+                    Console.WriteLine(ans + " ");
             else
-                    Console.Writeline(ans);
+                    Console.WriteLine(ans);
     }
 }
 
-public static void getMaxCountKey(int N , string[] args){
-    Dictionary<string,int> map = new SortedDictionary<string, int>();
+public static void getMaxCountKey1(int N , string[] args){
+    SortedDictionary<string,int> map = new SortedDictionary<string, int>();
     for(int i = 0;i < N;i++){
       string str = args[i];
       if(map.ContainsKey(str)){
@@ -3338,27 +3322,18 @@ public static void getMaxCountKey(int N , string[] args){
       }
     }
     int maxv = 0;
-    foreach(int v in map.values()){
+    foreach(int v in map.Values){
       if(v > maxv) maxv = v;
     }
     foreach(string str in map.Keys){
       if(map[str] == maxv){
-        Console.Writeline(str);
+        Console.WriteLine(str);
       }
     }
   }
 
-
-  public int subAll(K k){
-    if(!this.ContainsKey(k)) return -1;
-    int cnt = this.count(k);
-    this.Remove(k);
-    sum -= cnt;
-    return cnt;
-}
-
-public static void getMaxCountKey(int n, string[] args) {
-    Dictionary<string, int> map = new SortedDictionary<string, int>();
+public static void getMaxCountKey2(int n, string[] args) {
+    SortedDictionary<string, int> map = new SortedDictionary<string, int>();
     int max = 0;
     for (int i = 0; i < n; i++) {
             string z = args[i];
@@ -3373,12 +3348,12 @@ public static void getMaxCountKey(int n, string[] args) {
     }
     foreach(string k in map.Keys) {
             if (map[k] == max) {
-                    Console.Writeline(k);
+                    Console.WriteLine(k);
             }
     }
 }
 
-public static void getMaxCountKey(int N , string[] args){
+public static void getMaxCountKey3(int N , string[] args){
     SortedDictionary<string, int> paper = new SortedDictionary<string, int>();
     int max = 1;
     for(int i=0; i<N; i++){
@@ -3392,7 +3367,7 @@ public static void getMaxCountKey(int N , string[] args){
     }
     foreach(string key in paper.Keys){
       if(max == paper[key]){
-        Console.Writeline(key);
+        Console.WriteLine(key);
       }
     }
   }
@@ -3409,12 +3384,11 @@ public static void getMaxCountKey(int N , string[] args){
     return map;
 }
 
-public static void checkSame(string[] args) {
-    Dictionary<int, bool> A = new SortedDictionary<int, bool>();
+public static void checkSame(int N , int[] inputArray) {
+    SortedDictionary<int, bool> A = new SortedDictionary<int, bool>();
     bool ans = true;
-    int N = sc.nextInt();
     for (int i = 0; i < N; i++) {
-            int temp = sc.nextInt();
+            int temp = inputArray[i];
             if (!A.ContainsKey(temp)) {
                     A[temp] = true;
             } else {
@@ -3422,34 +3396,20 @@ public static void checkSame(string[] args) {
                     break;
             }
     }
-    Console.Writeline(ans ? "YES" : "NO");
+    Console.WriteLine(ans ? "YES" : "NO");
 }
 
-static void put(SortedDictionary<int, int> map, int p){if(map.ContainsKey(p)) map.replace(p, map[p]+1); else map[p] = 1; }
-static void rem(SortedDictionary<int, int> map, int p){ if(map[p]==1) map.Remove(p);else map.replace(p, map[p]-1); }
+static void put(SortedDictionary<int, int> map, int p){if(map.ContainsKey(p)) map[p] = map[p]+1; else map[p] = 1; }
+static void rem(SortedDictionary<int, int> map, int p){ if(map[p]==1) map.Remove(p);else map[p] = map[p]-1; }
 
-public int sub(K k){
-    if(!this.ContainsKey(k)) return -1;
-    int res = this.count(k) - 1;
-    if(res == 0) this.Remove(k);
-    else this[k] = res;
-    sum--;
-    return res;
-}
 
-public void remove(U x) {
-    if (t[x] == 1) t.RemoveAt(x);
-    else t[x] = t[x] - 1;
-    sz--;
-}
-
-public static void remove(SortedDictionary<int,int> hm, int val){
+public static void remove4(SortedDictionary<int,int> hm, int val){
     hm[val] = hm[val]-1;
     if(hm[val]==0){
             hm.Remove(val);
     }
 }
-private void remove(SortedDictionary<int,int> map,int key){
+private void remove5(SortedDictionary<int,int> map,int key){
     if(!map.ContainsKey(key))
         return;
     map[key] = map.GetValueOrDefault(key,0)-1;
@@ -3457,25 +3417,19 @@ private void remove(SortedDictionary<int,int> map,int key){
         map.Remove(key);
 }
 
-public void add(U x) {
-    t[x] = t.GetValueOrDefault(x, 0) + 1;
-    sz++;
-}
-
-public static void getMaxCountKey(int n, int[] a) {
-    Dictionary<int, int> count = new SortedDictionary<int,int>((x, y) => -x.CompareTo(y));
+public static void getMaxCountKey4(int n, int[] a) {
+    SortedDictionary<int, int> count = new SortedDictionary<int,int>();
     int max = 0;
     for (int i = 0; i < n; i++) {
         count[a[i]] = count.GetValueOrDefault(a[i], 0) + 1;
         max = Math.Max(a[i], max);
     } }
 
-    public void getMaxCountKey() {
-        int n = in.nextInt();
+    public void getMaxCountKey5(int n, string[] input) {
         SortedDictionary<string, int> map = new SortedDictionary<string, int>();
         int max = 0;
         for (int i = 0; i < n; i++) {
-            string s = in.next();
+            string s = input[i];
             map[s] = map.GetValueOrDefault(s, 0) + 1;
             max = Math.Max(max, map[s]);
         }
@@ -3483,34 +3437,34 @@ public static void getMaxCountKey(int n, int[] a) {
             if (map[key] != max) {
                 continue;
             }
-            Console.Writeline(key);
+            Console.WriteLine(key);
         }
     }
 
-    public static void getMaxCountKey(int n, string[] args){
+    public static void getMaxCountKey6(int n, string[] args){
         SortedDictionary<string, int> tm = new SortedDictionary<string, int>();
         int max = 0;
         for(int i = 0; i < n; i++){
             string s = args[i];
             int cnt = tm.GetValueOrDefault(s, 0) + 1;
             tm[s] = cnt;
-            max = max(max, cnt);
+            max = Math.Max(max, cnt);
         }
         foreach(string key in tm.Keys){
-            if(tm[key].Equals(max)) Console.Writeline(key);
+            if(tm[key].Equals(max)) Console.WriteLine(key);
         }
 }
 
 public static void getExtinct(int N, string[] args) {
     string[] list = new string[N];
-    Dictionary<string, int> map = new SortedDictionary<string, int>();
+    SortedDictionary<string, int> map = new SortedDictionary<string, int>();
     for(int i=0; i<N;i++) {
             string s = args[i];
             if(map[s]==null) {
                     map[s] = 1;
             }
     }
-    int ans  = map.values().toArray().Length;
+    int ans  = map.Values.Count();
 }
 
 public static void getRepeatKey(int n, string[] s){
@@ -3533,7 +3487,7 @@ public static void getRepeatKey(int n, string[] s){
                     map[b] = 0;
             }
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
 public void countUnderLimitedTime(int limitedTime , Dictionary<int, int> input) {
@@ -3551,8 +3505,8 @@ public void countUnderLimitedTime(int limitedTime , Dictionary<int, int> input) 
     Console.WriteLine(ans);
 }
 
-public static void getMaxCountKey(int N, string[] input) {
-    Dictionary<string, int> dic = new SortedDictionary<string, int>();
+public static void getMaxCountKey7(int N, string[] input) {
+    SortedDictionary<string, int> dic = new SortedDictionary<string, int>();
     int max = 0;
     for (int i = 0; i < N; i++) {
         string tmp = input[i];
@@ -3563,21 +3517,20 @@ public static void getMaxCountKey(int N, string[] input) {
             dic[tmp] = x;
         }
     }
-    foreach (int i in dic.values()){
+    foreach (int i in dic.Values){
         if (max < i){
             max = i;
         }
     }
     foreach (string s in dic.Keys){
         if(dic[s] == max) {
-            Console.Writeline(s);
+            Console.WriteLine(s);
         }
     }
 }
 
-public static void getMaxCountKey(int N, string[] args) {
-    int N = sc.nextInt();
-    Dictionary<string, int> m = new SortedDictionary<string, int>();
+public static void getMaxCountKey8(int N, string[] args) {
+    SortedDictionary<string, int> m = new SortedDictionary<string, int>();
     int max = 1;
     for(int i = 0; i < N; i++) {
             string S = args[i];
@@ -3595,34 +3548,34 @@ public static void getMaxCountKey(int N, string[] args) {
     }
     l.Sort();
     foreach(string s in l)
-            Console.Writeline(s);
+            Console.WriteLine(s);
 
 }
 
-public static void getMaxCountKey(int n, string b,  string[] args) {
-    Dictionary<string,int> poll = new SortedDictionary<string,int>();
+public static void getMaxCountKey9(int n, string b,  string[] args) {
+    SortedDictionary<string,int> poll = new SortedDictionary<string,int>();
     poll[b] = 1;
     for(int i=1;i<n;i++) {
             string S = args[i];
             if(!poll.ContainsKey(S)) {
                     poll[S] = 1;
                     }else {
-                            poll.replace(S,poll[S]+1);
+                            poll[S] = poll[S]+1;
                     }
     }
-    int S = 0;
+    int K = 0;
     foreach(string k in poll.Keys) {
-            S = Math.Max(S, poll[k]);
+            K = Math.Max(K, poll[k]);
     }
     foreach(string k in poll.Keys) {
-            if(S == poll[k]) {
-                    Console.Writeline(k);
+            if(K == poll[k]) {
+                    Console.WriteLine(k);
             }
 }
 }
 
 public static void countInput(int N, string[] args){
-    Dictionary<string,int> map = new SortedDictionary<string,int>();
+    SortedDictionary<string,int> map = new SortedDictionary<string,int>();
     for (int i = 0; i < N; i++){
             string str = args[i];
             if (map.ContainsKey(str)){
@@ -3633,8 +3586,8 @@ public static void countInput(int N, string[] args){
     }
 }
 
-public static void getMaxCountKey(int N, string[] args) {
-    Dictionary<string, int> wordmap = new SortedDictionary<string, int>();
+public static void getMaxCountKey10(int N, string[] args) {
+    SortedDictionary<string, int> wordmap = new SortedDictionary<string, int>();
     int max = 0;
     for (int i=0;i<N;i++) {
         string S_n = args[i];
@@ -3643,12 +3596,12 @@ public static void getMaxCountKey(int N, string[] args) {
             wordmap[S_n] = count + 1;
             if (max <= count) max = count + 1;
         } else {
-            wordmap[S-n] = 1;
+            wordmap[S_n] = 1;
             if (max == 0) max = 1;
         }
     }
     foreach (string key in wordmap.Keys) {
-        if (wordmap[key] == max) Console.Writeline(key);
+        if (wordmap[key] == max) Console.WriteLine(key);
     }
 }
 
@@ -3669,21 +3622,21 @@ public static void calDistance(int n, int q, string s, int[] args) {
             int r = args[2*i +1] - 1;
             int c = d;
             if (l != 0) {
-                    Entry<int, int> lower = ml.lowerEntry(l);
-                    if (lower != null) {
+                    KeyValuePair<int,int> lower = ml.First();
+                    if (!lower.Equals(null)) {
                             c -= lower.Value;
                     }
             }
             if (r != n) {
-                    Entry<int, int> ceil = ml.ceilingEntry(r);
-                    if (ceil != null) {
+                KeyValuePair<int, int> ceil = ml.Last();
+                    if (!ceil.Equals(null)) {
                             c -= (d - ceil.Value + 1);
                     }
             }
     }
 }
 
-public static void calAns(int n , PriorityQueue<int> pq) {
+public static void calAns(int n , PriorityQueue<int,IComparable<int>> pq) {
     int first = pq.Dequeue();
     double ans = first;
     while (pq.Count != 0) {
@@ -3691,31 +3644,10 @@ public static void calAns(int n , PriorityQueue<int> pq) {
         ans += value;
         ans /= 2.0;
     }
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
-static void dijkstra(int src) {
-    dist = new int[V];
-    Array.Fill(dist, oo);
-    parent = new int[V];
-    Array.Fill(parent, -1);
-    dist[src] = 0;
-    PriorityQueue<Edge> pq = new PriorityQueue<Edge>();
-    pq.Enqueue(new Edge(src,0));
-    while(pq.Count != 0) {
-            Edge e = pq.Dequeue();
-            if(dist[e.x] < e.y)
-                    continue;
-            foreach(Edge e2 in adj[e.x]) {
-                    if(dist[e2.x] > e2.y+e.y) {
-                            pq.Enqueue(new Edge(e2.x,dist[e2.x] = e2.y+e.y));
-                            parent[e2.x] = e.x;
-                    }
-            }
-    }
-}
-
-public static void getMaxCountKey(int n, string[] args) throws IOException{
+public static void getMaxCountKey11(int n, string[] args) {
     Dictionary<string, int> map = new Dictionary<string, int>();
     string vote;
     int max = 0;
@@ -3725,15 +3657,15 @@ public static void getMaxCountKey(int n, string[] args) throws IOException{
             map[vote] = v;
             max = Math.Max(max, v);
     }
-    PriorityQueue<string> pq = new PriorityQueue<string>();
-    foreach(var in map) {
-            if(e.Value == max) pq.Enqueue(e.Key);
+    PriorityQueue<string,string> pq = new PriorityQueue<string,string>();
+    foreach(var e in map) {
+            if(e.Value == max) pq.Enqueue(e.Key,e.Key);
     }
     while(pq.Count != 0)
             Console.WriteLine(pq.Dequeue());
 }
 
-public long calRemainSum( int n, int k,  Queue<long> heap) throws IOException {
+public long calRemainSum( int n, int k,  Queue<long> heap)  {
     if (k >= n){
         return 0;
     }
@@ -3747,117 +3679,87 @@ public long calRemainSum( int n, int k,  Queue<long> heap) throws IOException {
     return ans;
 }
 
-public static void getFisrtBelow(int N , int T, int[] argsC, int[] argsT) throws Exception {
-    Queue<int> queue = new PriorityQueue<int>();
+public static void getFisrtBelow(int N , int T, int[] argsC, int[] argsT) {
+    PriorityQueue<int,int> queue = new PriorityQueue<int,int>();
     for(int i = 0; i < N; i++){
         int c = argsC[i];
         int t = argsT[i];
-        if( t <= T ) queue.Enqueue(c);
+        if( t <= T ) queue.Enqueue(c,c);
     }
     if( queue.Count != 0 ){
-        Console.Writeline("TLE");
+        Console.WriteLine("TLE");
     } else {
-        Console.Writeline(queue.Dequeue() );
+        Console.WriteLine(queue.Dequeue() );
     }
 }
-    static void shortestPaths(List<Edge>[] edges, int s, int[] prio, int[] pred) {
+    static void shortestPaths(int s, int[] prio, int[] pred) {
         Array.Fill(pred, -1);
         Array.Fill(prio, int.MaxValue);
         prio[s] = 0;
-        PriorityQueue<long> q = new PriorityQueue<long>();
-        q.Add((long) s);
+        PriorityQueue<long,long> q = new PriorityQueue<long,long>();
+        q.Enqueue((long) s,s);
         while (q.Count != 0) {
                 long cur = q.Dequeue();
                 int curu = (int) cur;
-                if (cur >>> 32 != prio[curu])
+                if (cur >> 32 != prio[curu])
                         continue;
-                foreach (Edge e in edges[curu]) {
-                        int v = e.t;
-                        int nprio = prio[curu] + e.cost;
-                        if (prio[v] > nprio) {
-                                prio[v] = nprio;
-                                pred[v] = curu;
-                                q.Enqueue(((long) nprio << 32) + v);
-                        }
-                }
         }
 }
 
-int dijkstra(int src){
-    for(int i=0; i<V; i++){
-        dist[i] = int.MaxValue;
-    }
-    dist[src] = 0;
-    pq.Enqueue(new edge(src,0));
-    while (pq.Count != 0){
-        int u = pq.Dequeue().dest;
-        for(int i=0; i<adj[u].Count; i++){
-            int v = adj[u][i].dest;
-            int w = adj[u][i].cost;
-            if(dist[u]+w<=dist[v]){
-                dist[v] = dist[u] + w;
-                pq.Enqueue(new edge(v,dist[v]));
-            }
-        }
-    }
-    int dis = dist[2];
-
-    return dis;
-}
 
 public static void sortInput(int n, int l,string[] args) {
-            PriorityQueue<string> t=new PriorityQueue<string>();
+            PriorityQueue<string,string> t=new PriorityQueue<string,string>();
             for(int i=0;i<n;i++) {
-                    t.Enqueue(args[i]);
+                    t.Enqueue(args[i],args[i]);
             }
     while(t.Count != 0) {
-            Console.Writeline(t.Dequeue());
+            Console.WriteLine(t.Dequeue());
     }
-    Console.Writeline();
+    Console.WriteLine();
 }
 
 public static void count2Times(int n, Stack<int> args) {
-    PriorityQueue<int> queue = new PriorityQueue<int>(n, Collections.reverseOrder());
+    PriorityQueue<int,int> queue = new PriorityQueue<int,int>(n);
     for (int i = 0; i < n; i++) {
         int val = args.Pop();
-        queue.Enqueue(val);
+        queue.Enqueue(val,val);
     }
     int count = 0;
     while (queue.Count != 0) {
         int v = queue.Dequeue();
         if (v % 2 == 0) {
             int nv = v / 2;
-            queue.Add(nv);
+            queue.Enqueue(nv,nv);
             count++;
         }
     }
-    Console.Writeline(count);
+    Console.WriteLine(count);
 }
 
-public static void getsinputMax(int n, string[] args) throws IOException, InterruptedException {
-    bool is = true;
+public static void getsinputMax(int n, string[] args) {
+    bool is1 = true;
     Dictionary<string,int>hm = new Dictionary<string, int>();
-    PriorityQueue<string>pq= new PriorityQueue<string>();
+    PriorityQueue<string,string>pq= new PriorityQueue<string,string>();
     int mx=0;
     while (n-->0){
-        string z = args[i];
+        string z = args[n];
         hm[z] = hm.GetValueOrDefault(z,0)+1;
         if (hm[z]>mx) {
             mx = hm[z];
             pq.Clear();
         }
         if (hm[z]==mx){
-            pq.Enqueue(z);
+            pq.Enqueue(z,z);
         }
     }
     while (pq.Count != 0)
          Console.WriteLine(pq.Dequeue());
 }
 
-public void calWaitingTime( int N, int[] inputQueue) {
-    PriorityQueue<int> queue = new PriorityQueue<int>(Comparator.naturalOrder());
+public void calWaitingTime5( int N, int[] inputQueue) {
+    PriorityQueue<int,int> queue = new PriorityQueue<int,int>();
     for (int i=0; i<N; i++) {
-        queue.Enqueue(inputQueue[i]);
+        queue.Enqueue(inputQueue[i],inputQueue[i]);
     }
     for (int i=0; i<N/2-1; i++) {
         queue.Dequeue();
@@ -3867,53 +3769,52 @@ public void calWaitingTime( int N, int[] inputQueue) {
     Console.WriteLine(after - before);
 }
 
-public void getMean( int[] inputArray) {
-    int n = in.nextInt();
-    PriorityQueue<double> pq = new PriorityQueue<double>();
-    for (int i = 0; i < n; i++) pq.Enqueue((double) inputArray[i]);
-    while (pq.Count != 1) pq.Enqueue((pq.Dequeue() + pq.Dequeue()) / 2);
+public void getMean2( int n , int[] inputArray) {
+    PriorityQueue<double,double> pq = new PriorityQueue<double,double>();
+    for (int i = 0; i < n; i++) pq.Enqueue((double) inputArray[i],(double) inputArray[i]);
+    while (pq.Count != 1) pq.Enqueue((pq.Dequeue() + pq.Dequeue()) / 2,(pq.Dequeue() + pq.Dequeue()) / 2);
     Console.WriteLine(pq.Peek());
 }
 
-public static void getMean(int countMaterial, string[] inputValue) {
-    PriorityQueue<double> Que = new PriorityQueue();
+public static void getMean3(int countMaterial, string[] inputValue) {
+    PriorityQueue<double,double> Que = new PriorityQueue<double,double>();
     for(int i = 0;i<countMaterial;i++) {
             double eachValue = double.Parse(inputValue[i]);
-            Que.Enqueue(eachValue);
+            Que.Enqueue(eachValue,eachValue);
     }
     for(int i = 1;i<=countMaterial-1;i++) {
             double tmp1 = Que.Dequeue();
             double tmp2 = Que.Dequeue();
             double tmp = (tmp1+tmp2)/2;
-            Que.Enqueue(tmp);
+            Que.Enqueue(tmp,tmp);
     }
-    Console.Writeline(Que.Peek());
+    Console.WriteLine(Que.Peek());
 }
 
 
-public static void getMean(int N, int[] v) {
-        PriorityQueue<double> pq = new PriorityQueue<double>();
+public static void getMean4(int N, int[] v) {
+        PriorityQueue<double,double> pq = new PriorityQueue<double,double>();
         for (int i = 0; i < N; i++) {
-            pq.Enqueue((double) v[i]);
+            pq.Enqueue((double) v[i],(double) v[i]);
         }
         for (; pq.Count > 1;) {
             double d = pq.Dequeue();
             double d2 = pq.Dequeue();
-            pq.Enqueue((d + d2) / 2);
+            pq.Enqueue((d + d2) / 2,(d + d2) / 2);
         }
-        Console.Writeline(pq.Dequeue());
+        Console.WriteLine(pq.Dequeue());
 }
 
 
-public static void getMean(int n, double[] args) {
-    PriorityQueue<double> pq = new PriorityQueue<double>();
+public static void getMean5(int n, double[] args) {
+    PriorityQueue<double,double> pq = new PriorityQueue<double,double>();
     for (int i = 0; i < n; i++) {
-            pq.Enqueue(args[i]);
+            pq.Enqueue(args[i], args[i]);
     }
     while (pq.Count > 1) {
-            pq.Enqueue((pq.Dequeue() + pq.Dequeue()) / 2);
+            pq.Enqueue((pq.Dequeue() + pq.Dequeue()) / 2, (pq.Dequeue() + pq.Dequeue()) / 2);
     }
-    Console.Writeline(pq.Peek());
+    Console.WriteLine(pq.Peek());
     ;
 }
 
@@ -3923,9 +3824,9 @@ public static int sumHeap(int[] arr, int k) {
         return 0;
     }
     int sum = 0;
-    PriorityQueue<int> heap = new PriorityQueue(Collections.reverseOrder());
+    PriorityQueue<int,int> heap = new PriorityQueue<int,int>();
     foreach(int i in arr) {
-        heap.Enqueue(i);
+        heap.Enqueue(i,i);
         
         if(heap.Count > k) {
             heap.Dequeue();
@@ -3938,13 +3839,11 @@ public static int sumHeap(int[] arr, int k) {
     return sum;
 }
 
-public static void sumInput(string[] args){
-            int n = sc.nextInt();
-            int k = sc.nextInt();
-            PriorityQueue<int> pq = new PriorityQueue<int>();
+public static void sumInput(int n, int k, int[] inputArray){
+            PriorityQueue<int,int> pq = new PriorityQueue<int,int>();
             for(int i = 0 ; i < n ; i++ ) {
-                    int p = sc.nextInt();
-                    pq.Enqueue(p);
+                    int p = inputArray[i];
+                    pq.Enqueue(p,p);
             }
             int sum = 0;
             for(int i = 0 ; i < k ; i++ ) {
@@ -3953,31 +3852,11 @@ public static void sumInput(string[] args){
     }
 }
 
-public void getMean() throws IOException
-    {
-        stringTokenizer tok = new stringTokenizer(Console.ReadLine());
-        int n = int.Parse(tok.nextToken());
-        tok = new stringTokenizer(Console.ReadLine());
-        PriorityQueue<double> pq = new PriorityQueue<double>();
-        for (int i = 0; i < n; i++)
-        {
-            pq.Enqueue((double)int.Parse(tok.nextToken()));
-        }
-        while (pq.Count > 1)
-        {
-            double a = pq.Dequeue();
-            double b = pq.Dequeue();
-            pq.Enqueue((a+b) / 2);
-        }
-        Console.WriteLine(pq.Dequeue());
-        out.flush();
-        in.close();
-    }
 
-    public void sumInput(int n, int k,long[] inputArray ) throws IOException {
-        Queue<long> heap = new PriorityQueue<long>(Collections.reverseOrder());
+    public void sumInput(int n, int k,long[] inputArray )  {
+        PriorityQueue<long,long> heap = new PriorityQueue<long,long>();
         for (int i = 0; i < n; i++) {
-            heap.Enqueue(inputArray[i]);
+            heap.Enqueue(inputArray[i],inputArray[i]);
         }
         if (k >= n){
             Console.WriteLine(0);
@@ -3993,19 +3872,19 @@ public void getMean() throws IOException
         Console.WriteLine(ans);
     }
 
-    public static void getMean(PriorityQueue<double> q) {
+    public static void getMean7(PriorityQueue<double,double> q) {
         while (q.Count > 1) {
                 double x = q.Dequeue();
                 double y = q.Dequeue();
-                q.Enqueue(x + y) / 2);
+                q.Enqueue(x + y,x + y) / 2);
         }
-        Console.Writeline(q.Dequeue());
+        Console.WriteLine(q.Dequeue());
 }
 
-public static void sumInpt(long[] arr){
-    PriorityQueue<long> p = new PriorityQueue<long>();
+public static void sumInput(long[] arr){
+    PriorityQueue<long,long> p = new PriorityQueue<long,long>();
     foreach(long i in arr){
-        p.Enqueue(i);
+        p.Enqueue(i,i);
     }
     int mod = 1000000009;
     long sum= 0;
@@ -4015,30 +3894,30 @@ public static void sumInpt(long[] arr){
 
         sum += first+second;
         
-        p.Enqueue(first+second);
+        p.Enqueue(first+second,first+second);
     }
-    Console.Writeline(sum);
+    Console.WriteLine(sum);
 }
     
-public static void getSquares(int X) {
-    PriorityQueue<int> pq = new PriorityQueue<int>();
-    pq.Enqueue(1);
-    int base = 2;
-    while(base<=upper){
-        int cur = base*base;
+public static void getSquares(int upper, int X) {
+    PriorityQueue<int,int> pq = new PriorityQueue<int,int>();
+    pq.Enqueue(1,1);
+    int base1 = 2;
+    while(base1<=upper){
+        int cur = base1*base1;
         while(cur<=X){
-            pq.Enqueue(cur);
-            cur = cur*base;
+            pq.Enqueue(cur,cur);
+            cur = cur*base1;
         }
-        base++;
+        base1++;
     }
     int ans = 0;
     while(pq.Count>1) ans = pq.Dequeue();
     ans = pq.Dequeue();
-    Console.Writeline(ans);
+    Console.WriteLine(ans);
 }
 
-public static long getsinputSum(Queue<int> q , int K) {
+public static long getsinputSum(int N, Queue<int> q , int K) {
  int[] t = new int[N];
     for (int j = q.Count - 1; j >= 0; --j) {
             t[j] = q.Dequeue();
@@ -4052,72 +3931,72 @@ public static long getsinputSum(Queue<int> q , int K) {
     return sum;
 }
 
-public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Exception
+public static void sumPower2 (int x1, int x2, int x3, int q)
         {
-                Queue<int> pq = new PriorityQueue<int>(Collections.reverseOrder());
-                pq.Enqueue(x1);
-                pq.Enqueue(x2);
-                pq.Enqueue(x3);
+            PriorityQueue<int, int> pq = new PriorityQueue<int, int>();
+                pq.Enqueue(x1,x1);
+                pq.Enqueue(x2,x2);
+                pq.Enqueue(x3,x3);
                 while(q-->0){
-                        pq.Enqueue(2*pq.Dequeue());
+                        pq.Enqueue(2*pq.Dequeue(), 2*pq.Dequeue());
                 }
                 int ans = 0;
                 while(pq.Count>0){
                         ans+=pq.Dequeue();
                 }
-                Console.Writeline(ans);
+                Console.WriteLine(ans);
         }
 
-        public static void getRetain(int n, int args[]) {
-            PriorityQueue<int> pq = new PriorityQueue<int>(Collections.reverseOrder());
+        public static void getRetain(int n, int[] args) {
+            PriorityQueue<int,int> pq = new PriorityQueue<int,int>();
             for(int i=0;i<n;i++){
                 int t = args[i];
-                if(t%2==0) pq.Enqueue(t);
+                if(t%2==0) pq.Enqueue(t,t);
             }
             int c= 0;
             while(pq.Count>0){
                 int r = pq.Dequeue();
                 c++;
                 r/=2;
-                if(r%2==0) pq.Enqueue(r);
+                if(r%2==0) pq.Enqueue(r,r);
             }
-            Console.Writeline(c);
+            Console.WriteLine(c);
         }
 
-        public static void getMean(int n, double[] args) {
-            PriorityQueue<double> queue = new PriorityQueue<double>();
+        public static void getMean8(int n, double[] args) {
+            PriorityQueue<double,double> queue = new PriorityQueue<double,double>();
             for (int i = 0; i < n; i++) {
-              queue.Enqueue(args[i]);
+              queue.Enqueue(args[i],args[i]);
             }
             while (queue.Count > 1) {
               double item1 = queue.Dequeue();
               double item2 = queue.Dequeue();
-              queue.Enqueue((item1 + item2) / 2);
+              queue.Enqueue((item1 + item2) / 2,(item1 + item2) / 2);
             }
-            Console.Writeline(queue.Peek());
+            Console.WriteLine(queue.Peek());
           }
 
-          public void getMean(int N, double[] ints) throws Exception
+          public void getMean9(int N, double[] ints)
         {
-                PriorityQueue<double> que = new PriorityQueue<double>();
+                PriorityQueue<double,double> que = new PriorityQueue<double,double>();
                 foreach(var x in ints)
-                        que.Enqueue(x);
+                        que.Enqueue(x,x);
                 while(que.Count != 1)
                 {
                         double x= que.Dequeue();
                         double y = que.Dequeue();
-                        que.offer((x+y)/2);
+                        que.Enqueue((x+y)/2,(x+y)/2);
                 }
-                Console.Writeline(que.Peek());
+                Console.WriteLine(que.Peek());
         }
 
-        public static void getHalf(PriorityQueue<int> list) {
+        public static void getHalf(PriorityQueue<int,int> list) {
             int size = list.Count;
             int prev = 0;
             for (int i = 0; i < size / 2; i++) {
                     prev = list.Dequeue();
             }
-            Console.Writeline(list.Peek()-prev);
+            Console.WriteLine(list.Peek()-prev);
     }
 
     public static int getHeapSum(int[] arr, int k) {
@@ -4126,7 +4005,7 @@ public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Ex
             return 0;
         }
         int sum = 0;
-        PriorityQueue<int> heap = new PriorityQueue(Collections.reverseOrder());
+        PriorityQueue<int,int> heap = new PriorityQueue<int,int>();
         foreach(var i in arr) {
             heap.Enqueue(i);
             
