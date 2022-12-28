@@ -1109,7 +1109,7 @@ public static bool triangle(int i,int[][] t){
         double y1 = A * Math.Sin((Math.PI/180)*arg1);
         double x2 = B * Math.Cos((Math.PI/180)*arg2);
         double y2 = B * Math.Sin((Math.PI/180)*arg2);
-        Console.Writeline(Double.Hypot(x2 - x1, y2 - y1));
+        Console.WriteLine(Double.Hypot(x2 - x1, y2 - y1));
       }
 
       public void getTickDistance( double a, double b, double h, double m) {
@@ -1117,23 +1117,24 @@ public static bool triangle(int i,int[][] t){
         double y1 = a * Math.Sin((h + m / 60) / 12 * 2 * Math.PI);
         double x2 = b * Math.Cos(m / 60 * 2 * Math.PI);
         double y2 = b * Math.Sin(m / 60 * 2 * Math.PI);
-        Console.WriteLine(Util.formatdouble(Double.Hypot(x1 - x2, y1 - y2)));
+        Console.WriteLine(Double.Hypot(x1 - x2, y1 - y2));
     }
 
-    public static void isTriangle(int N, int D, long x, long y) {
+    public static void isTriangle(int N, int D, long []inputx, long []inputy) {
         int count = 0;
         double distance = 0;
+        long x, y;
         for (int i = 0; i < N; i++ ) {
-                x = sc.nextLong();
-                y = sc.nextLong();
+                x = inputx[i];
+                y = inputy[i];
                 distance = Double.Hypot(x, y);
                 if (distance <= D) count++;
         }
         ;
-        Console.Writeline(count);
+        Console.WriteLine(count);
 }
 
-    public static void triangle(int n , double d, int inputArray[]) {
+    public static void triangle(int n , double d, int []inputArray) {
   int c=0;
   for(int i=0;i<n;i++)
   {
@@ -1147,7 +1148,7 @@ public static bool triangle(int i,int[][] t){
       c++;
       }
   }
-  Console.Writeline(c);
+  Console.WriteLine(c);
     }
 
 public static double log2(long N) 
@@ -1156,14 +1157,15 @@ public static double log2(long N)
     return result; 
 }
 
-static double log(double base,double antilogarithm){
-    return Math.Log(antilogarithm)/Math.Log(base);
+static double log(double base1,double antilogarithm){
+    return Math.Log(antilogarithm)/Math.Log(base1);
 }
 
-public SegmentTree(int n) {       
+public int [] SegmentTree(int n) {       
     int h = (int)Math.Ceiling((double)Math.Log(n)/Math.Log(2));
-    this.size = (int)Math.Pow(2,h)*2-1;
-    seg = new int[size];
+    int size = (int)Math.Pow(2,h)*2-1;
+    int []seg = new int[size];
+    return seg;
 }
 
 static bool isPower(int a, int b)
@@ -1178,14 +1180,14 @@ static bool isPower(int a, int b)
         return (1<<n);
 }
 
-public static void sqrLog(string[] args) throws IOException {
+public static void sqrLog(string[] args){
     long n = long.Parse(Console.ReadLine());
     long a = 1;
     for(int i=1; i<=Math.Sqrt(n); i++){
       if(n%i==0)
-        a = n/i;
+        a = n / i;
     }
-    Console.Writeline((int)Math.Log10(a)+1);
+    Console.WriteLine((int)Math.Log10(a)+1);
   }
 
   private static int compareLog(long a, long b) {
@@ -1207,7 +1209,7 @@ public static void countLog(int n) {
             count++;
         }
     }
-    Console.Writeline(count);
+    Console.WriteLine(count);
 }
 
 static long max(long a, long b) {
@@ -1215,15 +1217,14 @@ static long max(long a, long b) {
     return Math.Max(a, b);
 }
 
-public static string largestSum(TestCase testCase) {
-    List<int> L = testCase.L;
+public static string largestSum(List<int> L) {
     int largest = 0;
     int sum = 0;
     foreach (var side in L) {
         largest = Math.Max(largest, side);
         sum += side;
     }
-    return (largest < (sum - largest)) ? YES : NO;
+    return (largest < (sum - largest)) ? "YES" : "NO";
 }
 
 static double max(double d, double e) {
@@ -1231,7 +1232,7 @@ static double max(double d, double e) {
     return Math.Max(d, e);
 }
 
-private static int getDifference(int n, int[] as) {
+private static int getDifference(int n, int [] as) {
     int aMax = as[0];
     int aMin = as[0];
     foreach (var a in as) {
@@ -1274,7 +1275,7 @@ static long min(long n,long m)
                         max = Math.Max(max, i);
                 }
         }
-        Console.Writeline((max - min) + 1);
+        Console.WriteLine((max - min) + 1);
 }
 
 public int minGap(int n, int[] height) {
@@ -1459,11 +1460,14 @@ private static Point point(double r, double deg) {
     return new Point(x, y);
 }
 
-public Point(double deg, double r) {
+public Point init(double deg, double r)
+{
+    double x, y;
     double rad = deg * Math.PI / 180.0;
     x = Math.Cos(rad) * r;
     y = Math.Sin(rad) * r;
-  }
+    return new Point((int)x, (int)y);
+}
 
   public static double dist(int x1, int b, double angle){
     double x2=b*Math.Cos(angle), y2=b*Math.Sin(angle);
@@ -1690,18 +1694,18 @@ public static void cal(string[] args) throws IOException {
     exit();
 }
 
-public static void findMaxv(int n, int minv, int inputArray[]){
+public static void findMaxv(int n, int minv, int []inputArray){
     int maxv = int.MaxValue;
     for(int i=1;i<n;i++){
-       int in = inputArray[i];
-       maxv = Math.Max(maxv, in-minv);
-       minv = Math.Min(minv, in);
+       int in1 = inputArray[i];
+       maxv = Math.Max(maxv, in1-minv);
+       minv = Math.Min(minv, in1);
     }
-    Console.Writeline(maxv);
+    Console.WriteLine(maxv);
 }
 
-public List<int> gerPrimes() {
-    return Collections.unmodifiableList(primes);
+public List<int> gerPrimes(List<int> primes) {
+    return primes.ToImmutableList();
 }
 
 static int countGreater(LinkedList<int> q) {
@@ -2073,7 +2077,7 @@ public static void calWaitingTime(string first, Stack<string> args) {
                         stack.AddFirst(int.Parse(ops));
                 }
         }
-        Console.Writeline(stack.Dequeue());
+        Console.WriteLine(stack.Dequeue());
 }
 
 public static LinkedList<long> divisors(long N){
@@ -2343,7 +2347,7 @@ public static void countEqual(string anticipation , string real) {
     Console.Writeline(count);
 }
 static List<string> myconv(string str, int no){//only split
-    string splitstring = CONVSTR.Substring(no,1);
+    string splitstring = Convert.ToString(no);
     return new List<string>(str.Split(splitstring));
 }
 static List<int> inputIntList() throws Exception {
@@ -2357,10 +2361,10 @@ static List<int> inputIntList() throws Exception {
 
 public static void morePositiveNums(int[] lines) {
     List<int> list = new List<int>(lines);
-    if(list.Max() >= sum(list)) {
-        Console.Writeline("No");
+    if(list.Max() >= list.Sum()) {
+        Console.WriteLine("No");
     } else {
-        Console.Writeline("Yes");
+        Console.WriteLine("Yes");
     }
 }
 
@@ -2595,8 +2599,8 @@ public static void findNotContains(int x, int n, int inputArray[]){
     }
 }
 
-public List<int> gerPrimes() {
-    return Collections.unmodifiableList(primes);
+public List<int> gerPrimes2(List<int> primes) {
+    return primes.ToImmutableArray();
 }
 
 public static void queueTime(int n,int q, string[] inputPS, int[] inputPT ){
@@ -3427,11 +3431,11 @@ public static void getMaxCountKey(int N , string[] args){
   }
 
 
-  public int subAll(K k){
-    if(!this.ContainsKey(k)) return -1;
-    int cnt = this.count(k);
-    this.Remove(k);
-    sum -= cnt;
+  public int subAll(List<int>list, int k){
+    if(!list.Contains(k)) return -1;
+    int cnt = list.Count;
+    list.Remove(k);
+    cnt -= 1;
     return cnt;
 }
 
@@ -3506,19 +3510,10 @@ public static void checkSame(string[] args) {
 static void put(SortedDictionary<int, int> map, int p){if(map.ContainsKey(p)) map.replace(p, map[p]+1); else map[p] = 1; }
 static void rem(SortedDictionary<int, int> map, int p){ if(map[p]==1) map.Remove(p);else map.replace(p, map[p]-1); }
 
-public int sub(K k){
-    if(!this.ContainsKey(k)) return -1;
-    int res = this.count(k) - 1;
-    if(res == 0) this.Remove(k);
-    else this[k] = res;
-    sum--;
-    return res;
-}
 
-public void remove(U x) {
+public void remove(List<int>t, int x) {
     if (t[x] == 1) t.RemoveAt(x);
     else t[x] = t[x] - 1;
-    sz--;
 }
 
 public static void remove(SortedDictionary<int,int> hm, int val){
@@ -3533,11 +3528,6 @@ private void remove(SortedDictionary<int,int> map,int key){
     map[key] = map.GetValueOrDefault(key,0)-1;
     if(map[key]==0)
         map.Remove(key);
-}
-
-public void add(U x) {
-    t[x] = t.GetValueOrDefault(x, 0) + 1;
-    sz++;
 }
 
 public static void getMaxCountKey(int n, int[] a) {
@@ -3772,26 +3762,6 @@ public static void calAns(int n , PriorityQueue<int> pq) {
     Console.Writeline(ans);
 }
 
-static void dijkstra(int src) {
-    dist = new int[V];
-    Array.Fill(dist, oo);
-    parent = new int[V];
-    Array.Fill(parent, -1);
-    dist[src] = 0;
-    PriorityQueue<Edge> pq = new PriorityQueue<Edge>();
-    pq.Enqueue(new Edge(src,0));
-    while(pq.Count != 0) {
-            Edge e = pq.Dequeue();
-            if(dist[e.x] < e.y)
-                    continue;
-            foreach(Edge e2 in adj[e.x]) {
-                    if(dist[e2.x] > e2.y+e.y) {
-                            pq.Enqueue(new Edge(e2.x,dist[e2.x] = e2.y+e.y));
-                            parent[e2.x] = e.x;
-                    }
-            }
-    }
-}
 
 public static void getMaxCountKey(int n, string[] args) throws IOException{
     Dictionary<string, int> map = new Dictionary<string, int>();
@@ -3861,27 +3831,27 @@ public static void getFisrtBelow(int N , int T, int[] argsC, int[] argsT) throws
         }
 }
 
-int dijkstra(int src){
-    for(int i=0; i<V; i++){
-        dist[i] = int.MaxValue;
-    }
-    dist[src] = 0;
-    pq.Enqueue(new edge(src,0));
-    while (pq.Count != 0){
-        int u = pq.Dequeue().dest;
-        for(int i=0; i<adj[u].Count; i++){
-            int v = adj[u][i].dest;
-            int w = adj[u][i].cost;
-            if(dist[u]+w<=dist[v]){
-                dist[v] = dist[u] + w;
-                pq.Enqueue(new edge(v,dist[v]));
-            }
-        }
-    }
-    int dis = dist[2];
-
-    return dis;
-}
+// int dijkstra(int src, int V, int []dist, Queue){
+//     for(int i=0; i<V; i++){
+//         dist[i] = int.MaxValue;
+//     }
+//     dist[src] = 0;
+//     pq.Enqueue(new edge(src,0));
+//     while (pq.Count != 0){
+//         int u = pq.Dequeue().dest;
+//         for(int i=0; i<adj[u].Count; i++){
+//             int v = adj[u][i].dest;
+//             int w = adj[u][i].cost;
+//             if(dist[u]+w<=dist[v]){
+//                 dist[v] = dist[u] + w;
+//                 pq.Enqueue(new edge(v,dist[v]));
+//             }
+//         }
+//     }
+//     int dis = dist[2];
+//
+//     return dis;
+// }
 
 public static void sortInput(int n, int l,string[] args) {
             PriorityQueue<string> t=new PriorityQueue<string>();
@@ -6333,18 +6303,18 @@ public static void deleteInput(int n, int k, int[] inputD) {
     Console.Writeline(hm.Count);
 }
 
-public static void countKeys (int N, string[] inputS) throws java.lang.Exception
+public static void countKeys (int N, string[] inputS)
         {
                 Dictionary<string, int> cnt = new Dictionary<string, int>();
                 for (int i = 0; i < N; ++i) {
-                        string s = sorted(inputS[i]);
+                        string s = inputS[i];
                         cnt[s] = cnt.GetValueOrDefault(s, 0) + 1;
                 }
                 long ans = 0;
                 foreach (string s in cnt.Keys) {
-                        ans += nc2(cnt[s]);
+                        ans += cnt[s];
                 }
-                Console.Writeline(ans);
+                Console.WriteLine(ans);
         }
 
         public static void countKeys(int N, string[] inputC) {

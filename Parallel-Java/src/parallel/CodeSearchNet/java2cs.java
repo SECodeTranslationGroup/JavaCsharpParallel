@@ -626,8 +626,18 @@ public static void checkAC(int n, int m, String[] args) {
     out.println(AC + " " + PENA);
 }
 
-public static void swapList(int t1, int t2, String args[]){List<Integer>l=new ArrayList<Integer>();int t=t1,i=0;for(;i++<t;)l.add(i);for(t=t2;t>0;t--){String[]e=args[t].split(",");Collections.swap(l, Integer.parseInt(e[0])-1, Integer.parseInt(e[1])-1);}for(int e:l)
-    out.println(e);}
+public static void swapList(int t1, int t2, String args[]){
+        List<Integer>l = new ArrayList<Integer>();
+        int t = t1, i = 0;
+        for( ;i++<t; )
+            l.add(i);
+        for(t = t2; t > 0; t--){
+            String[]e=args[t].split(",");
+            Collections.swap(l, Integer.parseInt(e[0])-1, Integer.parseInt(e[1])-1);
+        }
+        for(int e:l)
+            out.println(e);
+    }
 
 public static void swapList(String[] arg) throws IOException
 {
@@ -1143,6 +1153,14 @@ public static double log2(long N)
 static double log(double base,double antilogarithm){
     return Math.log(antilogarithm)/Math.log(base);
 }
+
+public int [] segmentTree(int n) {
+    int h = (int)Math.ceil((double)Math.log(n)/Math.log(2));
+    int size = (int)Math.pow(2,h)*2-1;
+    int seg[] = new int[size];
+    return seg;
+}
+
 static boolean isPower(int a, int b)
     {
         double temp = Math.log(a)/Math.log(b);
@@ -1191,6 +1209,16 @@ public static void countLog(int n) {
 static long max(long a, long b) {
 
     return Math.max(a, b);
+}
+
+public static String largestSum(List<Integer> L) {
+    int largest = 0;
+    int sum = 0;
+    for (Integer side : L) {
+        largest = Math.max(largest, side);
+        sum += side;
+    }
+    return (largest < (sum - largest)) ? "YES" : "NO";
 }
 
 static double max(double d, double e) {
@@ -1654,6 +1682,10 @@ public static void findMaxv(int n, int minv, int inputArray[]){
     out.println(maxv);
 }
 
+public List<Integer> gerPrimes1(List<Integer> primes) {
+    return Collections.unmodifiableList(primes);
+}
+
 static int countGreater(LinkedList<Integer> q) {
     int size = q.size();
     int count = 0;
@@ -1909,6 +1941,60 @@ public static void lineUp( int n, int q, String nameArray[], int timeArray[]){
                 out.print((char)(ans.poll()+'a'));
         }
 }
+
+
+    public static void calWaitingTime(int n, int q, String nameArray[], int timeArray[]){
+        LinkedList<Pair> queue = new LinkedList<Pair>();
+        int time_w = 0;
+        for(int i=0; i<n; i++){
+            String str = nameArray[i];
+            int time = timeArray[i];
+            if(time > q){
+                time_w += q;
+                queue.add(new Pair(str, time-q));
+            }else{
+                time_w += time;
+                out.println(str+" "+time_w);
+            }
+        }
+        while(!queue.isEmpty()){
+            Pair p = queue.removeFirst();
+            String str = (String)p.getValue0();
+            int time = (int)p.getValue1();
+            if(time > q){
+                time_w += q;
+                queue.add(new Pair(str, time-q));
+            }else{
+                time_w += time;
+                out.println(str+" "+time_w);
+            }
+        }
+    }
+
+    public static void calWaitingTime(String first, Stack<String> args) {
+        String[] components = first.split(" ");
+        int inputs = Integer.parseInt(components[0]);
+        int quantum = Integer.parseInt(components[1]);
+        int time = 0;
+        LinkedList<Process> q = new LinkedList<Process>();
+        while (args.size() > 0) {
+            String i = args.firstElement();
+            args.pop();
+            String[] c = i.split(" ");
+            q.add(new Process(c[0], Integer.parseInt(c[1])));
+        }
+        while (q.size() != 0) {
+            Process curr = q.removeFirst();
+            if (curr.t <= quantum) {
+                time += curr.t;
+                out.println(curr.n + " " + time);
+            } else {
+                curr.t -= quantum;
+                time += quantum;
+                q.add(curr);
+            }
+        }
+    }
 
     public static void checkAns1( String str, String ans){
             int count = 0;
@@ -2220,6 +2306,12 @@ public static void countEqual(String anticipation , String real) {
     }
     out.println(count);
 }
+
+static List<String> myconv(String str, int no){//only split
+    String splitstring = String.valueOf(no);
+    return new LinkedList<String>(Arrays.stream(str.split(splitstring)).toList());
+}
+
 static List<Integer> inputIntList2(String nextLine) throws Exception {
     List<String> strList = Arrays.asList(nextLine.trim().split(" "));
     List<Integer> intList = new ArrayList<Integer>();
@@ -2227,6 +2319,16 @@ static List<Integer> inputIntList2(String nextLine) throws Exception {
         intList.add(Integer.parseInt(elem));
     }
     return intList;
+}
+
+
+public static void morePositiveNums(int[] lines) {
+    LinkedList<Integer> list = new LinkedList<Integer>(Arrays.stream(lines).boxed().collect(Collectors.toList()));
+    if(Collections.max(list) >= sum(list)) {
+        out.println("No");
+    } else {
+        out.println("Yes");
+    }
 }
 
 public static void cal(Integer a, Integer b, Integer c, int p){
@@ -2455,7 +2557,32 @@ public static void findNotContains(int x, int n, int inputArray[]){
     }
 }
 
+public List<Integer> gerPrimes2(List<Integer> primes) {
+    return Collections.unmodifiableList(primes);
+}
 
+public static void queueTime(int n,int q, String[] inputPS, int[] inputPT ){
+    int t=0;
+    LinkedList<Process> list=new LinkedList<Process>();
+    for(int i=0;i<n;i++){
+        String ps=inputPS[i];
+        int pt=inputPT[i];
+        Process pr=new Process(ps,pt);
+        list.add(pr);
+    }
+    while(list.size()>0){
+        if((list.getFirst()).time>q){
+            Process x=list.removeFirst();
+            t+=q;
+            x.time-=q;
+            list.add(x);
+        }else{
+            Process x=list.removeFirst();
+            t+=x.time;
+            out.println(x.name+" "+t);
+        }
+    }
+}
 
 public Process dequeue(LinkedList<Process> queue) {
     Process ret = queue.getFirst();
@@ -3257,6 +3384,13 @@ public static void getMaxCountKey1(int N , String[] args){
     }
   }
 
+public int subAll(List<Integer> list, int k){
+    if(!list.contains(k)) return -1;
+    int cnt = list.size();
+    list.remove(k);
+    cnt -= 1;
+    return cnt;
+}
 
 public static void getMaxCountKey2(int n, String[] args) {
     Map<String, Integer> map = new TreeMap<>();
@@ -3328,7 +3462,10 @@ public static void checkSame(int N, int[] inputArray) {
 static void put(TreeMap<Integer, Integer> map, Integer p){if(map.containsKey(p)) map.replace(p, map.get(p)+1); else map.put(p, 1); }
 static void rem(TreeMap<Integer, Integer> map, Integer p){ if(map.get(p)==1) map.remove(p);else map.replace(p, map.get(p)-1); }
 
-
+public void remove_(List<Integer>t, int x) {
+    if (t.get(x) == 1) t.remove(x);
+    else t.set(x, t.get(x) - 1);
+}
 public static void remove4(TreeMap<Integer,Integer> hm, int val){
     hm.put(val, hm.get(val)-1);
     if(hm.get(val)==0){
@@ -3350,7 +3487,8 @@ public static void getMaxCountKey4(int n, int[] a) {
     for (int i = 0; i < n; i++) {
         count.put(a[i], count.getOrDefault(a[i], 0) + 1);
         max = Math.max(a[i], max);
-    } }
+    }
+}
 
     public void getMaxCountKey5(int n, String[] input) {
         TreeMap<String, Integer> map = new TreeMap<>();
@@ -5044,6 +5182,35 @@ public int countInput(int n, int[] a) {
 }
 
 
+public void calDifference( int n, int l) {
+    int sum = 0;
+    SortedSet<Integer> negatives = new TreeSet<Integer>();
+    SortedSet<Integer> positives = new TreeSet<Integer>();
+    for (int i = 0; i < n; i++) {
+        sum += (l + i);
+        if (l + i < 0) {
+            negatives.add(l + i);
+        } else {
+            positives.add(l + i);
+        }
+    }
+    if (positives.contains(0)) {
+        out.println(sum);
+    } else {
+        if (negatives.size() == 0) {
+            out.println(sum - positives.first());
+        } else if (positives.size() == 0) {
+            out.println(sum - negatives.last());
+        } else {
+            if (Math.abs(negatives.last()) < positives.first()) {
+                out.println(sum - negatives.last());
+            } else {
+                out.println(sum + positives.first());
+            }
+        }
+    }
+}
+
 public static void countContains2(int n , int[] args, int p) {
     Set<Integer> T = new TreeSet<Integer>();
     for(int i=0;i<n;i++){
@@ -6036,6 +6203,19 @@ public static void deleteInput(int n, int k, int[] inputD) throws IOException {
     out.println(hm.size());
 }
 
+    public static void countKeys (int N, String[] inputS)
+    {
+        HashMap<String, Integer> cnt = new HashMap<String, Integer>();
+        for (int i = 0; i < N; ++i) {
+            String s = inputS[i];
+            cnt.put(s,  cnt.getOrDefault(s, 0) + 1);
+        }
+        long ans = 0;
+        for (String s : cnt.keySet()) {
+            ans += cnt.get(s);
+    }
+        out.println(ans);
+    }
 
         public static void countKeys2(int N, String[] inputC) {
             long res = 0;
