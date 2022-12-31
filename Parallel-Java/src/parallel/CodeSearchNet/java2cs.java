@@ -1,7 +1,5 @@
 package parallel.CodeSearchNet;
 
-import com.sun.source.tree.Tree;
-import org.javatuples.Pair;
 import org.w3c.dom.Node;
 
 import java.awt.*;
@@ -17,7 +15,7 @@ import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class java2cs {
-    private static final Integer CURRENT_STATE = 1;
+    private static Integer CURRENT_STATE = 1;
     private int ZERO = 0;
 
     public static void morePositiveNums1(Integer[] lines) {
@@ -40,7 +38,7 @@ public class java2cs {
     return new ArrayList<String>(Arrays.asList(str.split(splitString)));
 }
 
-static List<Integer> inputIntList(String input) throws Exception {
+static List<Integer> inputIntList(String input) {
     List<String> strList = Arrays.asList(input.trim().split(" "));
     List<Integer> intList = new ArrayList<Integer>();
     for (String elem : strList){
@@ -68,11 +66,11 @@ public static void countSlimeColor(Integer numSlime , String slimeColor) {
     out.println(cnt);
 }   
 
-public static void countLetter(BufferedReader br) throws IOException{
+public static void countLetter1(Stack<String> stringStack) {
     String str;
     int count[] = new int[26];
     char abc ='a';   
-    while((str=br.readLine())!=null){      
+    while((str = stringStack.pop())!=null){
         for(int i=0;i<str.length();i++){
             if(Character.isLetter(str.charAt(i))){
                 count[Character.toLowerCase(str.charAt(i)) - 'a']++;
@@ -81,20 +79,19 @@ public static void countLetter(BufferedReader br) throws IOException{
     }
 }
 
-public static void countLetter(LinkedList<String> args) {
+public static void countLetter2(Stack<String> args) {
     int[] alpha = new int['z' - 'a' + 1];
     while (args.size() > 0) {
-        String str = args.getFirst().toLowerCase();
+        String str = args.pop().toLowerCase();
         for (int i = 0; i < str.length(); i++) {
             if (Character.isLetter(str.charAt(i))) {
                 alpha[str.charAt(i) - 'a']++;
             }
         }
-        args.removeFirst();
     }
 }
 
-public static void swapUpperAndLowerLetter(Stack<String> args) throws Exception {
+public static void swapUpperAndLowerLetter(Stack<String> args)  {
     StringBuilder sb = new StringBuilder();
     while (args.size() > 0) {
         String s = args.pop();
@@ -116,7 +113,7 @@ public static void swapUpperAndLowerLetter(Stack<String> args) throws Exception 
 }
 
 
-public static void isOneLetterMore (String s , String s1) throws java.lang.Exception
+public static void isOneLetterMore (String s , String s1)
 {
         int t,f=0;
         if(((s1.length()-s.length()) ==1) && (Character.isLetter(s1.charAt(s1.length()-1))))
@@ -156,7 +153,7 @@ public static void countLetter1(LinkedList<String> args) {
             }
 }
 
-public static void isLetterEven( String s) throws Exception {
+public static void isLetterEven( String s) {
     int[] frq = new int[26];
     for(int i = 0 ; i < s.length() ; i++)
     {
@@ -231,7 +228,7 @@ public static void checkFirstLetterCase1(String s){
     ;
   }
 
-  public static void checkFirstLetterCase2(String input) throws IOException {
+  public static void checkFirstLetterCase2(String input) {
     char [] ch = input.toCharArray();
     if(Character.isLowerCase(ch[0])) out.println("a");
     else out.println("A");
@@ -277,7 +274,7 @@ public static void add1(String expression){
     String[] arrays=expression.split(" ");
     for(int i=0;i<arrays.length;i++){
             if(Character.isDigit(arrays[i].charAt(0)))
-                    stack.add(Integer.parseInt(arrays[i]));
+                    stack.push(Integer.parseInt(arrays[i]));
             else if(!Character.isDigit(arrays[i].charAt(0))){
                     int number2=stack.pop();
                     int number1=stack.pop();
@@ -287,7 +284,7 @@ public static void add1(String expression){
     out.println(stack.pop());
 }
 
-public static void calculator2(ArrayDeque<String> args) throws Exception {
+public static void calculator2(ArrayDeque<String> args) {
     String st;
     Stack<Integer> stack = new Stack<Integer>();
     while (args.size() > 0) {
@@ -333,9 +330,8 @@ static boolean isNum(String s){
         }
     }
 
-public static void addMedium(String args[]) throws Exception{
-    BufferedReader stdR = new BufferedReader(new InputStreamReader(System.in));
-    String[] s = stdR.readLine().split(" ");
+public static void addMedium(String readLine) {
+    String[] s = readLine.split(" ");
     int N = Integer.parseInt(s[0]);
     int A = Integer.parseInt(s[1]);
     int B = Integer.parseInt(s[2]);
@@ -366,10 +362,9 @@ public static void Summation1(LinkedList<String>  args) {
     }
 }
 
-public static void Summation2(ArrayDeque<String> args) {
+public static void Summation2(Stack<String> args) {
     while (true) {
-        String s = args.peekFirst();
-        args.remove();
+        String s = args.pop();
         if (s.length() == 1 && s.charAt(0) == '0')
             break;
         int sum = 0;
@@ -456,7 +451,7 @@ public String nextStr2() {
     }
 }
 
-public void isLRUD( String s, PrintWriter out) {
+public void isLRUD( String s) {
     int n = s.length();
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
@@ -480,7 +475,6 @@ public static void LongMultipleString(long a, String bs){
 }
 
 public static void countABC(int N,  String S) {
-    ;
     int ans = 0;
     char[] s = S.toCharArray();
     for(int i=0;i<S.length()-2;i++) {
@@ -626,29 +620,26 @@ public static void checkAC(int n, int m, String[] args) {
     out.println(AC + " " + PENA);
 }
 
-public static void swapList(int t1, int t2, String args[]){
-        List<Integer>l = new ArrayList<Integer>();
-        int t = t1, i = 0;
-        for( ;i++<t; )
-            l.add(i);
-        for(t = t2; t > 0; t--){
-            String[]e=args[t].split(",");
-            Collections.swap(l, Integer.parseInt(e[0])-1, Integer.parseInt(e[1])-1);
-        }
-        for(int e:l)
-            out.println(e);
-    }
-
-public static void swapList(String[] arg) throws IOException
+public static void swapList(int t1, int t2, String args[])
 {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int v = Integer.valueOf(br.readLine());
+    List<Integer>l=new ArrayList<Integer>();
+    int t=t1,i=0;
+    for(;i++<t;)
+        l.add(i);
+    for(t=t2;t>0;t--)
+    {
+        String[]e=args[t].split(",");
+        Collections.swap(l, Integer.parseInt(e[0])-1, Integer.parseInt(e[1])-1);
+    }for(int e:l)
+    out.println(e);}
+
+public static void swapList(int v, int h, Stack<String> args)
+{
         ArrayList<Integer> amida = new ArrayList<Integer>(v);
         for(int i=0; i<v; i++)
                 amida.add(i+1);
-        int h = Integer.valueOf(br.readLine());
         for(int i=0; i<h; i++){
-                String swapInd = br.readLine();
+                String swapInd = args.pop();
                 int swap1 = Integer.valueOf(swapInd.split(",")[0]);
                 int swap2 = Integer.valueOf(swapInd.split(",")[1]);
                 Collections.swap(amida,swap1-1,swap2-1);
@@ -734,7 +725,7 @@ public static void reverseList4( String s){
     out.println("");
 }
 
-public static void checkSameStr(String[] args) throws Exception {
+public static void checkSameStr(String[] args) {
     char[] s = args[0].toCharArray();
     char[] t = args[1].toCharArray();
     if(s.length != t.length) {
@@ -758,7 +749,7 @@ public static void checkSameStr(String[] args) throws Exception {
             out.println("Yes");
             return;
         }
-        Collections.rotate(sl,1);
+        Collections.rotate(sl,-1);
     }
     out.println("No");
 }
@@ -793,7 +784,7 @@ public List<Integer> gerPrimes(List<Integer> primes) {
 }
 
 static void dispResult(Map<String, Integer> result) {
-    final List<String> RESULT_TYPE =
+    List<String> RESULT_TYPE =
     Collections.unmodifiableList(Arrays.asList("AC", "WA", "TLE", "RE"));
     for (String R : RESULT_TYPE) {
       out.println(R + " x " + (result.get(R) == null ? 0 : result.get(R)));
@@ -832,8 +823,9 @@ public static void countRemain(int N, int K, int[] inputArray ) {
     out.println(nList.size());
 }
 
-private void nArray(int numN ) {
+private int[] nArray(int numN ) {
     int[] wk = IntStream.range(0, numN).toArray();
+    return wk;
 }
 
 public static void maxDifference1(int N, int[] A){
@@ -887,7 +879,7 @@ public static void round(int val) {
     out.println(4*val*Math.acos(0));
 }
 
-public static void negetiveRound(String[] args) throws IOException {
+public static void negetiveRound() throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     int R = Integer.parseInt(reader.readLine());
     out.println(2*R*Math.acos(-1));
@@ -1035,7 +1027,7 @@ public static void toOdd(int n,int ar[])
             (b * b) - 2 * a * b * angle); 
 } 
 
-public static void evenTenPow(int N) throws IOException {
+public static void evenTenPow(int N) {
     int result = 0;
     for(int i = 1; i <= N; i++) {
             if((int)Math.floor(Math.log10(i) + 1) % 2 == 1) {
@@ -1043,10 +1035,9 @@ public static void evenTenPow(int N) throws IOException {
             }
     }
     out.println(result);
-    ;
 }
 
-public static void decimal(int n){
+public static void decimal1(int n){
     double m=n/2;
     double k=Math.floor(m);
     double l=(n-k)/n;
@@ -1105,7 +1096,7 @@ public static boolean triangle(int i,int[][] t){
         out.println(Math.hypot(x2 - x1, y2 - y1));
       }
 
-      public void getTickDistance2( double a, double b, double h, double m, PrintWriter out) {
+      public void getTickDistance2( double a, double b, double h, double m) {
         double x1 = a * Math.cos((h + m / 60) / 12 * 2 * Math.PI);
         double y1 = a * Math.sin((h + m / 60) / 12 * 2 * Math.PI);
         double x2 = b * Math.cos(m / 60 * 2 * Math.PI);
@@ -1150,17 +1141,9 @@ public static double log2(long N)
     return result; 
 }
 
-static double log(double base,double antilogarithm){
-    return Math.log(antilogarithm)/Math.log(base);
+static double log(double base1,double antilogarithm){
+    return Math.log(antilogarithm)/Math.log(base1);
 }
-
-public int [] segmentTree(int n) {
-    int h = (int)Math.ceil((double)Math.log(n)/Math.log(2));
-    int size = (int)Math.pow(2,h)*2-1;
-    int seg[] = new int[size];
-    return seg;
-}
-
 static boolean isPower(int a, int b)
     {
         double temp = Math.log(a)/Math.log(b);
@@ -1173,9 +1156,7 @@ static boolean isPower(int a, int b)
         return (1<<n);
 }
 
-public static void sqrLog(String[] args) throws IOException {
-    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    long n = Long.parseLong(in.readLine());
+public static void sqrLog(long n)  {
     long a = 1;
     for(int i=1; i<=Math.sqrt(n); i++){
       if(n%i==0)
@@ -1206,37 +1187,27 @@ public static void countLog(int n) {
     out.println(count);
 }
 
-static long max(long a, long b) {
+static long maxLong(long a, long b) {
 
     return Math.max(a, b);
 }
 
-public static String largestSum(List<Integer> L) {
-    int largest = 0;
-    int sum = 0;
-    for (Integer side : L) {
-        largest = Math.max(largest, side);
-        sum += side;
-    }
-    return (largest < (sum - largest)) ? "YES" : "NO";
-}
-
-static double max(double d, double e) {
+static double maxDouble(double d, double e) {
 
     return Math.max(d, e);
 }
 
-private static int getDifference1(int n, int[] as) {
-    int aMax = as[0];
-    int aMin = as[0];
-    for (int a : as) {
+private static int getDifference1(int n, int[] as1) {
+    int aMax = as1[0];
+    int aMin = as1[0];
+    for (int a : as1) {
       aMax = Math.max(aMax, a);
       aMin = Math.min(aMin, a);
     }
     return aMax - aMin;
   }
 
-  public void mergeSort( int n, int[] arr , PrintWriter out) throws IOException {
+  public void mergeSort( int n, int[] arr , PrintWriter out)  {
     int[] right = new int[n];
     int[] left = new int[n];
     right[n-1] = 0;
@@ -1302,7 +1273,7 @@ static int minGap2(int n,int arr[]) {
 }
 
 
-public static void minGap3(int n, int[]A)throws IOException
+public static void minGap3(int n, int[]A)
 {
     int[]dp=new int[n];
     dp[0]=0;
@@ -1312,7 +1283,7 @@ public static void minGap3(int n, int[]A)throws IOException
     out.println(dp[n-1]);
 }
 
-public static void countSmallDist1 (int n, double d, int inputX[], int inputY[]) throws java.lang.Exception
+public static void countSmallDist1 (int n, double d, int inputX[], int inputY[])
 {
         int count = 0;
         while(n-- >0){
@@ -1326,7 +1297,7 @@ public static void countSmallDist1 (int n, double d, int inputX[], int inputY[])
         out.println(count);
 }
 
-public static void countBigDist(int N, int D, int inputX[], int inputY[]) throws Exception {
+public static void countBigDist(int N, int D, int inputX[], int inputY[])  {
     int count = 0;
     for(int i = 0; i < N; i++){
         int x = inputX[i];
@@ -1616,7 +1587,6 @@ public static void areaAndCircumference1(double r) {
 }
 
 public static void areaAndCircumference3(double r){
-    Formatter frm=new Formatter();
     double S=Math.PI*r*r*1.0;
     double d=2*Math.PI*r*1.0;
     out.println(String.format("%5f",S)+" "+String.format("%5f",d));
@@ -1644,7 +1614,7 @@ private int getDifference3(int n, int inputArray[]) {
     return max - min;
 }
 
-public static void getDifference4(int n, int[] args) throws IOException {
+public static void getDifference4(int n, int[] args)  {
     PrintWriter out = new PrintWriter(System.out, true);
     int min = Integer.MAX_VALUE;
     int max = Integer.MIN_VALUE;
@@ -1665,7 +1635,7 @@ public int nextInt(long nl) {
     return (int) nl;
 }
 
-public static void cal(int N , int X, int[] args) throws IOException {
+public static void cal(int N , int X, int[] args)  {
     int  min = Integer.MAX_VALUE; for(int i = 1; i<=N; i++) {
             int k = args[i]; X-=k; min = Math.min(k, min);
     }
@@ -1680,10 +1650,6 @@ public static void findMaxv(int n, int minv, int inputArray[]){
        minv = Math.min(minv, in);
     }
     out.println(maxv);
-}
-
-public List<Integer> gerPrimes1(List<Integer> primes) {
-    return Collections.unmodifiableList(primes);
 }
 
 static int countGreater(LinkedList<Integer> q) {
@@ -1732,7 +1698,7 @@ static void bfs(int s, int[] color, boolean[] vis, int[] level, int[] p,List<Int
 }
 
 public static void subMax(int N, int input[]) {
-    List<Integer> list = new LinkedList<>();
+    List<Integer> list = new ArrayList<>();
     int max = 0;
     int order = 0;
     for (int i = 0; i < N; i++) {
@@ -1783,7 +1749,7 @@ public static void count04(LinkedList<String> list) {
     out.println(ans);
 }
 
-public void differentNext(int N, String[] S) throws Exception{
+public void differentNext(int N, String[] S) {
     S[N] = "";
     Arrays.sort(S, 0, N);
     int max = 0;
@@ -1863,7 +1829,7 @@ public static void allContainPos(int n, String[] args){
 }
 
 public static void compareFirst(int n, String[] args) {
-    LinkedHashSet<String> lhs = new LinkedHashSet<>();
+    HashSet<String> lhs = new HashSet<>();
     LinkedList<String> ll = new LinkedList<>();
     int f = 0;
     while(n-- != 0)
@@ -1930,7 +1896,7 @@ public static void lineUp( int n, int q, String nameArray[], int timeArray[]){
             }
     }
 
-    static void radix262(long n) throws Exception{
+    static void radix262(long n){
         LinkedList<Integer>ans=new LinkedList<>();
         while(n>0) {
                 n--;
@@ -1941,60 +1907,6 @@ public static void lineUp( int n, int q, String nameArray[], int timeArray[]){
                 out.print((char)(ans.poll()+'a'));
         }
 }
-
-
-    public static void calWaitingTime(int n, int q, String nameArray[], int timeArray[]){
-        LinkedList<Pair> queue = new LinkedList<Pair>();
-        int time_w = 0;
-        for(int i=0; i<n; i++){
-            String str = nameArray[i];
-            int time = timeArray[i];
-            if(time > q){
-                time_w += q;
-                queue.add(new Pair(str, time-q));
-            }else{
-                time_w += time;
-                out.println(str+" "+time_w);
-            }
-        }
-        while(!queue.isEmpty()){
-            Pair p = queue.removeFirst();
-            String str = (String)p.getValue0();
-            int time = (int)p.getValue1();
-            if(time > q){
-                time_w += q;
-                queue.add(new Pair(str, time-q));
-            }else{
-                time_w += time;
-                out.println(str+" "+time_w);
-            }
-        }
-    }
-
-    public static void calWaitingTime(String first, Stack<String> args) {
-        String[] components = first.split(" ");
-        int inputs = Integer.parseInt(components[0]);
-        int quantum = Integer.parseInt(components[1]);
-        int time = 0;
-        LinkedList<Process> q = new LinkedList<Process>();
-        while (args.size() > 0) {
-            String i = args.firstElement();
-            args.pop();
-            String[] c = i.split(" ");
-            q.add(new Process(c[0], Integer.parseInt(c[1])));
-        }
-        while (q.size() != 0) {
-            Process curr = q.removeFirst();
-            if (curr.t <= quantum) {
-                time += curr.t;
-                out.println(curr.n + " " + time);
-            } else {
-                curr.t -= quantum;
-                time += quantum;
-                q.add(curr);
-            }
-        }
-    }
 
     public static void checkAns1( String str, String ans){
             int count = 0;
@@ -2064,7 +1976,6 @@ public static void getMean1(int N, double inputArray[]) {
     for (int i = 0; i < N; i++) {
       v.add(inputArray[i]);
     }
-    Collections.sort(v);
     while (v.size() > 1) {
       double a = v.poll();
       double b = v.poll();
@@ -2100,7 +2011,7 @@ public static LinkedList<Integer> comp(LinkedList<Integer> q){
     LinkedList<Integer> op = new LinkedList<>();
     Stack<Integer> stack = new Stack<>();
     while(q.size()>0){
-            stack.push(q.pop());
+            stack.push(q.poll());
     }
     while(stack.size()>0){
             op.addLast(stack.pop());
@@ -2133,7 +2044,7 @@ public static void checkLast1( String s ) {
 
 public int checkLast2(String S) {
     int ans = 0;
-    LinkedList<Integer> list = new LinkedList();
+    LinkedList<Integer> list = new LinkedList<>();
     for (char c : S.toCharArray()) {
       int i = (int) c - ZERO;
       if (list.size() == 0) {
@@ -2156,7 +2067,7 @@ public int checkLast2(String S) {
 
 static void seive(boolean v[]) {
         int t = 0;
-        List<Integer> l = new LinkedList<>();
+        List<Integer> l = new ArrayList<>();
     for (int i = 2; i < 100001; i++) {
         if (!v[i]) {
             t++;
@@ -2171,7 +2082,8 @@ static void shuffle(int a[]) {
     List<Integer> l = new ArrayList<>();
     for (int i = 0; i < a.length; i++)
         l.add(a[i]);
-    Collections.shuffle(l);
+    Random rng = new Random();
+    Collections.shuffle(l, rng);
     for (int i = 0; i < a.length; i++)
         a[i] = l.get(i);
 }
@@ -2208,7 +2120,7 @@ public static void mergeStr(int iNum, String sStr ) {
     out.printf(sb.toString());
   }
 
-  public static void compList(String s , String t) throws Exception {
+  public static void compList(String s , String t)  {
     List <String> sList = new LinkedList<>(Arrays.asList(t.split("")));
     List <String> tList = new LinkedList<>(Arrays.asList(s.split("")));
     int flag = 0;
@@ -2282,7 +2194,7 @@ public static void checkEven(String w){
     out.println(result);
 }
 
-public static void count05(LinkedList<String> list) {
+public static void count05(ArrayList<String> list) {
     int ans = 0;
     for (int i = 0; i < list.size(); i++) {
             if (list.get(i).equals("0")) {
@@ -2306,29 +2218,13 @@ public static void countEqual(String anticipation , String real) {
     }
     out.println(count);
 }
-
-static List<String> myconv(String str, int no){//only split
-    String splitstring = String.valueOf(no);
-    return new LinkedList<String>(Arrays.stream(str.split(splitstring)).toList());
-}
-
-static List<Integer> inputIntList2(String nextLine) throws Exception {
+static List<Integer> inputIntList2(String nextLine)  {
     List<String> strList = Arrays.asList(nextLine.trim().split(" "));
     List<Integer> intList = new ArrayList<Integer>();
     for (String elem : strList){
         intList.add(Integer.parseInt(elem));
     }
     return intList;
-}
-
-
-public static void morePositiveNums(int[] lines) {
-    LinkedList<Integer> list = new LinkedList<Integer>(Arrays.stream(lines).boxed().collect(Collectors.toList()));
-    if(Collections.max(list) >= sum(list)) {
-        out.println("No");
-    } else {
-        out.println("Yes");
-    }
 }
 
 public static void cal(Integer a, Integer b, Integer c, int p){
@@ -2379,7 +2275,7 @@ public static void getLastUpper(String A, String B, String C){
         }
     }
 
-    public static List<String> getStrOnLine(String line) throws IOException {
+    public static List<String> getStrOnLine(String line)  {
         List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(line.split(" ")));
         return list;
@@ -2469,12 +2365,11 @@ public static void checkEvenCount(String w){
     out.println(result);
 }
 
-public static void findMiddle(String args[]) throws java.lang.Exception
+public static void findMiddle(String readLine) throws java.lang.Exception
         {
-                BufferedReader inp = new BufferedReader (new InputStreamReader(System.in));
-                String h[]=inp.readLine().split(" ");
+                String h[]=readLine.split(" ");
                 String hh[]=new String[0];
-                if(Integer.parseInt(h[1])!=0){hh=inp.readLine().split(" ");}
+                if(Integer.parseInt(h[1])!=0){hh=readLine.split(" ");}
                 HashSet<Integer>hash=new HashSet<>();
                 for(int i=0;i<hh.length;i++){hash.add(Integer.parseInt(hh[i]));}
                 int x=Integer.parseInt(h[0]);
@@ -2495,7 +2390,7 @@ public static void findMiddle(String args[]) throws java.lang.Exception
         }
 
         public static void checkValid(int N, String wordsInput, String args[]) {
-            LinkedList<String> words = new LinkedList<String>();
+            ArrayList<String> words = new ArrayList<>();
             words.add(wordsInput);
             boolean valid = true;
             for (int i = 1; i < N; i++) {
@@ -2510,7 +2405,7 @@ public static void findMiddle(String args[]) throws java.lang.Exception
             out.println(valid? "Yes":"No");
     }
 
-    public static void getContainsX(List<Integer> numAList, List<Integer> numBList, int numA , int numB , int numC) {
+    public static void getContainsX(List<Integer> numAList, List<Integer> numBList, int numC) {
         List<Integer> commonList = new ArrayList<>();
         for (int num : numAList) {
             if (numBList.contains(num)) {
@@ -2522,7 +2417,7 @@ public static void findMiddle(String args[]) throws java.lang.Exception
     }
 
     public static void calculate(int s) {
-        LinkedList<Integer> a = new LinkedList<Integer>();
+        ArrayList<Integer> a = new ArrayList<Integer>();
         a.add(s);
         for (int i=0; i<=1000000; i++){
         int a_next;
@@ -2557,32 +2452,7 @@ public static void findNotContains(int x, int n, int inputArray[]){
     }
 }
 
-public List<Integer> gerPrimes2(List<Integer> primes) {
-    return Collections.unmodifiableList(primes);
-}
 
-public static void queueTime(int n,int q, String[] inputPS, int[] inputPT ){
-    int t=0;
-    LinkedList<Process> list=new LinkedList<Process>();
-    for(int i=0;i<n;i++){
-        String ps=inputPS[i];
-        int pt=inputPT[i];
-        Process pr=new Process(ps,pt);
-        list.add(pr);
-    }
-    while(list.size()>0){
-        if((list.getFirst()).time>q){
-            Process x=list.removeFirst();
-            t+=q;
-            x.time-=q;
-            list.add(x);
-        }else{
-            Process x=list.removeFirst();
-            t+=x.time;
-            out.println(x.name+" "+t);
-        }
-    }
-}
 
 public Process dequeue(LinkedList<Process> queue) {
     Process ret = queue.getFirst();
@@ -2591,13 +2461,13 @@ public Process dequeue(LinkedList<Process> queue) {
 }
 
 public static void listRange(int N, int inputArray[]) {
-    LinkedList<Integer> A = new LinkedList<>();
+    ArrayList<Integer> A = new ArrayList<>();
     for(int i = 0; i < N; i++) {
             int a = inputArray[i];
             A.add(a);
     }
     Collections.sort(A);
-    out.println(A.getLast() - A.getFirst());
+    out.println(A.get(A.size() - 1) - A.get(0));
 }
 
 public static void checkAns2(String str, String ans){
@@ -2796,8 +2666,8 @@ public static void checkSuffix1(String s) {
     }
 
     for (int i = 0; i < A.size(); i++) {
-        List<Integer> a = new LinkedList<>(A);
-        List<Integer> l = new LinkedList<>(C);
+        List<Integer> a = new ArrayList<>(A);
+        List<Integer> l = new ArrayList<>(C);
         int v = a.get(i);
         a.remove(i);
         l.add(v);
@@ -2954,14 +2824,14 @@ public void calTotalK2N(long N, long K, List<Long> H) {
     out.println(ans);
 }
 
-public static void getOrdered(ArrayList<String> word) {
+public static void getOrdered1(ArrayList<String> word) {
     word.sort(Comparator.naturalOrder());
     for(String w: word) {
       out.print(w);
     }
   }
 
-  public static void getOrdered(List<String> sList) {
+  public static void getOrdered2(List<String> sList) {
     StringBuilder sb = new StringBuilder();
     sList.sort(Comparator.naturalOrder());
     for (String s : sList){
@@ -2986,7 +2856,7 @@ public static void getOrdered(ArrayList<String> word) {
     out.println(ans);
 }
 
-public static void getReverseNum(int length , String[] inputNum) throws IOException{
+public static void getReverseNum(int length , String[] inputNum){
     List<Integer> numArray = new ArrayList<Integer>();
     for (int i = 0; i < length; i++) {
             numArray.add(Integer.parseInt(inputNum[i]));
@@ -3068,8 +2938,6 @@ public static void countReverseNumber(int a, int b) {
 }
 
 public static void countSame(String args[]){
-    InputStream inputStream = System.in;
-    OutputStream outputStream = out;
     int t,i,j;
     t=1;
     while(t-->0){
@@ -3236,7 +3104,7 @@ public static void remove2(TreeMap<Integer,Integer> hm, int val){
     }
 }
 
-public static void getMaxValueKey2(int n , String[] args) throws Exception {
+public static void getMaxValueKey2(int n , String[] args)  {
     try {
             Map<String, Integer> map = new HashMap<>();
             int ma = Integer.MIN_VALUE;
@@ -3299,7 +3167,7 @@ public  static void getFirstKeyOfValue(int n, int t, int[] args){
             out.println(count);
 }
 
-    public static void calRemain(int a[]) throws Exception {
+    public static void calRemain(int a[])  {
         int r[] = new int[5];
         TreeMap<Integer, Integer> map = new TreeMap();
         for (int i = 0; i < a.length; i++) {
@@ -3384,13 +3252,6 @@ public static void getMaxCountKey1(int N , String[] args){
     }
   }
 
-public int subAll(List<Integer> list, int k){
-    if(!list.contains(k)) return -1;
-    int cnt = list.size();
-    list.remove(k);
-    cnt -= 1;
-    return cnt;
-}
 
 public static void getMaxCountKey2(int n, String[] args) {
     Map<String, Integer> map = new TreeMap<>();
@@ -3462,10 +3323,7 @@ public static void checkSame(int N, int[] inputArray) {
 static void put(TreeMap<Integer, Integer> map, Integer p){if(map.containsKey(p)) map.replace(p, map.get(p)+1); else map.put(p, 1); }
 static void rem(TreeMap<Integer, Integer> map, Integer p){ if(map.get(p)==1) map.remove(p);else map.replace(p, map.get(p)-1); }
 
-public void remove_(List<Integer>t, int x) {
-    if (t.get(x) == 1) t.remove(x);
-    else t.set(x, t.get(x) - 1);
-}
+
 public static void remove4(TreeMap<Integer,Integer> hm, int val){
     hm.put(val, hm.get(val)-1);
     if(hm.get(val)==0){
@@ -3482,13 +3340,12 @@ private void remove5(TreeMap<Integer,Integer> map,int key){
 
 
 public static void getMaxCountKey4(int n, int[] a) {
-    Map<Integer, Integer> count = new TreeMap<>(Comparator.reverseOrder());
+    Map<Integer, Integer> count = new TreeMap<>();
     int max = 0;
     for (int i = 0; i < n; i++) {
         count.put(a[i], count.getOrDefault(a[i], 0) + 1);
         max = Math.max(a[i], max);
-    }
-}
+    } }
 
     public void getMaxCountKey5(int n, String[] input) {
         TreeMap<String, Integer> map = new TreeMap<>();
@@ -3628,12 +3485,12 @@ public static void getMaxCountKey9(int n, String b,  String[] args) {
                             poll.replace(S,poll.get(S)+1);
                     }
     }
-    int S = 0;
+    int K = 0;
     for(String k:poll.keySet()) {
-            S = Math.max(S, poll.get(k));
+            K = Math.max(K, poll.get(k));
     }
     for(String k:poll.keySet()) {
-            if(S == poll.get(k)) {
+            if(K == poll.get(k)) {
                     out.println(k);
             }
     }
@@ -3712,7 +3569,7 @@ public static void calAns(int n , PriorityQueue<Integer> pq) {
     out.println(ans);
 }
 
-public static void getMaxCountKey11(int n, String[] args) throws IOException{
+public static void getMaxCountKey11(int n, String[] args){
     HashMap<String, Integer> map = new HashMap<>();
     String vote;
     int max = 0;
@@ -3731,7 +3588,7 @@ public static void getMaxCountKey11(int n, String[] args) throws IOException{
     out.close();
 }
 
-public long calRemainSum( int n, int k,  Queue<Long> heap) throws IOException {
+public long calRemainSum( int n, int k,  Queue<Long> heap) {
     if (k >= n){
         return 0;
     }
@@ -3745,7 +3602,7 @@ public long calRemainSum( int n, int k,  Queue<Long> heap) throws IOException {
     return ans;
 }
 
-public static void getFisrtBelow(int N , int T, int[] argsC, int[] argsT) throws Exception {
+public static void getFisrtBelow(int N , int T, int[] argsC, int[] argsT) {
     Queue<Integer> queue = new PriorityQueue<>();
     for(int i = 0; i < N; i++){
         int c = argsC[i];
@@ -3767,7 +3624,7 @@ public static void getFisrtBelow(int N , int T, int[] argsC, int[] argsT) throws
         while (!q.isEmpty()) {
                 long cur = q.remove();
                 int curu = (int) cur;
-                if (cur >>> 32 != prio[curu])
+                if (cur >> 32 != prio[curu])
                         continue;
                 }
         }
@@ -3784,7 +3641,7 @@ public static void sortInput(int n, int l,String[] args) {
 }
 
 public static void count2Times(int n, ArrayDeque<Integer> args) {
-    PriorityQueue<Integer> queue = new PriorityQueue<>(n, Collections.reverseOrder());
+    PriorityQueue<Integer> queue = new PriorityQueue<>(n);
     for (int i = 0; i < n; i++) {
         int val = args.pop();
         
@@ -3802,7 +3659,7 @@ public static void count2Times(int n, ArrayDeque<Integer> args) {
     out.println(count);
 }
 
-public static void getsinputMax(int n, String[] args) throws IOException, InterruptedException {
+public static void getsinputMax(int n, String[] args) {
     PrintWriter pw = new PrintWriter(out);
     boolean is = true;
     HashMap<String,Integer>hm = new HashMap<>();
@@ -3825,7 +3682,7 @@ public static void getsinputMax(int n, String[] args) throws IOException, Interr
 }
 
 public void calWaitingTime5(PrintWriter out, int N, int[] inputQueue) {
-    PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.naturalOrder());
+    PriorityQueue<Integer> queue = new PriorityQueue<>();
     for (int i=0; i<N; i++) {
         queue.add(inputQueue[i]);
     }
@@ -3892,7 +3749,7 @@ public static int sumHeap(int[] arr, int k) {
         return 0;
     }
     int sum = 0;
-    PriorityQueue<Integer> heap = new PriorityQueue(Collections.reverseOrder());
+    PriorityQueue<Integer> heap = new PriorityQueue();
     for(int i: arr) {
         heap.add(i);
         
@@ -3920,27 +3777,9 @@ public static void sumInput(int n, int k, int[] inputArray){
     }
 }
 
-public void getMean6(String tkn1,String tkn2) throws IOException
-    {
-        StringTokenizer tok = new StringTokenizer(tkn1);
-        int n = Integer.parseInt(tok.nextToken());
-        tok = new StringTokenizer(tkn2);
-        PriorityQueue<Double> pq = new PriorityQueue<>();
-        for (int i = 0; i < n; i++)
-        {
-            pq.add((double)Integer.parseInt(tok.nextToken()));
-        }
-        while (pq.size() > 1)
-        {
-            double a = pq.remove();
-            double b = pq.remove();
-            pq.add((a+b) / 2);
-        }
-        out.println(pq.remove());
-    }
 
-    public void sumInput( int n, int k,long[] inputArray, PrintWriter out) throws IOException {
-        Queue<Long> heap = new PriorityQueue<>(Collections.reverseOrder());
+    public void sumInput( int n, int k,long[] inputArray) {
+        Queue<Long> heap = new PriorityQueue<>();
         for (int i = 0; i < n; i++) {
             heap.add(inputArray[i]);
         }
@@ -3967,7 +3806,7 @@ public void getMean6(String tkn1,String tkn2) throws IOException
         out.println(q.poll());
 }
 
-public static void sumInpt(long[] arr){
+public static void sumInput(long[] arr){
     PriorityQueue<Long> p = new PriorityQueue<>();
     for(long i : arr){
         p.add(i);
@@ -4017,9 +3856,9 @@ public static long getsinputSum(int N, Queue<Integer> q , int K) {
     return sum;
 }
 
-public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Exception
+public static void sumPower2 (int x1, int x2, int x3, int q)
         {
-                Queue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+                Queue<Integer> pq = new PriorityQueue<>();
                 pq.add(x1);
                 pq.add(x2);
                 pq.add(x3);
@@ -4034,7 +3873,7 @@ public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Ex
         }
 
         public static void getRetain(int n, int args[]) {
-            PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+            PriorityQueue<Integer> pq = new PriorityQueue<>();
             for(int i=0;i<n;i++){
                 int t = args[i];
                 if(t%2==0) pq.add(t);
@@ -4062,7 +3901,7 @@ public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Ex
             out.println(queue.peek());
           }
 
-          public void getMean9(int N, double[] ints) throws Exception
+          public void getMean9(int N, double[] ints)
         {
                 PriorityQueue<Double> que = new PriorityQueue<Double>();
                 for(double x:ints)
@@ -4071,7 +3910,7 @@ public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Ex
                 {
                         double x= que.poll();
                         double y = que.poll();
-                        que.offer((x+y)/2);
+                        que.add((x+y)/2);
                 }
                 out.println(que.peek());
         }
@@ -4091,7 +3930,7 @@ public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Ex
             return 0;
         }
         int sum = 0;
-        PriorityQueue<Integer> heap = new PriorityQueue(Collections.reverseOrder());
+        PriorityQueue<Integer> heap = new PriorityQueue();
         for(int i: arr) {
             heap.add(i);
             
@@ -4120,7 +3959,7 @@ public static void sumPower2 (int x1, int x2, int x3, int q) throws java.lang.Ex
 }
 
 public static void calFirstDiff(int n,int m,  String args[]) {
-    PriorityQueue<Integer> l = new PriorityQueue<>(Comparator.reverseOrder());
+    PriorityQueue<Integer> l = new PriorityQueue<>();
     PriorityQueue<Integer> r = new PriorityQueue<>();
     for (int i = 0; i < m; i++) {
         l.add(Integer.parseInt(args[2 * i]));
@@ -4143,7 +3982,7 @@ public static void calMean(int n, Double[] data) {
     out.println(queue.peek());
   }
 
-  public static void take3Turn(String[] a_list , String[] b_list , String[] c_list ) throws IOException {
+  public static void take3Turn(String[] a_list , String[] b_list , String[] c_list )  {
     Deque<String> a, b, c;
     a = new ArrayDeque<String>(Arrays.asList(a_list));
     b = new ArrayDeque<String>(Arrays.asList(b_list));
@@ -4167,7 +4006,7 @@ public static void calMean(int n, Double[] data) {
     }
 }
 
-public static void take3Turn(String word1, String word2, String word3) throws IOException {
+public static void take3Turn(String word1, String word2, String word3)  {
     Queue<Character>q1 = new ArrayDeque<>();
     Queue<Character>q2 = new ArrayDeque<>();
     Queue<Character>q3 = new ArrayDeque<>();
@@ -4229,12 +4068,12 @@ public static void take3Turn(String word1, String word2, String word3) throws IO
             ArrayDeque<Character> deque = new ArrayDeque<>();
             for (char c : line) {
                     if (c == 'B') {
-                            if (!deque.isEmpty()) deque.pollLast();
+                            if (!deque.isEmpty()) deque.poll();
                     } else {
                             deque.addLast(c);
                     }
             }
-            while (!deque.isEmpty()) out.print(deque.pollFirst());
+            while (!deque.isEmpty()) out.print(deque.poll());
     }
 
     public static Long getBaseSum(long h){
@@ -4287,7 +4126,7 @@ public static void take3Turn(String word1, String word2, String word3) throws IO
         }
       }
 
-      public static void reEnqueue(LinkedList<String> args) throws IOException {
+      public static void reEnqueue(int m,int[] inputArray,LinkedList<String> args) throws IOException {
           Queue<String> queue = new ArrayDeque<>();
           int i,k;
           while(true)
@@ -4297,11 +4136,10 @@ public static void take3Turn(String word1, String word2, String word3) throws IO
               if(input.equals("-")) break;
               String[] binput = input.split("");
               for(i=0; i<binput.length; i++) queue.add(binput[i]);
-              int m = in.read();
               int h;
               for(i=0; i<m; i++)
               {
-                  h = in.read();
+                  h = inputArray[i];
                   for(k=0; k<h; k++) queue.add(queue.poll());
               }
               for(String a : queue) out.printf("%s",a);
@@ -4311,7 +4149,7 @@ public static void take3Turn(String word1, String word2, String word3) throws IO
           ;
       }
 
-      public static void checkSameStr(int n,String[] args)throws Exception{
+      public static void checkSameStr(int n,String[] args){
         PriorityQueue<String> s=new PriorityQueue<String>();
         Queue<String> t=new ArrayDeque<String>();
         for(int i=0;i<n;i++){
@@ -4345,7 +4183,7 @@ public static void take3Turn(String word1, String word2, String word3) throws IO
                 int b = args[i+1];
                 tmp.add(a);
                 tmp.add(b);
-                D.add(tmp.stream().collect(Collectors.toList()));
+                D.add(tmp);
                 tmp.clear();
         }
         tmp=null;
@@ -4368,12 +4206,12 @@ public static void take3Turn(String word1, String word2, String word3) throws IO
         ;
 }
 
-public static void countMergeTimes(int n, int q, String[] argsP, Integer[] argsT){
-    Deque<String> P = new ArrayDeque<String>();
-    Deque<Integer> T = new ArrayDeque<Integer>();
+public static void countMergeTimes1(int n, int q, String[] argsP, Integer[] argsT){
+    Stack<String> P = new Stack<>();
+    Stack<Integer> T = new Stack<Integer>();
     for(int i=0; i<n; i++){
-            P.add(argsP[i]);  
-            T.add(argsT[i]);
+            P.push(argsP[i]);
+            T.push(argsT[i]);
     }
     int total=0;
     while ( !P.isEmpty() ) {
@@ -4484,7 +4322,7 @@ public int doBFS3(int n, int[] a, PrintWriter out) {
     return -1;
 }
 
-public static void removeSame(int n, String[] args)throws Exception{
+public static void removeSame(int n, String[] args) {
     PriorityQueue<String> s=new PriorityQueue<String>();
     Queue<String> t=new ArrayDeque<String>();
     for(int i=0;i<n;i++){
@@ -4618,7 +4456,7 @@ public static void countMergeTimes5(int num, int quan, String[] args){
     }
 }
 
-public static void checkLastSame(int N, char[] S) throws IOException {
+public static void checkLastSame(int N, char[] S) {
     Deque<Character> deque = new ArrayDeque<>();
     deque.addLast(S[0]);
     for (int i = 1; i < N; ++i) {
@@ -4706,7 +4544,7 @@ public static void doBackspace2(char[] line) {
                     q.addLast('1');
             } else if(line[i] == 'B'){
                     if (q.size() != 0) {
-                            q.removeLast();
+                            q.removeFirst();
                     } 
             }
     }
@@ -4834,7 +4672,7 @@ public static void getExtinctSize1(Integer[] d) {
     out.println(setD.size());
 }
 
-public void getMaxValueKey3( int n, String[] input, PrintWriter out) {
+public void getMaxValueKey3( int n, String[] input) {
     HashMap<String, Integer> map = new HashMap<String, Integer>();
     int max = 0;
     for (int i = 0; i < n; i++) {
@@ -4882,13 +4720,11 @@ public void calDifference( int n, int l, PrintWriter out) {
     }
 }
 
-public static void getFirstBelow(int N, int T, String[] args) throws IOException {
-    StringTokenizer st;
+public static void getFirstBelow(int N, int T, String[] args)  {
     TreeSet<Integer> set = new TreeSet<Integer>();
     for(int i=0;i<N;i++) {
-            st = new StringTokenizer(args[i]);
-            int c = Integer.parseInt(st.nextToken());
-            int t = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(args[2 * i]);
+            int t = Integer.parseInt(args[2 * i + 1 ]);
             if(t <= T) {
                     set.add(c);
             }
@@ -4919,11 +4755,11 @@ public void getMaxValueKey4(int n,  String[] input, PrintWriter out) {
     }
 }
 
-public static void getMax(int[][] inputX) throws IOException
+public static void getMax(int[][] inputX)
 {
         int t=1;
         long x,x0,x1,x2;long y,y0,y1,y2;int s,s0,s1,s2;
-        int n,m;int a[],b[],in[],in1[];
+        int n,m;int a[],b[],in2[],in1[];
         long k,l;boolean b1,b2;String ss1[],ss;
         ArrayList<ArrayList<Integer>> ll=new ArrayList<>();
         ArrayList<Integer> a1=new ArrayList<>();
@@ -4986,7 +4822,7 @@ for(String a :s){
     out.flush();
 }
 
-public static void countMaxVote(int N, String[] args) throws IOException {
+public static void countMaxVote(int N, String[] args) {
     HashMap<String, Integer> map = new HashMap<>();
     for(int i = 0; i < N; i++){
         String s = args[i];
@@ -5095,7 +4931,7 @@ public static void getExtinctSize3(int n, String[] args) {
     out.println(vals.size());
 }
 
-public static void getExtinctSize4(int n, String args[])throws Exception
+public static void getExtinctSize4(int n, String args[])
 {
     TreeSet<String> set=new TreeSet<>();
     for(int i=0;i<n;i++)
@@ -5112,7 +4948,7 @@ void getExtinctSize5(int n, String args[]){
     out.println(s.size());
 }
 
-public static void noRepeated1(int n, int[] niSet)throws IOException
+public static void noRepeated1(int n, int[] niSet)
     {
         TreeSet<Integer> set = new TreeSet<Integer>();
         for(int i=1;i<=n;i++){
@@ -5124,7 +4960,7 @@ public static void noRepeated1(int n, int[] niSet)throws IOException
                 out.print("NO");
     }
 
-    static void countRepeated1(int n, int k, int[] inputL, int[][] inputTR) throws IOException {
+    static void countRepeated1(int n, int k, int[] inputL, int[][] inputTR)  {
         TreeSet<Integer> tr = new TreeSet<>();
         for (int i = 0; i < k; i++) {
             int l = inputL[i];
@@ -5182,35 +5018,6 @@ public int countInput(int n, int[] a) {
 }
 
 
-public void calDifference( int n, int l) {
-    int sum = 0;
-    SortedSet<Integer> negatives = new TreeSet<Integer>();
-    SortedSet<Integer> positives = new TreeSet<Integer>();
-    for (int i = 0; i < n; i++) {
-        sum += (l + i);
-        if (l + i < 0) {
-            negatives.add(l + i);
-        } else {
-            positives.add(l + i);
-        }
-    }
-    if (positives.contains(0)) {
-        out.println(sum);
-    } else {
-        if (negatives.size() == 0) {
-            out.println(sum - positives.first());
-        } else if (positives.size() == 0) {
-            out.println(sum - negatives.last());
-        } else {
-            if (Math.abs(negatives.last()) < positives.first()) {
-                out.println(sum - negatives.last());
-            } else {
-                out.println(sum + positives.first());
-            }
-        }
-    }
-}
-
 public static void countContains2(int n , int[] args, int p) {
     Set<Integer> T = new TreeSet<Integer>();
     for(int i=0;i<n;i++){
@@ -5226,7 +5033,7 @@ public static void countContains2(int n , int[] args, int p) {
     out.println(cnt);
 }
 
-public static int getMinDifference1(String str[], int x, int n)throws Exception
+public static int getMinDifference1(String str[], int x, int n)
     {
         TreeSet<Integer> ts=new TreeSet<>();
         for(int i=0;i<=101;i++)
@@ -5291,7 +5098,7 @@ public static int getMinDifference1(String str[], int x, int n)throws Exception
         return op;
     }
 
-    public static int countBelow(int n, int[]in) throws Exception {
+    public static int countBelow(int n, int[]in) {
         int ans=0;
         TreeSet<Integer>t=new TreeSet<Integer>();
         for(int i=0;i<n;i++) {
@@ -5303,7 +5110,7 @@ public static int getMinDifference1(String str[], int x, int n)throws Exception
         return ans;
 }
 
-public static void convertString(long[] args) throws java.lang.Exception {
+public static void convertString(long[] args){
     int t = 1;
     while(t-- > 0){
         long n = args[t];
@@ -5408,15 +5215,15 @@ public void checkStringLength(String S, String[] P) {
 }
 
 public static void calHalfSum1(int num, double[] input){
-    LinkedList<Double> values = new LinkedList<>();
+    ArrayList<Double> values = new ArrayList<>();
     Deque<Double> stack = new ArrayDeque<>();
     for(int i = 0; i < num; i++){
             values.add(input[i]);
     }
     Collections.sort(values);
-    stack.push(values.poll());
+    stack.push(values.remove(0));
     while(!values.isEmpty()){
-            stack.push((stack.pop() + values.poll()) / 2.0);
+            stack.push((stack.pop() + values.remove(0)) / 2.0);
     }
     out.println(stack.pop());
 }
@@ -5457,7 +5264,6 @@ public static void reverseInput(LinkedList<String> args) {
             String s = args.getFirst();
             args.removeFirst();
             StringBuffer t = new StringBuffer(s);
-            t.reverse();
             ans.push(t.toString());
     }
     int num = ans.size();
@@ -5537,15 +5343,15 @@ public static void calculator5(LinkedList<Integer> intList, ArrayDeque<String> a
                         }
 
                         public static void calHalfSum2(int num, Double[] args){
-                            LinkedList<Double> values = new LinkedList<>();
+                            ArrayList<Double> values = new ArrayList<>();
                             Deque<Double> stack = new ArrayDeque<>();
                             for(int i = 0; i < num; i++){
                                     values.add(args[i]);
                             }
                             Collections.sort(values);
-                            stack.push(values.poll());
+                            stack.push(values.remove(0));
                             while(!values.isEmpty()){
-                                    stack.push((stack.pop() + values.poll()) / 2.0);
+                                    stack.push((stack.pop() + values.remove(0)) / 2.0);
                             }
                             out.println(stack.pop());
                     }
@@ -5582,7 +5388,7 @@ public static void calculator5(LinkedList<Integer> intList, ArrayDeque<String> a
                     while (!stack.isEmpty()) {
                             sb.append(stack.pop());
                     }
-                    return sb.reverse().toString();
+                    return sb.toString();
             }
 
             public static void countDifferentLength(String s) {
@@ -5748,12 +5554,11 @@ public static void getMaxCountKey14(int n, String[] input) {
     }
 }
 
-public static void checkHigher(String[] args) throws IOException {
+public static void checkHigher(int n, int[] inputA) {
     HashMap<Integer, TreeSet<Integer>> map;
     map = new HashMap<>();
-    int n = in.read();
     for (int i = 0; i < n; i++) {
-            int a = in.read();
+            int a = inputA[i];
             map.putIfAbsent(a, new TreeSet<>());
             map.get(a).add(i);
             map.get(a).add(n + 1);
@@ -5761,12 +5566,6 @@ public static void checkHigher(String[] args) throws IOException {
     int k = 0, l = -1;
     while (true) {
             if (!map.containsKey(k + 1))
-                    break;
-            if (map.get(k + 1).higher(l) != (n + 1)) {
-                    l = map.get(k + 1).higher(l);
-                    k++;
-            }
-            else
                     break;
     }
     int ans = n - k;
@@ -5860,13 +5659,12 @@ public static void getExtinctSize6(int a, String args[])
         out.println(ans);
     }
 
-    public static void countRepeated2(String[] args) throws Exception {
-        BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+    public static void countRepeated2(String readLine, Stack<String> args)  {
         Long count = 0L;
-        Integer n = Integer.parseInt(stdin.readLine());
+        Integer n = Integer.parseInt(readLine);
         Map<String, Integer> map = new HashMap<>();
         String line;
-        while ((line = stdin.readLine()) != null) {
+        while ((line = args.pop()) != null) {
             char[] chars = line.toCharArray();
             Arrays.sort(chars);
             String newStr = new String(chars);
@@ -5943,7 +5741,7 @@ public static int findKey(HashMap<Integer, Integer> hmap, int a, int i) {
     return findKey(hmap,a,i+1);
 }
 
-public static void countContains3(int n) throws Exception {
+public static void countContains3(int n)  {
     Map<Integer,Integer> po=new HashMap<Integer,Integer>();
     int count=1;
     for(;!(po.containsKey(n));count++){
@@ -5980,10 +5778,10 @@ public static void countKeys5(int n, String[] arg) {
     out.println(map.keySet().size());
 }
 
-public static void countKeys6(int n) throws IOException {
+public static void countKeys6(int n, String[] args) throws IOException {
     HashMap<String , Integer> hashMap = new HashMap<>();
     while(n-->0) {
-        String key = String.valueOf(in.read());
+        String key = args[n];
         if (hashMap.get(key) == null) {
             hashMap.put(key, 1);
             continue;
@@ -6014,7 +5812,7 @@ public static void getExtinctSize8(int n, String args[]) {
       out.println(map.keySet().size());
   }
 
-  public long countRepeated5(int n, String[] args) throws IOException {
+  public long countRepeated5(int n, String[] args){
     HashMap<String,Integer> a = new HashMap<>();
     long ans = 0;
     for (int i = 0; i < n; i++) {
@@ -6035,7 +5833,7 @@ public static void getExtinctSize8(int n, String args[]) {
     return ans;
 }
 
-public static void calHalfSum5(Integer N, String[] args) throws Exception {
+public static void calHalfSum5(Integer N, String[] args)  {
     long count = 0;
     HashMap<String, Long> map = new HashMap<String, Long>(); 
     for(int i = 0; i < N; i++) {
@@ -6142,7 +5940,7 @@ public static void countKeys4(int n, String[] args) {
     }
 }
 
-public static void getModAns(long L, long R) throws Exception{
+public static void getModAns(long L, long R) {
     HashMap<Integer,Integer> map = new HashMap<>();
     for(int i=0;i<=2019;i++){
             map.put(i, i);
@@ -6186,7 +5984,7 @@ public static void remove6(HashMap<Integer,Integer> hm, int val){
     }
 }
 
-public static void deleteInput(int n, int k, int[] inputD) throws IOException {
+public static void deleteInput(int n, int k, int[] inputD, int[] inputM) throws IOException {
     HashMap<Integer,Integer>hm=new HashMap<>();
     for(int j=0;j<n;j++)
         hm.put(j+1,1);
@@ -6195,7 +5993,7 @@ public static void deleteInput(int n, int k, int[] inputD) throws IOException {
         int d=inputD[j];
         for(int l=0;l<d;l++)
         {
-            int m=in.read();
+            int m=inputM[l];
             if(hm.get(m)!=null)
                 hm.remove(m);
         }
@@ -6203,19 +6001,6 @@ public static void deleteInput(int n, int k, int[] inputD) throws IOException {
     out.println(hm.size());
 }
 
-    public static void countKeys (int N, String[] inputS)
-    {
-        HashMap<String, Integer> cnt = new HashMap<String, Integer>();
-        for (int i = 0; i < N; ++i) {
-            String s = inputS[i];
-            cnt.put(s,  cnt.getOrDefault(s, 0) + 1);
-        }
-        long ans = 0;
-        for (String s : cnt.keySet()) {
-            ans += cnt.get(s);
-    }
-        out.println(ans);
-    }
 
         public static void countKeys2(int N, String[] inputC) {
             long res = 0;
@@ -6245,7 +6030,7 @@ public static void deleteInput(int n, int k, int[] inputD) throws IOException {
             out.println(ans);
         }
 
-        public static void calHalfSum6(int N, String[] args) throws Exception {
+        public static void calHalfSum6(int N, String[] args)  {
             HashMap<String,Integer> map = new HashMap<>();
             for(int i=0;i<N;i++){
                     char[] c = args[i].toCharArray();
@@ -6459,7 +6244,7 @@ public static void countKeys8(int N, String[] args) {
         out.println(foods.size());
       }
 
-      public void countSize8( int N, PrintWriter out) {
+      public void countSize8( int N) {
         int cnt = 0;
         Set<Integer> set = new HashSet<>();
         for (int i = 105; i <= N; i += 2) {
@@ -6486,7 +6271,7 @@ public static void countKeys8(int N, String[] args) {
         int m=set.size();
         for(int i=0;i<m;i++)
         {
-                if(bi.get(i).isProbablePrime(10)==true)
+                if(bi.get(i) == BigInteger.ONE)
                 {
                         c++;
                 }
@@ -6542,14 +6327,14 @@ public static void calDpMax(int n, int[] v, int[] c) {
     return;
   }
 
-  public void addChild(Node node, List<Node> children) {
+  public void addChild(Integer node, List<Integer> children) {
     children.add(node);
 }
 
-public static List<Integer> readIntegerList(int size) throws IOException {
+public static List<Integer> readIntegerList(int size, int[] inputArray)  {
     List<Integer> set = new ArrayList<>();
     for (int i = 0; i < size; i++) {
-        set.add(in.read());
+        set.add(inputArray[i]);
     }
     return set;
 }
@@ -6582,7 +6367,7 @@ private int getExtinctSize11(int n, String[] a) {
     return set.size();
 }
 
-public static void getExtinctSortedSize(int n, String[] str) throws IOException{
+public static void getExtinctSortedSize(int n, String[] str) {
     Set<String> set = new HashSet<>();
     Arrays.sort(str);
     set.addAll(Arrays.asList(str));
@@ -6644,7 +6429,7 @@ public static void isSIze2(String s) {
     out.println(s.size());
 }
 
-public static void countContains5(int input, String[] args) throws IOException {
+public static void countContains5(int input, String[] args)  {
     HashSet <String> kinds = new HashSet<>();
     for (int x=0; x<input; x++) {
         String cur = args[x];
@@ -6681,9 +6466,9 @@ private int getExtinctSize14(int n, String[] a) {
     return set.size();
 }
 
-void isSize2() throws IOException {
+void isSize2(int[] inputArray) {
     Set<Integer> set = new HashSet<>();
-    for(int i=0;i<3;i++) set.add(in.read());
+    for(int i=0;i<3;i++) set.add(inputArray[i]);
     String ans = set.size()==2?"Yes":"No";
     out.println(ans);
 }
@@ -6724,7 +6509,6 @@ public static void removeInput1(int[][] args) throws IOException {
             }
             out.println(set.size());
     }
-    out.close();
 }
 
 public static void removeInput2(int n, int k, int[] inputKI, int[] inputTemp){
@@ -6825,28 +6609,13 @@ public static void remove2(int a, int b) {
     out.println(set.toArray()[0]);
 }
 
-public static void removeInput3(String[] args)  {
-    Set<Integer> set = new HashSet<>();
-    set.add(1);
-    set.add(2);
-    set.add(3);
-    String line;
-    try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-        while((line = br.readLine()) != null) {
-            int num = Integer.parseInt(line);
-            set.remove(num);
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    out.println(set.iterator().next());
-}
 
-public void removeChild(Node node, Set<Node> children) {
+
+public void removeChild(Integer node, Set<Integer> children) {
     children.remove(node);
 }
 
-public static void getExtinctSize(String str[]) throws Exception
+public static void getExtinctSize(String str[])
         {
             try
             {
@@ -6892,7 +6661,7 @@ public static void getExtinctSize(String str[]) throws Exception
             }
         }
 
-        public static void getOddChar(String w) throws Exception {
+        public static void getOddChar(String w) {
             Set<String> set = new HashSet<String>();
             for (int i = 0; i < w.length(); i++) {
                 String c = String.valueOf(w.charAt(i));
@@ -7009,11 +6778,10 @@ public static void getExtinctSize(String str[]) throws Exception
         return;
     }
 
-    public static void getReverseWordList(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void getReverseWordList(Stack<String> args){
         String str, reverse;
         int num;
-        while ((str = br.readLine()) != null){
+        while ((str =args.pop()) != null){
                 reverse = "";
                 num = str.length();
                 char[] word = new char[num];
@@ -7043,12 +6811,11 @@ public static void sumStringValue2( String str) {
 
 }
 
-public static void reverseLine(String[] args) {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+public static void reverseLine(Stack<String> args) {
     StringBuilder sb = new StringBuilder();
     String str = "";
     try {
-            while((str = br.readLine()) != "") {
+            while((str = args.pop()) != "") {
                     for(int i=str.length(); i>0; i--) {
                             sb.append(str.substring(i-1, i));
                     }
@@ -7200,7 +6967,7 @@ public static void isOnlyCLower2(String s) {
                     if (i==idxC) continue;
                     if (Character.isUpperCase(s.charAt(i))) {
                             out.println("WA");
-                            System.exit(0);
+                            return;
                     }
             }
             out.println("AC");
@@ -7239,7 +7006,7 @@ public static void isPrefix(String a , String b){
                     }
 }
 
-public static void is7Contained(String N) throws IOException {
+public static void is7Contained(String N)  {
     if(N.contains("7")){
         out.println("Yes");
     }
@@ -7299,7 +7066,7 @@ public static void countGoodsList(int n, String[] args) {
     out.println(re+ " "+"x"+" "+r);
 }
 
-public static void countDifferentAtoZ1(String str) throws IOException {
+public static void countDifferentAtoZ1(String str)  {
     out.println(str.lastIndexOf("Z") - str.indexOf("A") + 1);
 }
 
@@ -7309,7 +7076,7 @@ public static void countDifferentAtoZ2(String s){
     out.println(ansB - ansA + 1);
   }
 
-  public static void isEvenOrOdd(String s) throws IOException {
+  public static void isEvenOrOdd(String s) {
     if((s.charAt(s.indexOf(" ") - 1) & 1) == 0){
       out.println("Even");
     } else if ((s.charAt(s.length() - 1) & 1) == 0) {
@@ -7319,7 +7086,7 @@ public static void countDifferentAtoZ2(String s){
     }
   }
 
-  public static void isOnlyCLower(String S) {
+  public static void isOnlyCLower1(String S) {
     String result = "WA";
     if("A".equals(S.substring(0,1))) {
             S = S.substring(1);
@@ -7381,18 +7148,18 @@ public static void sumNoRemainer(int n) {
         out.println(n%sum==0?"Yes":"No");
   }
 
-  public long[] nl(String readLine) throws IOException {
+  public long[] nl(String readLine) {
     String[] data = readLine.split(" ");
     long[] send = new long[data.length];
     for (int i = 0, h = data.length; i < h; i++) send[i] = Long.parseLong(data[i]);
     return send;
 }
 
-public long l() throws IOException {
-    return Long.parseLong(String.valueOf(in.read()));
+public long l(String readLine)  {
+    return Long.parseLong(String.valueOf(readLine));
 }
 
-float nf() throws IOException {return Float.parseFloat(String.valueOf(in.read()));}
+float nf(String readLine) {return Float.parseFloat(String.valueOf(readLine));}
 
 public static void compareQuotient( String str){
     String[] num_str = str.split(" ");
@@ -7403,7 +7170,7 @@ public static void compareQuotient( String str){
     }
 }
 
-public double nextDouble() throws IOException {
-    return Double.parseDouble(String.valueOf(in.read()));
+public double nextDouble(String readLine) throws IOException {
+    return Double.parseDouble(readLine);
 }
 }
